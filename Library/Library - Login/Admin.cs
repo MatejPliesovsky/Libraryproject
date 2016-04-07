@@ -16,5 +16,10 @@ namespace Library___Login
         {
             InitializeComponent();
         }
+
+        private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

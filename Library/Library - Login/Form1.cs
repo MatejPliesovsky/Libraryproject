@@ -59,7 +59,9 @@ namespace Library___Login
         //if some opened formular will be closed, login form closed as well
         private void Form1_FormClosed(object sender, EventArgs e)
         {
-            this.Close();
+            Username.Text = "";
+            Password.Text = "";
+            this.Show();
         }
     }
 }
