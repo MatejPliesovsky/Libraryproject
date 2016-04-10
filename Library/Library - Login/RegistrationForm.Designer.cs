@@ -117,14 +117,14 @@
             // 
             this.FirstName.Location = new System.Drawing.Point(121, 38);
             this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(100, 20);
+            this.FirstName.Size = new System.Drawing.Size(133, 20);
             this.FirstName.TabIndex = 9;
             // 
             // LastName
             // 
             this.LastName.Location = new System.Drawing.Point(121, 64);
             this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(100, 20);
+            this.LastName.Size = new System.Drawing.Size(133, 20);
             this.LastName.TabIndex = 10;
             // 
             // Street
@@ -140,7 +140,7 @@
             this.DateOfBirth.Name = "DateOfBirth";
             this.DateOfBirth.Size = new System.Drawing.Size(133, 20);
             this.DateOfBirth.TabIndex = 11;
-            this.DateOfBirth.Value = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
+            this.DateOfBirth.Value = new System.DateTime(2016, 4, 8, 0, 0, 0, 0);
             // 
             // Number
             // 
@@ -220,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 358);
+            this.ClientSize = new System.Drawing.Size(349, 358);
             this.Controls.Add(this.EmailReg);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);

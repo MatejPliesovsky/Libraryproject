@@ -63,5 +63,18 @@ namespace Library___Login
             Password.Text = "";
             this.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Register_Click(object sender, EventArgs e)
+        {
+            RegistrationForm reg = new RegistrationForm();
+            reg.Show();
+            this.Hide();
+            reg.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+        }
     }
 }
