@@ -47,3 +47,17 @@ C:\Users\milos\Desktop\Library\Library - Login\bin\Debug\Library - Login.pdb
 C:\Users\milos\Desktop\Library\Library - Login\bin\Debug\MySql.Data.dll
 C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
 C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+C:\Users\Matej\Downloads\Library\Library - Login\bin\Debug\Library - Login.exe.config
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library - Login.exe
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.Users.resources
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
+C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+C:\Users\Matej\Downloads\Library\Library - Login\bin\Debug\Library - Login.exe
+C:\Users\Matej\Downloads\Library\Library - Login\bin\Debug\Library - Login.pdb
+C:\Users\Matej\Downloads\Library\Library - Login\bin\Debug\MySql.Data.dll

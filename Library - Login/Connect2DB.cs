@@ -29,6 +29,72 @@ namespace Library___Login
             connection = new MySqlConnection(connectionString);
         }
 
+        public int getUserAge(int userId)
+        {
+            int userAge = 0;
+            string sqlQuery = "select age from users where id like " + userId;
+
+            if (openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    userAge = int.Parse(reader["age"] + "");
+                }
+                closeConnection();
+                return userAge;
+            }
+            else
+            {
+                return userAge;
+            }
+        }
+
+        public string getUserAllName(int userId)
+        {
+            string userName = null;
+            string sqlQuery = "select username, usersurname from users where id like " + userId;
+
+            if (openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    userName = reader["username"] + "" + reader["usersurname"] + "";
+                }
+                closeConnection();
+                return userName;
+            }
+            else
+            {
+                return userName;
+            }
+        }
+
+        public int FindUser(string username, string password)
+        {
+            int userID = -1;
+            string sqlQuery = "select id from users where username like '" + username + "' and userpass like '" + password + "'";
+            if (openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    userID = int.Parse(reader["userid"] + "");
+                }
+                closeConnection();
+                return userID;
+            }
+            else
+            {
+                return userID;
+            }
+        }
+
         public bool openConnection()
         {
             try
