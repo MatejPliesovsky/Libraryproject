@@ -145,7 +145,7 @@ namespace Library___Login
             if (openConnection())
             {
                 string sqlQuery = "insert into users (username, usersurname, email, telephone, age, birthdate,"
-                    + "active, street, streetnumber, psc, city) values ('" + firstName + "', '" + lastName + "', '"
+                    + "active, street, streetnumber, psc, city) values ('" +firstName + "', '" + lastName + "', '"
                     + email + "', " + telephone + ", " + age + ", '" + birthDate.Year + "-" + birthDate.Month + "-"
                     + birthDate.Day + "', 0, '" + street + "', '" + streetNumber + "', " + postalCode + ", '"
                     + city + "')";

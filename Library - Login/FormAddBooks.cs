@@ -18,6 +18,8 @@ namespace Library___Login
         public FormAddBooks()
         {
             InitializeComponent();
+            fillComboBoxBookCategory();
+            fillComboBoxBookLanguage();
         }
 
         private void btnAddBook_Click(object sender, EventArgs e)
@@ -39,5 +41,48 @@ namespace Library___Login
             }
 
         }
+
+
+        private void fillComboBoxBookCategory()
+        {
+            if (connection.openConnection())
+            {
+                String sqlQuery = "SELECT * FROM ReBooksDB.BookCategory;";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string sCategoryName = reader.GetString("CategoryName");
+                    comboBoxBookCategory.Items.Add(sCategoryName);
+
+                }
+
+
+                connection.closeConnection();
+            }
+        }
+
+
+        private void fillComboBoxBookLanguage()
+        {
+            if (connection.openConnection())
+            {
+                String sqlQuery = "SELECT * FROM ReBooksDB.BookLanguage;";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string sLanguageName = reader.GetString("LanguageName");
+                    comboBoxBookLanguage.Items.Add(sLanguageName);
+                }
+
+
+                connection.closeConnection();
+            }
+        }
+
+
     }
 }

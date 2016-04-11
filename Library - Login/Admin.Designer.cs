@@ -100,6 +100,8 @@
             this.RRUserID4 = new System.Windows.Forms.TextBox();
             this.RRUserID5 = new System.Windows.Forms.TextBox();
             this.DatabaseInfo = new System.Windows.Forms.Label();
+            this.addCategoryBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBookLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -127,6 +129,8 @@
             // 
             this.booksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addBooksToolStripMenuItem,
+            this.addCategoryBookToolStripMenuItem,
+            this.addBookLanguageToolStripMenuItem,
             this.removeBooksToolStripMenuItem,
             this.checkBooksToolStripMenuItem});
             this.booksToolStripMenuItem.Name = "booksToolStripMenuItem";
@@ -136,21 +140,21 @@
             // addBooksToolStripMenuItem
             // 
             this.addBooksToolStripMenuItem.Name = "addBooksToolStripMenuItem";
-            this.addBooksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.addBooksToolStripMenuItem.Text = "Add books";
+            this.addBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.addBooksToolStripMenuItem.Text = "Add Books";
             this.addBooksToolStripMenuItem.Click += new System.EventHandler(this.addBooksToolStripMenuItem_Click);
             // 
             // removeBooksToolStripMenuItem
             // 
             this.removeBooksToolStripMenuItem.Name = "removeBooksToolStripMenuItem";
-            this.removeBooksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeBooksToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.removeBooksToolStripMenuItem.Text = "Remove books";
             // 
             // checkBooksToolStripMenuItem
             // 
             this.checkBooksToolStripMenuItem.Name = "checkBooksToolStripMenuItem";
-            this.checkBooksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.checkBooksToolStripMenuItem.Text = "Check books";
+            this.checkBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.checkBooksToolStripMenuItem.Text = "Check Books";
             // 
             // loansToolStripMenuItem
             // 
@@ -772,13 +776,27 @@
             // DatabaseInfo
             // 
             this.DatabaseInfo.AutoSize = true;
-            this.DatabaseInfo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DatabaseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DatabaseInfo.ForeColor = System.Drawing.Color.Red;
             this.DatabaseInfo.Location = new System.Drawing.Point(163, 126);
             this.DatabaseInfo.Name = "DatabaseInfo";
-            this.DatabaseInfo.Size = new System.Drawing.Size(394, 32);
+            this.DatabaseInfo.Size = new System.Drawing.Size(362, 31);
             this.DatabaseInfo.TabIndex = 43;
             this.DatabaseInfo.Text = "Cannot connect to database!";
+            // 
+            // addCategoryBookToolStripMenuItem
+            // 
+            this.addCategoryBookToolStripMenuItem.Name = "addCategoryBookToolStripMenuItem";
+            this.addCategoryBookToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.addCategoryBookToolStripMenuItem.Text = "Add Book Category";
+            this.addCategoryBookToolStripMenuItem.Click += new System.EventHandler(this.addCategoryBookToolStripMenuItem_Click);
+            // 
+            // addBookLanguageToolStripMenuItem
+            // 
+            this.addBookLanguageToolStripMenuItem.Name = "addBookLanguageToolStripMenuItem";
+            this.addBookLanguageToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.addBookLanguageToolStripMenuItem.Text = "Add Book Language";
+            this.addBookLanguageToolStripMenuItem.Click += new System.EventHandler(this.addBookLanguageToolStripMenuItem_Click);
             // 
             // Admin
             // 
@@ -929,5 +947,7 @@
         private System.Windows.Forms.TextBox RRUserID4;
         private System.Windows.Forms.TextBox RRUserID5;
         private System.Windows.Forms.Label DatabaseInfo;
+        private System.Windows.Forms.ToolStripMenuItem addCategoryBookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBookLanguageToolStripMenuItem;
     }
 }

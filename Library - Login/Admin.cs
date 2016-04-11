@@ -85,5 +85,17 @@ namespace Library___Login
         {
 
         }
+
+        private void addCategoryBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddBookCategory form = new FormAddBookCategory();
+            form.Show(); // or form.ShowDialog(this);
+        }
+
+        private void addBookLanguageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddBookLanguage form = new FormAddBookLanguage();
+            form.Show();
+        }
     }
 }

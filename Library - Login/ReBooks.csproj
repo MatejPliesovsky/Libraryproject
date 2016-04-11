@@ -54,11 +54,23 @@
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Connect2DB.cs" />
+    <Compile Include="FormAddBookCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddBookCategory.Designer.cs">
+      <DependentUpon>FormAddBookCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddBookLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddBookLanguage.Designer.cs">
+      <DependentUpon>FormAddBookLanguage.cs</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
@@ -83,8 +95,14 @@
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddBookCategory.resx">
+      <DependentUpon>FormAddBookCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddBookLanguage.resx">
+      <DependentUpon>FormAddBookLanguage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
