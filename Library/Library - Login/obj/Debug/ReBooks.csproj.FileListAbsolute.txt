@@ -100,3 +100,6 @@ A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\L
 A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Záloha\Library\Library - Login\bin\Debug\Library - Login.exe.config
 A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Záloha\Library\Library - Login\obj\Debug\Library - Login.exe
 A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Záloha\Library\Library - Login\obj\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe.config
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\obj\Debug\Library - Login.exe
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\obj\Debug\Library - Login.pdb
