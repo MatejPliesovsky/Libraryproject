@@ -103,3 +103,19 @@ A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Záloha\Library\Li
 A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe.config
 A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\obj\Debug\Library - Login.exe
 A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe.config
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library - Login.exe
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\bin\Debug\Library - Login.pdb
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\bin\Debug\MySql.Data.dll
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Users.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
