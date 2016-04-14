@@ -37,6 +37,10 @@
             this.lblBookCategory = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxBookLanguage = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtISBN = new System.Windows.Forms.TextBox();
+            this.richTxtBookDescreption = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblBookName
@@ -52,14 +56,14 @@
             // 
             this.txtBookName.Location = new System.Drawing.Point(113, 36);
             this.txtBookName.Name = "txtBookName";
-            this.txtBookName.Size = new System.Drawing.Size(100, 20);
+            this.txtBookName.Size = new System.Drawing.Size(154, 20);
             this.txtBookName.TabIndex = 1;
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(462, 309);
+            this.btnAddBook.Location = new System.Drawing.Point(312, 379);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBook.Size = new System.Drawing.Size(119, 23);
             this.btnAddBook.TabIndex = 2;
             this.btnAddBook.Text = "ADD BOOK";
             this.btnAddBook.UseVisualStyleBackColor = true;
@@ -78,7 +82,7 @@
             // 
             this.txtAuthor.Location = new System.Drawing.Point(113, 69);
             this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(100, 20);
+            this.txtAuthor.Size = new System.Drawing.Size(154, 20);
             this.txtAuthor.TabIndex = 4;
             // 
             // comboBoxBookCategory
@@ -86,7 +90,7 @@
             this.comboBoxBookCategory.FormattingEnabled = true;
             this.comboBoxBookCategory.Location = new System.Drawing.Point(113, 107);
             this.comboBoxBookCategory.Name = "comboBoxBookCategory";
-            this.comboBoxBookCategory.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxBookCategory.Size = new System.Drawing.Size(154, 21);
             this.comboBoxBookCategory.TabIndex = 5;
             // 
             // lblBookCategory
@@ -112,14 +116,51 @@
             this.comboBoxBookLanguage.FormattingEnabled = true;
             this.comboBoxBookLanguage.Location = new System.Drawing.Point(113, 139);
             this.comboBoxBookLanguage.Name = "comboBoxBookLanguage";
-            this.comboBoxBookLanguage.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxBookLanguage.Size = new System.Drawing.Size(154, 21);
             this.comboBoxBookLanguage.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(75, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "ISBN";
+            // 
+            // txtISBN
+            // 
+            this.txtISBN.Location = new System.Drawing.Point(113, 172);
+            this.txtISBN.Name = "txtISBN";
+            this.txtISBN.Size = new System.Drawing.Size(154, 20);
+            this.txtISBN.TabIndex = 10;
+            // 
+            // richTxtBookDescreption
+            // 
+            this.richTxtBookDescreption.Location = new System.Drawing.Point(113, 204);
+            this.richTxtBookDescreption.Name = "richTxtBookDescreption";
+            this.richTxtBookDescreption.Size = new System.Drawing.Size(318, 169);
+            this.richTxtBookDescreption.TabIndex = 11;
+            this.richTxtBookDescreption.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 207);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Book Descreption";
             // 
             // FormAddBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 344);
+            this.ClientSize = new System.Drawing.Size(521, 457);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.richTxtBookDescreption);
+            this.Controls.Add(this.txtISBN);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxBookLanguage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblBookCategory);
@@ -147,5 +188,9 @@
         private System.Windows.Forms.Label lblBookCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxBookLanguage;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtISBN;
+        private System.Windows.Forms.RichTextBox richTxtBookDescreption;
+        private System.Windows.Forms.Label label3;
     }
 }

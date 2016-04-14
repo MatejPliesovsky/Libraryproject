@@ -27,7 +27,7 @@ namespace Library___Login
 
             if (connection.openConnection())
             {
-                String sqlQuery = "INSERT INTO Books (BookName) VALUES('"+this.txtBookName.Text+"');";
+                String sqlQuery = "INSERT INTO Books (BookName, Author, ISBN, Description) VALUES('" + this.txtBookName.Text+"','"+this.txtAuthor.Text+ "','" +int.Parse(this.txtISBN.Text)+ "' , '" + this.richTxtBookDescreption.Text + "');";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection.connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
