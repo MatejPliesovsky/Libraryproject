@@ -46,7 +46,7 @@ namespace Library___Login
                 }
                 else if (con.isUserAdmin(Username.Text) == "u")
                 {
-                    Users userForm = new Users(Username.Text, Password.Text);
+                    Form2 userForm = new Form2();
                     userForm.Show();
                     this.Hide();
                     userForm.FormClosed += new FormClosedEventHandler(Form1_FormClosed);

@@ -51,6 +51,7 @@
             this.UserAllName.Size = new System.Drawing.Size(35, 13);
             this.UserAllName.TabIndex = 1;
             this.UserAllName.Text = "label1";
+            this.UserAllName.Click += new System.EventHandler(this.UserAllName_Click);
             // 
             // UserAge
             // 
