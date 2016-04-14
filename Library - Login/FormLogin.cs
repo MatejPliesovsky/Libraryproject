@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
-    public partial class Form1 : Form
+    public partial class FormLogin : Form
     {
-        public Form1()
+        public FormLogin()
         {
             InitializeComponent();
             ErrorMessage.Visible = false;
@@ -25,7 +25,7 @@ namespace Library___Login
         // after clicking label, there will be opened new method with registration form
         private void Registration_Click(object sender, EventArgs e)
         {
-            RegistrationForm reg = new RegistrationForm();
+            FormRegistrationUser reg = new FormRegistrationUser();
             reg.Show();
             this.Hide();
             reg.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
@@ -39,14 +39,14 @@ namespace Library___Login
             {
                 if (con.isUserAdmin(Username.Text) == "a")
                 {
-                    Admin admin = new Admin();
+                    FormAdminInterface admin = new FormAdminInterface();
                     admin.Show();
                     this.Hide();
                     admin.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
                 }
                 else if (con.isUserAdmin(Username.Text) == "u")
                 {
-                    Form2 userForm = new Form2();
+                    FormUserInterface userForm = new FormUserInterface();
                     userForm.Show();
                     this.Hide();
                     userForm.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
@@ -88,7 +88,7 @@ namespace Library___Login
 
         private void Register_Click(object sender, EventArgs e)
         {
-            RegistrationForm reg = new RegistrationForm();
+            FormRegistrationUser reg = new FormRegistrationUser();
             reg.Show();
             this.Hide();
             reg.FormClosed += new FormClosedEventHandler(Form1_FormClosed);

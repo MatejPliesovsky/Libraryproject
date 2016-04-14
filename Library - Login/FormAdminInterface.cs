@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
-    public partial class Admin : Form
+    public partial class FormAdminInterface : Form
     {
         int waitingReg;
         Connect2DB con = new Connect2DB();
-        public Admin()
+        public FormAdminInterface()
         {
             InitializeComponent();
             DatabaseInfo.Visible = false;

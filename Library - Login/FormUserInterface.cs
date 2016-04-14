@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
-    public partial class Form2 : Form
+    public partial class FormUserInterface : Form
     {
         Connect2DB connection;
 
         
 
-        public Form2()
+        public FormUserInterface()
         {
             InitializeComponent();
             connection = new Connect2DB();

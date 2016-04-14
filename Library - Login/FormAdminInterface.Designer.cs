@@ -1,6 +1,6 @@
 ﻿namespace Library___Login
 {
-    partial class Admin
+    partial class FormAdminInterface
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminInterface));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.booksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -800,7 +801,7 @@
             this.DatabaseInfo.TabIndex = 43;
             this.DatabaseInfo.Text = "Cannot connect to database!";
             // 
-            // Admin
+            // FormAdminInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -852,8 +853,9 @@
             this.Controls.Add(this.RRlabel2);
             this.Controls.Add(this.RRlabel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Admin";
+            this.Name = "FormAdminInterface";
             this.Text = "Admin";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

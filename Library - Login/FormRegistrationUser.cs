@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
-    public partial class RegistrationForm : Form
+    public partial class FormRegistrationUser : Form
     {
         private string firstName, lastName, password, email, street, streetNumber, city;
         private int telephone, postalCode;
         private System.DateTime dateOfBirth = new DateTime();
 
-        public RegistrationForm()
+        public FormRegistrationUser()
         {
             InitializeComponent();
             Info.Visible = false;

@@ -1,6 +1,6 @@
 ﻿namespace Library___Login
 {
-    partial class RegistrationForm
+    partial class FormRegistrationUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistrationUser));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -238,15 +239,15 @@
             // Info
             // 
             this.Info.AutoSize = true;
-            this.Info.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Info.ForeColor = System.Drawing.Color.Purple;
             this.Info.Location = new System.Drawing.Point(47, 205);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(262, 18);
+            this.Info.Size = new System.Drawing.Size(262, 16);
             this.Info.TabIndex = 22;
             this.Info.Text = "Your request was send successfully. ";
             // 
-            // RegistrationForm
+            // FormRegistrationUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -274,7 +275,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "RegistrationForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FormRegistrationUser";
             this.Text = "Registration";
             this.ResumeLayout(false);
             this.PerformLayout();
