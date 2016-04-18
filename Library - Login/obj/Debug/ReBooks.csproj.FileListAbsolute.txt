@@ -14,3 +14,20 @@ C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Libra
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.exe
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\bin\Debug\Library - Login.exe.config
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library - Login.exe
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\bin\Debug\Library - Login.exe
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\bin\Debug\Library - Login.pdb
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\bin\Debug\MySql.Data.dll
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserInterface.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.FormLogin.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.Users.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
