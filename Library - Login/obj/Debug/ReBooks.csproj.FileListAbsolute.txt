@@ -1,141 +1,50 @@
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\bin\Debug\Library - Login.exe.config
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\obj\Debug\Library - Login.exe
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\obj\Debug\Library - Login.pdb
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\bin\Debug\Library - Login.exe
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\bin\Debug\Library - Login.pdb
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\bin\Debug\MySql.Data.dll
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\bin\Debug\Library - Login.exe.config
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\obj\Debug\Library - Login.exe
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\obj\Debug\Library - Login.pdb
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\bin\Debug\Library - Login.exe
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\bin\Debug\Library - Login.pdb
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\bin\Debug\MySql.Data.dll
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
-P:\Projekty\Visual Studio Projekty\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\bin\Debug\Library - Login.exe.config
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library - Login.exe
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library - Login.pdb
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\bin\Debug\Library - Login.exe
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\bin\Debug\Library - Login.pdb
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\bin\Debug\MySql.Data.dll
-C:\Users\milos\Desktop\Library\Library - Login\bin\Debug\Library - Login.exe.config
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library - Login.exe
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library - Login.pdb
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
-C:\Users\milos\Desktop\Library\Library - Login\bin\Debug\Library - Login.exe
-C:\Users\milos\Desktop\Library\Library - Login\bin\Debug\Library - Login.pdb
-C:\Users\milos\Desktop\Library\Library - Login\bin\Debug\MySql.Data.dll
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-C:\Users\milos\Desktop\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
-C:\Users\Matej\Downloads\Library\Library - Login\bin\Debug\Library - Login.exe.config
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library - Login.exe
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library - Login.pdb
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.Users.resources
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
-C:\Users\Matej\Downloads\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
-C:\Users\Matej\Downloads\Library\Library - Login\bin\Debug\Library - Login.exe
-C:\Users\Matej\Downloads\Library\Library - Login\bin\Debug\Library - Login.pdb
-C:\Users\Matej\Downloads\Library\Library - Login\bin\Debug\MySql.Data.dll
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\Library - Login.exe.config
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.exe
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\Library - Login.exe
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\Library - Login.pdb
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\MySql.Data.dll
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.Admin.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.Form1.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserInterface.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormLogin.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.Users.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library___Login.Users.resources
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\bin\Debug\Library - Login.exe.config
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library - Login.exe
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library - Login.pdb
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\bin\Debug\Library - Login.exe
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\bin\Debug\Library - Login.pdb
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\bin\Debug\MySql.Data.dll
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library___Login.Users.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
-A:\Učivo\VS programy\C#\Zadania\01 Knižnica - Mathess\ReBooks-master\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Záloha\Library\Library - Login\bin\Debug\Library - Login.exe.config
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Záloha\Library\Library - Login\obj\Debug\Library - Login.exe
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\Libraryproject\Záloha\Library\Library - Login\obj\Debug\Library - Login.pdb
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe.config
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\obj\Debug\Library - Login.exe
-A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library\Library - Login\obj\Debug\Library - Login.pdb
-<<<<<<< HEAD
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe.config
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library - Login.exe
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library - Login.pdb
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\bin\Debug\Library - Login.pdb
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\bin\Debug\MySql.Data.dll
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Users.resources
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
-C:\Users\ESTATE\Documents\Visual Studio 2015\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Form2.resources
-=======
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe.config
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library - Login.exe
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library - Login.pdb
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\bin\Debug\Library - Login.exe
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\bin\Debug\Library - Login.pdb
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\bin\Debug\MySql.Data.dll
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Admin.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Form1.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Users.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\Library___Login.RegistrationForm.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
->>>>>>> 446f7b952960e134eff585e76e0bf5646814387f
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.exe
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\bin\Debug\Library - Login.exe.config
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library - Login.exe
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\bin\Debug\Library - Login.exe
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\bin\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\bin\Debug\MySql.Data.dll
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserInterface.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.FormLogin.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.Users.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
+A:\Učivo\VS programy\C#\Zadania\01. Knižnica\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\Library - Login.exe.config
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library - Login.exe
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\Library - Login.exe
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\MySql.Data.dll
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormUserInterface.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormLogin.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.Users.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
