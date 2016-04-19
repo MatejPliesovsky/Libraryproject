@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddBookCategory));
             this.label1 = new System.Windows.Forms.Label();
             this.txtBookCategory = new System.Windows.Forms.TextBox();
             this.btnAddBookCategory = new System.Windows.Forms.Button();
@@ -68,7 +67,6 @@
             this.Controls.Add(this.btnAddBookCategory);
             this.Controls.Add(this.txtBookCategory);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddBookCategory";
             this.Text = "FoormAddBookCategory";
             this.ResumeLayout(false);

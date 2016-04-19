@@ -26,10 +26,7 @@ namespace Library___Login
         private void Confirm_Click(object sender, EventArgs e)
         {
             Connect2DB register = new Connect2DB();
-            if (FirstName.Text.Trim() != "" && LastName.Text.Trim() != "" && PasswordReg.Text.Trim() != "" 
-                && EmailReg.Text.Trim() != "" && (Telephone1.Text + Telephone2.Text.Trim()) != "" 
-                && Street.Text.Trim() != "" && Number.Text.Trim() != "" && City.Text.Trim() != "" 
-                && PostalCode.Text.Trim() != "" && Country.Text.Trim() != "")
+            if (firstName != null && lastName != null && password != null && email != null && telephone != null && street != null && streetNumber != null && city != null && postalCode != null && country != null)
             {
                 firstName = FirstName.Text;
                 lastName = LastName.Text;
@@ -55,7 +52,7 @@ namespace Library___Login
             }
             else
             {
-                Info.Text = "Enter your data!";
+                Info.Text = "Fill in all fields!";
                 Info.Visible = true;
             }
         }
