@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddBookLanguage));
             this.label1 = new System.Windows.Forms.Label();
             this.txtBookLanguage = new System.Windows.Forms.TextBox();
             this.btnAddBookLanguage = new System.Windows.Forms.Button();
@@ -68,7 +67,6 @@
             this.Controls.Add(this.btnAddBookLanguage);
             this.Controls.Add(this.txtBookLanguage);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddBookLanguage";
             this.Text = "FormAddBookLanguage";
             this.ResumeLayout(false);

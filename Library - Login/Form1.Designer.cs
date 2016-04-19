@@ -66,6 +66,7 @@
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(141, 20);
             this.Username.TabIndex = 2;
+            this.Username.Text = "tomas.tomcik@akademiasovy.sk";
             this.Username.TextChanged += new System.EventHandler(this.Username_TextChanged);
             // 
             // Registration
@@ -101,6 +102,7 @@
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(141, 20);
             this.Password.TabIndex = 3;
+            this.Password.Text = "strkovisko";
             this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
             // 
             // ErrorMessage
