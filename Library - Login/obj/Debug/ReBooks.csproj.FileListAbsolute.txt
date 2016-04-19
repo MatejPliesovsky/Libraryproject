@@ -65,3 +65,9 @@ A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Log
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+C:\Users\Matej\Downloads\ReBooks-master\Library - Login\bin\Debug\Library - Login.exe.config
+C:\Users\Matej\Downloads\ReBooks-master\Library - Login\obj\Debug\Library - Login.exe
+C:\Users\Matej\Downloads\ReBooks-master\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\bin\Debug\Library - Login.exe.config
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library - Login.exe
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\Projekt Global\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
