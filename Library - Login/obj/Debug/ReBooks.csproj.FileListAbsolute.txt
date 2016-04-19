@@ -60,8 +60,8 @@ A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Log
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormLogin.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.Users.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.UsersProfile.resources

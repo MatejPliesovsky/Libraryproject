@@ -88,7 +88,7 @@ namespace Library___Login
         }
 
 
-        // verification, if user is admin, or not
+        // verification, if user is admin, or not according his email
         public string isUserAdmin(string email)
         {
             string userRole = null;
@@ -108,8 +108,28 @@ namespace Library___Login
             return userRole;
         }
 
+        // verification if user is admin or not according his id
+        public string getUserRole(string userID)
+        {
+            string userRole = null;
+            if (openConnection())
+            {
+                string sqlQuery = "select UserRole from " + loginEntity + " where ID like " + userID + "";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                {
+                    if (reader.Read())
+                    {
+                        userRole = reader["UserRole"] + "";
+                    }
+                }
+            }
+            closeConnection();
+            return userRole;
+        }
+
         // START OF USER METHOD
-        
+
         // method, that found user age for his profile
         public string getUserAge(string userId)
         {

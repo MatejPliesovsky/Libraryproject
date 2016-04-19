@@ -34,6 +34,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
+            this.SwitchToAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -78,11 +79,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // SwitchToAdmin
+            // 
+            this.SwitchToAdmin.Location = new System.Drawing.Point(603, 147);
+            this.SwitchToAdmin.Name = "SwitchToAdmin";
+            this.SwitchToAdmin.Size = new System.Drawing.Size(93, 23);
+            this.SwitchToAdmin.TabIndex = 2;
+            this.SwitchToAdmin.Text = "Back to Admin";
+            this.SwitchToAdmin.UseVisualStyleBackColor = true;
+            this.SwitchToAdmin.Click += new System.EventHandler(this.SwitchToAdmin_Click);
+            // 
             // FormUserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 328);
+            this.Controls.Add(this.SwitchToAdmin);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -101,5 +113,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button SwitchToAdmin;
     }
 }

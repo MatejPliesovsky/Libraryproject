@@ -39,7 +39,7 @@ namespace Library___Login
             {
                 if (con.isUserAdmin(Username.Text) == "admin")
                 {
-                    FormAdminInterface admin = new FormAdminInterface();
+                    FormAdminInterface admin = new FormAdminInterface(Username.Text, Password.Text);
                     admin.Show();
                     this.Hide();
                     admin.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
@@ -74,11 +74,14 @@ namespace Library___Login
         //if some opened formular will be closed, login form closed as well
         private void Form1_FormClosed(object sender, EventArgs e)
         {
-            Username.Text = "Enter e-mail";
-            Password.Text = "Enter password";
-            Username.ForeColor = Color.Gray;
-            Password.ForeColor = Color.Gray;
-            this.Show();
+            if (!(Application.OpenForms.OfType<FormAdminInterface>().Any()) && !(Application.OpenForms.OfType<FormUserInterface>().Any()))
+            {
+                Username.Text = "Enter e-mail";
+                Password.Text = "Enter password";
+                Username.ForeColor = Color.Gray;
+                Password.ForeColor = Color.Gray;
+                this.Show();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

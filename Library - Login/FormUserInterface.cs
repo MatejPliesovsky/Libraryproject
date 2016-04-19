@@ -14,13 +14,32 @@ namespace Library___Login
     public partial class FormUserInterface : Form
     {
         Connect2DB connection;
-
-        
+        string UserID;        
 
         public FormUserInterface()
         {
             InitializeComponent();
             connection = new Connect2DB();
+            SwitchToAdmin.Visible = false;
+            SwitchToAdmin.Enabled = false;
+        }
+
+        public FormUserInterface(string UserID)
+        {
+            InitializeComponent();
+            connection = new Connect2DB();
+            this.UserID = UserID;
+            string userRole = connection.getUserRole(UserID);
+            if (userRole == "admin")
+            {
+                SwitchToAdmin.Visible = true;
+                SwitchToAdmin.Enabled = true;
+            }
+            else
+            {
+                SwitchToAdmin.Visible = false;
+                SwitchToAdmin.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,6 +68,13 @@ namespace Library___Login
                 connection.closeConnection();
 
             }
+        }
+
+        private void SwitchToAdmin_Click(object sender, EventArgs e)
+        {
+            FormAdminInterface admin = new FormAdminInterface(UserID);
+            admin.Show();
+            this.Close();
         }
     }
     }

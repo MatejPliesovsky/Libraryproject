@@ -13,11 +13,36 @@ namespace Library___Login
     public partial class FormAdminInterface : Form
     {
         int waitingReg;
+        string AdminID;
         Connect2DB con = new Connect2DB();
-        public FormAdminInterface()
+
+        public FormAdminInterface(string UserID)
         {
             InitializeComponent();
             DatabaseInfo.Visible = false;
+            AdminID = UserID;
+            waitingReg = con.waitingRegistration();
+            if (waitingReg > 0)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request (" + waitingReg + ")";
+            }
+            else if (waitingReg == 0)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request";
+            }
+            else if (waitingReg == -1)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request";
+                DatabaseInfo.Text = "Cannot connect to database!";
+                DatabaseInfo.Visible = true;
+            }
+        }
+
+        public FormAdminInterface(string username, string password)
+        {
+            InitializeComponent();
+            DatabaseInfo.Visible = false;
+            AdminID = con.FindUser(username, password);
             waitingReg = con.waitingRegistration();
             if(waitingReg > 0)
             {
@@ -37,11 +62,16 @@ namespace Library___Login
 
         private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //settings visibility of confirming or refusing requests
-            RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible = RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible = RRlabel10.Visible = false;
+            //settings visibility of confirming or refusing requests items
+            RRConfirm.Visible = false;
+            RRConfirm.Enabled = false;
+            RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
+                RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible =
+                RRlabel10.Visible = RRlabel11.Visible = false;
             groupBox1.Visible = groupBox2.Visible = groupBox3.Visible = groupBox4.Visible = groupBox5.Visible = groupBox6.Visible = false;
             RRConfirm1.Visible = RRConfirm2.Visible = RRConfirm3.Visible = RRConfirm4.Visible = RRConfirm5.Visible = RRConfirmAll.Visible = false;
             RRRefuse1.Visible = RRRefuse2.Visible = RRRefuse3.Visible = RRRefuse4.Visible = RRRefuse5.Visible = RRRefuseAll.Visible = false;
+            RRDelete1.Visible = RRDelete2.Visible = RRDelete3.Visible = RRDelete4.Visible = RRDelete5.Visible = false;
             RRUserID1.Visible = RRUserID2.Visible = RRUserID3.Visible = RRUserID4.Visible = RRUserID5.Visible = false;
             RRFirstName1.Visible = RRFirstName2.Visible = RRFirstName3.Visible = RRFirstName4.Visible = RRFirstName5.Visible = false;
             RRLastName1.Visible = RRLastName2.Visible = RRLastName3.Visible = RRLastName4.Visible = RRLastName5.Visible = false;
@@ -49,13 +79,14 @@ namespace Library___Login
             RRemail1.Visible = RRemail2.Visible = RRemail3.Visible = RRemail4.Visible = RRemail5.Visible = false;
             RRPermission1.Visible = RRPermission2.Visible = RRPermission3.Visible = RRPermission4.Visible = RRPermission5.Visible = false;
 
-           FormAddBooks form = new FormAddBooks();
+            FormAddBooks form = new FormAddBooks();
             form.Show(); // or form.ShowDialog(this);
 
         }
 
         private void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DatabaseInfo.Text = "Cannot connect to database!";
             DatabaseInfo.Visible = false;
             registrationReguestToolStripMenuItem.Checked = true;
             addBooksToolStripMenuItem.Checked = false;
@@ -75,10 +106,13 @@ namespace Library___Login
                         case 0:
                             RRConfirm.Visible = false;
                             RRConfirm.Enabled = false;
-                            RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible = RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible = RRlabel10.Visible = false;
+                            RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
+                                RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible = 
+                                RRlabel10.Visible = RRlabel11.Visible = false;
                             groupBox1.Visible = groupBox2.Visible = groupBox3.Visible = groupBox4.Visible = groupBox5.Visible = groupBox6.Visible = false;
                             RRConfirm1.Visible = RRConfirm2.Visible = RRConfirm3.Visible = RRConfirm4.Visible = RRConfirm5.Visible = RRConfirmAll.Visible = false;
                             RRRefuse1.Visible = RRRefuse2.Visible = RRRefuse3.Visible = RRRefuse4.Visible = RRRefuse5.Visible = RRRefuseAll.Visible = false;
+                            RRDelete1.Visible = RRDelete2.Visible = RRDelete3.Visible = RRDelete4.Visible = RRDelete5.Visible = false;
                             RRUserID1.Visible = RRUserID2.Visible = RRUserID3.Visible = RRUserID4.Visible = RRUserID5.Visible = false;
                             RRFirstName1.Visible = RRFirstName2.Visible = RRFirstName3.Visible = RRFirstName4.Visible = RRFirstName5.Visible = false;
                             RRLastName1.Visible = RRLastName2.Visible = RRLastName3.Visible = RRLastName4.Visible = RRLastName5.Visible = false;
@@ -90,10 +124,9 @@ namespace Library___Login
                             RRConfirm.Visible = true;
                             RRConfirm.Enabled = true;
                             RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
-                                RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = true;
-                            RRlabel9.Visible = false;
-                            RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible = RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible = RRlabel10.Visible = true;
-                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible
+                                RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible = true;
+                            RRlabel10.Visible = RRlabel11.Visible = false;
+                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible = RRDelete1.Visible
                              = RRUserID1.Visible = RRFirstName1.Visible = RRLastName1.Visible = RRAge1.Visible
                              = RRemail1.Visible = RRPermission1.Visible = true;
 
@@ -109,11 +142,11 @@ namespace Library___Login
                             RRConfirm.Enabled = true;
                             RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
                                 RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible =
-                                RRlabel10.Visible = true;
-                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible
+                                RRlabel10.Visible = RRlabel11.Visible = true;
+                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible = RRDelete1.Visible
                              = RRUserID1.Visible = RRFirstName1.Visible = RRLastName1.Visible = RRAge1.Visible
                              = RRemail1.Visible = RRPermission1.Visible = true;
-                            groupBox2.Visible = RRConfirm2.Visible = RRRefuse2.Visible
+                            groupBox2.Visible = RRConfirm2.Visible = RRRefuse2.Visible = RRDelete2.Visible
                              = RRUserID2.Visible = RRFirstName2.Visible = RRLastName2.Visible = RRAge2.Visible
                              = RRemail2.Visible = RRPermission2.Visible = true;
 
@@ -135,14 +168,14 @@ namespace Library___Login
                             RRConfirm.Enabled = true;
                             RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
                                 RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible =
-                                RRlabel10.Visible = true;
-                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible
+                                RRlabel10.Visible = RRlabel11.Visible = true;
+                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible = RRDelete1.Visible
                              = RRUserID1.Visible = RRFirstName1.Visible = RRLastName1.Visible = RRAge1.Visible
                              = RRemail1.Visible = RRPermission1.Visible = true;
-                            groupBox2.Visible = RRConfirm2.Visible = RRRefuse2.Visible
+                            groupBox2.Visible = RRConfirm2.Visible = RRRefuse2.Visible = RRDelete2.Visible
                              = RRUserID2.Visible = RRFirstName2.Visible = RRLastName2.Visible = RRAge2.Visible
                              = RRemail2.Visible = RRPermission2.Visible = true;
-                            groupBox3.Visible = RRConfirm3.Visible = RRRefuse3.Visible
+                            groupBox3.Visible = RRConfirm3.Visible = RRRefuse3.Visible = RRDelete3.Visible
                              = RRUserID3.Visible = RRFirstName3.Visible = RRLastName3.Visible = RRAge3.Visible
                              = RRemail3.Visible = RRPermission3.Visible = true;
 
@@ -170,17 +203,17 @@ namespace Library___Login
                             RRConfirm.Enabled = true;
                             RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
                                 RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible =
-                                RRlabel10.Visible = true;
-                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible
+                                RRlabel10.Visible = RRlabel11.Visible = true;
+                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible = RRDelete1.Visible
                              = RRUserID1.Visible = RRFirstName1.Visible = RRLastName1.Visible = RRAge1.Visible
                              = RRemail1.Visible = RRPermission1.Visible = true;
-                            groupBox2.Visible = RRConfirm2.Visible = RRRefuse2.Visible
+                            groupBox2.Visible = RRConfirm2.Visible = RRRefuse2.Visible = RRDelete2.Visible
                              = RRUserID2.Visible = RRFirstName2.Visible = RRLastName2.Visible = RRAge2.Visible
                              = RRemail2.Visible = RRPermission2.Visible = true;
-                            groupBox3.Visible = RRConfirm3.Visible = RRRefuse3.Visible
+                            groupBox3.Visible = RRConfirm3.Visible = RRRefuse3.Visible = RRDelete3.Visible
                              = RRUserID3.Visible = RRFirstName3.Visible = RRLastName3.Visible = RRAge3.Visible
                              = RRemail3.Visible = RRPermission3.Visible = true;
-                            groupBox4.Visible = RRConfirm4.Visible = RRRefuse4.Visible
+                            groupBox4.Visible = RRConfirm4.Visible = RRRefuse4.Visible = RRDelete4.Visible
                              = RRUserID4.Visible = RRFirstName4.Visible = RRLastName4.Visible = RRAge4.Visible
                              = RRemail4.Visible = RRPermission4.Visible = true;
 
@@ -214,20 +247,20 @@ namespace Library___Login
                             RRConfirm.Enabled = true;
                             RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
                                 RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible =
-                                RRlabel10.Visible = true;
-                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible
+                                RRlabel10.Visible = RRlabel11.Visible = true;
+                            groupBox1.Visible = RRConfirm1.Visible = RRRefuse1.Visible = RRDelete1.Visible
                              = RRUserID1.Visible = RRFirstName1.Visible = RRLastName1.Visible = RRAge1.Visible
                              = RRemail1.Visible = RRPermission1.Visible = true;
-                            groupBox2.Visible = RRConfirm2.Visible = RRRefuse2.Visible
+                            groupBox2.Visible = RRConfirm2.Visible = RRRefuse2.Visible = RRDelete2.Visible
                              = RRUserID2.Visible = RRFirstName2.Visible = RRLastName2.Visible = RRAge2.Visible
                              = RRemail2.Visible = RRPermission2.Visible = true;
-                            groupBox3.Visible = RRConfirm3.Visible = RRRefuse3.Visible
+                            groupBox3.Visible = RRConfirm3.Visible = RRRefuse3.Visible = RRDelete3.Visible
                              = RRUserID3.Visible = RRFirstName3.Visible = RRLastName3.Visible = RRAge3.Visible
                              = RRemail3.Visible = RRPermission3.Visible = true;
-                            groupBox4.Visible = RRConfirm4.Visible = RRRefuse4.Visible
+                            groupBox4.Visible = RRConfirm4.Visible = RRRefuse4.Visible = RRDelete4.Visible
                              = RRUserID4.Visible = RRFirstName4.Visible = RRLastName4.Visible = RRAge4.Visible
                              = RRemail4.Visible = RRPermission4.Visible = true;
-                            groupBox5.Visible = RRConfirm5.Visible = RRRefuse5.Visible
+                            groupBox5.Visible = RRConfirm5.Visible = RRRefuse5.Visible = RRDelete5.Visible
                              = RRUserID5.Visible = RRFirstName5.Visible = RRLastName5.Visible = RRAge5.Visible
                              = RRemail5.Visible = RRPermission5.Visible = true;
 
@@ -303,6 +336,12 @@ namespace Library___Login
                 DatabaseInfo.Text = "User was blocked";
                 DatabaseInfo.Visible = true;
             }
+            else if (RRDelete1.Checked == true)
+            {
+                con.deleteUserFromDatabase(RRUserID1.Text);
+                DatabaseInfo.Text = "User was deleted";
+                DatabaseInfo.Visible = true;
+            }
             if (RRUserID2.Visible == true && RRPermission2.Text != "" && RRConfirm2.Checked == true)
             {
                 userID = RRUserID2.Text;
@@ -357,14 +396,55 @@ namespace Library___Login
 
         private void addCategoryBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //settings visibility of confirming or refusing requests items
+            RRConfirm.Visible = false;
+            RRConfirm.Enabled = false;
+            RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
+                RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible =
+                RRlabel10.Visible = RRlabel11.Visible = false;
+            groupBox1.Visible = groupBox2.Visible = groupBox3.Visible = groupBox4.Visible = groupBox5.Visible = groupBox6.Visible = false;
+            RRConfirm1.Visible = RRConfirm2.Visible = RRConfirm3.Visible = RRConfirm4.Visible = RRConfirm5.Visible = RRConfirmAll.Visible = false;
+            RRRefuse1.Visible = RRRefuse2.Visible = RRRefuse3.Visible = RRRefuse4.Visible = RRRefuse5.Visible = RRRefuseAll.Visible = false;
+            RRDelete1.Visible = RRDelete2.Visible = RRDelete3.Visible = RRDelete4.Visible = RRDelete5.Visible = false;
+            RRUserID1.Visible = RRUserID2.Visible = RRUserID3.Visible = RRUserID4.Visible = RRUserID5.Visible = false;
+            RRFirstName1.Visible = RRFirstName2.Visible = RRFirstName3.Visible = RRFirstName4.Visible = RRFirstName5.Visible = false;
+            RRLastName1.Visible = RRLastName2.Visible = RRLastName3.Visible = RRLastName4.Visible = RRLastName5.Visible = false;
+            RRAge1.Visible = RRAge2.Visible = RRAge3.Visible = RRAge4.Visible = RRAge5.Visible = false;
+            RRemail1.Visible = RRemail2.Visible = RRemail3.Visible = RRemail4.Visible = RRemail5.Visible = false;
+            RRPermission1.Visible = RRPermission2.Visible = RRPermission3.Visible = RRPermission4.Visible = RRPermission5.Visible = false;
+
             FormAddBookCategory form = new FormAddBookCategory();
             form.Show(); // or form.ShowDialog(this);
         }
 
         private void addBookLanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //settings visibility of confirming or refusing requests items
+            RRConfirm.Visible = false;
+            RRConfirm.Enabled = false;
+            RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible =
+                RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible =
+                RRlabel10.Visible = RRlabel11.Visible = false;
+            groupBox1.Visible = groupBox2.Visible = groupBox3.Visible = groupBox4.Visible = groupBox5.Visible = groupBox6.Visible = false;
+            RRConfirm1.Visible = RRConfirm2.Visible = RRConfirm3.Visible = RRConfirm4.Visible = RRConfirm5.Visible = RRConfirmAll.Visible = false;
+            RRRefuse1.Visible = RRRefuse2.Visible = RRRefuse3.Visible = RRRefuse4.Visible = RRRefuse5.Visible = RRRefuseAll.Visible = false;
+            RRDelete1.Visible = RRDelete2.Visible = RRDelete3.Visible = RRDelete4.Visible = RRDelete5.Visible = false;
+            RRUserID1.Visible = RRUserID2.Visible = RRUserID3.Visible = RRUserID4.Visible = RRUserID5.Visible = false;
+            RRFirstName1.Visible = RRFirstName2.Visible = RRFirstName3.Visible = RRFirstName4.Visible = RRFirstName5.Visible = false;
+            RRLastName1.Visible = RRLastName2.Visible = RRLastName3.Visible = RRLastName4.Visible = RRLastName5.Visible = false;
+            RRAge1.Visible = RRAge2.Visible = RRAge3.Visible = RRAge4.Visible = RRAge5.Visible = false;
+            RRemail1.Visible = RRemail2.Visible = RRemail3.Visible = RRemail4.Visible = RRemail5.Visible = false;
+            RRPermission1.Visible = RRPermission2.Visible = RRPermission3.Visible = RRPermission4.Visible = RRPermission5.Visible = false;
+
             FormAddBookLanguage form = new FormAddBookLanguage();
             form.Show();
+        }
+
+        private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUserInterface userForm = new FormUserInterface(AdminID);
+            userForm.Show();
+            this.Close();
         }
     }
 }
