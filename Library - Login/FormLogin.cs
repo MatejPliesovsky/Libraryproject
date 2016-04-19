@@ -34,25 +34,17 @@ namespace Library___Login
         //primary amdin login, that will be changed later
         private void Login_Click(object sender, EventArgs e)
         {
-            if (Username.Text == "admin" && Password.Text == "Jablko")
-            {
-                FormAdminInterface admin = new FormAdminInterface();
-                admin.Show();
-                this.Hide();
-                admin.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-            }
-            /*
             Connect2DB con = new Connect2DB();
             if (con.isUserRegistered(Username.Text, Password.Text))
             {
-                if (con.isUserAdmin(Username.Text) == "a")
+                if (con.isUserAdmin(Username.Text) == "admin")
                 {
                     FormAdminInterface admin = new FormAdminInterface();
                     admin.Show();
                     this.Hide();
                     admin.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
                 }
-                else if (con.isUserAdmin(Username.Text) == "u")
+                else if (con.isUserAdmin(Username.Text) == "user")
                 {
                     FormUserInterface userForm = new FormUserInterface();
                     userForm.Show();
@@ -64,7 +56,7 @@ namespace Library___Login
                     ErrorMessage.Text = "Your registration request is treated!";
                     ErrorMessage.Visible = true;
                 }
-            }*/
+            }
             else
             {
                 ErrorMessage.Text = "Invalid email or password!";

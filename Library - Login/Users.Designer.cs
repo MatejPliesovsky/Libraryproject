@@ -83,7 +83,7 @@
             this.Controls.Add(this.UserAllName);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Users";
-            this.Text = "Form2";
+            this.Text = "Welcome";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
