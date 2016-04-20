@@ -234,7 +234,7 @@ namespace Library___Login
         }
 
         // after users registration, his data will be saved to database, and admin must confirm, or refuse his request
-        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country)
+        public bool writeUserAsInactive(string firstName, string lastName, System.DateTime birthDate, string street, int streetNumber, string postalCode, string city, string telephone, string country, string email, string password)
         {
             try
             {
@@ -249,14 +249,6 @@ namespace Library___Login
                     cmd.Parameters.AddWithValue("@birthDate", (birthDate.Year + "-" + birthDate.Month + "-" + birthDate.Day));
                     cmd.ExecuteNonQuery();
 
-                    sqlQuery = "insert into " + loginEntity + " (email, password, Active) "
-                        + "values (@email, @password, @active)";
-                    cmd = new MySqlCommand(sqlQuery, connection);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@password", password);
-                    cmd.Parameters.AddWithValue("@active", "waiting");
-                    cmd.ExecuteNonQuery();
-
                     sqlQuery = "insert into " + detailsEntity + " (Street, StreetNumber, PostalCode, City, Telephone, Country) "
                         + "values (@street, @streetnumber, @postalcode, @city, @telephone, @country)";
                     cmd = new MySqlCommand(sqlQuery, connection);
@@ -266,8 +258,16 @@ namespace Library___Login
                     cmd.Parameters.AddWithValue("@city", city);
                     cmd.Parameters.AddWithValue("@telephone", telephone);
                     cmd.Parameters.AddWithValue("@country", country);
-
                     cmd.ExecuteNonQuery();
+
+                    sqlQuery = "insert into " + loginEntity + " (email, password, Active) "
+                       + "values (@email, @password, @active)";
+                    cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@active", "waiting");
+                    cmd.ExecuteNonQuery();
+
                     closeConnection();
                     return true;
                 }

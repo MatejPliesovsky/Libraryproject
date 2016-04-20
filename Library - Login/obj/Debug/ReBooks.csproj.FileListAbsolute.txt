@@ -7,7 +7,6 @@ C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Libra
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormLogin.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.Users.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
@@ -65,3 +64,5 @@ A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Log
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.UsersProfile.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.UsersProfile.resources
