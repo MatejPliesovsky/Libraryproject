@@ -458,5 +458,68 @@ namespace Library___Login
             }
             return Lents;
         }
+
+        // find details about book according its name
+        public List<string> bookDetails(string bookName)
+        {
+            List<string> bookDetail = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select * from Books inner join BooksDetails on Books.ID = BooksDetails.ID where Books.BookName like '" + bookName + "'";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    bookDetail.Add(reader["ID"] + "");
+                    bookDetail.Add(reader["BookName"] + "");
+                    bookDetail.Add(reader["Author"] + "");
+                    bookDetail.Add((bool)(reader["Lent"]) ? "Lent" : "Free");
+                    bookDetail.Add(reader["IDCategory"] + "");
+                    bookDetail.Add(reader["IDLanguage"] + "");
+                    bookDetail.Add(reader["Description"] + "");
+                    bookDetail.Add(reader["Publisher"] + "");
+                }
+                closeConnection();
+                return bookDetail;
+            }
+            return bookDetail;
+        }
+
+        public string bookLanguage(string languageID)
+        {
+            string bookLanguage = null;
+            if (openConnection())
+            {
+                string sqlQuery = "select LanguageName from BookLanguage where ID like " + languageID;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    bookLanguage = reader["LanguageName"] + "";
+                }
+                closeConnection();
+            }
+            return bookLanguage;
+        }
+
+        public string bookCategory(string categoryID)
+        {
+            string bookCategory = null;
+            if (openConnection())
+            {
+                string sqlQuery = "select CategoryName from BookCategory where ID like " + categoryID;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    bookCategory = reader["CategoryName"] + "";
+                }
+                closeConnection();
+            }
+            return bookCategory;
+        }
     }
 }

@@ -57,6 +57,12 @@
       <DependentUpon>FormAdminInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Connect2DB.cs" />
+    <Compile Include="FormBookDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookDetail.Designer.cs">
+      <DependentUpon>FormBookDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="FormAdminInterface.resx">
       <DependentUpon>FormAdminInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBookDetail.resx">
+      <DependentUpon>FormBookDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserInterface.resx">
       <DependentUpon>FormUserInterface.cs</DependentUpon>

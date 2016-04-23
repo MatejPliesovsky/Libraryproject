@@ -113,6 +113,32 @@ namespace Library___Login
             }
 
         }
+
+        private void bookDetail_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                this.Update();
+            }
+        }
+
+        private void listView1_ItemSelectionChanged_1(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            int index = 0;
+            index = (listView1.SelectedIndices.Count) - 1;
+            if (index < 0)
+            {
+                index = index + listView1.SelectedIndices.Count;
+            }
+            else
+            {
+                string info = listView1.SelectedItems[index].Text;
+                FormBookDetail bookDetail = new FormBookDetail(info);
+                bookDetail.ShowDialog();
+                Search_btn.Select();
+                this.Update();
+            }
+        }
     }
 }
     
