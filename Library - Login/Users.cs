@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
-    public partial class UsersProfile : Form
+    public partial class Users : Form
     {
-        public UsersProfile(string username, string password)
+        public Users(string username, string password)
         {
             InitializeComponent();
             ErrorMessage.Visible = false;

@@ -42,7 +42,7 @@ namespace Library___Login
                 city = City.Text;
                 postalCode = PostalCode.Text;
                 country = Country.Text;
-                if (register.writeUserAsInactive(firstName, lastName, dateOfBirth, street, streetNumber, postalCode, city, telephone, country, email, password))
+                if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country))
                 {
                     Info.Text = "Your request was send successfully.";
                     Info.Visible = true;

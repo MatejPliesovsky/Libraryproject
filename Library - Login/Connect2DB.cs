@@ -88,7 +88,7 @@ namespace Library___Login
         }
 
 
-        // verification, if user is admin, or not according his email
+        // verification, if user is admin, or not
         public string isUserAdmin(string email)
         {
             string userRole = null;
@@ -108,28 +108,8 @@ namespace Library___Login
             return userRole;
         }
 
-        // verification if user is admin or not according his id
-        public string getUserRole(string userID)
-        {
-            string userRole = null;
-            if (openConnection())
-            {
-                string sqlQuery = "select UserRole from " + loginEntity + " where ID like " + userID + "";
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                {
-                    if (reader.Read())
-                    {
-                        userRole = reader["UserRole"] + "";
-                    }
-                }
-            }
-            closeConnection();
-            return userRole;
-        }
-
         // START OF USER METHOD
-
+        
         // method, that found user age for his profile
         public string getUserAge(string userId)
         {
@@ -234,7 +214,7 @@ namespace Library___Login
         }
 
         // after users registration, his data will be saved to database, and admin must confirm, or refuse his request
-        public bool writeUserAsInactive(string firstName, string lastName, System.DateTime birthDate, string street, int streetNumber, string postalCode, string city, string telephone, string country, string email, string password)
+        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country)
         {
             try
             {
@@ -249,6 +229,14 @@ namespace Library___Login
                     cmd.Parameters.AddWithValue("@birthDate", (birthDate.Year + "-" + birthDate.Month + "-" + birthDate.Day));
                     cmd.ExecuteNonQuery();
 
+                    sqlQuery = "insert into " + loginEntity + " (email, password, Active) "
+                        + "values (@email, @password, @active)";
+                    cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@active", "waiting");
+                    cmd.ExecuteNonQuery();
+
                     sqlQuery = "insert into " + detailsEntity + " (Street, StreetNumber, PostalCode, City, Telephone, Country) "
                         + "values (@street, @streetnumber, @postalcode, @city, @telephone, @country)";
                     cmd = new MySqlCommand(sqlQuery, connection);
@@ -258,16 +246,8 @@ namespace Library___Login
                     cmd.Parameters.AddWithValue("@city", city);
                     cmd.Parameters.AddWithValue("@telephone", telephone);
                     cmd.Parameters.AddWithValue("@country", country);
-                    cmd.ExecuteNonQuery();
 
-                    sqlQuery = "insert into " + loginEntity + " (email, password, Active) "
-                       + "values (@email, @password, @active)";
-                    cmd = new MySqlCommand(sqlQuery, connection);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@password", password);
-                    cmd.Parameters.AddWithValue("@active", "waiting");
                     cmd.ExecuteNonQuery();
-
                     closeConnection();
                     return true;
                 }
@@ -392,6 +372,91 @@ namespace Library___Login
                 return true;
             }
             return false;
+        }
+
+        // searching bookname according search parameters
+        public List<string> searchBookNames(string search, bool free)
+        {
+            List<string> books = new List<string>();
+            if (openConnection())
+            {
+                String sqlQuery;
+                if (free == true)
+                {
+                    sqlQuery = "SELECT BookName FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0";
+                }
+                else
+                {
+                    sqlQuery = "SELECT BookName FROM Books where BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%'";
+                }
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    books.Add((reader["BookName"].ToString()));
+                }
+                closeConnection();
+                return books;
+            }
+            return books;
+        }
+
+        // searching Author according search parameters
+        public List<string> searchAuthor(string search, bool free)
+        {
+            List<string> authors = new List<string>();
+            if (openConnection())
+            {
+                String sqlQuery;
+                if (free == true)
+                {
+                    sqlQuery = "select Author from Books where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0 ";
+                }
+                else
+                {
+                    sqlQuery = "SELECT Author FROM Books where BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%'";
+                }
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    authors.Add((reader["Author"].ToString()));
+                }
+                closeConnection();
+                return authors;
+            }
+            return authors;
+        }
+
+        // searching Lents according search parameters
+        public List<string> searchLents(string search, bool free)
+        {
+            string help;
+            List<string> Lents = new List<string>();
+            if (openConnection())
+            {
+                String sqlQuery;
+                if (free == true)
+                {
+                    sqlQuery = "SELECT Lent FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0";
+                }
+                else
+                {
+                    sqlQuery = "SELECT Lent FROM Books where BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%'";
+                }
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Lents.Add((bool)(reader["Lent"]) ? "lent":"free");
+                }
+                closeConnection();
+                return Lents;
+            }
+            return Lents;
         }
     }
 }

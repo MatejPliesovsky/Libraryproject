@@ -14,67 +14,105 @@ namespace Library___Login
     public partial class FormUserInterface : Form
     {
         Connect2DB connection;
-        string UserID;        
+
+
 
         public FormUserInterface()
         {
             InitializeComponent();
             connection = new Connect2DB();
-            SwitchToAdmin.Visible = false;
-            SwitchToAdmin.Enabled = false;
         }
 
-        public FormUserInterface(string UserID)
+        private void Refresh_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            connection = new Connect2DB();
-            this.UserID = UserID;
-            string userRole = connection.getUserRole(UserID);
-            if (userRole == "admin")
-            {
-                SwitchToAdmin.Visible = true;
-                SwitchToAdmin.Enabled = true;
-            }
-            else
-            {
-                SwitchToAdmin.Visible = false;
-                SwitchToAdmin.Enabled = false;
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-                      
+            listView1.Items.Clear();
+            SearchFree.Checked = false;
+            SearchBar.Text = "";
+            Form2_Shown(Refresh, null);
         }
 
         private void Form2_Shown(object sender, EventArgs e)
         {
-            if (connection.openConnection())
+            listView1.Items.Clear();
+            List<string> books = new List<string>();
+            List<string> authors = new List<string>();
+            List<string> Lents = new List<string>();
+
+            books = connection.searchBookNames(null, false);
+            authors = connection.searchAuthor(null, false);
+            Lents = connection.searchLents(null, false);
+
+            for (int i = 0; i < books.Count; i++)
             {
-                String sqlQuery = "SELECT * FROM Books";
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection.connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                ListViewItem item = new ListViewItem(books[i]);
+                item.SubItems.Add(authors[i]);
+                item.SubItems.Add(Lents[i]);
 
-                while (reader.Read())
-                {
-                    ListViewItem item = new ListViewItem(reader["BookName"].ToString());
-                    item.SubItems.Add(reader["Author"].ToString());
-                    item.SubItems.Add(((bool)reader["Lent"]) ? "lent" : "free");
-
-
-                    listView1.Items.Add(item);
-                }
-
-                connection.closeConnection();
-
+                listView1.Items.Add(item);
             }
         }
 
-        private void SwitchToAdmin_Click(object sender, EventArgs e)
+        private void Search_btn_Click(object sender, EventArgs e)
         {
-            FormAdminInterface admin = new FormAdminInterface(UserID);
-            admin.Show();
-            this.Close();
+            string search;
+            List<string> books = new List<string>();
+            List<string> authors = new List<string>();
+            List<string> Lents = new List<string>();
+
+            listView1.Items.Clear();
+            if (SearchFree.Checked==true)
+            {
+                search = SearchBar.Text;
+                books = connection.searchBookNames(search, true);
+                authors = connection.searchAuthor(search, true);
+                Lents = connection.searchLents(search, true);
+            }
+            else
+            {
+                search = SearchBar.Text;
+                books = connection.searchBookNames(search, false);
+                authors = connection.searchAuthor(search, false);
+                Lents = connection.searchLents(search, false);
+            }
+            
+            for (int i = 0; i < books.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(books[i]);
+                item.SubItems.Add(authors[i]);
+                item.SubItems.Add(Lents[i]);
+
+                listView1.Items.Add(item);
+            }
+
+        }
+
+        private void SearchFree_CheckedChanged(object sender, EventArgs e)
+        {
+            bool lent;
+            string search;
+            List<string> books = new List<string>();
+            List<string> authors = new List<string>();
+            List<string> Lents = new List<string>();
+
+            listView1.Items.Clear();
+          
+            search = SearchBar.Text;
+            lent = true;
+            books = connection.searchBookNames(search, lent);
+            authors = connection.searchAuthor(search, lent);
+            Lents = connection.searchLents(search, lent);
+
+
+            for (int i = 0; i < books.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(books[i]);
+                item.SubItems.Add(authors[i]);
+                item.SubItems.Add(Lents[i]);
+
+                listView1.Items.Add(item);
+            }
+
         }
     }
-    }
+}
+    
