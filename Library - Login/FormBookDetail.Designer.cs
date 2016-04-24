@@ -111,7 +111,7 @@
             this.Controls.Add(this.Author);
             this.Controls.Add(this.BookName);
             this.Name = "FormBookDetail";
-            this.Load += new System.EventHandler(this.FormBookDetail_Load);
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 

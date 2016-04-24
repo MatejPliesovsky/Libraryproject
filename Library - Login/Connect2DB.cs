@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Library___Login
 {
@@ -18,6 +19,9 @@ namespace Library___Login
         private string port;
         private string usersEntity = "`Users`";
         private string booksEntity = "`Books`";
+        private string booksDetailsEntity = "`BooksDetails`";
+        private string bookCategoryEnity = "`BookCategory`";
+        private string bookLanguageEnity = "`BookLanguage`";
         private string loansEntity = "`Loans`";
         private string loginEntity = "`UsersLogin`";
         private string detailsEntity = "`UsersDetails`";
@@ -94,7 +98,7 @@ namespace Library___Login
             string userRole = null;
             if (openConnection())
             {
-                string sqlQuery = "select UserRole from " + loginEntity + " where email like '" + email+"'";
+                string sqlQuery = "select UserRole from " + loginEntity + " where email like '" + email + "'";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 {
@@ -109,7 +113,7 @@ namespace Library___Login
         }
 
         // START OF USER METHOD
-        
+
         // method, that found user age for his profile
         public string getUserAge(string userId)
         {
@@ -294,7 +298,7 @@ namespace Library___Login
             int i = 0;
             if (openConnection())
             {
-                string sqlQuery = "select "+ usersEntity + ".ID, " + usersEntity + ".FirstName, " + usersEntity + ".LastName, "
+                string sqlQuery = "select " + usersEntity + ".ID, " + usersEntity + ".FirstName, " + usersEntity + ".LastName, "
                     + usersEntity + ".BirthDate, " + loginEntity + ".email from " + usersEntity + " inner join "
                     + loginEntity + "on " + usersEntity + ".ID = " + loginEntity + ".ID where "
                     + loginEntity + ".Active like 'waiting'";
@@ -451,7 +455,7 @@ namespace Library___Login
 
                 while (reader.Read())
                 {
-                    Lents.Add((bool)(reader["Lent"]) ? "lent":"free");
+                    Lents.Add((bool)(reader["Lent"]) ? "lent" : "free");
                 }
                 closeConnection();
                 return Lents;
@@ -521,5 +525,157 @@ namespace Library___Login
             }
             return bookCategory;
         }
+
+
+        /*** START BOOKS INSERT TO DATABASE ***/
+        // add Book Category To database
+        public bool addBookCategory(string CategoryName)
+        {
+            try
+            {
+                if (openConnection())
+                {
+                    string sqlQuery = "Insert into " + bookCategoryEnity + " (CategoryName) VALUES (@CategoryName)";
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@CategoryName", CategoryName);
+                    cmd.ExecuteNonQuery();
+                    closeConnection();
+                    return true;
+                }
+
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return false;
+            }
+
+        }
+
+        // add Book Language To database
+        public bool addBookLanguage(string LanguageName)
+        {
+            try
+            {
+                if (openConnection())
+                {
+                    string sqlQuery = "Insert into " + bookLanguageEnity + " (LanguageName) VALUES (@LanguageName)";
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@LanguageName", LanguageName);
+                    cmd.ExecuteNonQuery();
+                    closeConnection();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return false;
+            }
+
+        }
+
+        //load CategoryName from database
+        public List<string> loadBookCategoryName()
+        {
+            List<string> sCategoryName = new List<string>();
+            String sqlQuery = "select id,CategoryName from " + bookCategoryEnity;
+
+            if (openConnection())
+            {
+
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    sCategoryName.Add(reader["ID"] + " " + reader["CategoryName"]);
+                }
+
+                closeConnection();
+                return sCategoryName;
+            }
+
+            return null;
+
+        }
+
+
+        //load LanguageName from database
+        public List<string> loadBookLanguageName()
+        {
+            List<string> sLanguageName = new List<string>();
+            String sqlQuery = "select id,LanguageName from " + bookLanguageEnity;
+
+            if (openConnection())
+            {
+
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    sLanguageName.Add(reader["ID"] + " " + reader["LanguageName"]);
+                }
+
+                closeConnection();
+                return sLanguageName;
+            }
+
+            return null;
+
+        }
+
+        // add book to database
+        public bool addBook(string bookName, string bookAuthor, string IDCategory, string IDLanguage, string image, string ISBN, string publisher, string description)
+        {
+            try
+            {
+                if (openConnection())
+                {
+                    //insert books
+                    string sqlQuery = "Insert into " + booksEntity + " (BookName,Author, IDCategory, IDLanguage) Values (@bookName, @bookAuthor, @IDCategory, @IDLanguage )";
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@bookName", bookName);
+                    cmd.Parameters.AddWithValue("@bookAuthor", bookAuthor);
+                    cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
+                    cmd.Parameters.AddWithValue("@IDLanguage", IDLanguage);
+                    cmd.ExecuteNonQuery();
+
+
+                    // insert book details
+                    byte[] imageBT = null;
+                    FileStream fstream = new FileStream(image, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fstream);
+                    imageBT = br.ReadBytes((int)fstream.Length);
+
+                    sqlQuery = "Insert into " + booksDetailsEntity + " (Image,Description,ISBN,Publisher) Values (@image,@description, @ISBN, @publisher)";
+                    cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@image", imageBT);
+                    cmd.Parameters.AddWithValue("@ISBN", ISBN);
+                    cmd.Parameters.AddWithValue("@publisher", publisher);
+                    cmd.Parameters.AddWithValue("@description", description);
+                    cmd.ExecuteNonQuery();
+
+                    closeConnection();
+                    return true;
+                }
+
+
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return false;
+            }
+        }
+        /*** END BOOK Insert to database ***/
+
     }
+
 }

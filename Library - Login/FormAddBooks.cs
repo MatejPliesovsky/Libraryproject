@@ -13,7 +13,9 @@ namespace Library___Login
 {
     public partial class FormAddBooks : Form
     {
-        Connect2DB connection = new Connect2DB();
+
+        Connect2DB database = new Connect2DB();
+        private string BookName, Author, IDcategory, IDLanguage, ISBN, Publisher, Description, image;
 
         public FormAddBooks()
         {
@@ -24,65 +26,61 @@ namespace Library___Login
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
+            BookName = this.txtBookName.Text;
+            Author = this.txtAuthor.Text;
+            IDcategory = comboBoxBookCategory.SelectedValue.ToString();
+            IDLanguage = comboBoxBookLanguage.SelectedValue.ToString();
+            ISBN = this.txtISBN.Text;
+            Publisher = this.txtPublisher.Text;
+            Description = this.richTxtBookDescreption.Text;
+            image = this.txtImagePath.Text;
 
-            if (connection.openConnection())
+            if (database.addBook(BookName, Author, IDcategory, IDLanguage, image, ISBN, Publisher, Description))
             {
-                String sqlQuery = "INSERT INTO Books (BookName, Author, ISBN, Description) VALUES('" + this.txtBookName.Text+"','"+this.txtAuthor.Text+ "','" +int.Parse(this.txtISBN.Text)+ "' , '" + this.richTxtBookDescreption.Text + "');";
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection.connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-
-                }
-
-                connection.closeConnection();
-
+                MessageBox.Show("Book successfully added");
+                pictureBox1.Image = Properties.Resources.noimage;
+                txtImagePath.Text = null;
+                txtBookName.Text = null;
+                txtAuthor.Text = null;
+                txtISBN.Text = null;
+                txtPublisher.Text = null;
+                richTxtBookDescreption.Text = null;                
             }
 
+            else
+            {
+                MessageBox.Show("Book Not added, please check Debug Log");
+            }
         }
-
 
         private void fillComboBoxBookCategory()
         {
-            if (connection.openConnection())
-            {
-                String sqlQuery = "SELECT * FROM ReBooksDB.BookCategory;";
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection.connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
+            List<string> cat = database.loadBookCategoryName();
+            comboBoxBookCategory.DataSource = cat;
 
-                while (reader.Read())
-                {
-                    string sCategoryName = reader.GetString("CategoryName");
-                    comboBoxBookCategory.Items.Add(sCategoryName);
-
-                }
-
-
-                connection.closeConnection();
-            }
         }
 
 
         private void fillComboBoxBookLanguage()
         {
-            if (connection.openConnection())
-            {
-                String sqlQuery = "SELECT * FROM ReBooksDB.BookLanguage;";
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection.connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    string sLanguageName = reader.GetString("LanguageName");
-                    comboBoxBookLanguage.Items.Add(sLanguageName);
-                }
-
-
-                connection.closeConnection();
-            }
+            List<string> lang = database.loadBookLanguageName();
+            comboBoxBookLanguage.DataSource = lang;
         }
 
 
+
+        private void btnLoadImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "JPG Files(*.jpg)|*.jpg|PNG Files(*.png)|*.png|All Files(*.*)|*.*";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string pictPatch = dlg.FileName.ToString();
+                txtImagePath.Text = pictPatch;
+                pictureBox1.ImageLocation = pictPatch;
+            }
+
+        }
     }
 }
