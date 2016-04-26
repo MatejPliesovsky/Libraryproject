@@ -33,7 +33,11 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Refresh = new System.Windows.Forms.Button();
+            this.Search_btn = new System.Windows.Forms.Button();
+            this.SearchBar = new System.Windows.Forms.TextBox();
+            this.SearchFree = new System.Windows.Forms.CheckBox();
             this.SwitchToAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,7 +47,8 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader2});
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.listView1.GridLines = true;
@@ -54,10 +59,11 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged_1);
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Book Name";
+            this.columnHeader1.Text = "BookName";
             this.columnHeader1.Width = 104;
             // 
             // columnHeader3
@@ -68,23 +74,57 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Lent";
+            this.columnHeader4.Width = 89;
             // 
-            // button1
+            // columnHeader2
             // 
-            this.button1.Location = new System.Drawing.Point(333, 288);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.columnHeader2.Text = "Category";
+            this.columnHeader2.Width = 125;
+            // 
+            // Refresh
+            // 
+            this.Refresh.Location = new System.Drawing.Point(333, 288);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(133, 23);
+            this.Refresh.TabIndex = 1;
+            this.Refresh.Text = "Refresh";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+            // Search_btn
+            // 
+            this.Search_btn.Location = new System.Drawing.Point(360, 4);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(175, 23);
+            this.Search_btn.TabIndex = 2;
+            this.Search_btn.Text = "SEARCH";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
+            // 
+            // SearchBar
+            // 
+            this.SearchBar.Location = new System.Drawing.Point(178, 4);
+            this.SearchBar.Name = "SearchBar";
+            this.SearchBar.Size = new System.Drawing.Size(162, 20);
+            this.SearchBar.TabIndex = 3;
+            // 
+            // SearchFree
+            // 
+            this.SearchFree.AutoSize = true;
+            this.SearchFree.Location = new System.Drawing.Point(13, 35);
+            this.SearchFree.Name = "SearchFree";
+            this.SearchFree.Size = new System.Drawing.Size(66, 17);
+            this.SearchFree.TabIndex = 4;
+            this.SearchFree.Text = "Just free";
+            this.SearchFree.UseVisualStyleBackColor = true;
+            this.SearchFree.CheckedChanged += new System.EventHandler(this.SearchFree_CheckedChanged);
             // 
             // SwitchToAdmin
             // 
             this.SwitchToAdmin.Location = new System.Drawing.Point(603, 147);
             this.SwitchToAdmin.Name = "SwitchToAdmin";
             this.SwitchToAdmin.Size = new System.Drawing.Size(93, 23);
-            this.SwitchToAdmin.TabIndex = 2;
+            this.SwitchToAdmin.TabIndex = 5;
             this.SwitchToAdmin.Text = "Back to Admin";
             this.SwitchToAdmin.UseVisualStyleBackColor = true;
             this.SwitchToAdmin.Click += new System.EventHandler(this.SwitchToAdmin_Click);
@@ -95,7 +135,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 328);
             this.Controls.Add(this.SwitchToAdmin);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SearchFree);
+            this.Controls.Add(this.SearchBar);
+            this.Controls.Add(this.Search_btn);
+            this.Controls.Add(this.Refresh);
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -103,6 +146,7 @@
             this.Text = "ReBooks";
             this.Shown += new System.EventHandler(this.Form2_Shown);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -111,8 +155,12 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button Search_btn;
+        private System.Windows.Forms.TextBox SearchBar;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.CheckBox SearchFree;
         private System.Windows.Forms.Button SwitchToAdmin;
     }
 }

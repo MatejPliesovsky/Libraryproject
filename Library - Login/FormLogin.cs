@@ -17,7 +17,7 @@ namespace Library___Login
             InitializeComponent();
             ErrorMessage.Visible = false;
             Username.Text = "Enter e-mail";
-            Password.Text = "Enter password";
+            Password.Text = "Password";
             Username.ForeColor = Color.Gray;
             Password.ForeColor = Color.Gray;
         }
@@ -74,10 +74,14 @@ namespace Library___Login
         //if some opened formular will be closed, login form closed as well
         private void Form1_FormClosed(object sender, EventArgs e)
         {
-            if (!(Application.OpenForms.OfType<FormAdminInterface>().Any()) && !(Application.OpenForms.OfType<FormUserInterface>().Any()))
+            if (Application.OpenForms.OfType<FormAdminInterface>().Any() || Application.OpenForms.OfType<FormUserInterface>().Any())
+            {
+                this.Hide();
+            }
+            else
             {
                 Username.Text = "Enter e-mail";
-                Password.Text = "Enter password";
+                Password.Text = "Password";
                 Username.ForeColor = Color.Gray;
                 Password.ForeColor = Color.Gray;
                 this.Show();

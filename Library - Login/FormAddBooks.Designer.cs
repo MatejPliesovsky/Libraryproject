@@ -42,6 +42,12 @@
             this.txtISBN = new System.Windows.Forms.TextBox();
             this.richTxtBookDescreption = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtPublisher = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtImagePath = new System.Windows.Forms.TextBox();
+            this.btnLoadImage = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBookName
@@ -62,9 +68,10 @@
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(312, 379);
+            this.btnAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBook.Location = new System.Drawing.Point(113, 411);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(119, 23);
+            this.btnAddBook.Size = new System.Drawing.Size(318, 26);
             this.btnAddBook.TabIndex = 2;
             this.btnAddBook.Text = "ADD BOOK";
             this.btnAddBook.UseVisualStyleBackColor = true;
@@ -138,26 +145,75 @@
             // 
             // richTxtBookDescreption
             // 
-            this.richTxtBookDescreption.Location = new System.Drawing.Point(113, 204);
+            this.richTxtBookDescreption.Location = new System.Drawing.Point(113, 226);
             this.richTxtBookDescreption.Name = "richTxtBookDescreption";
-            this.richTxtBookDescreption.Size = new System.Drawing.Size(318, 169);
+            this.richTxtBookDescreption.Size = new System.Drawing.Size(318, 179);
             this.richTxtBookDescreption.TabIndex = 11;
             this.richTxtBookDescreption.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 207);
+            this.label3.Location = new System.Drawing.Point(15, 229);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 12;
             this.label3.Text = "Book Descreption";
             // 
+            // txtPublisher
+            // 
+            this.txtPublisher.Location = new System.Drawing.Point(113, 200);
+            this.txtPublisher.Name = "txtPublisher";
+            this.txtPublisher.Size = new System.Drawing.Size(154, 20);
+            this.txtPublisher.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(57, 207);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Publisher";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Library___Login.Properties.Resources.noimage;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(453, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(384, 342);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtImagePath
+            // 
+            this.txtImagePath.Location = new System.Drawing.Point(453, 388);
+            this.txtImagePath.Name = "txtImagePath";
+            this.txtImagePath.Size = new System.Drawing.Size(384, 20);
+            this.txtImagePath.TabIndex = 16;
+            // 
+            // btnLoadImage
+            // 
+            this.btnLoadImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadImage.Location = new System.Drawing.Point(453, 414);
+            this.btnLoadImage.Name = "btnLoadImage";
+            this.btnLoadImage.Size = new System.Drawing.Size(384, 23);
+            this.btnLoadImage.TabIndex = 17;
+            this.btnLoadImage.Text = "UPLOAD BOOK IMAGE";
+            this.btnLoadImage.UseVisualStyleBackColor = true;
+            this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
+            // 
             // FormAddBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 457);
+            this.ClientSize = new System.Drawing.Size(849, 457);
+            this.Controls.Add(this.btnLoadImage);
+            this.Controls.Add(this.txtImagePath);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtPublisher);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.richTxtBookDescreption);
             this.Controls.Add(this.txtISBN);
@@ -174,6 +230,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddBooks";
             this.Text = "FormAddBooks";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +251,10 @@
         private System.Windows.Forms.TextBox txtISBN;
         private System.Windows.Forms.RichTextBox richTxtBookDescreption;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtPublisher;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtImagePath;
+        private System.Windows.Forms.Button btnLoadImage;
     }
 }

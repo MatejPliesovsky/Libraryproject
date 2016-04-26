@@ -57,6 +57,18 @@
       <DependentUpon>FormAdminInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Connect2DB.cs" />
+    <Compile Include="FormBookDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBookDetails.Designer.cs">
+      <DependentUpon>FormBookDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserDetails.Designer.cs">
+      <DependentUpon>FormUserDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +115,12 @@
     </Compile>
     <EmbeddedResource Include="FormAdminInterface.resx">
       <DependentUpon>FormAdminInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBookDetails.resx">
+      <DependentUpon>FormBookDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserDetails.resx">
+      <DependentUpon>FormUserDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserInterface.resx">
       <DependentUpon>FormUserInterface.cs</DependentUpon>
@@ -153,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReBooks_Icon_32x32.ico" />
+    <None Include="Resources\noimage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

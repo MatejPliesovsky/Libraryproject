@@ -13,7 +13,7 @@ namespace Library___Login
 {
     public partial class FormAddBookLanguage : Form
     {
-        Connect2DB connection = new Connect2DB();
+        private string LanguageName;
 
         public FormAddBookLanguage()
         {
@@ -22,24 +22,18 @@ namespace Library___Login
 
         private void btnAddBookLanguage_Click(object sender, EventArgs e)
         {
-            if (connection.openConnection())
+            Connect2DB database = new Connect2DB();
+
+            LanguageName = this.txtBookLanguage.Text;
+
+            if (database.addBookLanguage(LanguageName))
             {
-                String sqlQuery = "INSERT INTO BookLanguage (LanguageName) VALUES('" + this.txtBookLanguage.Text + "');";
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection.connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                MessageBox.Show("Language successfully added");
+            }
 
-                connection.closeConnection();
-
-                if(cmd == null)
-                {
-                    MessageBox.Show("ERROR: Language not added!");
-                }
-
-                else
-                {
-                    MessageBox.Show("Language successfully added");
-                }
-
+            else
+            {
+                MessageBox.Show("ERROR: Language not added!");
             }
 
         }
