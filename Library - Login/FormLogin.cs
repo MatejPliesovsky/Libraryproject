@@ -39,6 +39,7 @@ namespace Library___Login
             {
                 if (con.isUserAdmin(Username.Text) == "admin")
                 {
+                    if
                     FormAdminInterface admin = new FormAdminInterface(Username.Text, Password.Text);
                     admin.Show();
                     this.Hide();
@@ -84,6 +85,7 @@ namespace Library___Login
                 Password.Text = "Password";
                 Username.ForeColor = Color.Gray;
                 Password.ForeColor = Color.Gray;
+                ErrorMessage.Visible = false;
                 this.Show();
             }
         }
