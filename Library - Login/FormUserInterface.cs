@@ -47,25 +47,41 @@ namespace Library___Login
             listView1.Items.Clear();
             SearchFree.Checked = false;
             SearchBar.Text = "";
+            for (int i = 0;i < checkedListBox1.Items.Count; i++)
+            {
+                checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+            }
             Form2_Shown(Refresh, null);
         }
 
         private void Form2_Shown(object sender, EventArgs e)
         {
+            string categories = null;
             listView1.Items.Clear();
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    categories = categories + checkedListBox1.Items[i].ToString() + ";";
+                }
+            }
+
             List<string> books = new List<string>();
             List<string> authors = new List<string>();
             List<string> Lents = new List<string>();
+            List<string> category = new List<string>();
 
-            books = connection.searchBookNames(null, false);
-            authors = connection.searchAuthor(null, false);
-            Lents = connection.searchLents(null, false);
+            books = connection.searchBookNames(null, false, categories);
+            authors = connection.searchAuthor(null, false, categories);
+            Lents = connection.searchLents(null, false, categories);
+            category = connection.searchCategory(null, false, categories);
 
             for (int i = 0; i < books.Count; i++)
             {
                 ListViewItem item = new ListViewItem(books[i]);
                 item.SubItems.Add(authors[i]);
                 item.SubItems.Add(Lents[i]);
+                item.SubItems.Add(category[i]);
 
                 listView1.Items.Add(item);
             }
@@ -73,25 +89,36 @@ namespace Library___Login
 
         private void Search_btn_Click(object sender, EventArgs e)
         {
-            string search;
+            string search, categories = null;
             List<string> books = new List<string>();
             List<string> authors = new List<string>();
             List<string> Lents = new List<string>();
+            List<string> category = new List<string>();
 
             listView1.Items.Clear();
+            for (int i = 0;i < checkedListBox1.Items.Count; i++)
+            {
+                if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    categories = categories + checkedListBox1.Items[i].ToString() + ";";
+                }
+            }
+
             if (SearchFree.Checked==true)
             {
                 search = SearchBar.Text;
-                books = connection.searchBookNames(search, true);
-                authors = connection.searchAuthor(search, true);
-                Lents = connection.searchLents(search, true);
+                books = connection.searchBookNames(search, true, categories);
+                authors = connection.searchAuthor(search, true, categories);
+                Lents = connection.searchLents(search, true, categories);
+                category = connection.searchCategory(search, true, categories);
             }
             else
             {
                 search = SearchBar.Text;
-                books = connection.searchBookNames(search, false);
-                authors = connection.searchAuthor(search, false);
-                Lents = connection.searchLents(search, false);
+                books = connection.searchBookNames(search, false, categories);
+                authors = connection.searchAuthor(search, false, categories);
+                Lents = connection.searchLents(search, false, categories);
+                category = connection.searchCategory(search, false, categories);
             }
             
             for (int i = 0; i < books.Count; i++)
@@ -99,6 +126,7 @@ namespace Library___Login
                 ListViewItem item = new ListViewItem(books[i]);
                 item.SubItems.Add(authors[i]);
                 item.SubItems.Add(Lents[i]);
+                item.SubItems.Add(category[i]);
 
                 listView1.Items.Add(item);
             }
@@ -108,18 +136,27 @@ namespace Library___Login
         private void SearchFree_CheckedChanged(object sender, EventArgs e)
         {
             bool lent;
-            string search;
+            string search, categories = null;
             List<string> books = new List<string>();
             List<string> authors = new List<string>();
             List<string> Lents = new List<string>();
+            List<string> category = new List<string>();
 
             listView1.Items.Clear();
-          
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    categories = categories + checkedListBox1.Items[i].ToString() + ";";
+                }
+            }
+
             search = SearchBar.Text;
             lent = true;
-            books = connection.searchBookNames(search, lent);
-            authors = connection.searchAuthor(search, lent);
-            Lents = connection.searchLents(search, lent);
+            books = connection.searchBookNames(search, lent, categories);
+            authors = connection.searchAuthor(search, lent, categories);
+            Lents = connection.searchLents(search, lent, categories);
+            category = connection.searchCategory(search, lent, categories);
 
 
             for (int i = 0; i < books.Count; i++)
@@ -127,6 +164,7 @@ namespace Library___Login
                 ListViewItem item = new ListViewItem(books[i]);
                 item.SubItems.Add(authors[i]);
                 item.SubItems.Add(Lents[i]);
+                item.SubItems.Add(category[i]);
 
                 listView1.Items.Add(item);
             }

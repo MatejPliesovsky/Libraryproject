@@ -666,87 +666,259 @@ namespace Library___Login
         }
 
         // searching bookname according search parameters
-        public List<string> searchBookNames(string search, bool free)
+        public List<string> searchBookNames(string search, bool free, string categories)
         {
-            List<string> books = new List<string>();
-            if (openConnection())
+            if (categories != null)
             {
-                String sqlQuery;
-                if (free == true)
-                {
-                    sqlQuery = "SELECT BookName FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0";
-                }
-                else
-                {
-                    sqlQuery = "SELECT BookName FROM Books where BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%'";
-                }
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                string[] category;
+                category = categories.Split(';');
 
-                while (reader.Read())
+                List<string> books = new List<string>();
+                if (openConnection())
                 {
-                    books.Add((reader["BookName"].ToString()));
+                    string sqlQuery;
+                    for (int i = 0; i < (category.Length) - 1; i++)
+                    {
+                        if (free == true)
+                        {
+                            sqlQuery = "SELECT BookName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + category[i] + "'";
+                        }
+                        else
+                        {
+                            sqlQuery = "SELECT BookName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and CategoryName like '" + category[i] + "'";
+                        }
+                        MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            books.Add((reader["BookName"].ToString()));
+                        }
+                        reader.Close();
+                    }
+                    closeConnection();
+                    return books;
                 }
-                closeConnection();
                 return books;
             }
-            return books;
+            else
+            {
+                List<string> books = new List<string>();
+                if (openConnection())
+                {
+                    string sqlQuery;
+                    if (free == true)
+                    {
+                        sqlQuery = "SELECT BookName FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0";
+                    }
+                    else
+                    {
+                        sqlQuery = "SELECT BookName FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%')";
+                    }
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        books.Add((reader["BookName"].ToString()));
+                    }
+                    closeConnection();
+                    return books;
+                }
+                return books;
+            }
         }
 
         // searching Author according search parameters
-        public List<string> searchAuthor(string search, bool free)
+        public List<string> searchAuthor(string search, bool free, string categories)
         {
-            List<string> authors = new List<string>();
-            if (openConnection())
+            if (categories != null)
             {
-                String sqlQuery;
-                if (free == true)
-                {
-                    sqlQuery = "select Author from Books where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0 ";
-                }
-                else
-                {
-                    sqlQuery = "SELECT Author FROM Books where BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%'";
-                }
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                string[] category;
+                category = categories.Split(';');
 
-                while (reader.Read())
+                List<string> authors = new List<string>();
+                if (openConnection())
                 {
-                    authors.Add((reader["Author"].ToString()));
+                    string sqlQuery;
+                    for (int i = 0; i < (category.Length) - 1; i++)
+                    {
+                        if (free == true)
+                        {
+                            sqlQuery = "select Author from Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + category[i] + "'";
+                        }
+                        else
+                        {
+                            sqlQuery = "SELECT Author FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and CategoryName like '" + category[i] + "'";
+                        }
+                        MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            authors.Add((reader["Author"].ToString()));
+                        }
+                        reader.Close();
+                    }
+                    closeConnection();
+                    return authors;
                 }
-                closeConnection();
                 return authors;
             }
-            return authors;
+            else
+            {
+                List<string> authors = new List<string>();
+                if (openConnection())
+                {
+                    string sqlQuery;
+                    if (free == true)
+                    {
+                        sqlQuery = "select Author from Books where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0";
+                    }
+                    else
+                    {
+                        sqlQuery = "SELECT Author FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%')";
+                    }
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        authors.Add((reader["Author"].ToString()));
+                    }
+                    closeConnection();
+                    return authors;
+                }
+                return authors;
+            }
         }
 
         // searching Lents according search parameters
-        public List<string> searchLents(string search, bool free)
+        public List<string> searchLents(string search, bool free, string categories)
         {
-            List<string> Lents = new List<string>();
-            if (openConnection())
+            if (categories != null)
             {
-                String sqlQuery;
-                if (free == true)
-                {
-                    sqlQuery = "SELECT Lent FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0";
-                }
-                else
-                {
-                    sqlQuery = "SELECT Lent FROM Books where BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%'";
-                }
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                string[] category;
+                category = categories.Split(';');
 
-                while (reader.Read())
+                List<string> Lents = new List<string>();
+                if (openConnection())
                 {
-                    Lents.Add((bool)(reader["Lent"]) ? "lent" : "free");
+                    string sqlQuery;
+                    for (int i = 0; i < (category.Length) - 1; i++)
+                    {
+                        if (free == true)
+                        {
+                            sqlQuery = "SELECT Lent FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + category[i] + "'";
+                        }
+                        else
+                        {
+                            sqlQuery = "SELECT Lent FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and CategoryName like '" + category[i] + "'";
+                        }
+                        MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Lents.Add((bool)(reader["Lent"]) ? "lent" : "free");
+                        }
+                        reader.Close();
+                    }
+                    closeConnection();
+                    return Lents;
                 }
-                closeConnection();
                 return Lents;
             }
-            return Lents;
+            else
+            {
+                List<string> Lents = new List<string>();
+                if (openConnection())
+                {
+                    string sqlQuery;
+                    if (free == true)
+                    {
+                        sqlQuery = "SELECT Lent FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0";
+                    }
+                    else
+                    {
+                        sqlQuery = "SELECT Lent FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%')";
+                    }
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Lents.Add((bool)(reader["Lent"]) ? "lent" : "free");
+                    }
+                    closeConnection();
+                    return Lents;
+                }
+                return Lents;
+            }
+        }
+
+        // searching Category according search parameters
+        public List<string> searchCategory(string search, bool free, string categories)
+        {
+            if (categories != null)
+            {
+                string[] category;
+                category = categories.Split(';');
+
+                List<string> Category = new List<string>();
+                if (openConnection())
+                {
+                    string sqlQuery;
+                    for (int i = 0; i < (category.Length) - 1; i++)
+                    {
+                        if (free == true)
+                        {
+                            sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + category[i] + "'";
+                        }
+                        else
+                        {
+                            sqlQuery = "SELECT CategoryName FROM BookCategory inner join Books on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and CategoryName like '" + category[i] + "'";
+                        }
+                        MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Category.Add((reader["CategoryName"].ToString()));
+                        }
+                        reader.Close();
+                    }
+                    closeConnection();
+                    return Category;
+                }
+                return Category;
+            }
+            else
+            {
+                List<string> Category = new List<string>();
+                if (openConnection())
+                {
+                    string sqlQuery;
+                    if (free == true)
+                    {
+                        sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0";
+                    }
+                    else
+                    {
+                        sqlQuery = "SELECT CategoryName FROM BookCategory inner join Books on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%')";
+                    }
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Category.Add((reader["CategoryName"].ToString()));
+                    }
+                    closeConnection();
+                    return Category;
+                }
+                return Category;
+            }
         }
 
         // find details about book according its name
