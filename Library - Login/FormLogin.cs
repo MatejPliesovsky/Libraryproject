@@ -37,25 +37,32 @@ namespace Library___Login
             Connect2DB con = new Connect2DB();
             if (con.isUserRegistered(Username.Text, Password.Text))
             {
-                if (con.isUserAdmin(Username.Text) == "admin")
+                if (con.isUserBlocked(Username.Text))
                 {
-                    if
-                    FormAdminInterface admin = new FormAdminInterface(Username.Text, Password.Text);
-                    admin.Show();
-                    this.Hide();
-                    admin.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-                }
-                else if (con.isUserAdmin(Username.Text) == "user")
-                {
-                    FormUserInterface userForm = new FormUserInterface();
-                    userForm.Show();
-                    this.Hide();
-                    userForm.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+                    ErrorMessage.Text = "Your account is blocked.\nPlease contact your library.";
+                    ErrorMessage.Visible = true;
                 }
                 else
                 {
-                    ErrorMessage.Text = "Your registration request is treated!";
-                    ErrorMessage.Visible = true;
+                    if (con.isUserAdmin(Username.Text) == "admin")
+                    {
+                        FormAdminInterface admin = new FormAdminInterface(Username.Text, Password.Text);
+                        admin.Show();
+                        this.Hide();
+                        admin.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+                    }
+                    else if (con.isUserAdmin(Username.Text) == "user")
+                    {
+                        FormUserInterface userForm = new FormUserInterface();
+                        userForm.Show();
+                        this.Hide();
+                        userForm.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+                    }
+                    else
+                    {
+                        ErrorMessage.Text = "Your registration request is treated!";
+                        ErrorMessage.Visible = true;
+                    }
                 }
             }
             else
@@ -98,6 +105,46 @@ namespace Library___Login
         private void Username_TextChanged(object sender, EventArgs e)
         {
             Username.ForeColor = Color.Black;
+        }
+
+        private void Username_MouseClick(object sender, MouseEventArgs e)
+        {
+            Username.Text = "";
+            if (Password.Text == "")
+            {
+                Password.Text = "Password";
+                Password.ForeColor = Color.Gray;
+            }
+        }
+
+        private void Username_Click(object sender, EventArgs e)
+        {
+            Username.Text = "";
+            if (Password.Text == "")
+            {
+                Password.Text = "Password";
+                Password.ForeColor = Color.Gray;
+            }
+        }
+
+        private void Password_MouseClick(object sender, MouseEventArgs e)
+        {
+            Password.Text = "";
+            if (Username.Text == "")
+            {
+                Username.Text = "Enter e-mail";
+                Username.ForeColor = Color.Gray;
+            }
+        }
+
+        private void Password_Click(object sender, EventArgs e)
+        {
+            Password.Text = "";
+            if (Username.Text == "")
+            {
+                Username.Text = "Enter e-mail";
+                Username.ForeColor = Color.Gray;
+            }
         }
     }
 }

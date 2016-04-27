@@ -112,6 +112,28 @@ namespace Library___Login
             return userRole;
         }
 
+        // verification if is user blocked
+        public bool isUserBlocked(string email)
+        {
+            string status = null;
+            if (openConnection())
+            {
+                string sqlQuery = "select Active from UsersLogin where email like '" + email + "'";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    status = reader["Active"] + "";
+                }
+                closeConnection();
+                if (status.Equals("blocked"))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         // verification if user is admin or not according his id
         public string getUserRole(string userID)
         {

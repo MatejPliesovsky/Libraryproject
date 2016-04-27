@@ -67,6 +67,8 @@
             this.Username.Size = new System.Drawing.Size(141, 20);
             this.Username.TabIndex = 2;
             this.Username.Text = "tomas.tomcik@akademiasovy.sk";
+            this.Username.Click += new System.EventHandler(this.Username_Click);
+            this.Username.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Username_MouseClick);
             this.Username.TextChanged += new System.EventHandler(this.Username_TextChanged);
             // 
             // Login
@@ -91,6 +93,8 @@
             this.Password.Size = new System.Drawing.Size(141, 20);
             this.Password.TabIndex = 3;
             this.Password.Text = "strkovisko";
+            this.Password.Click += new System.EventHandler(this.Password_Click);
+            this.Password.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Password_MouseClick);
             this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
             // 
             // ErrorMessage
