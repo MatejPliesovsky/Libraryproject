@@ -38,3 +38,4 @@ A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Log
 A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\Library - Login.exe.config
 A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library - Login.exe
 A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormUpdateUser.resources

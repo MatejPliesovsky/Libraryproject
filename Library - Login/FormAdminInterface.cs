@@ -22,7 +22,7 @@ namespace Library___Login
             DatabaseInfo.Visible = false;
             AdminID = UserID;
             waitingReg = con.waitingRegistration();
-            if(waitingReg > 0)
+            if (waitingReg > 0)
             {
                 registrationReguestToolStripMenuItem.Text = "Registration Request (" + waitingReg + ")";
             }
@@ -62,12 +62,6 @@ namespace Library___Login
 
         private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //settings visibility of updating users items
-            SearchBar.Visible = false;
-            Search_btn.Visible = false;
-            listView1.Visible = false;
-            Refresh.Visible = false;
-
             //settings visibility of confirming or refusing requests
             RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible = RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible = RRlabel10.Visible = false;
             groupBox1.Visible = groupBox2.Visible = groupBox3.Visible = groupBox4.Visible = groupBox5.Visible = groupBox6.Visible = false;
@@ -80,7 +74,7 @@ namespace Library___Login
             RRemail1.Visible = RRemail2.Visible = RRemail3.Visible = RRemail4.Visible = RRemail5.Visible = false;
             RRPermission1.Visible = RRPermission2.Visible = RRPermission3.Visible = RRPermission4.Visible = RRPermission5.Visible = false;
 
-           FormAddBooks form = new FormAddBooks();
+            FormAddBooks form = new FormAddBooks();
             form.Show(); // or form.ShowDialog(this);
 
         }
@@ -90,11 +84,6 @@ namespace Library___Login
             DatabaseInfo.Visible = false;
             registrationReguestToolStripMenuItem.Checked = true;
             addBooksToolStripMenuItem.Checked = false;
-
-            SearchBar.Visible = false;
-            Search_btn.Visible = false;
-            listView1.Visible = false;
-            Refresh.Visible = false;
 
             //finding information from database to textboxes
             waitingReg = con.waitingRegistration();
@@ -326,7 +315,7 @@ namespace Library___Login
                 userID = RRUserID1.Text;
                 permission = RRPermission1.Text;
                 active = "active";
-                if(con.writeUserAsActive(userID, permission, active))
+                if (con.writeUserAsActive(userID, permission, active))
                 {
                     DatabaseInfo.Text = "User was added to the database as " + permission;
                     DatabaseInfo.Visible = true;
@@ -425,68 +414,9 @@ namespace Library___Login
 
         private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            SearchBar.Visible = true;
-            Search_btn.Visible = true;
-            listView1.Visible = true;
-            Refresh.Visible = true;
-
-            List<string> userID = new List<string>();
-            List<string> userFirstName = new List<string>();
-            List<string> userLastName = new List<string>();
-            List<string> userAges = new List<string>();
-            List<string> useremails = new List<string>();
-            List<string> userRole = new List<string>();
-            List<string> userStatus = new List<string>();
-
-            userID = con.getUsersID(SearchBar.Text);
-            userFirstName = con.getUsersFirstName(SearchBar.Text);
-            userLastName = con.getUsersLastName(SearchBar.Text);
-            userAges = con.getUsersAge(SearchBar.Text);
-            useremails = con.getUsersEmails(SearchBar.Text);
-            userRole = con.getUsersRoles(SearchBar.Text);
-            userStatus = con.getUsersStatus(SearchBar.Text);
-
-            for (int i = 0;i < userFirstName.Count; i++)
-            {
-                ListViewItem item = new ListViewItem(userFirstName[i]);
-                item.SubItems.Add(userLastName[i]);
-                item.SubItems.Add(userAges[i]);
-                item.SubItems.Add(userRole[i]);
-                item.SubItems.Add(userStatus[i]);
-
-                this.listView1.Items.Add(item);
-            }
-            this.listView1.View = View.Details;
-        }
-
-        private void Search_btn_Click(object sender, EventArgs e)
-        {
-            updateUserToolStripMenuItem_Click(Search_btn, null);
-        }
-
-        private void Refresh_Click(object sender, EventArgs e)
-        {
-            SearchBar.Text = "";
-            updateUserToolStripMenuItem_Click(Search_btn, null);
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = 0;
-            index = (listView1.SelectedIndices.Count) - 1;
-            if (index < 0)
-            {
-                index = index + listView1.SelectedIndices.Count;
-            }
-            else
-            {
-                string info = listView1.SelectedItems[index].Text;
-                FormUserDetails userDetail = new FormUserDetails(AdminID, info);
-                userDetail.ShowDialog();
-                Search_btn.Select();
-                this.Update();
-            }
+            FormUpdateUser updateUser = new FormUpdateUser(AdminID);
+            updateUser.Show();
+            this.Close();
         }
     }
 }

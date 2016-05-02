@@ -104,16 +104,7 @@
             this.RRUserID3 = new System.Windows.Forms.TextBox();
             this.RRUserID4 = new System.Windows.Forms.TextBox();
             this.RRUserID5 = new System.Windows.Forms.TextBox();
-            this.SearchBar = new System.Windows.Forms.TextBox();
-            this.Search_btn = new System.Windows.Forms.Button();
             this.DatabaseInfo = new System.Windows.Forms.Label();
-            this.Refresh = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -817,25 +808,6 @@
             this.RRUserID5.TabIndex = 42;
             this.RRUserID5.Visible = false;
             // 
-            // SearchBar
-            // 
-            this.SearchBar.Location = new System.Drawing.Point(131, 27);
-            this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(162, 20);
-            this.SearchBar.TabIndex = 45;
-            this.SearchBar.Visible = false;
-            // 
-            // Search_btn
-            // 
-            this.Search_btn.Location = new System.Drawing.Point(299, 25);
-            this.Search_btn.Name = "Search_btn";
-            this.Search_btn.Size = new System.Drawing.Size(175, 23);
-            this.Search_btn.TabIndex = 46;
-            this.Search_btn.Text = "SEARCH";
-            this.Search_btn.UseVisualStyleBackColor = true;
-            this.Search_btn.Visible = false;
-            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
-            // 
             // DatabaseInfo
             // 
             this.DatabaseInfo.AutoSize = true;
@@ -847,69 +819,12 @@
             this.DatabaseInfo.TabIndex = 47;
             this.DatabaseInfo.Text = "Cannot connect to database!";
             // 
-            // Refresh
-            // 
-            this.Refresh.Location = new System.Drawing.Point(251, 257);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(133, 23);
-            this.Refresh.TabIndex = 48;
-            this.Refresh.Text = "Refresh";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Visible = false;
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
-            this.listView1.Location = new System.Drawing.Point(111, 53);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(451, 198);
-            this.listView1.TabIndex = 49;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.Visible = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "First Name";
-            this.columnHeader1.Width = 99;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Last Name";
-            this.columnHeader2.Width = 113;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Age";
-            this.columnHeader3.Width = 68;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Permissions";
-            this.columnHeader4.Width = 98;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Status";
-            this.columnHeader5.Width = 69;
-            // 
             // FormAdminInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 289);
             this.Controls.Add(this.DatabaseInfo);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.Refresh);
-            this.Controls.Add(this.Search_btn);
-            this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.RRUserID5);
             this.Controls.Add(this.RRUserID4);
             this.Controls.Add(this.RRUserID3);
@@ -1056,15 +971,6 @@
         private System.Windows.Forms.ToolStripMenuItem addBookLanguageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem switchToUserToolStripMenuItem;
-        private System.Windows.Forms.TextBox SearchBar;
-        private System.Windows.Forms.Button Search_btn;
         private System.Windows.Forms.Label DatabaseInfo;
-        private System.Windows.Forms.Button Refresh;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
