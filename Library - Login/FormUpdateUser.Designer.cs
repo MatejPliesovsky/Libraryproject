@@ -1,0 +1,290 @@
+﻿namespace Library___Login
+{
+    partial class FormUpdateUser
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Refresh = new System.Windows.Forms.Button();
+            this.Search_btn = new System.Windows.Forms.Button();
+            this.SearchBar = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.booksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCategoryBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBookLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrationReguestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.switchToUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listView1.Location = new System.Drawing.Point(108, 67);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(451, 198);
+            this.listView1.TabIndex = 53;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "First Name";
+            this.columnHeader1.Width = 99;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Last Name";
+            this.columnHeader2.Width = 113;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Age";
+            this.columnHeader3.Width = 68;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Permissions";
+            this.columnHeader4.Width = 98;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Status";
+            this.columnHeader5.Width = 69;
+            // 
+            // Refresh
+            // 
+            this.Refresh.Location = new System.Drawing.Point(248, 271);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(133, 23);
+            this.Refresh.TabIndex = 52;
+            this.Refresh.Text = "Refresh";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+            // Search_btn
+            // 
+            this.Search_btn.Location = new System.Drawing.Point(296, 39);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(175, 23);
+            this.Search_btn.TabIndex = 51;
+            this.Search_btn.Text = "SEARCH";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
+            // 
+            // SearchBar
+            // 
+            this.SearchBar.Location = new System.Drawing.Point(128, 41);
+            this.SearchBar.Name = "SearchBar";
+            this.SearchBar.Size = new System.Drawing.Size(162, 20);
+            this.SearchBar.TabIndex = 50;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.booksToolStripMenuItem,
+            this.loansToolStripMenuItem,
+            this.updateUserToolStripMenuItem,
+            this.registrationReguestToolStripMenuItem,
+            this.switchToUserToolStripMenuItem,
+            this.aboutToolStripMenuItem,
+            this.logOutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.TabIndex = 54;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // booksToolStripMenuItem
+            // 
+            this.booksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addBooksToolStripMenuItem,
+            this.addCategoryBookToolStripMenuItem,
+            this.addBookLanguageToolStripMenuItem,
+            this.removeBooksToolStripMenuItem,
+            this.checkBooksToolStripMenuItem});
+            this.booksToolStripMenuItem.Name = "booksToolStripMenuItem";
+            this.booksToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.booksToolStripMenuItem.Text = "Books";
+            // 
+            // addBooksToolStripMenuItem
+            // 
+            this.addBooksToolStripMenuItem.Name = "addBooksToolStripMenuItem";
+            this.addBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.addBooksToolStripMenuItem.Text = "Add Books";
+            // 
+            // addCategoryBookToolStripMenuItem
+            // 
+            this.addCategoryBookToolStripMenuItem.Name = "addCategoryBookToolStripMenuItem";
+            this.addCategoryBookToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.addCategoryBookToolStripMenuItem.Text = "Add Book Category";
+            // 
+            // addBookLanguageToolStripMenuItem
+            // 
+            this.addBookLanguageToolStripMenuItem.Name = "addBookLanguageToolStripMenuItem";
+            this.addBookLanguageToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.addBookLanguageToolStripMenuItem.Text = "Add Book Language";
+            // 
+            // removeBooksToolStripMenuItem
+            // 
+            this.removeBooksToolStripMenuItem.Name = "removeBooksToolStripMenuItem";
+            this.removeBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.removeBooksToolStripMenuItem.Text = "Remove books";
+            // 
+            // checkBooksToolStripMenuItem
+            // 
+            this.checkBooksToolStripMenuItem.Name = "checkBooksToolStripMenuItem";
+            this.checkBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.checkBooksToolStripMenuItem.Text = "Check Books";
+            // 
+            // loansToolStripMenuItem
+            // 
+            this.loansToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addLoansToolStripMenuItem,
+            this.removeLoansToolStripMenuItem,
+            this.checkLoansToolStripMenuItem});
+            this.loansToolStripMenuItem.Name = "loansToolStripMenuItem";
+            this.loansToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.loansToolStripMenuItem.Text = "Loans";
+            // 
+            // addLoansToolStripMenuItem
+            // 
+            this.addLoansToolStripMenuItem.Name = "addLoansToolStripMenuItem";
+            this.addLoansToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.addLoansToolStripMenuItem.Text = "Add loans";
+            // 
+            // removeLoansToolStripMenuItem
+            // 
+            this.removeLoansToolStripMenuItem.Name = "removeLoansToolStripMenuItem";
+            this.removeLoansToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.removeLoansToolStripMenuItem.Text = "Remove loans";
+            // 
+            // checkLoansToolStripMenuItem
+            // 
+            this.checkLoansToolStripMenuItem.Name = "checkLoansToolStripMenuItem";
+            this.checkLoansToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.checkLoansToolStripMenuItem.Text = "Check loans";
+            // 
+            // updateUserToolStripMenuItem
+            // 
+            this.updateUserToolStripMenuItem.Name = "updateUserToolStripMenuItem";
+            this.updateUserToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.updateUserToolStripMenuItem.Text = "Update user";
+            // 
+            // registrationReguestToolStripMenuItem
+            // 
+            this.registrationReguestToolStripMenuItem.Name = "registrationReguestToolStripMenuItem";
+            this.registrationReguestToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
+            this.registrationReguestToolStripMenuItem.Text = " Registration Request (0)";
+            // 
+            // switchToUserToolStripMenuItem
+            // 
+            this.switchToUserToolStripMenuItem.Name = "switchToUserToolStripMenuItem";
+            this.switchToUserToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.switchToUserToolStripMenuItem.Text = "Switch to user";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            // 
+            // FormUpdateUser
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(684, 313);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.Refresh);
+            this.Controls.Add(this.Search_btn);
+            this.Controls.Add(this.SearchBar);
+            this.Name = "FormUpdateUser";
+            this.Text = "FormUpdateUser";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button Search_btn;
+        private System.Windows.Forms.TextBox SearchBar;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem booksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBooksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addCategoryBookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBookLanguageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeBooksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkBooksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addLoansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeLoansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkLoansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateUserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrationReguestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem switchToUserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+    }
+}
