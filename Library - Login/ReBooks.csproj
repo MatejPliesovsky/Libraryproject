@@ -99,6 +99,18 @@
     <Compile Include="FormAddBookLanguage.Designer.cs">
       <DependentUpon>FormAddBookLanguage.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuAdminUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuAdminUserControl1.Designer.cs">
+      <DependentUpon>MenuAdminUserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuUserControl1.Designer.cs">
+      <DependentUpon>MenuUserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +154,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddBookLanguage.resx">
       <DependentUpon>FormAddBookLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuAdminUserControl1.resx">
+      <DependentUpon>MenuAdminUserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuUserControl1.resx">
+      <DependentUpon>MenuUserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>

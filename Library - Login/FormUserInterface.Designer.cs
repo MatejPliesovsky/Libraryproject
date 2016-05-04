@@ -54,7 +54,7 @@
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(180, 12);
+            this.listView1.Location = new System.Drawing.Point(208, 73);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(516, 270);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
@@ -85,7 +85,7 @@
             // 
             // Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(333, 288);
+            this.Refresh.Location = new System.Drawing.Point(361, 349);
             this.Refresh.Name = "Refresh";
             this.Refresh.Size = new System.Drawing.Size(133, 23);
             this.Refresh.TabIndex = 1;
@@ -95,7 +95,7 @@
             // 
             // Search_btn
             // 
-            this.Search_btn.Location = new System.Drawing.Point(12, 288);
+            this.Search_btn.Location = new System.Drawing.Point(40, 349);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(120, 23);
             this.Search_btn.TabIndex = 2;
@@ -105,7 +105,7 @@
             // 
             // SearchBar
             // 
-            this.SearchBar.Location = new System.Drawing.Point(12, 12);
+            this.SearchBar.Location = new System.Drawing.Point(40, 73);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(162, 20);
             this.SearchBar.TabIndex = 3;
@@ -113,7 +113,7 @@
             // SearchFree
             // 
             this.SearchFree.AutoSize = true;
-            this.SearchFree.Location = new System.Drawing.Point(12, 182);
+            this.SearchFree.Location = new System.Drawing.Point(40, 243);
             this.SearchFree.Name = "SearchFree";
             this.SearchFree.Size = new System.Drawing.Size(66, 17);
             this.SearchFree.TabIndex = 4;
@@ -123,7 +123,7 @@
             // 
             // SwitchToAdmin
             // 
-            this.SwitchToAdmin.Location = new System.Drawing.Point(603, 288);
+            this.SwitchToAdmin.Location = new System.Drawing.Point(631, 349);
             this.SwitchToAdmin.Name = "SwitchToAdmin";
             this.SwitchToAdmin.Size = new System.Drawing.Size(93, 23);
             this.SwitchToAdmin.TabIndex = 5;
@@ -140,7 +140,7 @@
             "Drama",
             "Story",
             "Thriler"});
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 82);
+            this.checkedListBox1.Location = new System.Drawing.Point(40, 143);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
             this.checkedListBox1.TabIndex = 6;
@@ -148,7 +148,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 66);
+            this.label1.Location = new System.Drawing.Point(37, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 7;
@@ -158,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 328);
+            this.ClientSize = new System.Drawing.Size(774, 404);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.SwitchToAdmin);

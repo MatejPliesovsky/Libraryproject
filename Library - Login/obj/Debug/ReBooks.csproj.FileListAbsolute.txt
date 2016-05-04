@@ -39,3 +39,24 @@ A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\Lib
 A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library - Login.exe
 A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library - Login.pdb
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormUpdateUser.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\Library - Login.exe.config
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.exe
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormBookDetails.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormUpdateUser.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserDetails.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserInterface.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormLogin.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.MenuAdminUserControl1.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.Users.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.MenuUserControl1.resources
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\Library - Login.exe
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\Library - Login.pdb
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\MySql.Data.dll

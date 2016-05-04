@@ -36,6 +36,8 @@ namespace Library___Login
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
             }
+
+            showItems();
         }
 
         public FormAdminInterface(string username, string password)
@@ -58,28 +60,11 @@ namespace Library___Login
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
             }
+
+            showItems();
         }
 
-        private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //settings visibility of confirming or refusing requests
-            RRlabel1.Visible = RRlabel2.Visible = RRlabel3.Visible = RRlabel4.Visible = RRlabel5.Visible = RRlabel6.Visible = RRlabel7.Visible = RRlabel8.Visible = RRlabel9.Visible = RRlabel10.Visible = false;
-            groupBox1.Visible = groupBox2.Visible = groupBox3.Visible = groupBox4.Visible = groupBox5.Visible = groupBox6.Visible = false;
-            RRConfirm1.Visible = RRConfirm2.Visible = RRConfirm3.Visible = RRConfirm4.Visible = RRConfirm5.Visible = RRConfirmAll.Visible = false;
-            RRRefuse1.Visible = RRRefuse2.Visible = RRRefuse3.Visible = RRRefuse4.Visible = RRRefuse5.Visible = RRRefuseAll.Visible = false;
-            RRUserID1.Visible = RRUserID2.Visible = RRUserID3.Visible = RRUserID4.Visible = RRUserID5.Visible = false;
-            RRFirstName1.Visible = RRFirstName2.Visible = RRFirstName3.Visible = RRFirstName4.Visible = RRFirstName5.Visible = false;
-            RRLastName1.Visible = RRLastName2.Visible = RRLastName3.Visible = RRLastName4.Visible = RRLastName5.Visible = false;
-            RRAge1.Visible = RRAge2.Visible = RRAge3.Visible = RRAge4.Visible = RRAge5.Visible = false;
-            RRemail1.Visible = RRemail2.Visible = RRemail3.Visible = RRemail4.Visible = RRemail5.Visible = false;
-            RRPermission1.Visible = RRPermission2.Visible = RRPermission3.Visible = RRPermission4.Visible = RRPermission5.Visible = false;
-
-            FormAddBooks form = new FormAddBooks();
-            form.Show(); // or form.ShowDialog(this);
-
-        }
-
-        public void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showItems()
         {
             DatabaseInfo.Visible = false;
             registrationReguestToolStripMenuItem.Checked = true;
@@ -300,6 +285,16 @@ namespace Library___Login
             }
         }
 
+        private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -416,7 +411,7 @@ namespace Library___Login
         {
             FormUpdateUser updateUser = new FormUpdateUser(AdminID);
             updateUser.Show();
-            this.Close();
+
         }
     }
 }
