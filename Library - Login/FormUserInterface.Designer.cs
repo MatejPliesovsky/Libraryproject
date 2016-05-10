@@ -41,6 +41,9 @@
             this.SwitchToAdmin = new System.Windows.Forms.Button();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
@@ -50,7 +53,8 @@
             this.columnHeader1,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader5});
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.listView1.GridLines = true;
@@ -66,22 +70,22 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "BookName";
-            this.columnHeader1.Width = 137;
+            this.columnHeader1.Width = 124;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Author";
-            this.columnHeader3.Width = 153;
+            this.columnHeader3.Width = 105;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Lent";
-            this.columnHeader4.Width = 92;
+            this.columnHeader4.Width = 66;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Category";
-            this.columnHeader2.Width = 125;
+            this.columnHeader2.Width = 114;
             // 
             // Refresh
             // 
@@ -113,7 +117,11 @@
             // SearchFree
             // 
             this.SearchFree.AutoSize = true;
+<<<<<<< HEAD
+            this.SearchFree.Location = new System.Drawing.Point(13, 38);
+=======
             this.SearchFree.Location = new System.Drawing.Point(40, 243);
+>>>>>>> 81e0890581bae6f6745c90c5fb602e0baaab68b2
             this.SearchFree.Name = "SearchFree";
             this.SearchFree.Size = new System.Drawing.Size(66, 17);
             this.SearchFree.TabIndex = 4;
@@ -154,11 +162,45 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Choose category";
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Language";
+            this.columnHeader5.Width = 123;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Items.AddRange(new object[] {
+            "English",
+            "Slovak",
+            "Germany",
+            "Spain",
+            "Polish"});
+            this.checkedListBox2.Location = new System.Drawing.Point(13, 206);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(120, 79);
+            this.checkedListBox2.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 183);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Choose language";
+            // 
             // FormUserInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(708, 328);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.checkedListBox2);
+=======
             this.ClientSize = new System.Drawing.Size(774, 404);
+>>>>>>> 81e0890581bae6f6745c90c5fb602e0baaab68b2
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.SwitchToAdmin);
@@ -191,5 +233,8 @@
         private System.Windows.Forms.Button SwitchToAdmin;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.Label label2;
     }
 }

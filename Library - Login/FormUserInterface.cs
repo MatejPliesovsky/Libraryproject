@@ -51,6 +51,10 @@ namespace Library___Login
             {
                 checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
             }
+            for (int j = 0; j < checkedListBox1.Items.Count; j++)
+            {
+                checkedListBox2.SetItemCheckState(j, CheckState.Unchecked);
+            }
             Form2_Shown(Refresh, null);
         }
 
@@ -70,11 +74,13 @@ namespace Library___Login
             List<string> authors = new List<string>();
             List<string> Lents = new List<string>();
             List<string> category = new List<string>();
+            List<string> language = new List<string>();
 
             books = connection.searchBookNames(null, false, categories);
             authors = connection.searchAuthor(null, false, categories);
             Lents = connection.searchLents(null, false, categories);
             category = connection.searchCategory(null, false, categories);
+            language = connection.searchLanguage(null, false, categories);
 
             for (int i = 0; i < books.Count; i++)
             {
@@ -82,6 +88,7 @@ namespace Library___Login
                 item.SubItems.Add(authors[i]);
                 item.SubItems.Add(Lents[i]);
                 item.SubItems.Add(category[i]);
+                item.SubItems.Add(language[i]);
 
                 listView1.Items.Add(item);
             }
@@ -94,6 +101,7 @@ namespace Library___Login
             List<string> authors = new List<string>();
             List<string> Lents = new List<string>();
             List<string> category = new List<string>();
+            List<string> language = new List<string>();
 
             listView1.Items.Clear();
             for (int i = 0;i < checkedListBox1.Items.Count; i++)
@@ -103,6 +111,10 @@ namespace Library___Login
                     categories = categories + checkedListBox1.Items[i].ToString() + ";";
                 }
             }
+            for (int j = 0; j < checkedListBox1.Items.Count; j++)
+            {
+                checkedListBox2.SetItemCheckState(j, CheckState.Unchecked);
+            }
 
             if (SearchFree.Checked==true)
             {
@@ -111,6 +123,7 @@ namespace Library___Login
                 authors = connection.searchAuthor(search, true, categories);
                 Lents = connection.searchLents(search, true, categories);
                 category = connection.searchCategory(search, true, categories);
+                language = connection.searchLanguage(search, true, categories);
             }
             else
             {
@@ -119,14 +132,17 @@ namespace Library___Login
                 authors = connection.searchAuthor(search, false, categories);
                 Lents = connection.searchLents(search, false, categories);
                 category = connection.searchCategory(search, false, categories);
+                language = connection.searchLanguage(search, false, categories);
             }
             
+
             for (int i = 0; i < books.Count; i++)
             {
                 ListViewItem item = new ListViewItem(books[i]);
                 item.SubItems.Add(authors[i]);
                 item.SubItems.Add(Lents[i]);
                 item.SubItems.Add(category[i]);
+                item.SubItems.Add(language[i]);
 
                 listView1.Items.Add(item);
             }
@@ -141,6 +157,7 @@ namespace Library___Login
             List<string> authors = new List<string>();
             List<string> Lents = new List<string>();
             List<string> category = new List<string>();
+            List<string> language = new List<string>();
 
             listView1.Items.Clear();
             for (int i = 0; i < checkedListBox1.Items.Count; i++)

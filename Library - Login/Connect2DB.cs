@@ -921,6 +921,70 @@ namespace Library___Login
             }
         }
 
+        // searching Language according search parameters
+        public List<string> searchLanguage(string search, bool free, string languages)
+        {
+            if (languages != null)
+            {
+                string[] language;
+                language = languages.Split(';');
+
+                List<string> Language = new List<string>();
+                if (openConnection())
+                {
+                    string sqlQuery;
+                    for (int i = 0; i < (language.Length) - 1; i++)
+                    {
+                        if (free == true)
+                        {
+                            sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + language[i] + "'";
+                        }
+                        else
+                        {
+                            sqlQuery = "SELECT LanguageName FROM BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and LanguageName like '" + language[i] + "'";
+                        }
+                        MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Language.Add((reader["LanguageName"].ToString()));
+                        }
+                        reader.Close();
+                    }
+                    closeConnection();
+                    return Language;
+                }
+                return Language;
+            }
+            else
+            {
+                List<string> Language = new List<string>();
+                if (openConnection())
+                {
+                    string sqlQuery;
+                    if (free == true)
+                    {
+                        sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0";
+                    }
+                    else
+                    {
+                        sqlQuery = "SELECT LanguageName FROM BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%')";
+                    }
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Language.Add((reader["LanguageName"].ToString()));
+                    }
+                    closeConnection();
+                    return Language;
+                }
+                return Language;
+            }
+        }
+
         // find details about book according its name
         public List<string> bookDetails(string bookName)
         {
