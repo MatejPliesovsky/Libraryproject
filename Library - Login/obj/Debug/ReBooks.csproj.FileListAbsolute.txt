@@ -82,3 +82,5 @@ C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\Libra
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\Library - Login.pdb
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\bin\Debug\MySql.Data.dll
 >>>>>>> 81e0890581bae6f6745c90c5fb602e0baaab68b2
+A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.MenuAdminUserControl1.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.MenuUserControl1.resources

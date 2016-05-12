@@ -34,6 +34,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Refresh = new System.Windows.Forms.Button();
             this.Search_btn = new System.Windows.Forms.Button();
             this.SearchBar = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@
             this.SwitchToAdmin = new System.Windows.Forms.Button();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -87,9 +87,14 @@
             this.columnHeader2.Text = "Category";
             this.columnHeader2.Width = 114;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Language";
+            this.columnHeader5.Width = 123;
+            // 
             // Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(361, 349);
+            this.Refresh.Location = new System.Drawing.Point(357, 358);
             this.Refresh.Name = "Refresh";
             this.Refresh.Size = new System.Drawing.Size(133, 23);
             this.Refresh.TabIndex = 1;
@@ -99,7 +104,7 @@
             // 
             // Search_btn
             // 
-            this.Search_btn.Location = new System.Drawing.Point(40, 349);
+            this.Search_btn.Location = new System.Drawing.Point(40, 358);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(120, 23);
             this.Search_btn.TabIndex = 2;
@@ -117,11 +122,7 @@
             // SearchFree
             // 
             this.SearchFree.AutoSize = true;
-<<<<<<< HEAD
-            this.SearchFree.Location = new System.Drawing.Point(13, 38);
-=======
-            this.SearchFree.Location = new System.Drawing.Point(40, 243);
->>>>>>> 81e0890581bae6f6745c90c5fb602e0baaab68b2
+            this.SearchFree.Location = new System.Drawing.Point(40, 335);
             this.SearchFree.Name = "SearchFree";
             this.SearchFree.Size = new System.Drawing.Size(66, 17);
             this.SearchFree.TabIndex = 4;
@@ -131,7 +132,7 @@
             // 
             // SwitchToAdmin
             // 
-            this.SwitchToAdmin.Location = new System.Drawing.Point(631, 349);
+            this.SwitchToAdmin.Location = new System.Drawing.Point(631, 358);
             this.SwitchToAdmin.Name = "SwitchToAdmin";
             this.SwitchToAdmin.Size = new System.Drawing.Size(93, 23);
             this.SwitchToAdmin.TabIndex = 5;
@@ -148,7 +149,7 @@
             "Drama",
             "Story",
             "Thriler"});
-            this.checkedListBox1.Location = new System.Drawing.Point(40, 143);
+            this.checkedListBox1.Location = new System.Drawing.Point(40, 122);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
             this.checkedListBox1.TabIndex = 6;
@@ -156,16 +157,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 127);
+            this.label1.Location = new System.Drawing.Point(37, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Choose category";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Language";
-            this.columnHeader5.Width = 123;
             // 
             // checkedListBox2
             // 
@@ -176,7 +172,7 @@
             "Germany",
             "Spain",
             "Polish"});
-            this.checkedListBox2.Location = new System.Drawing.Point(13, 206);
+            this.checkedListBox2.Location = new System.Drawing.Point(40, 250);
             this.checkedListBox2.Name = "checkedListBox2";
             this.checkedListBox2.Size = new System.Drawing.Size(120, 79);
             this.checkedListBox2.TabIndex = 8;
@@ -184,7 +180,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 183);
+            this.label2.Location = new System.Drawing.Point(37, 234);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 9;
@@ -194,13 +190,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(708, 328);
+            this.ClientSize = new System.Drawing.Size(774, 404);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkedListBox2);
-=======
-            this.ClientSize = new System.Drawing.Size(774, 404);
->>>>>>> 81e0890581bae6f6745c90c5fb602e0baaab68b2
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.SwitchToAdmin);

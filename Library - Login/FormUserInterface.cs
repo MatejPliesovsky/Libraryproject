@@ -50,23 +50,24 @@ namespace Library___Login
             for (int i = 0;i < checkedListBox1.Items.Count; i++)
             {
                 checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
-            }
-            for (int j = 0; j < checkedListBox1.Items.Count; j++)
-            {
-                checkedListBox2.SetItemCheckState(j, CheckState.Unchecked);
+                checkedListBox2.SetItemCheckState(i, CheckState.Unchecked);
             }
             Form2_Shown(Refresh, null);
         }
 
         private void Form2_Shown(object sender, EventArgs e)
         {
-            string categories = null;
+            string categories = null, languages = null;
             listView1.Items.Clear();
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
                 if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
                 {
                     categories = categories + checkedListBox1.Items[i].ToString() + ";";
+                }
+                if (checkedListBox2.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    languages = languages + checkedListBox2.Items[i].ToString() + ";";
                 }
             }
 
@@ -76,11 +77,11 @@ namespace Library___Login
             List<string> category = new List<string>();
             List<string> language = new List<string>();
 
-            books = connection.searchBookNames(null, false, categories);
-            authors = connection.searchAuthor(null, false, categories);
-            Lents = connection.searchLents(null, false, categories);
-            category = connection.searchCategory(null, false, categories);
-            language = connection.searchLanguage(null, false, categories);
+            books = connection.searchBookNames(null, false, categories, languages);
+            authors = connection.searchAuthor(null, false, categories, languages);
+            Lents = connection.searchLents(null, false, categories, languages);
+            category = connection.searchCategory(null, false, categories, languages);
+            language = connection.searchLanguage(null, false, categories, languages);
 
             for (int i = 0; i < books.Count; i++)
             {
@@ -96,7 +97,7 @@ namespace Library___Login
 
         private void Search_btn_Click(object sender, EventArgs e)
         {
-            string search, categories = null;
+            string search, categories = null, languages = null;
             List<string> books = new List<string>();
             List<string> authors = new List<string>();
             List<string> Lents = new List<string>();
@@ -110,29 +111,29 @@ namespace Library___Login
                 {
                     categories = categories + checkedListBox1.Items[i].ToString() + ";";
                 }
-            }
-            for (int j = 0; j < checkedListBox1.Items.Count; j++)
-            {
-                checkedListBox2.SetItemCheckState(j, CheckState.Unchecked);
+                if (checkedListBox2.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    languages = languages + checkedListBox2.Items[i].ToString() + ";";
+                }
             }
 
             if (SearchFree.Checked==true)
             {
                 search = SearchBar.Text;
-                books = connection.searchBookNames(search, true, categories);
-                authors = connection.searchAuthor(search, true, categories);
-                Lents = connection.searchLents(search, true, categories);
-                category = connection.searchCategory(search, true, categories);
-                language = connection.searchLanguage(search, true, categories);
+                books = connection.searchBookNames(search, true, categories, languages);
+                authors = connection.searchAuthor(search, true, categories, languages);
+                Lents = connection.searchLents(search, true, categories, languages);
+                category = connection.searchCategory(search, true, categories, languages);
+                language = connection.searchLanguage(search, true, categories, languages);
             }
             else
             {
                 search = SearchBar.Text;
-                books = connection.searchBookNames(search, false, categories);
-                authors = connection.searchAuthor(search, false, categories);
-                Lents = connection.searchLents(search, false, categories);
-                category = connection.searchCategory(search, false, categories);
-                language = connection.searchLanguage(search, false, categories);
+                books = connection.searchBookNames(search, false, categories, languages);
+                authors = connection.searchAuthor(search, false, categories, languages);
+                Lents = connection.searchLents(search, false, categories, languages);
+                category = connection.searchCategory(search, false, categories, languages);
+                language = connection.searchLanguage(search, false, categories, languages);
             }
             
 
@@ -151,7 +152,7 @@ namespace Library___Login
 
         private void SearchFree_CheckedChanged(object sender, EventArgs e)
         {
-            bool lent;
+            /*bool lent;
             string search, categories = null;
             List<string> books = new List<string>();
             List<string> authors = new List<string>();
@@ -184,8 +185,7 @@ namespace Library___Login
                 item.SubItems.Add(category[i]);
 
                 listView1.Items.Add(item);
-            }
-
+            }*/
         }
 
         private void bookDetail_FormClosed(object sender, FormClosedEventArgs e)
