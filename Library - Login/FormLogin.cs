@@ -16,10 +16,12 @@ namespace Library___Login
         {
             InitializeComponent();
             ErrorMessage.Visible = false;
-            Username.Text = "Enter e-mail";
-            Password.Text = "Password";
+            Username.Text = "Please enter your email";
+            Password.Text = "Please enter your password";
             Username.ForeColor = Color.Gray;
             Password.ForeColor = Color.Gray;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         // after clicking button "Sign up", there will be opened new method with registration form
@@ -76,7 +78,7 @@ namespace Library___Login
         private void Password_TextChanged(object sender, EventArgs e)
         {
             Password.ForeColor = Color.Black;
-            Password.PasswordChar = '*';
+           // Password.PasswordChar = '*';
         }
 
         //if some opened formular will be closed, login form closed as well
@@ -88,8 +90,8 @@ namespace Library___Login
             }
             else
             {
-                Username.Text = "Enter e-mail";
-                Password.Text = "Password";
+                Username.Text = "Please enter your email";
+                Password.Text = "Please enter your password";
                 Username.ForeColor = Color.Gray;
                 Password.ForeColor = Color.Gray;
                 ErrorMessage.Visible = false;
@@ -112,7 +114,7 @@ namespace Library___Login
             Username.Text = "";
             if (Password.Text == "")
             {
-                Password.Text = "Password";
+                Password.Text = "Please enter your password";
                 Password.ForeColor = Color.Gray;
             }
         }
@@ -122,7 +124,7 @@ namespace Library___Login
             Username.Text = "";
             if (Password.Text == "")
             {
-                Password.Text = "Password";
+                Password.Text = "Please enter your password";
                 Password.ForeColor = Color.Gray;
             }
         }
@@ -132,7 +134,7 @@ namespace Library___Login
             Password.Text = "";
             if (Username.Text == "")
             {
-                Username.Text = "Enter e-mail";
+                Username.Text = "Please enter your email";
                 Username.ForeColor = Color.Gray;
             }
         }
@@ -142,9 +144,14 @@ namespace Library___Login
             Password.Text = "";
             if (Username.Text == "")
             {
-                Username.Text = "Enter e-mail";
+                Username.Text = "Please enter your email";
                 Username.ForeColor = Color.Gray;
             }
+        }
+
+        private void Password_Enter(object sender, EventArgs e)
+        {
+            Password.PasswordChar = '*';
         }
     }
 }

@@ -58,9 +58,9 @@
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(208, 73);
+            this.listView1.Location = new System.Drawing.Point(225, 36);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(516, 270);
+            this.listView1.Size = new System.Drawing.Size(543, 423);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -94,9 +94,9 @@
             // 
             // Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(357, 358);
+            this.Refresh.Location = new System.Drawing.Point(225, 465);
             this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(133, 23);
+            this.Refresh.Size = new System.Drawing.Size(543, 23);
             this.Refresh.TabIndex = 1;
             this.Refresh.Text = "Refresh";
             this.Refresh.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
             // 
             // Search_btn
             // 
-            this.Search_btn.Location = new System.Drawing.Point(40, 358);
+            this.Search_btn.Location = new System.Drawing.Point(57, 335);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(120, 23);
             this.Search_btn.TabIndex = 2;
@@ -114,7 +114,7 @@
             // 
             // SearchBar
             // 
-            this.SearchBar.Location = new System.Drawing.Point(40, 73);
+            this.SearchBar.Location = new System.Drawing.Point(57, 36);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(162, 20);
             this.SearchBar.TabIndex = 3;
@@ -122,7 +122,7 @@
             // SearchFree
             // 
             this.SearchFree.AutoSize = true;
-            this.SearchFree.Location = new System.Drawing.Point(40, 335);
+            this.SearchFree.Location = new System.Drawing.Point(57, 312);
             this.SearchFree.Name = "SearchFree";
             this.SearchFree.Size = new System.Drawing.Size(66, 17);
             this.SearchFree.TabIndex = 4;
@@ -132,7 +132,7 @@
             // 
             // SwitchToAdmin
             // 
-            this.SwitchToAdmin.Location = new System.Drawing.Point(631, 358);
+            this.SwitchToAdmin.Location = new System.Drawing.Point(675, 494);
             this.SwitchToAdmin.Name = "SwitchToAdmin";
             this.SwitchToAdmin.Size = new System.Drawing.Size(93, 23);
             this.SwitchToAdmin.TabIndex = 5;
@@ -149,17 +149,18 @@
             "Drama",
             "Story",
             "Thriler"});
-            this.checkedListBox1.Location = new System.Drawing.Point(40, 122);
+            this.checkedListBox1.Location = new System.Drawing.Point(57, 86);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox1.Size = new System.Drawing.Size(125, 94);
             this.checkedListBox1.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 106);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(53, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Choose category";
             // 
@@ -172,17 +173,18 @@
             "Germany",
             "Spain",
             "Polish"});
-            this.checkedListBox2.Location = new System.Drawing.Point(40, 250);
+            this.checkedListBox2.Location = new System.Drawing.Point(57, 213);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(120, 79);
+            this.checkedListBox2.Size = new System.Drawing.Size(125, 79);
             this.checkedListBox2.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 234);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(53, 190);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.Size = new System.Drawing.Size(134, 20);
             this.label2.TabIndex = 9;
             this.label2.Text = "Choose language";
             // 
@@ -190,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 404);
+            this.ClientSize = new System.Drawing.Size(780, 557);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkedListBox2);
             this.Controls.Add(this.label1);
@@ -204,6 +206,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUserInterface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReBooks";
             this.Shown += new System.EventHandler(this.Form2_Shown);
             this.ResumeLayout(false);

@@ -18,6 +18,7 @@ namespace Library___Login
         public FormAddBookCategory()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnAddBookCategory_Click(object sender, EventArgs e)

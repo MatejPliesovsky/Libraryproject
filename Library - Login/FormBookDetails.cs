@@ -15,6 +15,7 @@ namespace Library___Login
         public FormBookDetails(string info)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             Connect2DB connect = new Connect2DB();
             List<string> bookDetail = new List<string>();
             bookDetail = connect.bookDetails(info);

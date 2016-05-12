@@ -102,7 +102,7 @@
             // 
             // FormBookDetails
             // 
-            this.ClientSize = new System.Drawing.Size(566, 314);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.Lent);
             this.Controls.Add(this.Language);

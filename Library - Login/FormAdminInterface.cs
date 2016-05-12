@@ -19,6 +19,7 @@ namespace Library___Login
         public FormAdminInterface(string UserID)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             DatabaseInfo.Visible = false;
             AdminID = UserID;
             waitingReg = con.waitingRegistration();
@@ -287,7 +288,8 @@ namespace Library___Login
 
         private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormAddBooks form = new FormAddBooks();
+            form.Show(); // or form.ShowDialog(this);
         }
 
         public void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)

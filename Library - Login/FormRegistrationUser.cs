@@ -20,6 +20,7 @@ namespace Library___Login
         {
             InitializeComponent();
             Info.Visible = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         //button after click save the information to array, then, this information will be send to admin for confirm

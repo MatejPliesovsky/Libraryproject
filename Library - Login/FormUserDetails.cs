@@ -20,6 +20,7 @@ namespace Library___Login
         public FormUserDetails(string adminID, string firstName)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.adminID = adminID;
             details = connect.findUserByFirstName(firstName);
             items = details.Split(';');

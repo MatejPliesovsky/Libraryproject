@@ -64,9 +64,9 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.listView1.Location = new System.Drawing.Point(108, 67);
+            this.listView1.Location = new System.Drawing.Point(54, 92);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(451, 198);
+            this.listView1.Size = new System.Drawing.Size(675, 302);
             this.listView1.TabIndex = 53;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -75,12 +75,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "First Name";
-            this.columnHeader1.Width = 99;
+            this.columnHeader1.Width = 214;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Last Name";
-            this.columnHeader2.Width = 113;
+            this.columnHeader2.Width = 169;
             // 
             // columnHeader3
             // 
@@ -90,18 +90,18 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Permissions";
-            this.columnHeader4.Width = 98;
+            this.columnHeader4.Width = 106;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Status";
-            this.columnHeader5.Width = 69;
+            this.columnHeader5.Width = 108;
             // 
             // Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(248, 271);
+            this.Refresh.Location = new System.Drawing.Point(54, 400);
             this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(133, 23);
+            this.Refresh.Size = new System.Drawing.Size(675, 23);
             this.Refresh.TabIndex = 52;
             this.Refresh.Text = "Refresh";
             this.Refresh.UseVisualStyleBackColor = true;
@@ -109,9 +109,9 @@
             // 
             // Search_btn
             // 
-            this.Search_btn.Location = new System.Drawing.Point(296, 39);
+            this.Search_btn.Location = new System.Drawing.Point(473, 66);
             this.Search_btn.Name = "Search_btn";
-            this.Search_btn.Size = new System.Drawing.Size(175, 23);
+            this.Search_btn.Size = new System.Drawing.Size(256, 23);
             this.Search_btn.TabIndex = 51;
             this.Search_btn.Text = "SEARCH";
             this.Search_btn.UseVisualStyleBackColor = true;
@@ -119,10 +119,11 @@
             // 
             // SearchBar
             // 
-            this.SearchBar.Location = new System.Drawing.Point(128, 41);
+            this.SearchBar.Location = new System.Drawing.Point(54, 66);
             this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(162, 20);
+            this.SearchBar.Size = new System.Drawing.Size(413, 20);
             this.SearchBar.TabIndex = 50;
+            this.SearchBar.TextChanged += new System.EventHandler(this.SearchBar_TextChanged);
             // 
             // menuStrip1
             // 
@@ -136,7 +137,7 @@
             this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
             this.menuStrip1.TabIndex = 54;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -244,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 313);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.Refresh);

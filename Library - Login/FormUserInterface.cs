@@ -19,6 +19,7 @@ namespace Library___Login
         public FormUserInterface()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             connection = new Connect2DB();
             SwitchToAdmin.Visible = false;
             SwitchToAdmin.Enabled = false;
