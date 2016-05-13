@@ -681,7 +681,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT BookName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + category[i] + "'";
+                            sqlQuery = "SELECT BookName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and CategoryName like '" + category[i] + "'";
                         }
                         else
                         {
@@ -714,7 +714,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT BookName FROM Books inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and LanguageName like '" + language[i] + "'";
+                            sqlQuery = "SELECT BookName FROM Books inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "'";
                         }
                         else
                         {
@@ -750,7 +750,7 @@ namespace Library___Login
                         {
                             if (free == true)
                             {
-                                sqlQuery = "SELECT BookName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
+                                sqlQuery = "SELECT BookName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
                             }
                             else
                             {
@@ -779,7 +779,7 @@ namespace Library___Login
                     string sqlQuery;
                     if (free == true)
                     {
-                        sqlQuery = "SELECT BookName FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0";
+                        sqlQuery = "SELECT BookName FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free'";
                     }
                     else
                     {
@@ -815,7 +815,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "select Author from Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + category[i] + "'";
+                            sqlQuery = "select Author from Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 'free' and CategoryName like '" + category[i] + "'";
                         }
                         else
                         {
@@ -848,7 +848,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT Author FROM Books inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and LanguageName like '" + language[i] + "'";
+                            sqlQuery = "SELECT Author FROM Books inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "'";
                         }
                         else
                         {
@@ -884,7 +884,7 @@ namespace Library___Login
                         {
                             if (free == true)
                             {
-                                sqlQuery = "SELECT Author FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
+                                sqlQuery = "SELECT Author FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
                             }
                             else
                             {
@@ -913,7 +913,7 @@ namespace Library___Login
                     string sqlQuery;
                     if (free == true)
                     {
-                        sqlQuery = "select Author from Books where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0";
+                        sqlQuery = "select Author from Books where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 'free'";
                     }
                     else
                     {
@@ -949,7 +949,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT Lent FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + category[i] + "'";
+                            sqlQuery = "SELECT Lent FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and CategoryName like '" + category[i] + "'";
                         }
                         else
                         {
@@ -960,7 +960,7 @@ namespace Library___Login
 
                         while (reader.Read())
                         {
-                            Lents.Add((bool)(reader["Lent"]) ? "lent" : "free");
+                            Lents.Add(reader["Lent"].ToString());
                         }
                         reader.Close();
                     }
@@ -982,7 +982,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT Lent FROM Books inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and LanguageName like '" + language[i] + "'";
+                            sqlQuery = "SELECT Lent FROM Books inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "'";
                         }
                         else
                         {
@@ -993,7 +993,7 @@ namespace Library___Login
 
                         while (reader.Read())
                         {
-                            Lents.Add((bool)(reader["Lent"]) ? "lent" : "free");
+                            Lents.Add(reader["Lent"].ToString());
                         }
                         reader.Close();
                     }
@@ -1018,7 +1018,7 @@ namespace Library___Login
                         {
                             if (free == true)
                             {
-                                sqlQuery = "SELECT Lent FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0 and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
+                                sqlQuery = "SELECT Lent FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
                             }
                             else
                             {
@@ -1029,7 +1029,7 @@ namespace Library___Login
 
                             while (reader.Read())
                             {
-                                Lents.Add((bool)(reader["Lent"]) ? "lent" : "free");
+                                Lents.Add(reader["Lent"].ToString());
                             }
                             reader.Close();
                         }
@@ -1047,7 +1047,7 @@ namespace Library___Login
                     string sqlQuery;
                     if (free == true)
                     {
-                        sqlQuery = "SELECT Lent FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 0";
+                        sqlQuery = "SELECT Lent FROM Books where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free'";
                     }
                     else
                     {
@@ -1058,7 +1058,7 @@ namespace Library___Login
 
                     while (reader.Read())
                     {
-                        Lents.Add((bool)(reader["Lent"]) ? "lent" : "free");
+                        Lents.Add(reader["Lent"].ToString());
                     }
                     closeConnection();
                     return Lents;
@@ -1083,7 +1083,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0 and CategoryName like '" + category[i] + "'";
+                            sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 'free' and CategoryName like '" + category[i] + "'";
                         }
                         else
                         {
@@ -1116,7 +1116,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent like 0 and LanguageName like '" + language[i] + "'";
+                            sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent like 'free' and LanguageName like '" + language[i] + "'";
                         }
                         else
                         {
@@ -1152,7 +1152,7 @@ namespace Library___Login
                         {
                             if (free == true)
                             {
-                                sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent like 0 and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
+                                sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent like 'free' and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
                             }
                             else
                             {
@@ -1181,7 +1181,7 @@ namespace Library___Login
                     string sqlQuery;
                     if (free == true)
                     {
-                        sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0";
+                        sqlQuery = "SELECT CategoryName from BookCategory inner join Books on Books.IDCategory = BookCategory.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 'free'";
                     }
                     else
                     {
@@ -1217,7 +1217,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0 and LanguageName like '" + language[i] + "'";
+                            sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "'";
                         }
                         else
                         {
@@ -1250,7 +1250,7 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent like 0 and CategoryName like '" + category[i] + "'";
+                            sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent like 'free' and CategoryName like '" + category[i] + "'";
                         }
                         else
                         {
@@ -1286,7 +1286,7 @@ namespace Library___Login
                         {
                             if (free == true)
                             {
-                                sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent like 0 and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
+                                sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID inner join BookCategory on Books.IDCategory = BookCategory.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent like 'free' and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
                             }
                             else
                             {
@@ -1315,7 +1315,7 @@ namespace Library___Login
                     string sqlQuery;
                     if (free == true)
                     {
-                        sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 0";
+                        sqlQuery = "SELECT LanguageName from BookLanguage inner join Books on Books.IDLanguage = BookLanguage.ID where (BookName like '%" + search + "%' or Author like '%" + search + "%') and Lent LIKE 'free'";
                     }
                     else
                     {
@@ -1350,7 +1350,7 @@ namespace Library___Login
                     bookDetail.Add(reader["ID"] + "");
                     bookDetail.Add(reader["BookName"] + "");
                     bookDetail.Add(reader["Author"] + "");
-                    bookDetail.Add((bool)(reader["Lent"]) ? "Lent" : "Free");
+                    bookDetail.Add(reader["Lent"].ToString());
                     bookDetail.Add(reader["IDCategory"] + "");
                     bookDetail.Add(reader["IDLanguage"] + "");
                     bookDetail.Add(reader["Description"] + "");

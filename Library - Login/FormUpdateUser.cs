@@ -18,6 +18,7 @@ namespace Library___Login
         public FormUpdateUser(string adminID)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.adminID = adminID;
             Search_btn_Click(null, null);
         }
@@ -77,6 +78,11 @@ namespace Library___Login
                 Search_btn.Select();
                 this.Update();
             }
+        }
+
+        private void SearchBar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,10 +16,12 @@ namespace Library___Login
         {
             InitializeComponent();
             ErrorMessage.Visible = false;
-            Username.Text = "Enter e-mail";
+            Username.Text = "Please enter your email";
             Password.Text = "Password";
             Username.ForeColor = Color.Gray;
             Password.ForeColor = Color.Gray;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         // after clicking button "Sign up", there will be opened new method with registration form
@@ -76,7 +78,7 @@ namespace Library___Login
         private void Password_TextChanged(object sender, EventArgs e)
         {
             Password.ForeColor = Color.Black;
-            Password.PasswordChar = '*';
+           // Password.PasswordChar = '*';
         }
 
         //if some opened formular will be closed, login form closed as well
@@ -88,7 +90,7 @@ namespace Library___Login
             }
             else
             {
-                Username.Text = "Enter e-mail";
+                Username.Text = "Please enter your email";
                 Password.Text = "Password";
                 Username.ForeColor = Color.Gray;
                 Password.ForeColor = Color.Gray;
@@ -132,7 +134,7 @@ namespace Library___Login
             Password.Text = "";
             if (Username.Text == "")
             {
-                Username.Text = "Enter e-mail";
+                Username.Text = "Please enter your email";
                 Username.ForeColor = Color.Gray;
             }
         }
@@ -142,8 +144,29 @@ namespace Library___Login
             Password.Text = "";
             if (Username.Text == "")
             {
-                Username.Text = "Enter e-mail";
+                Username.Text = "Please enter your email";
                 Username.ForeColor = Color.Gray;
+            }
+        }
+
+        private void Password_Enter(object sender, EventArgs e)
+        {
+            Password.PasswordChar = '*';
+        }
+
+        private void Username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login_Click(Username, null);
+            }
+        }
+
+        private void Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login_Click(Username, null);
             }
         }
     }

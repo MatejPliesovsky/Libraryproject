@@ -126,7 +126,7 @@
             this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(738, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -240,7 +240,7 @@
             // RRlabel1
             // 
             this.RRlabel1.AutoSize = true;
-            this.RRlabel1.Location = new System.Drawing.Point(200, 37);
+            this.RRlabel1.Location = new System.Drawing.Point(256, 70);
             this.RRlabel1.Name = "RRlabel1";
             this.RRlabel1.Size = new System.Drawing.Size(57, 13);
             this.RRlabel1.TabIndex = 1;
@@ -250,7 +250,7 @@
             // RRlabel2
             // 
             this.RRlabel2.AutoSize = true;
-            this.RRlabel2.Location = new System.Drawing.Point(286, 37);
+            this.RRlabel2.Location = new System.Drawing.Point(342, 70);
             this.RRlabel2.Name = "RRlabel2";
             this.RRlabel2.Size = new System.Drawing.Size(58, 13);
             this.RRlabel2.TabIndex = 2;
@@ -260,7 +260,7 @@
             // RRlabel3
             // 
             this.RRlabel3.AutoSize = true;
-            this.RRlabel3.Location = new System.Drawing.Point(358, 37);
+            this.RRlabel3.Location = new System.Drawing.Point(414, 70);
             this.RRlabel3.Name = "RRlabel3";
             this.RRlabel3.Size = new System.Drawing.Size(26, 13);
             this.RRlabel3.TabIndex = 3;
@@ -270,7 +270,7 @@
             // RRlabel4
             // 
             this.RRlabel4.AutoSize = true;
-            this.RRlabel4.Location = new System.Drawing.Point(430, 37);
+            this.RRlabel4.Location = new System.Drawing.Point(486, 70);
             this.RRlabel4.Name = "RRlabel4";
             this.RRlabel4.Size = new System.Drawing.Size(31, 13);
             this.RRlabel4.TabIndex = 4;
@@ -280,7 +280,7 @@
             // RRlabel5
             // 
             this.RRlabel5.AutoSize = true;
-            this.RRlabel5.Location = new System.Drawing.Point(572, 37);
+            this.RRlabel5.Location = new System.Drawing.Point(628, 70);
             this.RRlabel5.Name = "RRlabel5";
             this.RRlabel5.Size = new System.Drawing.Size(57, 13);
             this.RRlabel5.TabIndex = 5;
@@ -289,7 +289,7 @@
             // 
             // RRFirstName1
             // 
-            this.RRFirstName1.Location = new System.Drawing.Point(203, 58);
+            this.RRFirstName1.Location = new System.Drawing.Point(259, 91);
             this.RRFirstName1.Name = "RRFirstName1";
             this.RRFirstName1.Size = new System.Drawing.Size(80, 20);
             this.RRFirstName1.TabIndex = 6;
@@ -297,7 +297,7 @@
             // 
             // RRLastName1
             // 
-            this.RRLastName1.Location = new System.Drawing.Point(289, 58);
+            this.RRLastName1.Location = new System.Drawing.Point(345, 91);
             this.RRLastName1.Name = "RRLastName1";
             this.RRLastName1.Size = new System.Drawing.Size(66, 20);
             this.RRLastName1.TabIndex = 7;
@@ -305,7 +305,7 @@
             // 
             // RRAge1
             // 
-            this.RRAge1.Location = new System.Drawing.Point(361, 58);
+            this.RRAge1.Location = new System.Drawing.Point(417, 91);
             this.RRAge1.Name = "RRAge1";
             this.RRAge1.Size = new System.Drawing.Size(66, 20);
             this.RRAge1.TabIndex = 8;
@@ -313,7 +313,7 @@
             // 
             // RRemail1
             // 
-            this.RRemail1.Location = new System.Drawing.Point(433, 58);
+            this.RRemail1.Location = new System.Drawing.Point(489, 91);
             this.RRemail1.Name = "RRemail1";
             this.RRemail1.Size = new System.Drawing.Size(136, 20);
             this.RRemail1.TabIndex = 9;
@@ -325,7 +325,7 @@
             this.RRPermission1.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.RRPermission1.Location = new System.Drawing.Point(575, 58);
+            this.RRPermission1.Location = new System.Drawing.Point(631, 91);
             this.RRPermission1.Name = "RRPermission1";
             this.RRPermission1.Size = new System.Drawing.Size(77, 21);
             this.RRPermission1.TabIndex = 10;
@@ -335,7 +335,7 @@
             // 
             this.groupBox1.Controls.Add(this.RRRefuse1);
             this.groupBox1.Controls.Add(this.RRConfirm1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 53);
+            this.groupBox1.Location = new System.Drawing.Point(76, 86);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(91, 31);
             this.groupBox1.TabIndex = 11;
@@ -367,7 +367,7 @@
             // RRlabel6
             // 
             this.RRlabel6.AutoSize = true;
-            this.RRlabel6.Location = new System.Drawing.Point(17, 37);
+            this.RRlabel6.Location = new System.Drawing.Point(73, 70);
             this.RRlabel6.Name = "RRlabel6";
             this.RRlabel6.Size = new System.Drawing.Size(42, 13);
             this.RRlabel6.TabIndex = 12;
@@ -377,7 +377,7 @@
             // RRlabel7
             // 
             this.RRlabel7.AutoSize = true;
-            this.RRlabel7.Location = new System.Drawing.Point(81, 37);
+            this.RRlabel7.Location = new System.Drawing.Point(137, 70);
             this.RRlabel7.Name = "RRlabel7";
             this.RRlabel7.Size = new System.Drawing.Size(41, 13);
             this.RRlabel7.TabIndex = 13;
@@ -388,7 +388,7 @@
             // 
             this.groupBox2.Controls.Add(this.RRRefuse2);
             this.groupBox2.Controls.Add(this.RRConfirm2);
-            this.groupBox2.Location = new System.Drawing.Point(20, 90);
+            this.groupBox2.Location = new System.Drawing.Point(76, 123);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(91, 31);
             this.groupBox2.TabIndex = 12;
@@ -419,7 +419,7 @@
             // 
             // RRFirstName2
             // 
-            this.RRFirstName2.Location = new System.Drawing.Point(203, 95);
+            this.RRFirstName2.Location = new System.Drawing.Point(259, 128);
             this.RRFirstName2.Name = "RRFirstName2";
             this.RRFirstName2.Size = new System.Drawing.Size(80, 20);
             this.RRFirstName2.TabIndex = 14;
@@ -427,7 +427,7 @@
             // 
             // RRLastName2
             // 
-            this.RRLastName2.Location = new System.Drawing.Point(289, 95);
+            this.RRLastName2.Location = new System.Drawing.Point(345, 128);
             this.RRLastName2.Name = "RRLastName2";
             this.RRLastName2.Size = new System.Drawing.Size(66, 20);
             this.RRLastName2.TabIndex = 15;
@@ -435,7 +435,7 @@
             // 
             // RRAge2
             // 
-            this.RRAge2.Location = new System.Drawing.Point(361, 95);
+            this.RRAge2.Location = new System.Drawing.Point(417, 128);
             this.RRAge2.Name = "RRAge2";
             this.RRAge2.Size = new System.Drawing.Size(66, 20);
             this.RRAge2.TabIndex = 16;
@@ -443,7 +443,7 @@
             // 
             // RRemail2
             // 
-            this.RRemail2.Location = new System.Drawing.Point(433, 95);
+            this.RRemail2.Location = new System.Drawing.Point(489, 128);
             this.RRemail2.Name = "RRemail2";
             this.RRemail2.Size = new System.Drawing.Size(136, 20);
             this.RRemail2.TabIndex = 17;
@@ -455,7 +455,7 @@
             this.RRPermission2.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.RRPermission2.Location = new System.Drawing.Point(575, 95);
+            this.RRPermission2.Location = new System.Drawing.Point(631, 128);
             this.RRPermission2.Name = "RRPermission2";
             this.RRPermission2.Size = new System.Drawing.Size(77, 21);
             this.RRPermission2.TabIndex = 18;
@@ -465,7 +465,7 @@
             // 
             this.groupBox3.Controls.Add(this.RRRefuse3);
             this.groupBox3.Controls.Add(this.RRConfirm3);
-            this.groupBox3.Location = new System.Drawing.Point(20, 127);
+            this.groupBox3.Location = new System.Drawing.Point(76, 160);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(91, 31);
             this.groupBox3.TabIndex = 13;
@@ -498,7 +498,7 @@
             // 
             this.groupBox4.Controls.Add(this.RRRefuse4);
             this.groupBox4.Controls.Add(this.RRConfirm4);
-            this.groupBox4.Location = new System.Drawing.Point(20, 164);
+            this.groupBox4.Location = new System.Drawing.Point(76, 197);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(91, 31);
             this.groupBox4.TabIndex = 13;
@@ -531,7 +531,7 @@
             // 
             this.groupBox5.Controls.Add(this.RRRefuse5);
             this.groupBox5.Controls.Add(this.RRConfirm5);
-            this.groupBox5.Location = new System.Drawing.Point(20, 201);
+            this.groupBox5.Location = new System.Drawing.Point(76, 234);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(91, 31);
             this.groupBox5.TabIndex = 13;
@@ -566,7 +566,7 @@
             this.groupBox6.Controls.Add(this.RRRefuseAll);
             this.groupBox6.Controls.Add(this.RRConfirmAll);
             this.groupBox6.Controls.Add(this.RRlabel9);
-            this.groupBox6.Location = new System.Drawing.Point(20, 238);
+            this.groupBox6.Location = new System.Drawing.Point(76, 271);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(102, 50);
             this.groupBox6.TabIndex = 13;
@@ -617,7 +617,7 @@
             // 
             // RRFirstName3
             // 
-            this.RRFirstName3.Location = new System.Drawing.Point(203, 132);
+            this.RRFirstName3.Location = new System.Drawing.Point(259, 165);
             this.RRFirstName3.Name = "RRFirstName3";
             this.RRFirstName3.Size = new System.Drawing.Size(80, 20);
             this.RRFirstName3.TabIndex = 20;
@@ -625,7 +625,7 @@
             // 
             // RRFirstName4
             // 
-            this.RRFirstName4.Location = new System.Drawing.Point(203, 169);
+            this.RRFirstName4.Location = new System.Drawing.Point(259, 202);
             this.RRFirstName4.Name = "RRFirstName4";
             this.RRFirstName4.Size = new System.Drawing.Size(80, 20);
             this.RRFirstName4.TabIndex = 21;
@@ -633,7 +633,7 @@
             // 
             // RRFirstName5
             // 
-            this.RRFirstName5.Location = new System.Drawing.Point(203, 206);
+            this.RRFirstName5.Location = new System.Drawing.Point(259, 239);
             this.RRFirstName5.Name = "RRFirstName5";
             this.RRFirstName5.Size = new System.Drawing.Size(80, 20);
             this.RRFirstName5.TabIndex = 22;
@@ -641,7 +641,7 @@
             // 
             // RRLastName3
             // 
-            this.RRLastName3.Location = new System.Drawing.Point(289, 132);
+            this.RRLastName3.Location = new System.Drawing.Point(345, 165);
             this.RRLastName3.Name = "RRLastName3";
             this.RRLastName3.Size = new System.Drawing.Size(66, 20);
             this.RRLastName3.TabIndex = 23;
@@ -649,7 +649,7 @@
             // 
             // RRLastName4
             // 
-            this.RRLastName4.Location = new System.Drawing.Point(289, 169);
+            this.RRLastName4.Location = new System.Drawing.Point(345, 202);
             this.RRLastName4.Name = "RRLastName4";
             this.RRLastName4.Size = new System.Drawing.Size(66, 20);
             this.RRLastName4.TabIndex = 24;
@@ -657,7 +657,7 @@
             // 
             // RRLastName5
             // 
-            this.RRLastName5.Location = new System.Drawing.Point(289, 206);
+            this.RRLastName5.Location = new System.Drawing.Point(345, 239);
             this.RRLastName5.Name = "RRLastName5";
             this.RRLastName5.Size = new System.Drawing.Size(66, 20);
             this.RRLastName5.TabIndex = 25;
@@ -665,7 +665,7 @@
             // 
             // RRAge3
             // 
-            this.RRAge3.Location = new System.Drawing.Point(361, 132);
+            this.RRAge3.Location = new System.Drawing.Point(417, 165);
             this.RRAge3.Name = "RRAge3";
             this.RRAge3.Size = new System.Drawing.Size(66, 20);
             this.RRAge3.TabIndex = 26;
@@ -673,7 +673,7 @@
             // 
             // RRAge4
             // 
-            this.RRAge4.Location = new System.Drawing.Point(361, 169);
+            this.RRAge4.Location = new System.Drawing.Point(417, 202);
             this.RRAge4.Name = "RRAge4";
             this.RRAge4.Size = new System.Drawing.Size(66, 20);
             this.RRAge4.TabIndex = 27;
@@ -681,7 +681,7 @@
             // 
             // RRAge5
             // 
-            this.RRAge5.Location = new System.Drawing.Point(361, 206);
+            this.RRAge5.Location = new System.Drawing.Point(417, 239);
             this.RRAge5.Name = "RRAge5";
             this.RRAge5.Size = new System.Drawing.Size(66, 20);
             this.RRAge5.TabIndex = 28;
@@ -689,7 +689,7 @@
             // 
             // RRemail3
             // 
-            this.RRemail3.Location = new System.Drawing.Point(433, 132);
+            this.RRemail3.Location = new System.Drawing.Point(489, 165);
             this.RRemail3.Name = "RRemail3";
             this.RRemail3.Size = new System.Drawing.Size(136, 20);
             this.RRemail3.TabIndex = 29;
@@ -697,7 +697,7 @@
             // 
             // RRemail4
             // 
-            this.RRemail4.Location = new System.Drawing.Point(433, 169);
+            this.RRemail4.Location = new System.Drawing.Point(489, 202);
             this.RRemail4.Name = "RRemail4";
             this.RRemail4.Size = new System.Drawing.Size(136, 20);
             this.RRemail4.TabIndex = 30;
@@ -705,7 +705,7 @@
             // 
             // RRemail5
             // 
-            this.RRemail5.Location = new System.Drawing.Point(433, 206);
+            this.RRemail5.Location = new System.Drawing.Point(489, 239);
             this.RRemail5.Name = "RRemail5";
             this.RRemail5.Size = new System.Drawing.Size(136, 20);
             this.RRemail5.TabIndex = 31;
@@ -717,7 +717,7 @@
             this.RRPermission3.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.RRPermission3.Location = new System.Drawing.Point(575, 132);
+            this.RRPermission3.Location = new System.Drawing.Point(631, 165);
             this.RRPermission3.Name = "RRPermission3";
             this.RRPermission3.Size = new System.Drawing.Size(77, 21);
             this.RRPermission3.TabIndex = 32;
@@ -729,7 +729,7 @@
             this.RRPermission4.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.RRPermission4.Location = new System.Drawing.Point(575, 169);
+            this.RRPermission4.Location = new System.Drawing.Point(631, 202);
             this.RRPermission4.Name = "RRPermission4";
             this.RRPermission4.Size = new System.Drawing.Size(77, 21);
             this.RRPermission4.TabIndex = 33;
@@ -741,7 +741,7 @@
             this.RRPermission5.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.RRPermission5.Location = new System.Drawing.Point(575, 206);
+            this.RRPermission5.Location = new System.Drawing.Point(631, 239);
             this.RRPermission5.Name = "RRPermission5";
             this.RRPermission5.Size = new System.Drawing.Size(77, 21);
             this.RRPermission5.TabIndex = 34;
@@ -749,7 +749,7 @@
             // 
             // RRConfirm
             // 
-            this.RRConfirm.Location = new System.Drawing.Point(577, 254);
+            this.RRConfirm.Location = new System.Drawing.Point(633, 287);
             this.RRConfirm.Name = "RRConfirm";
             this.RRConfirm.Size = new System.Drawing.Size(75, 23);
             this.RRConfirm.TabIndex = 35;
@@ -761,7 +761,7 @@
             // RRlabel8
             // 
             this.RRlabel8.AutoSize = true;
-            this.RRlabel8.Location = new System.Drawing.Point(128, 37);
+            this.RRlabel8.Location = new System.Drawing.Point(184, 70);
             this.RRlabel8.Name = "RRlabel8";
             this.RRlabel8.Size = new System.Drawing.Size(43, 13);
             this.RRlabel8.TabIndex = 37;
@@ -770,7 +770,7 @@
             // 
             // RRUserID1
             // 
-            this.RRUserID1.Location = new System.Drawing.Point(117, 58);
+            this.RRUserID1.Location = new System.Drawing.Point(173, 91);
             this.RRUserID1.Name = "RRUserID1";
             this.RRUserID1.Size = new System.Drawing.Size(80, 20);
             this.RRUserID1.TabIndex = 38;
@@ -778,7 +778,7 @@
             // 
             // RRUserID2
             // 
-            this.RRUserID2.Location = new System.Drawing.Point(117, 95);
+            this.RRUserID2.Location = new System.Drawing.Point(173, 128);
             this.RRUserID2.Name = "RRUserID2";
             this.RRUserID2.Size = new System.Drawing.Size(80, 20);
             this.RRUserID2.TabIndex = 39;
@@ -786,7 +786,7 @@
             // 
             // RRUserID3
             // 
-            this.RRUserID3.Location = new System.Drawing.Point(117, 132);
+            this.RRUserID3.Location = new System.Drawing.Point(173, 165);
             this.RRUserID3.Name = "RRUserID3";
             this.RRUserID3.Size = new System.Drawing.Size(80, 20);
             this.RRUserID3.TabIndex = 40;
@@ -794,7 +794,7 @@
             // 
             // RRUserID4
             // 
-            this.RRUserID4.Location = new System.Drawing.Point(117, 169);
+            this.RRUserID4.Location = new System.Drawing.Point(173, 202);
             this.RRUserID4.Name = "RRUserID4";
             this.RRUserID4.Size = new System.Drawing.Size(80, 20);
             this.RRUserID4.TabIndex = 41;
@@ -802,7 +802,7 @@
             // 
             // RRUserID5
             // 
-            this.RRUserID5.Location = new System.Drawing.Point(117, 206);
+            this.RRUserID5.Location = new System.Drawing.Point(173, 239);
             this.RRUserID5.Name = "RRUserID5";
             this.RRUserID5.Size = new System.Drawing.Size(80, 20);
             this.RRUserID5.TabIndex = 42;
@@ -813,7 +813,7 @@
             this.DatabaseInfo.AutoSize = true;
             this.DatabaseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DatabaseInfo.ForeColor = System.Drawing.Color.Red;
-            this.DatabaseInfo.Location = new System.Drawing.Point(146, 132);
+            this.DatabaseInfo.Location = new System.Drawing.Point(202, 165);
             this.DatabaseInfo.Name = "DatabaseInfo";
             this.DatabaseInfo.Size = new System.Drawing.Size(389, 31);
             this.DatabaseInfo.TabIndex = 47;
@@ -823,7 +823,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 370);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.DatabaseInfo);
             this.Controls.Add(this.RRUserID5);
             this.Controls.Add(this.RRUserID4);
@@ -874,6 +874,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormAdminInterface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

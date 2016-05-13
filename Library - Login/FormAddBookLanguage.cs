@@ -18,6 +18,7 @@ namespace Library___Login
         public FormAddBookLanguage()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnAddBookLanguage_Click(object sender, EventArgs e)
