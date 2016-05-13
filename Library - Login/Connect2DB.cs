@@ -69,6 +69,27 @@ namespace Library___Login
         // START OF LOGIN METHODS
 
         // verification if user is already registered
+        public int isEmailTaken(string email)
+        {
+            if (openConnection())
+            {
+                int same = 0;
+                string sqlQuery = "select email from UsersLogin";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader["email"].ToString() == email)
+                    {
+                        same = 1;
+                        break;
+                    }
+                }
+                closeConnection();
+                return same;
+            }
+            return -1;
+        }
 
         // verification, if user is registered
         public bool isUserRegistered(string email, string password)

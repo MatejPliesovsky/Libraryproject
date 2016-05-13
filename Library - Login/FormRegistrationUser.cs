@@ -52,14 +52,27 @@ namespace Library___Login
                 city = City.Text;
                 postalCode = PostalCode.Text;
                 country = Country.Text;
-                if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country))
+                if (register.isEmailTaken(email) == 0)
                 {
-                    Info.Text = "Your request was send successfully.";
+                    if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country))
+                    {
+                        Info.Text = "Your request was send successfully.";
+                        Info.Visible = true;
+                    }
+                    else
+                    {
+                        Info.Text = "Your request wasn't send successfully.\nPlease try again later.";
+                        Info.Visible = true;
+                    }
+                }
+                else if (register.isEmailTaken(email) == 1)
+                {
+                    Info.Text = "Email is already taken.";
                     Info.Visible = true;
                 }
                 else
                 {
-                    Info.Text = "Your request wasn't send successfully.\nPlease try again later.";
+                    Info.Text = "Error! Cannot connect to database.\nPlease try again later.";
                     Info.Visible = true;
                 }
             }
