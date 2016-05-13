@@ -126,6 +126,7 @@
             this.FirstName.Name = "FirstName";
             this.FirstName.Size = new System.Drawing.Size(133, 20);
             this.FirstName.TabIndex = 11;
+            this.FirstName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // LastName
             // 
@@ -133,6 +134,7 @@
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(133, 20);
             this.LastName.TabIndex = 12;
+            this.LastName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // Street
             // 
@@ -140,6 +142,7 @@
             this.Street.Name = "Street";
             this.Street.Size = new System.Drawing.Size(100, 20);
             this.Street.TabIndex = 18;
+            this.Street.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // DateOfBirth
             // 
@@ -155,6 +158,7 @@
             this.Number.Name = "Number";
             this.Number.Size = new System.Drawing.Size(100, 20);
             this.Number.TabIndex = 19;
+            this.Number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // City
             // 
@@ -162,6 +166,7 @@
             this.City.Name = "City";
             this.City.Size = new System.Drawing.Size(100, 20);
             this.City.TabIndex = 20;
+            this.City.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // PostalCode
             // 
@@ -169,6 +174,7 @@
             this.PostalCode.Name = "PostalCode";
             this.PostalCode.Size = new System.Drawing.Size(100, 20);
             this.PostalCode.TabIndex = 21;
+            this.PostalCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // Confirm
             // 
@@ -197,6 +203,7 @@
             this.PasswordReg.Size = new System.Drawing.Size(133, 20);
             this.PasswordReg.TabIndex = 14;
             this.PasswordReg.TextChanged += new System.EventHandler(this.PasswordReg_TextChanged);
+            this.PasswordReg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // label4
             // 
@@ -222,6 +229,7 @@
             this.EmailReg.Name = "EmailReg";
             this.EmailReg.Size = new System.Drawing.Size(133, 20);
             this.EmailReg.TabIndex = 15;
+            this.EmailReg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // label6
             // 
@@ -238,6 +246,7 @@
             this.Telephone2.Name = "Telephone2";
             this.Telephone2.Size = new System.Drawing.Size(77, 20);
             this.Telephone2.TabIndex = 17;
+            this.Telephone2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // Info
             // 
@@ -273,6 +282,7 @@
             this.Country.Name = "Country";
             this.Country.Size = new System.Drawing.Size(102, 21);
             this.Country.TabIndex = 22;
+            this.Country.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // Telephone1
             // 
@@ -288,6 +298,7 @@
             this.Telephone1.Name = "Telephone1";
             this.Telephone1.Size = new System.Drawing.Size(50, 21);
             this.Telephone1.TabIndex = 16;
+            this.Telephone1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // FormRegistrationUser
             // 

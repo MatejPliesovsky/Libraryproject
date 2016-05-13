@@ -392,7 +392,7 @@ namespace Library___Login
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormUserInterface userForm = new FormUserInterface(AdminID);
-            userForm.Show();
+            userForm.ShowDialog();
             this.Close();
             userForm.FormClosed += new FormClosedEventHandler(UserForm_FormClosed);
         }
@@ -413,7 +413,6 @@ namespace Library___Login
         {
             FormUpdateUser updateUser = new FormUpdateUser(AdminID);
             updateUser.Show();
-
         }
     }
 }

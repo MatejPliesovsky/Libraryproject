@@ -13,6 +13,15 @@ namespace Library___Login
     public partial class FormRegistrationUser : Form
     {
         private string firstName, lastName, password, email, telephone, street, postalCode, city, country;
+
+        private void FirstName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Confirm_Click(FirstName, null);
+            }
+        }
+
         private int streetNumber;
         private System.DateTime dateOfBirth = new DateTime();
 

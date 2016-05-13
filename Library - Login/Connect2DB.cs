@@ -68,6 +68,8 @@ namespace Library___Login
 
         // START OF LOGIN METHODS
 
+        // verification if user is already registered
+
         // verification, if user is registered
         public bool isUserRegistered(string email, string password)
         {
