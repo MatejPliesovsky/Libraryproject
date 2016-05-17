@@ -49,6 +49,9 @@ namespace Library___Login
                     desc = desc + descrpition[i] + ".\n";
                 }
                 Description.Text = "Description: " + desc;
+
+                PictureBox.Image = Image.FromStream(new System.IO.MemoryStream(connect.getImageByBookId(bookID)));
+                PictureBox.Refresh();
             }
         }
 

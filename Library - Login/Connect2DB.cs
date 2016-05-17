@@ -1527,6 +1527,23 @@ namespace Library___Login
 
         }
 
+        //get bookimage from database and show it in bookdetailsform
+        public byte[] getImageByBookId(String id)
+        {
+            byte[] imageBytes = null;
+            String sqlQuery = "select Image from " + booksDetailsEntity + "where ID = " + id;
+            if (openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    imageBytes = (byte[])reader["Image"];
+                }
+            }
+            return imageBytes;
+        }
+
 
         //load LanguageName from database
         public List<string> loadBookLanguageName()
