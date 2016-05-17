@@ -414,5 +414,11 @@ namespace Library___Login
             FormUpdateUser updateUser = new FormUpdateUser(AdminID);
             updateUser.Show();
         }
+
+        private void addLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddLoan loans = new FormAddLoan();
+            loans.ShowDialog();
+        }
     }
 }

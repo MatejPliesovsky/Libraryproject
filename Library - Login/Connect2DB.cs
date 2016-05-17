@@ -262,6 +262,35 @@ namespace Library___Login
             }
         }
 
+        // find all user ID according their name
+        public List<string> getAllUsers(string name)
+        {
+            List<string> users = new List<string>();
+            if (openConnection())
+            {
+                string[] items;
+                items = name.Split(' ');
+                string sqlQuery;
+                if (items.Length > 1)
+                {
+                    sqlQuery = "select ID from Users where FirstName like '" + items[0] + "' and LastName like '" + items[1] + "%'";
+                }
+                else
+                {
+                    sqlQuery = "select ID from Users where FirstName like '" + name + "%' or LastName like '" + name + "%'";
+                }
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    users.Add(reader["ID"].ToString());
+                }
+                closeConnection();
+                return users;
+            }
+            return users;
+        }
+
         // START OF ADMIN - USER METHODS
 
         // find all users IDs
