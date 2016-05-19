@@ -60,3 +60,25 @@ C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\ReBooks\Libra
 C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
 C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
 C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\Library - Login.exe.config
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library - Login.exe
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\Library - Login.exe
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\Library - Login.pdb
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\bin\Debug\MySql.Data.dll
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAddLoan.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormBookDetails.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormUpdateUser.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormUserDetails.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormUserInterface.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormLogin.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.Users.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormCheckLoans.resources

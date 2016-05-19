@@ -203,6 +203,7 @@
             this.checkLoansToolStripMenuItem.Name = "checkLoansToolStripMenuItem";
             this.checkLoansToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.checkLoansToolStripMenuItem.Text = "Check loans";
+            this.checkLoansToolStripMenuItem.Click += new System.EventHandler(this.checkLoansToolStripMenuItem_Click);
             // 
             // updateUserToolStripMenuItem
             // 

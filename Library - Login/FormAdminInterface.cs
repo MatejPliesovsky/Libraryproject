@@ -420,5 +420,12 @@ namespace Library___Login
             FormAddLoan loans = new FormAddLoan();
             loans.ShowDialog();
         }
+
+        private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCheckLoans chceckLoans = new FormCheckLoans(AdminID);
+            chceckLoans.Show();
+            this.Close();
+        }
     }
 }

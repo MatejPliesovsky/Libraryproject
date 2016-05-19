@@ -16,6 +16,7 @@ namespace Library___Login
         public FormAddLoan()
         {
             InitializeComponent();
+            InfoMessage.Visible = false;
             List<string> books = new List<string>();
             books = con.searchBookNames(null, false, null, null);
             for (int i = 0;i < books.Count; i++)
@@ -124,6 +125,65 @@ namespace Library___Login
             {
                 BookName5.Text = bookNames[4];
             }
+        }
+
+        private void Confirm_Click(object sender, EventArgs e)
+        {
+            DateTime dateOfRet = new DateTime();
+            string dateOfLoan, dateOfReturn, bookID;
+            if (UserName.Text != "" && UserID.Text != "")
+            {
+                dateOfLoan = DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day;
+                dateOfRet = DateTime.Today.AddDays(30);
+                dateOfReturn = dateOfRet.Year + "-" + dateOfRet.Month + "-" + dateOfRet.Day;
+                if (BookName1.Text != "")
+                {
+                    bookID = con.findBookID(BookName1.Text);
+                    if (con.addLoans(dateOfLoan, dateOfReturn, bookID, UserID.Text))
+                    {
+                        InfoMessage.Text = "Loan was added.";
+                    
+                        if (BookName2.Text != "")
+                        {
+                            bookID = con.findBookID(BookName2.Text);
+                            if (con.addLoans(dateOfLoan, dateOfReturn, bookID, UserID.Text))
+                            {
+                                InfoMessage.Text = "Loans was added.";
+                            }
+                        }
+                        if (BookName3.Text != "")
+                        {
+                            bookID = con.findBookID(BookName3.Text);
+                            con.addLoans(dateOfLoan, dateOfReturn, bookID, UserID.Text);
+                        }
+                        if (BookName4.Text != "")
+                        {
+                            bookID = con.findBookID(BookName4.Text);
+                            con.addLoans(dateOfLoan, dateOfReturn, bookID, UserID.Text);
+                        }
+                        if (BookName5.Text != "")
+                        {
+                            bookID = con.findBookID(BookName5.Text);
+                            con.addLoans(dateOfLoan, dateOfReturn, bookID, UserID.Text);
+                        }
+                    }
+                    else
+                    {
+                        InfoMessage.Text = "Error. Cannot connect to database.";
+                    }
+                    InfoMessage.Visible = true;
+                }
+                else
+                {
+                    InfoMessage.Text = "Add at least one book.";
+                    InfoMessage.Visible = true;
+                }
+            }
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

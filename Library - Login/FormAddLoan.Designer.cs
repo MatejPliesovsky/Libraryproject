@@ -40,6 +40,7 @@
             this.Confirm = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
             this.BookName5 = new System.Windows.Forms.ComboBox();
+            this.InfoMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -127,21 +128,23 @@
             // 
             // Confirm
             // 
-            this.Confirm.Location = new System.Drawing.Point(15, 262);
+            this.Confirm.Location = new System.Drawing.Point(12, 283);
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(75, 23);
             this.Confirm.TabIndex = 13;
             this.Confirm.Text = "Confirm";
             this.Confirm.UseVisualStyleBackColor = true;
+            this.Confirm.Click += new System.EventHandler(this.Confirm_Click);
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(197, 262);
+            this.Cancel.Location = new System.Drawing.Point(194, 283);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(75, 23);
             this.Cancel.TabIndex = 14;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // BookName5
             // 
@@ -152,11 +155,23 @@
             this.BookName5.TabIndex = 12;
             this.BookName5.SelectedIndexChanged += new System.EventHandler(this.BookName1_SelectedIndexChanged);
             // 
+            // InfoMessage
+            // 
+            this.InfoMessage.AutoSize = true;
+            this.InfoMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.InfoMessage.ForeColor = System.Drawing.Color.Red;
+            this.InfoMessage.Location = new System.Drawing.Point(12, 247);
+            this.InfoMessage.Name = "InfoMessage";
+            this.InfoMessage.Size = new System.Drawing.Size(241, 19);
+            this.InfoMessage.TabIndex = 15;
+            this.InfoMessage.Text = "Error. Cannot connect to database!";
+            // 
             // FormAddLoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 297);
+            this.ClientSize = new System.Drawing.Size(284, 318);
+            this.Controls.Add(this.InfoMessage);
             this.Controls.Add(this.BookName5);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Confirm);
@@ -190,5 +205,6 @@
         private System.Windows.Forms.Button Confirm;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.ComboBox BookName5;
+        private System.Windows.Forms.Label InfoMessage;
     }
 }

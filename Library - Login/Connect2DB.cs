@@ -1522,9 +1522,26 @@ namespace Library___Login
                 closeConnection();
                 return sCategoryName;
             }
-
             return null;
+        }
 
+        // find book ID according it's name
+        public string findBookID (string bookName)
+        {
+            if (openConnection())
+            {
+                string bookID = null;
+                string sqlQuery = "select ID from Books where BookName like '" + bookName + "'";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    bookID = reader["ID"].ToString();
+                }
+                closeConnection();
+                return bookID;
+            }
+            return null;
         }
 
         //get bookimage from database and show it in bookdetailsform
@@ -1616,6 +1633,32 @@ namespace Library___Login
             }
         }
         /*** END BOOK Insert to database ***/
+
+        /*** START OF LOANS QUERIES ***/
+
+        // Add Loans into database
+        public bool addLoans(string dateOfLoan, string dateOfReturn, string bookID, string userID)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "insert into Loans (DateLoan, DateReturn, IDBook, IDUser) values (@dateOfLoan, @dateOfReturn, @bookID, @userID)";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@dateOfLoan", dateOfLoan);
+                cmd.Parameters.AddWithValue("@dateOfReturn", dateOfReturn);
+                cmd.Parameters.AddWithValue("@bookID", bookID);
+                cmd.Parameters.AddWithValue("@userID", userID);
+                cmd.ExecuteNonQuery();
+
+                sqlQuery = "update Books set Lent = @lent where ID = " + bookID;
+                cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@lent", "lent");
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
+                return true;
+            }
+            return false;
+        }
 
     }
 
