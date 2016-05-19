@@ -15,6 +15,10 @@ namespace Library___Login
         int waitingReg;
         string AdminID;
         Connect2DB con = new Connect2DB();
+        List<string> books = new List<string>();
+        List<string> readers = new List<string>();
+        List<string> lendings = new List<string>();
+        List<string> returns = new List<string>();
 
         public FormCheckLoans(string UserID)
         {
@@ -35,6 +39,20 @@ namespace Library___Login
                 registrationReguestToolStripMenuItem.Text = "Registration Request";
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
+            }
+            books = con.checkLentBookNames();
+            readers = con.checkOwnersOfLentBooks();
+            lendings = con.checkDatesLendings();
+            returns = con.checkReturnsDates();
+
+            for (int i = 0; i < books.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(books[i]);
+                item.SubItems.Add(readers[i]);
+                item.SubItems.Add(lendings[i]);
+                item.SubItems.Add(returns[i]);
+
+                listView1.Items.Add(item);
             }
         }
 

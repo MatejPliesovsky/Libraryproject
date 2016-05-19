@@ -82,3 +82,4 @@ A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Lib
 A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
 A:\Učivo\VS programy\C#\Zadania\ReBooks - Záloha\Library - Login\obj\Debug\Library___Login.FormCheckLoans.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormCheckLoans.resources

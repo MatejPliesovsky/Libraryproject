@@ -188,20 +188,20 @@
             // addLoansToolStripMenuItem
             // 
             this.addLoansToolStripMenuItem.Name = "addLoansToolStripMenuItem";
-            this.addLoansToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addLoansToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.addLoansToolStripMenuItem.Text = "Add loans";
             this.addLoansToolStripMenuItem.Click += new System.EventHandler(this.addLoansToolStripMenuItem_Click);
             // 
             // removeLoansToolStripMenuItem
             // 
             this.removeLoansToolStripMenuItem.Name = "removeLoansToolStripMenuItem";
-            this.removeLoansToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.removeLoansToolStripMenuItem.Text = "Remove loans";
+            this.removeLoansToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.removeLoansToolStripMenuItem.Text = "Reserved books";
             // 
             // checkLoansToolStripMenuItem
             // 
             this.checkLoansToolStripMenuItem.Name = "checkLoansToolStripMenuItem";
-            this.checkLoansToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.checkLoansToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.checkLoansToolStripMenuItem.Text = "Check loans";
             this.checkLoansToolStripMenuItem.Click += new System.EventHandler(this.checkLoansToolStripMenuItem_Click);
             // 

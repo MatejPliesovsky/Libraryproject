@@ -1660,6 +1660,81 @@ namespace Library___Login
             return false;
         }
 
+        // return list of names of books, that are borrowed
+        public List<string> checkLentBookNames()
+        {
+            List<string> books = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select BookName from Books inner join Loans on Books.ID = Loans.IDBook";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    books.Add(reader["BookName"].ToString());
+                }
+                closeConnection();
+                return books;
+            }
+            return books;
+        }
+
+        // return list of names of readers, that have borrowed books
+        public List<string> checkOwnersOfLentBooks()
+        {
+            List<string> readers = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select FirstName, LastName from Users inner join Loans on Users.ID = Loans.IDUser";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    readers.Add(reader["FirstName"] + " " + reader["LastName"]);
+                }
+                closeConnection();
+                return readers;
+            }
+            return readers;
+        }
+
+        // return list of dates when were books lended
+        public List<string> checkDatesLendings()
+        {
+            List<string> lendings = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select DateLoan from Loans";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lendings.Add(reader["DateLoan"].ToString());
+                }
+                closeConnection();
+                return lendings;
+            }
+            return lendings;
+        }
+
+        // return list of dates when should be books returned
+        public List<string> checkReturnsDates()
+        {
+            List<string> returns = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select DateReturn from Loans";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    returns.Add(reader["DateReturn"].ToString());
+                }
+                closeConnection();
+                return returns;
+            }
+            return returns;
+        }
     }
 
 }
