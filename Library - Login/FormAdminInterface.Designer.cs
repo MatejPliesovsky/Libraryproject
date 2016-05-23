@@ -330,6 +330,7 @@
             this.DatabaseInfo.Size = new System.Drawing.Size(389, 31);
             this.DatabaseInfo.TabIndex = 48;
             this.DatabaseInfo.Text = "Cannot connect to database!";
+            this.DatabaseInfo.Visible = false;
             // 
             // FormAdminInterface
             // 

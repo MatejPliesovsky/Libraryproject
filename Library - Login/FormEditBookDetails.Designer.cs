@@ -45,7 +45,7 @@
             this.txtBookISBN = new System.Windows.Forms.TextBox();
             this.txtBookPublisher = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdateBook = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtImagePath = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -190,14 +190,15 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnUpdateBook
             // 
-            this.button1.Location = new System.Drawing.Point(12, 526);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(347, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "UPDATE BOOK";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdateBook.Location = new System.Drawing.Point(12, 526);
+            this.btnUpdateBook.Name = "btnUpdateBook";
+            this.btnUpdateBook.Size = new System.Drawing.Size(347, 23);
+            this.btnUpdateBook.TabIndex = 17;
+            this.btnUpdateBook.Text = "UPDATE BOOK";
+            this.btnUpdateBook.UseVisualStyleBackColor = true;
+            this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
             // 
             // button2
             // 
@@ -222,7 +223,7 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.txtImagePath);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpdateBook);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtBookPublisher);
             this.Controls.Add(this.txtBookISBN);
@@ -268,7 +269,7 @@
         private System.Windows.Forms.TextBox txtBookISBN;
         private System.Windows.Forms.TextBox txtBookPublisher;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdateBook;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtImagePath;
     }

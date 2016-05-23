@@ -1398,7 +1398,7 @@ namespace Library___Login
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
-                {
+                {   
                     bookDetail.Add(reader["ID"] + "");
                     bookDetail.Add(reader["BookName"] + "");
                     bookDetail.Add(reader["Author"] + "");
@@ -1406,6 +1406,7 @@ namespace Library___Login
                     bookDetail.Add(reader["IDCategory"] + "");
                     bookDetail.Add(reader["IDLanguage"] + "");
                     bookDetail.Add(reader["Description"] + "");
+                    bookDetail.Add(reader["ISBN"] + "");
                     bookDetail.Add(reader["Publisher"] + "");
                 }
                 closeConnection();
@@ -1633,6 +1634,47 @@ namespace Library___Login
             }
         }
         /*** END BOOK Insert to database ***/
+
+        /** START Update Book ***/
+        public bool updateBookdetailsData(string data)
+        {
+            string bookID, bookName, author, lent, categoryID, languageID, desc, publisher, category, language, ISBN;
+            string[] descrpition;
+            string[] items;
+            items = data.Split(';');
+
+            bookID = items[0];
+            bookName = items[1];
+            author = items[2];
+            categoryID = items[3];
+            languageID = items[4];
+            desc = items[5];
+            publisher = items[6];
+            category = items[7];
+            //language = items[8];
+            ISBN = items[8];
+            desc = items[9];
+
+            if (openConnection())
+            {
+                string sqlQuery = "update Books set BookName = @bookName, Author = @author where ID like " + bookID;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@BookName", bookName);
+                cmd.Parameters.AddWithValue("@author", author);
+                cmd.ExecuteNonQuery();
+
+                sqlQuery = "update BooksDetails set Description = @desc, ISBN = @ISBN, Publisher = @publisher where ID like " + bookID;
+                cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@desc", desc);
+                cmd.Parameters.AddWithValue("@ISBN", ISBN);
+                cmd.Parameters.AddWithValue("@publisher", publisher);
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
+                return true;
+            }
+            return false;
+        }
 
         /*** START OF LOANS QUERIES ***/
 
