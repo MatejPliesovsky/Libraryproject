@@ -58,6 +58,7 @@
             this.switchToUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DatabaseInfo = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -319,11 +320,23 @@
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
+            // DatabaseInfo
+            // 
+            this.DatabaseInfo.AutoSize = true;
+            this.DatabaseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DatabaseInfo.ForeColor = System.Drawing.Color.Red;
+            this.DatabaseInfo.Location = new System.Drawing.Point(198, 265);
+            this.DatabaseInfo.Name = "DatabaseInfo";
+            this.DatabaseInfo.Size = new System.Drawing.Size(389, 31);
+            this.DatabaseInfo.TabIndex = 48;
+            this.DatabaseInfo.Text = "Cannot connect to database!";
+            // 
             // FormAdminInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.DatabaseInfo);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkedListBox2);
@@ -376,5 +389,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.Label DatabaseInfo;
     }
 }

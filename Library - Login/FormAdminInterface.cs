@@ -14,6 +14,7 @@ namespace Library___Login
     {
         Connect2DB connection;
         private string AdminID;
+        private int waitingReg;
 
         public FormAdminInterface(string adminID)
         {
@@ -21,6 +22,21 @@ namespace Library___Login
             this.StartPosition = FormStartPosition.CenterScreen;
             connection = new Connect2DB();
             AdminID = adminID;
+            waitingReg = connection.waitingRegistration();
+            if (waitingReg > 0)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request (" + waitingReg + ")";
+            }
+            else if (waitingReg == 0)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request";
+            }
+            else if (waitingReg == -1)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request";
+                DatabaseInfo.Text = "Cannot connect to database!";
+                DatabaseInfo.Visible = true;
+            }
         }
 
         public FormAdminInterface(string username, string password)
@@ -29,6 +45,21 @@ namespace Library___Login
             this.StartPosition = FormStartPosition.CenterScreen;
             connection = new Connect2DB();
             AdminID = connection.FindUser(username, password);
+            waitingReg = connection.waitingRegistration();
+            if (waitingReg > 0)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request (" + waitingReg + ")";
+            }
+            else if (waitingReg == 0)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request";
+            }
+            else if (waitingReg == -1)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request";
+                DatabaseInfo.Text = "Cannot connect to database!";
+                DatabaseInfo.Visible = true;
+            }
         }
 
         private void Refresh_Click(object sender, EventArgs e)

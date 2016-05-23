@@ -34,6 +34,8 @@ namespace Library___Login
             else if (waitingReg == -1)
             {
                 registrationReguestToolStripMenuItem.Text = "Registration Request";
+                DatabaseInfo.Text = "Cannot connect to database!";
+                DatabaseInfo.Visible = true;
             }
         }
 
