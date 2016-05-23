@@ -427,5 +427,12 @@ namespace Library___Login
             chceckLoans.Show();
             this.Close();
         }
+
+        private void removeBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEditBook formEditBook = new FormEditBook();
+            formEditBook.ShowDialog();
+
+        }
     }
 }

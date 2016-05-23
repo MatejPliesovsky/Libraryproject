@@ -167,7 +167,8 @@
             // 
             this.removeBooksToolStripMenuItem.Name = "removeBooksToolStripMenuItem";
             this.removeBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.removeBooksToolStripMenuItem.Text = "Remove books";
+            this.removeBooksToolStripMenuItem.Text = "Edit Book";
+            this.removeBooksToolStripMenuItem.Click += new System.EventHandler(this.removeBooksToolStripMenuItem_Click);
             // 
             // checkBooksToolStripMenuItem
             // 

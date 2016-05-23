@@ -208,7 +208,7 @@ namespace Library___Login
             else
             {
                 string info = listView1.SelectedItems[index].Text;
-                FormBookDetails bookDetail = new FormBookDetails(info);
+                FormEditSingleBook bookDetail = new FormEditSingleBook(info);
                 bookDetail.ShowDialog();
                 Search_btn.Select();
                 this.Update();

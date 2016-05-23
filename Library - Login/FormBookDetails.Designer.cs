@@ -1,6 +1,6 @@
 ﻿namespace Library___Login
 {
-    partial class FormBookDetails
+    partial class FormEditSingleBook
     {
         /// <summary>
         /// Required designer variable.
