@@ -84,7 +84,7 @@ namespace Library___Login
         //if some opened formular will be closed, login form closed as well
         private void Form1_FormClosed(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FormAdminInterface>().Any() || Application.OpenForms.OfType<FormUserInterface>().Any())
+            if (Application.OpenForms.OfType<FormWaitingRegistrations>().Any() || Application.OpenForms.OfType<FormUserInterface>().Any())
             {
                 this.Hide();
             }

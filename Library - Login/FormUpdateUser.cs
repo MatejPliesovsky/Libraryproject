@@ -13,14 +13,28 @@ namespace Library___Login
     public partial class FormUpdateUser : Form
     {
         Connect2DB con = new Connect2DB();
-        string adminID;
+        string AdminID;
+        int waitingReg;
 
         public FormUpdateUser(string adminID)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.adminID = adminID;
+            this.AdminID = adminID;
             Search_btn_Click(null, null);
+            waitingReg = con.waitingRegistration();
+            if (waitingReg > 0)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request (" + waitingReg + ")";
+            }
+            else if (waitingReg == 0)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request";
+            }
+            else if (waitingReg == -1)
+            {
+                registrationReguestToolStripMenuItem.Text = "Registration Request";
+            }
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -73,7 +87,7 @@ namespace Library___Login
             else
             {
                 string info = listView1.SelectedItems[index].Text;
-                FormUserDetails userDetail = new FormUserDetails(adminID, info);
+                FormUserDetails userDetail = new FormUserDetails(AdminID, info);
                 userDetail.ShowDialog();
                 Search_btn.Select();
                 this.Update();
@@ -83,6 +97,91 @@ namespace Library___Login
         private void SearchBar_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAdminInterface home = new FormAdminInterface(AdminID);
+            home.Show();
+            this.Close();
+        }
+
+        private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddBooks form = new FormAddBooks();
+            form.Show(); // or form.ShowDialog(this);
+        }
+
+        private void addCategoryBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddBookCategory form = new FormAddBookCategory();
+            form.Show(); // or form.ShowDialog(this);
+        }
+
+        private void addBookLanguageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddBookLanguage form = new FormAddBookLanguage();
+            form.Show();
+        }
+
+        private void addLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddLoan loan = new FormAddLoan();
+            loan.Show();
+        }
+
+        private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCheckLoans loans = new FormCheckLoans(AdminID);
+            loans.Show();
+            this.Close();
+        }
+
+        private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUpdateUser.ActiveForm.Refresh();
+        }
+
+        private void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormWaitingRegistrations registrations = new FormWaitingRegistrations(AdminID);
+            registrations.Show();
+            this.Close();
+        }
+
+        private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUserInterface userForm = new FormUserInterface(AdminID);
+            userForm.ShowDialog();
+            this.Close();
+            userForm.FormClosed += new FormClosedEventHandler(UserForm_FormClosed);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void UserForm_FormClosed(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FormUserInterface>().Any())
+            {
+                FormLogin.ActiveForm.Hide();
+            }
+            else
+            {
+                FormLogin.ActiveForm.Show();
+            }
         }
     }
 }

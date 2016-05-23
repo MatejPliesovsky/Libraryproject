@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
-    public partial class FormEditSingleBookDetails : Form
+    public partial class FormEditBookDetails : Form
     {
-        public FormEditSingleBookDetails(string info)
+        public FormEditBookDetails(string info)
         {
             InitializeComponent();
         }

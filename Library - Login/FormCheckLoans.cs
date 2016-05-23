@@ -56,22 +56,17 @@ namespace Library___Login
             }
         }
 
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAdminInterface home = new FormAdminInterface(AdminID);
+            home.Show();
+            this.Close();
+        }
+
         private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAddBooks form = new FormAddBooks();
             form.Show(); // or form.ShowDialog(this);
-        }
-
-        public void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormAdminInterface admin = new FormAdminInterface(AdminID);
-            admin.Show();
-            this.Close();
-        }
-
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void addCategoryBookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,12 +81,43 @@ namespace Library___Login
             form.Show();
         }
 
+        private void addLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddLoan loans = new FormAddLoan();
+            loans.ShowDialog();
+        }
+
+        private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCheckLoans.ActiveForm.Refresh();
+        }
+
+        private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUpdateUser updateUser = new FormUpdateUser(AdminID);
+            updateUser.Show();
+            this.Close();
+        }
+
+        public void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormWaitingRegistrations admin = new FormWaitingRegistrations(AdminID);
+            admin.Show();
+            this.Close();
+        }
+
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormUserInterface userForm = new FormUserInterface(AdminID);
             userForm.ShowDialog();
             this.Close();
             userForm.FormClosed += new FormClosedEventHandler(UserForm_FormClosed);
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLogin.ActiveForm.Show();
+            this.Close();
         }
 
         private void UserForm_FormClosed(object sender, EventArgs e)
@@ -104,23 +130,6 @@ namespace Library___Login
             {
                 FormLogin.ActiveForm.Show();
             }
-        }
-
-        private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormUpdateUser updateUser = new FormUpdateUser(AdminID);
-            updateUser.Show();
-        }
-
-        private void addLoansToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormAddLoan loans = new FormAddLoan();
-            loans.ShowDialog();
-        }
-
-        private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
         }
     }
 }

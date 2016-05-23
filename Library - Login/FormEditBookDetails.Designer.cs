@@ -1,6 +1,6 @@
 ﻿namespace Library___Login
 {
-    partial class FormEditSingleBookDetails
+    partial class FormEditBookDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -215,7 +215,7 @@
             this.txtImagePath.Size = new System.Drawing.Size(407, 20);
             this.txtImagePath.TabIndex = 19;
             // 
-            // FormEditSingleBookDetails
+            // FormEditBookDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -240,7 +240,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FormEditSingleBookDetails";
+            this.Name = "FormEditBookDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEditSingleBookDetails";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

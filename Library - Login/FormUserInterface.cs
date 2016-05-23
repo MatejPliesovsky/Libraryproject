@@ -217,7 +217,7 @@ namespace Library___Login
 
         private void SwitchToAdmin_Click(object sender, EventArgs e)
         {
-            FormAdminInterface admin = new FormAdminInterface(UserID);
+            FormWaitingRegistrations admin = new FormWaitingRegistrations(UserID);
             admin.Show();
             this.Close();
             admin.FormClosed += new FormClosedEventHandler(AdminForm_FormClosed);
