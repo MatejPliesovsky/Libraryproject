@@ -81,6 +81,12 @@
     <Compile Include="FormEditBook.Designer.cs">
       <DependentUpon>FormEditBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditSingleBookDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditSingleBookDetails.Designer.cs">
+      <DependentUpon>FormEditSingleBookDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditBook.resx">
       <DependentUpon>FormEditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditSingleBookDetails.resx">
+      <DependentUpon>FormEditSingleBookDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUpdateUser.resx">
       <DependentUpon>FormUpdateUser.cs</DependentUpon>

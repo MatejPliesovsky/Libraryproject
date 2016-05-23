@@ -20,3 +20,5 @@ C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Libra
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.exe
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormEditSingleBookDetails.resources

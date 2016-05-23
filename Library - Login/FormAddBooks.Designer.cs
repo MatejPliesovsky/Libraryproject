@@ -53,7 +53,7 @@
             // lblBookName
             // 
             this.lblBookName.AutoSize = true;
-            this.lblBookName.Location = new System.Drawing.Point(44, 39);
+            this.lblBookName.Location = new System.Drawing.Point(44, 19);
             this.lblBookName.Name = "lblBookName";
             this.lblBookName.Size = new System.Drawing.Size(63, 13);
             this.lblBookName.TabIndex = 0;
@@ -61,7 +61,7 @@
             // 
             // txtBookName
             // 
-            this.txtBookName.Location = new System.Drawing.Point(113, 36);
+            this.txtBookName.Location = new System.Drawing.Point(113, 12);
             this.txtBookName.Name = "txtBookName";
             this.txtBookName.Size = new System.Drawing.Size(154, 20);
             this.txtBookName.TabIndex = 1;
@@ -69,9 +69,9 @@
             // btnAddBook
             // 
             this.btnAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddBook.Location = new System.Drawing.Point(113, 411);
+            this.btnAddBook.Location = new System.Drawing.Point(113, 523);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(318, 26);
+            this.btnAddBook.Size = new System.Drawing.Size(334, 26);
             this.btnAddBook.TabIndex = 2;
             this.btnAddBook.Text = "ADD BOOK";
             this.btnAddBook.UseVisualStyleBackColor = true;
@@ -80,7 +80,7 @@
             // lblAutho
             // 
             this.lblAutho.AutoSize = true;
-            this.lblAutho.Location = new System.Drawing.Point(69, 72);
+            this.lblAutho.Location = new System.Drawing.Point(69, 41);
             this.lblAutho.Name = "lblAutho";
             this.lblAutho.Size = new System.Drawing.Size(38, 13);
             this.lblAutho.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             // txtAuthor
             // 
-            this.txtAuthor.Location = new System.Drawing.Point(113, 69);
+            this.txtAuthor.Location = new System.Drawing.Point(113, 38);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(154, 20);
             this.txtAuthor.TabIndex = 4;
@@ -96,7 +96,7 @@
             // comboBoxBookCategory
             // 
             this.comboBoxBookCategory.FormattingEnabled = true;
-            this.comboBoxBookCategory.Location = new System.Drawing.Point(113, 107);
+            this.comboBoxBookCategory.Location = new System.Drawing.Point(113, 76);
             this.comboBoxBookCategory.Name = "comboBoxBookCategory";
             this.comboBoxBookCategory.Size = new System.Drawing.Size(154, 21);
             this.comboBoxBookCategory.TabIndex = 5;
@@ -104,7 +104,7 @@
             // lblBookCategory
             // 
             this.lblBookCategory.AutoSize = true;
-            this.lblBookCategory.Location = new System.Drawing.Point(58, 110);
+            this.lblBookCategory.Location = new System.Drawing.Point(58, 79);
             this.lblBookCategory.Name = "lblBookCategory";
             this.lblBookCategory.Size = new System.Drawing.Size(49, 13);
             this.lblBookCategory.TabIndex = 6;
@@ -113,7 +113,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 142);
+            this.label1.Location = new System.Drawing.Point(52, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 7;
@@ -122,7 +122,7 @@
             // comboBoxBookLanguage
             // 
             this.comboBoxBookLanguage.FormattingEnabled = true;
-            this.comboBoxBookLanguage.Location = new System.Drawing.Point(113, 139);
+            this.comboBoxBookLanguage.Location = new System.Drawing.Point(113, 108);
             this.comboBoxBookLanguage.Name = "comboBoxBookLanguage";
             this.comboBoxBookLanguage.Size = new System.Drawing.Size(154, 21);
             this.comboBoxBookLanguage.TabIndex = 8;
@@ -130,7 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 175);
+            this.label2.Location = new System.Drawing.Point(75, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 9;
@@ -138,23 +138,23 @@
             // 
             // txtISBN
             // 
-            this.txtISBN.Location = new System.Drawing.Point(113, 172);
+            this.txtISBN.Location = new System.Drawing.Point(113, 141);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(154, 20);
             this.txtISBN.TabIndex = 10;
             // 
             // richTxtBookDescreption
             // 
-            this.richTxtBookDescreption.Location = new System.Drawing.Point(113, 226);
+            this.richTxtBookDescreption.Location = new System.Drawing.Point(113, 195);
             this.richTxtBookDescreption.Name = "richTxtBookDescreption";
-            this.richTxtBookDescreption.Size = new System.Drawing.Size(318, 179);
+            this.richTxtBookDescreption.Size = new System.Drawing.Size(334, 322);
             this.richTxtBookDescreption.TabIndex = 11;
             this.richTxtBookDescreption.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 229);
+            this.label3.Location = new System.Drawing.Point(15, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 12;
@@ -162,7 +162,7 @@
             // 
             // txtPublisher
             // 
-            this.txtPublisher.Location = new System.Drawing.Point(113, 200);
+            this.txtPublisher.Location = new System.Drawing.Point(113, 169);
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.Size = new System.Drawing.Size(154, 20);
             this.txtPublisher.TabIndex = 13;
@@ -170,7 +170,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 207);
+            this.label4.Location = new System.Drawing.Point(57, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 14;
@@ -180,25 +180,25 @@
             // 
             this.pictureBox1.BackgroundImage = global::Library___Login.Properties.Resources.noimage;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(453, 39);
+            this.pictureBox1.Location = new System.Drawing.Point(453, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(384, 342);
+            this.pictureBox1.Size = new System.Drawing.Size(319, 479);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
             // txtImagePath
             // 
-            this.txtImagePath.Location = new System.Drawing.Point(453, 388);
+            this.txtImagePath.Location = new System.Drawing.Point(453, 497);
             this.txtImagePath.Name = "txtImagePath";
-            this.txtImagePath.Size = new System.Drawing.Size(384, 20);
+            this.txtImagePath.Size = new System.Drawing.Size(319, 20);
             this.txtImagePath.TabIndex = 16;
             // 
             // btnLoadImage
             // 
             this.btnLoadImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadImage.Location = new System.Drawing.Point(453, 414);
+            this.btnLoadImage.Location = new System.Drawing.Point(453, 523);
             this.btnLoadImage.Name = "btnLoadImage";
-            this.btnLoadImage.Size = new System.Drawing.Size(384, 23);
+            this.btnLoadImage.Size = new System.Drawing.Size(319, 26);
             this.btnLoadImage.TabIndex = 17;
             this.btnLoadImage.Text = "UPLOAD BOOK IMAGE";
             this.btnLoadImage.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 457);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.btnLoadImage);
             this.Controls.Add(this.txtImagePath);
             this.Controls.Add(this.pictureBox1);
