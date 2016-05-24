@@ -14,14 +14,14 @@ namespace Library___Login
     {
         string bookID, bookName, author, lent, categoryID, languageID, desc, publisher, category, language, ISBN;
         string[] descrpition;
-        Connect2DB connect = new Connect2DB();
+        Connect2DB db = new Connect2DB();
 
         public FormEditBookDetails(string info)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             List<string> bookDetail = new List<string>();
-            bookDetail = connect.bookDetails(info);
+            bookDetail = db.bookDetails(info);
 
             if (bookDetail.Capacity > 0)
             {
@@ -35,8 +35,8 @@ namespace Library___Login
                 ISBN = bookDetail.ElementAt(7);
                 publisher = bookDetail.ElementAt(8);
 
-                language = connect.bookLanguage(languageID);
-                category = connect.bookCategory(categoryID);
+                language = db.bookLanguage(languageID);
+                category = db.bookCategory(categoryID);
 
                 descrpition = desc.Split('.');
                 desc = "";
@@ -54,7 +54,7 @@ namespace Library___Login
                 }
                 txtBookDescription.Text = desc;
 
-                pictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(connect.getImageByBookId(bookID)));
+                pictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(db.getImageByBookId(bookID)));
                 pictureBox1.Refresh();
             }
 
@@ -62,7 +62,7 @@ namespace Library___Login
 
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
-            string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + category + ";" + language + ";" + ISBN + ";" + desc;
+            string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + ISBN;
 
             txtIDBook.Text = bookID;
             txtBookName.Text = bookName;
@@ -71,21 +71,18 @@ namespace Library___Login
             txtBookCategory.Text = category;
             txtBookLanguage.Text = language;
             txtBookISBN.Text = ISBN;
-            for (int i = 0; i < descrpition.Length; i++)
+           /* for (int i = 0; i < descrpition.Length; i++)
             {
                 desc = desc + descrpition[i] + ".\n";
             }
-            txtBookDescription.Text = desc;
+            txtBookDescription.Text = desc;*/
 
-            if (connect.updateBookdetailsData(details))
-            {
+            if (db.updateBookdetailsData(details))            
                 MessageBox.Show("Book successfully Update");
-            }
-
-            else
-            {
+            
+            else            
                 MessageBox.Show("Book NOT successfully Update");
-            }
+            
 
         }
     }
