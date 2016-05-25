@@ -1648,6 +1648,9 @@ namespace Library___Login
             author = items[2];
             ISBN = items[3];
             publisher = items[4];
+            desc = items[5];
+
+            descrpition = desc.Split('.');
 
             if (openConnection())
             {
@@ -1657,10 +1660,11 @@ namespace Library___Login
             cmd.Parameters.AddWithValue("@author", author);
             cmd.ExecuteNonQuery();
 
-            sqlQuery = "update BooksDetails set ISBN = @ISBN, Publisher = @publisher where ID like " + bookID;
+            sqlQuery = "update BooksDetails set ISBN = @ISBN, Publisher = @publisher, description = @desc where ID like " + bookID;
             cmd = new MySqlCommand(sqlQuery, connection);
             cmd.Parameters.AddWithValue("@ISBN", ISBN);
             cmd.Parameters.AddWithValue("@publisher", publisher);
+            cmd.Parameters.AddWithValue("@desc", desc);
             cmd.ExecuteNonQuery();
 
             closeConnection();
