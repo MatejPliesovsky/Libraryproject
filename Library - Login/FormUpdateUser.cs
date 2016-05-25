@@ -19,6 +19,7 @@ namespace Library___Login
         public FormUpdateUser(string adminID)
         {
             InitializeComponent();
+            DatabaseInfo.Visible = false;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AdminID = adminID;
             Search_btn_Click(null, null);

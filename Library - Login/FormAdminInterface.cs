@@ -266,6 +266,8 @@ namespace Library___Login
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowDialog();
         }
 
         private void UserForm_FormClosed(object sender, EventArgs e)

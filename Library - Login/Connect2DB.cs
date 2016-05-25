@@ -1559,6 +1559,7 @@ namespace Library___Login
                     imageBytes = (byte[])reader["Image"];
                 }
             }
+            closeConnection();
             return imageBytes;
         }
 

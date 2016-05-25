@@ -84,25 +84,21 @@ namespace Library___Login
         //if some opened formular will be closed, login form closed as well
         private void Form1_FormClosed(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FormWaitingRegistrations>().Any() || Application.OpenForms.OfType<FormUserInterface>().Any())
-            {
                 this.Hide();
-            }
-            else
-            {
+
                 Username.Text = "Please enter your email";
                 Password.Text = "Password";
                 Username.ForeColor = Color.Gray;
                 Password.ForeColor = Color.Gray;
                 ErrorMessage.Visible = false;
-                this.Show();
-            }
+        
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
 
         private void Username_TextChanged(object sender, EventArgs e)
         {
@@ -167,6 +163,20 @@ namespace Library___Login
             if (e.KeyCode == Keys.Enter)
             {
                 Login_Click(Username, null);
+            }
+        }
+
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (System.Windows.Forms.Application.MessageLoop)
+            {
+                // WinForms app
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                // Console app
+                System.Environment.Exit(1);
             }
         }
     }
