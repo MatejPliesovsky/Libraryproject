@@ -42,6 +42,24 @@ namespace Library___Login
                 SwitchToAdmin.Enabled = false;
             }
         }
+        
+        public FormUserInterface(string username,string password)
+        {
+            InitializeComponent();
+            connection = new Connect2DB();
+            UserID = connection.FindUser(username, password);
+            string userRole = connection.getUserRole(UserID);
+            if (userRole == "admin")
+            {
+                SwitchToAdmin.Visible = true;
+                SwitchToAdmin.Enabled = true;
+            }
+            else
+            {
+                SwitchToAdmin.Visible = false;
+                SwitchToAdmin.Enabled = false;
+            }
+        }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
@@ -197,10 +215,21 @@ namespace Library___Login
             }
         }
 
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUserInterface.ActiveForm.Refresh();
+        }
+
         private void userProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UserProfile form = new UserProfile(UserID);
             form.Show();
+            this.Close();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

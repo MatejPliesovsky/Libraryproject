@@ -184,7 +184,7 @@ namespace Library___Login
         {
             string userAge = null;
             DateTime BirthDate = new DateTime();
-            string sqlQuery = "select BirthDate from " + usersEntity + " where id like " + userId;
+            string sqlQuery = "select BirthDate from Users where id like " + userId;
 
             if (openConnection())
             {
@@ -196,10 +196,7 @@ namespace Library___Login
                     userAge = reader["BirthDate"] + "";
                 }
                 closeConnection();
-                string[] items = userAge.Split('-');
-                BirthDate.AddYears(int.Parse(items[0]));
-                BirthDate.AddMonths(int.Parse(items[1]));
-                BirthDate.AddDays(int.Parse(items[2]));
+                BirthDate = DateTime.Parse(userAge);
                 userAge = null;
                 if (System.DateTime.Today.Month == BirthDate.Month && System.DateTime.Today.Day == BirthDate.Day)
                 {
@@ -606,7 +603,7 @@ namespace Library___Login
                         help = (System.DateTime.Today.Year - forAge.Year - 1).ToString();
                     }
                     details = details + help + ";" + reader["email"] + ";" + reader["UserRole"] + ";" + reader["Active"] + ";"
-                        + reader["Street"] + ";" + reader["StreetNumber"] + ";" + reader["City"] + ";" + reader["Country"]
+                        + reader["Street"] + ";" + reader["StreetNumber"] + ";" + reader["PostalCode"] + ";" + reader["City"] + ";" + reader["Country"]
                         + ";" + reader["Telephone"];
                 }
                 closeConnection();

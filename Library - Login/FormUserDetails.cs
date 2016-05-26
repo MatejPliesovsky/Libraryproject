@@ -104,6 +104,7 @@ namespace Library___Login
 
         private void Apply_Click(object sender, EventArgs e)
         {
+            userID = ID.Text;
             firstName = FirstName.Text;
             lastName = LastName.Text;
             email = Email.Text;
