@@ -17,6 +17,7 @@ namespace Library___Login
         Connect2DB con = new Connect2DB();
         List<string> books = new List<string>();
         List<string> readers = new List<string>();
+        List<string> status = new List<string>();
         List<string> lendings = new List<string>();
         List<string> returns = new List<string>();
 
@@ -40,20 +41,7 @@ namespace Library___Login
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
             }
-            books = con.checkLentBookNames();
-            readers = con.checkOwnersOfLentBooks();
-            lendings = con.checkDatesLendings();
-            returns = con.checkReturnsDates();
-
-            for (int i = 0; i < books.Count; i++)
-            {
-                ListViewItem item = new ListViewItem(books[i]);
-                item.SubItems.Add(readers[i]);
-                item.SubItems.Add(lendings[i]);
-                item.SubItems.Add(returns[i]);
-
-                listView1.Items.Add(item);
-            }
+            Refresh_Click(null, null);
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,6 +73,11 @@ namespace Library___Login
         {
             FormAddLoan loans = new FormAddLoan();
             loans.ShowDialog();
+        }
+
+        private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checkLoansToolStripMenuItem_Click(reservedBooksToolStripMenuItem, null);
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,6 +122,57 @@ namespace Library___Login
             else
             {
                 FormLogin.ActiveForm.Show();
+            }
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            columnHeader1.TextAlign = HorizontalAlignment.Center;
+            if (Reserved.Checked == false)
+            {
+                books = con.checkLentBookNames(SearchBar.Text, false);
+                readers = con.checkOwnersOfLentBooks(SearchBar.Text, false);
+                status = con.checkStatusOfBook(SearchBar.Text, false);
+                lendings = con.checkDatesLendings(SearchBar.Text, false);
+                returns = con.checkReturnsDates(SearchBar.Text, false);
+            }
+            else
+            {
+                books = con.checkLentBookNames(SearchBar.Text, true);
+                readers = con.checkOwnersOfLentBooks(SearchBar.Text, true);
+                status = con.checkStatusOfBook(SearchBar.Text, true);
+                lendings = con.checkDatesLendings(SearchBar.Text, true);
+                returns = con.checkReturnsDates(SearchBar.Text, true);
+            }
+
+            for (int i = 0; i < books.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(books[i]);
+                item.SubItems.Add(readers[i]);
+                item.SubItems.Add(status[i]);
+                item.SubItems.Add(lendings[i]);
+                item.SubItems.Add(returns[i]);
+
+                listView1.Items.Add(item);
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = 0;
+            index = (listView1.SelectedIndices.Count) - 1;
+            if (index < 0)
+            {
+                index = index + listView1.SelectedIndices.Count;
+            }
+            else
+            {
+                string info = listView1.SelectedItems[index].Text;
+                FormBookDetails bookDetails = new FormBookDetails(info);
+                bookDetails.ShowDialog();
+                Refresh.Select();
+                this.Update();
             }
         }
     }

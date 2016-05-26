@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
-    public partial class FormEditSingleBook : Form
+    public partial class FormBookDetails : Form
     {
-        public FormEditSingleBook(string info)
+        public FormBookDetails(string info)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;

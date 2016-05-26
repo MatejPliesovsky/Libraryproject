@@ -51,7 +51,7 @@
             this.checkBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservedBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrationReguestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -259,7 +259,7 @@
             // 
             this.loansToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addLoansToolStripMenuItem,
-            this.removeLoansToolStripMenuItem,
+            this.reservedBooksToolStripMenuItem,
             this.checkLoansToolStripMenuItem});
             this.loansToolStripMenuItem.Name = "loansToolStripMenuItem";
             this.loansToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -272,11 +272,12 @@
             this.addLoansToolStripMenuItem.Text = "Add loans";
             this.addLoansToolStripMenuItem.Click += new System.EventHandler(this.addLoansToolStripMenuItem_Click);
             // 
-            // removeLoansToolStripMenuItem
+            // reservedBooksToolStripMenuItem
             // 
-            this.removeLoansToolStripMenuItem.Name = "removeLoansToolStripMenuItem";
-            this.removeLoansToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.removeLoansToolStripMenuItem.Text = "Reserved books";
+            this.reservedBooksToolStripMenuItem.Name = "reservedBooksToolStripMenuItem";
+            this.reservedBooksToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.reservedBooksToolStripMenuItem.Text = "Reserved books";
+            this.reservedBooksToolStripMenuItem.Click += new System.EventHandler(this.reservedBooksToolStripMenuItem_Click);
             // 
             // checkLoansToolStripMenuItem
             // 
@@ -382,7 +383,7 @@
         private System.Windows.Forms.ToolStripMenuItem checkBooksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loansToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addLoansToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem removeLoansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reservedBooksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkLoansToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrationReguestToolStripMenuItem;

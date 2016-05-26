@@ -226,7 +226,7 @@ namespace Library___Login
 
         private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            checkLoansToolStripMenuItem_Click(reservedBooksToolStripMenuItem, null);
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)

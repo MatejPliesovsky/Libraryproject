@@ -368,6 +368,11 @@ namespace Library___Login
             loans.ShowDialog();
         }
 
+        private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            checkLoansToolStripMenuItem_Click(reservedBooksToolStripMenuItem, null);
+        }
+
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCheckLoans chceckLoans = new FormCheckLoans(AdminID);

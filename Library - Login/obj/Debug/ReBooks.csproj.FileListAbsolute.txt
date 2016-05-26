@@ -29,7 +29,6 @@ A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\bin\Debug\MySql.Data.dl
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddLoan.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormWaitingRegistrations.resources
-A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormEditSingleBook.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormCheckLoans.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormEditBookDetails.resources
@@ -46,3 +45,4 @@ A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Log
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormWaitingRegistrations.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormEditBookDetails.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormBookDetails.resources

@@ -62,20 +62,17 @@ namespace Library___Login
 
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
-            string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + ISBN;
-
-            txtIDBook.Text = bookID;
-            txtBookName.Text = bookName;
-            txtBookAuthor.Text = author;
-            txtBookPublisher.Text = publisher;
-            txtBookCategory.Text = category;
-            txtBookLanguage.Text = language;
-            txtBookISBN.Text = ISBN;
-           /* for (int i = 0; i < descrpition.Length; i++)
+            bookName = txtBookName.Text;
+            author = txtBookAuthor.Text;
+            publisher = txtBookPublisher.Text;
+            ISBN = txtBookISBN.Text;
+            for (int i = 0; i < descrpition.Length; i++)
             {
                 desc = desc + descrpition[i] + ".\n";
             }
-            txtBookDescription.Text = desc;*/
+            desc = txtBookDescription.Text;
+
+            string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + ISBN + ";" + desc;
 
             if (db.updateBookdetailsData(details))            
                 MessageBox.Show("Book successfully Update");
