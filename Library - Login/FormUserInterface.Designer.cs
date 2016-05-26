@@ -128,7 +128,6 @@
             this.SearchFree.TabIndex = 4;
             this.SearchFree.Text = "Just free";
             this.SearchFree.UseVisualStyleBackColor = true;
-            this.SearchFree.CheckedChanged += new System.EventHandler(this.SearchFree_CheckedChanged);
             // 
             // SwitchToAdmin
             // 

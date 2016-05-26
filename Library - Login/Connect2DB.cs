@@ -641,7 +641,7 @@ namespace Library___Login
                         help = (System.DateTime.Today.Year - forAge.Year - 1).ToString();
                     }
                     details = details + help + ";" + reader["email"] + ";" + reader["UserRole"] + ";" + reader["Active"] + ";"
-                        + reader["Street"] + ";" + reader["StreetNumber"] + ";" + reader["PostalCode"] + ";" 
+                        + reader["Street"] + ";" + reader["StreetNumber"] + ";" + reader["PostalCode"] + ";"
                         + reader["City"] + ";" + reader["Country"] + ";" + reader["Telephone"];
                 }
                 closeConnection();
@@ -1398,7 +1398,7 @@ namespace Library___Login
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
-                {   
+                {
                     bookDetail.Add(reader["ID"] + "");
                     bookDetail.Add(reader["BookName"] + "");
                     bookDetail.Add(reader["Author"] + "");
@@ -1527,7 +1527,7 @@ namespace Library___Login
         }
 
         // find book ID according it's name
-        public string findBookID (string bookName)
+        public string findBookID(string bookName)
         {
             if (openConnection())
             {
@@ -1654,21 +1654,21 @@ namespace Library___Login
 
             if (openConnection())
             {
-            string sqlQuery = "update Books set BookName = @bookName, Author = @author where ID like " + bookID;
-            MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-            cmd.Parameters.AddWithValue("@BookName", bookName);
-            cmd.Parameters.AddWithValue("@author", author);
-            cmd.ExecuteNonQuery();
+                string sqlQuery = "update Books set BookName = @bookName, Author = @author where ID like " + bookID;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@BookName", bookName);
+                cmd.Parameters.AddWithValue("@author", author);
+                cmd.ExecuteNonQuery();
 
-            sqlQuery = "update BooksDetails set ISBN = @ISBN, Publisher = @publisher, description = @desc where ID like " + bookID;
-            cmd = new MySqlCommand(sqlQuery, connection);
-            cmd.Parameters.AddWithValue("@ISBN", ISBN);
-            cmd.Parameters.AddWithValue("@publisher", publisher);
-            cmd.Parameters.AddWithValue("@desc", desc);
-            cmd.ExecuteNonQuery();
+                sqlQuery = "update BooksDetails set ISBN = @ISBN, Publisher = @publisher, description = @desc where ID like " + bookID;
+                cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@ISBN", ISBN);
+                cmd.Parameters.AddWithValue("@publisher", publisher);
+                cmd.Parameters.AddWithValue("@desc", desc);
+                cmd.ExecuteNonQuery();
 
-            closeConnection();
-            return true;
+                closeConnection();
+                return true;
             }
             return false;
         }
@@ -1776,6 +1776,67 @@ namespace Library___Login
             }
             return returns;
         }
-    }
+        // reserve book by User
+        public bool reserveBook(string bookID, string userID)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "insert into ReservedBooks (IDBook, IDUser) values (@IDBook, @IDUser)";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@IDBook", bookID);
+                cmd.Parameters.AddWithValue("@IDUser", userID);
+                cmd.ExecuteNonQuery();
 
+                sqlQuery = "update Books set Lent = @Reserved where ID = " + bookID;
+                cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@reserved", "reserved");
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
+                return true;
+            }
+            return false;
+        }
+
+        // delete reservation of book
+        public bool deleteReservation(string bookID, string userID)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "delete from ReservedBooks where IDBook = @IDBook and IDUser = @IDUser";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@IDBook", bookID);
+                cmd.Parameters.AddWithValue("@IDUser", userID);
+                cmd.ExecuteNonQuery();
+
+                sqlQuery = "update Books set Lent = @free where ID = " + bookID;
+                cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@free", "free");
+                cmd.ExecuteNonQuery();
+
+
+                closeConnection();
+                return true;
+            }
+            return false;
+        }
+
+        public bool checkIfBookIsFree(string bookID)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "select bookID from Books where Lent like @free";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+
+                closeConnection();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+    }
 }

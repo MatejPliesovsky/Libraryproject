@@ -12,26 +12,27 @@ namespace Library___Login
 {
     public partial class Users : Form
     {
-        public Users(string username, string password)
+        string userID;
+        public Users(string userID)
         {
             InitializeComponent();
             ErrorMessage.Visible = false;
             Connect2DB con = new Connect2DB();
-            string userId = con.FindUser(username, password);
-            if (userId == null)
+            this.userID = userID;
+            if (userID == null)
             {
                 ErrorMessage.Visible = true;
             }
             else
             {
-                UserAllName.Text = con.getUserAllName(userId);
+                UserAllName.Text = con.getUserAllName(userID);
                 if (UserAllName.Text == null)
                 {
                     ErrorMessage.Visible = true;
                 }
                 else
                 {
-                    UserAge.Text = "Age: " + con.getUserAge(userId);
+                    UserAge.Text = "Age: " + con.getUserAge(userID);
                 }
             }
         }

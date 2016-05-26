@@ -10,16 +10,20 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
-    public partial class FormEditSingleBook : Form
+    public partial class FormBookDetails : Form
     {
-        public FormEditSingleBook(string info)
+        string userID;
+        string bookID;
+        Connect2DB connect = new Connect2DB();
+
+        public FormBookDetails(string info, string userID)
         {
             InitializeComponent();
+            this.userID = userID;
             this.StartPosition = FormStartPosition.CenterScreen;
-            Connect2DB connect = new Connect2DB();
             List<string> bookDetail = new List<string>();
             bookDetail = connect.bookDetails(info);
-            string bookID, bookName, author, lent, categoryID, languageID, desc, publisher, category, language;
+            string bookName, author, lent, categoryID, languageID, desc, publisher, category, language;
             string[] descrpition;
             if (bookDetail.Capacity > 0)
             {
@@ -54,12 +58,34 @@ namespace Library___Login
                 PictureBox.Refresh();
             }
         }
+        public void checkBookStatus() { 
+        if (connect.checkIfBookIsFree(bookID) == true)
+            {
+                Reserve.Show();
+            }
+        else{
 
-        private void Apply_Click(object sender, EventArgs e)
-        {
-            this.Close();
+                Reserve.Hide();
+                Exception.Visible = true;                
+                Exception.Text = "Book is Lent or Reserved";
+
+
+            }
         }
 
-       
+    private void Reserve_Click(object sender, EventArgs e)
+        { 
+                connect.reserveBook(bookID, userID);
+        }
+
+        private void DeleteRes_Click(object sender, EventArgs e)
+        {
+            connect.deleteReservation(bookID, userID);
+        }
+
+        private void FormBookDetails_Shown(object sender, EventArgs e)
+        {
+            checkBookStatus();
+        }
     }
 }
