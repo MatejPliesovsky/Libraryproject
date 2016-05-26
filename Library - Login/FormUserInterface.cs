@@ -196,6 +196,12 @@ namespace Library___Login
                 FormLogin.ActiveForm.Show();
             }
         }
+
+        private void userProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserProfile form = new UserProfile(UserID);
+            form.Show();
+        }
     }
 }
     

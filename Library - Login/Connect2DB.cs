@@ -590,6 +590,7 @@ namespace Library___Login
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
+               
                 while (reader.Read())
                 {
                     details = reader["ID"] + ";" + reader["FirstName"] + ";" + reader["LastName"] + ";";

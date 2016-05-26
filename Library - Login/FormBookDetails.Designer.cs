@@ -100,6 +100,7 @@
             // 
             this.Description.AutoSize = true;
             this.Description.Location = new System.Drawing.Point(30, 210);
+            this.Description.MaximumSize = new System.Drawing.Size(350, 0);
             this.Description.Name = "Description";
             this.Description.Size = new System.Drawing.Size(60, 13);
             this.Description.TabIndex = 6;
