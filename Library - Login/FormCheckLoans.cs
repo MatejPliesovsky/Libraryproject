@@ -123,7 +123,6 @@ namespace Library___Login
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            DateTime loan = new DateTime();
             listView1.Items.Clear();
             columnHeader1.TextAlign = HorizontalAlignment.Center;
             if (Reserved.Checked == false)
@@ -147,18 +146,6 @@ namespace Library___Login
                 i++;
                 item.SubItems.Add(details[i]);
 
-                if (details[i] != "---")
-                {
-                    loan = DateTime.Parse(details[i]);
-                    if (loan.Month <= DateTime.Today.Month && loan.Day <= DateTime.Today.Day)
-                    {
-                        item.ForeColor = Color.Red;
-                    }
-                }
-                else
-                {
-                    item.ForeColor = Color.Blue;
-                }
                 listView1.Items.Add(item);
             }
         }

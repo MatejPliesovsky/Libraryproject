@@ -94,3 +94,28 @@ C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\ReBooks\Libra
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormBookDetails.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.UserProfile.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.ReservationDetails.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\bin\Debug\Library - Login.exe.config
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library - Login.exe
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\bin\Debug\Library - Login.exe
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\bin\Debug\Library - Login.pdb
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\bin\Debug\MySql.Data.dll
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddLoan.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormWaitingRegistrations.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormBookDetails.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormCheckLoans.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormEditBookDetails.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormUpdateUser.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserDetails.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserInterface.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormLogin.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.ReservationDetails.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.UserProfile.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
+C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache

@@ -198,7 +198,7 @@ namespace Library___Login
                 closeConnection();
                 BirthDate = DateTime.Parse(userAge);
                 userAge = null;
-                if (System.DateTime.Today.Month >= BirthDate.Month && System.DateTime.Today.Day >= BirthDate.Day)
+                if (System.DateTime.Today.Month == BirthDate.Month && System.DateTime.Today.Day == BirthDate.Day)
                 {
                     userAge = (System.DateTime.Today.Year - BirthDate.Year).ToString();
                 }
@@ -314,7 +314,7 @@ namespace Library___Login
                 
                 birthDate = DateTime.Parse(userAge);
 
-                if (System.DateTime.Today.Month >= birthDate.Month && System.DateTime.Today.Day >= birthDate.Day)
+                if (System.DateTime.Today.Year == birthDate.Year && System.DateTime.Today.Month <= birthDate.Month && System.DateTime.Today.Day <= birthDate.Day)
                 {
                     userAge = (System.DateTime.Today.Year - birthDate.Year).ToString();
                 }
@@ -447,7 +447,7 @@ namespace Library___Login
                 {
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
-                    if (System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
+                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
                     {
                         age = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -681,7 +681,7 @@ namespace Library___Login
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
 
-                    if (System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
+                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
                     {
                         help = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -717,7 +717,7 @@ namespace Library___Login
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
 
-                    if (System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
+                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
                     {
                         help = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -1815,11 +1815,6 @@ namespace Library___Login
                 cmd.Parameters.AddWithValue("@BookID", bookID);
                 cmd.ExecuteNonQuery();
 
-                sqlQuery = "update Books set Lent = @lent where ID = " + bookID;
-                cmd = new MySqlCommand(sqlQuery, connection);
-                cmd.Parameters.AddWithValue("@lent", "free");
-                cmd.ExecuteNonQuery();
-
                 closeConnection();
                 return true;
             }
@@ -1952,17 +1947,47 @@ namespace Library___Login
         {
             if (openConnection())
             {
-                string sqlQuery = "select bookID from Books where Lent like @free";
+                string sqlQuery = "select Lent from Books where ID like @bookID";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@bookId", bookID);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                bool result = false;
+                if (reader.Read())
+                {
+                    result = reader["Lent"].ToString().Equals("free");
+                }
 
                 closeConnection();
-                return true;
+                return result;
             }
-            else
-            {
-                return false;
-            }
+            return true;
+       }
 
+        public bool checkBookisReservedByUser(string IDBook, string IDUser)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "select Lent, IDUser from Books " +
+                    "INNER JOIN ReservedBooks ON Books.ID=ReservedBooks.IDBook " +
+                    "where IDBook like @IDBook";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@IDBook", IDBook);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                bool result = false;
+                if (reader.Read())
+                {
+                    if (reader["Lent"].ToString().Equals("reserved"))
+                    {
+                        result = reader["IDUser"].ToString().Equals(IDUser);
+                    }
+                }
+
+                closeConnection();
+                return result;
+            }
+            return false;
         }
 
     }

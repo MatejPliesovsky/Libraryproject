@@ -62,28 +62,49 @@ namespace Library___Login
         if (connect.checkIfBookIsFree(bookID) == true)
             {
                 Reserve.Show();
+                DeleteRes.Hide();
             }
         else{
-
+                if (connect.checkBookisReservedByUser(bookID, userID))
+                {
+                    DeleteRes.Show();
+                    Exception.Text = "You have already reserved this book";
+                }
+                else
+                {
+                    DeleteRes.Hide();                    
+                    Exception.Text = "Book is lent or reserved by another user";
+                }
                 Reserve.Hide();
-                Exception.Visible = true;                
-                Exception.Text = "Book is Lent or Reserved";
+                Exception.Visible = true;
             }
         }
+
 
     private void Reserve_Click(object sender, EventArgs e)
         { 
                 connect.reserveBook(bookID, userID);
+            messageLabel.Show();
+            messageLabel.Text = "You have reservate this book";
         }
 
         private void DeleteRes_Click(object sender, EventArgs e)
         {
             connect.deleteReservation(bookID, userID);
+            messageLabel.Show();
+            messageLabel.Text = "You have decline reservation";
+
         }
 
         private void FormBookDetails_Shown(object sender, EventArgs e)
         {
             checkBookStatus();
+            connect.checkBookisReservedByUser(bookID, userID);
+        }
+
+        private void FormBookDetails_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

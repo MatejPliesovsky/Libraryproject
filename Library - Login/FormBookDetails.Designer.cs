@@ -39,6 +39,7 @@
             this.DeleteRes = new System.Windows.Forms.Button();
             this.Reserve = new System.Windows.Forms.Button();
             this.Exception = new System.Windows.Forms.Label();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,7 +121,7 @@
             this.DeleteRes.Name = "DeleteRes";
             this.DeleteRes.Size = new System.Drawing.Size(113, 23);
             this.DeleteRes.TabIndex = 9;
-            this.DeleteRes.Text = "Delete Resevation";
+            this.DeleteRes.Text = "Delete Reservation";
             this.DeleteRes.UseVisualStyleBackColor = true;
             this.DeleteRes.Click += new System.EventHandler(this.DeleteRes_Click);
             // 
@@ -137,16 +138,31 @@
             // Exception
             // 
             this.Exception.AutoSize = true;
+            this.Exception.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Exception.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.Exception.Location = new System.Drawing.Point(107, 441);
             this.Exception.Name = "Exception";
-            this.Exception.Size = new System.Drawing.Size(35, 13);
+            this.Exception.Size = new System.Drawing.Size(57, 20);
             this.Exception.TabIndex = 11;
             this.Exception.Text = "label1";
             this.Exception.Visible = false;
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.messageLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.messageLabel.Location = new System.Drawing.Point(332, 303);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(66, 24);
+            this.messageLabel.TabIndex = 12;
+            this.messageLabel.Text = "label1";
+            this.messageLabel.Visible = false;
+            // 
             // FormBookDetails
             // 
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.Exception);
             this.Controls.Add(this.Reserve);
             this.Controls.Add(this.DeleteRes);
@@ -159,6 +175,8 @@
             this.Controls.Add(this.Author);
             this.Controls.Add(this.BookName);
             this.Name = "FormBookDetails";
+            this.Load += new System.EventHandler(this.FormBookDetails_Load);
+            this.Shown += new System.EventHandler(this.FormBookDetails_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,5 +197,6 @@
         private System.Windows.Forms.Button reserve;
         private System.Windows.Forms.Button Reserve;
         private System.Windows.Forms.Label Exception;
+        private System.Windows.Forms.Label messageLabel;
     }
 }
