@@ -1815,6 +1815,11 @@ namespace Library___Login
                 cmd.Parameters.AddWithValue("@BookID", bookID);
                 cmd.ExecuteNonQuery();
 
+                sqlQuery = "update Books set Lent = @lent where ID = " + bookID;
+                cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@lent", "free");
+                cmd.ExecuteNonQuery();
+
                 closeConnection();
                 return true;
             }
