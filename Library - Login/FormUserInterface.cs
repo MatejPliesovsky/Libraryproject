@@ -42,6 +42,24 @@ namespace Library___Login
                 SwitchToAdmin.Enabled = false;
             }
         }
+        
+        public FormUserInterface(string username,string password)
+        {
+            InitializeComponent();
+            connection = new Connect2DB();
+            UserID = connection.FindUser(username, password);
+            string userRole = connection.getUserRole(UserID);
+            if (userRole == "admin")
+            {
+                SwitchToAdmin.Visible = true;
+                SwitchToAdmin.Enabled = true;
+            }
+            else
+            {
+                SwitchToAdmin.Visible = false;
+                SwitchToAdmin.Enabled = false;
+            }
+        }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
@@ -151,44 +169,6 @@ namespace Library___Login
 
         }
 
-        private void SearchFree_CheckedChanged(object sender, EventArgs e)
-        {
-            /*bool lent;
-            string search, categories = null;
-            List<string> books = new List<string>();
-            List<string> authors = new List<string>();
-            List<string> Lents = new List<string>();
-            List<string> category = new List<string>();
-            List<string> language = new List<string>();
-
-            listView1.Items.Clear();
-            for (int i = 0; i < checkedListBox1.Items.Count; i++)
-            {
-                if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
-                {
-                    categories = categories + checkedListBox1.Items[i].ToString() + ";";
-                }
-            }
-
-            search = SearchBar.Text;
-            lent = true;
-            books = connection.searchBookNames(search, lent, categories);
-            authors = connection.searchAuthor(search, lent, categories);
-            Lents = connection.searchLents(search, lent, categories);
-            category = connection.searchCategory(search, lent, categories);
-
-
-            for (int i = 0; i < books.Count; i++)
-            {
-                ListViewItem item = new ListViewItem(books[i]);
-                item.SubItems.Add(authors[i]);
-                item.SubItems.Add(Lents[i]);
-                item.SubItems.Add(category[i]);
-
-                listView1.Items.Add(item);
-            }*/
-        }
-
         private void bookDetail_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -208,7 +188,7 @@ namespace Library___Login
             else
             {
                 string info = listView1.SelectedItems[index].Text;
-                FormBookDetails bookDetail = new FormBookDetails(info);
+                FormBookDetails bookDetail = new FormBookDetails(info, UserID);
                 bookDetail.ShowDialog();
                 Search_btn.Select();
                 this.Update();
@@ -233,6 +213,23 @@ namespace Library___Login
             {
                 FormLogin.ActiveForm.Show();
             }
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormUserInterface.ActiveForm.Refresh();
+        }
+
+        private void userProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserProfile form = new UserProfile(UserID);
+            form.Show();
+            this.Close();
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -15,11 +15,7 @@ namespace Library___Login
         int waitingReg;
         string AdminID;
         Connect2DB con = new Connect2DB();
-        List<string> books = new List<string>();
-        List<string> readers = new List<string>();
-        List<string> status = new List<string>();
-        List<string> lendings = new List<string>();
-        List<string> returns = new List<string>();
+        List<string> details = new List<string>();
 
         public FormCheckLoans(string UserID)
         {
@@ -131,34 +127,30 @@ namespace Library___Login
             columnHeader1.TextAlign = HorizontalAlignment.Center;
             if (Reserved.Checked == false)
             {
-                books = con.checkLentBookNames(SearchBar.Text, false);
-                readers = con.checkOwnersOfLentBooks(SearchBar.Text, false);
-                status = con.checkStatusOfBook(SearchBar.Text, false);
-                lendings = con.checkDatesLendings(SearchBar.Text, false);
-                returns = con.checkReturnsDates(SearchBar.Text, false);
+                details = con.checkLentsAndReservations(SearchBar.Text, false);
             }
             else
             {
-                books = con.checkLentBookNames(SearchBar.Text, true);
-                readers = con.checkOwnersOfLentBooks(SearchBar.Text, true);
-                status = con.checkStatusOfBook(SearchBar.Text, true);
-                lendings = con.checkDatesLendings(SearchBar.Text, true);
-                returns = con.checkReturnsDates(SearchBar.Text, true);
+                details = con.checkLentsAndReservations(SearchBar.Text, true);
             }
 
-            for (int i = 0; i < books.Count; i++)
+            for (int i = 0; i < details.Count; i++)
             {
-                ListViewItem item = new ListViewItem(books[i]);
-                item.SubItems.Add(readers[i]);
-                item.SubItems.Add(status[i]);
-                item.SubItems.Add(lendings[i]);
-                item.SubItems.Add(returns[i]);
+                ListViewItem item = new ListViewItem(details[i]);
+                i++;
+                item.SubItems.Add(details[i]);
+                i++;
+                item.SubItems.Add(details[i]);
+                i++;
+                item.SubItems.Add(details[i]);
+                i++;
+                item.SubItems.Add(details[i]);
 
                 listView1.Items.Add(item);
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             int index = 0;
             index = (listView1.SelectedIndices.Count) - 1;
@@ -168,9 +160,11 @@ namespace Library___Login
             }
             else
             {
-                string info = listView1.SelectedItems[index].Text;
-                FormBookDetails bookDetails = new FormBookDetails(info);
-                bookDetails.ShowDialog();
+                string status = listView1.SelectedItems[listView1.SelectedIndices.Count - 1].SubItems[2].Text;
+                ErrorMessage.Visible = false;
+                string bookName = listView1.SelectedItems[index].Text;
+                ReservationDetails showDetails = new ReservationDetails(AdminID, bookName);
+                showDetails.ShowDialog();
                 Refresh.Select();
                 this.Update();
             }

@@ -36,6 +36,9 @@
             this.Lent = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.Label();
             this.PictureBox = new System.Windows.Forms.PictureBox();
+            this.DeleteRes = new System.Windows.Forms.Button();
+            this.Reserve = new System.Windows.Forms.Button();
+            this.Exception = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +100,7 @@
             // 
             this.Description.AutoSize = true;
             this.Description.Location = new System.Drawing.Point(30, 210);
+            this.Description.MaximumSize = new System.Drawing.Size(350, 0);
             this.Description.Name = "Description";
             this.Description.Size = new System.Drawing.Size(60, 13);
             this.Description.TabIndex = 6;
@@ -110,9 +114,42 @@
             this.PictureBox.TabIndex = 7;
             this.PictureBox.TabStop = false;
             // 
+            // DeleteRes
+            // 
+            this.DeleteRes.Location = new System.Drawing.Point(562, 482);
+            this.DeleteRes.Name = "DeleteRes";
+            this.DeleteRes.Size = new System.Drawing.Size(113, 23);
+            this.DeleteRes.TabIndex = 9;
+            this.DeleteRes.Text = "Delete Resevation";
+            this.DeleteRes.UseVisualStyleBackColor = true;
+            this.DeleteRes.Click += new System.EventHandler(this.DeleteRes_Click);
+            // 
+            // Reserve
+            // 
+            this.Reserve.Location = new System.Drawing.Point(107, 482);
+            this.Reserve.Name = "Reserve";
+            this.Reserve.Size = new System.Drawing.Size(117, 23);
+            this.Reserve.TabIndex = 10;
+            this.Reserve.Text = "Reserve Book";
+            this.Reserve.UseVisualStyleBackColor = true;
+            this.Reserve.Click += new System.EventHandler(this.Reserve_Click);
+            // 
+            // Exception
+            // 
+            this.Exception.AutoSize = true;
+            this.Exception.Location = new System.Drawing.Point(107, 441);
+            this.Exception.Name = "Exception";
+            this.Exception.Size = new System.Drawing.Size(35, 13);
+            this.Exception.TabIndex = 11;
+            this.Exception.Text = "label1";
+            this.Exception.Visible = false;
+            // 
             // FormBookDetails
             // 
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Exception);
+            this.Controls.Add(this.Reserve);
+            this.Controls.Add(this.DeleteRes);
             this.Controls.Add(this.PictureBox);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.Lent);
@@ -138,5 +175,9 @@
         private System.Windows.Forms.Label Lent;
         private System.Windows.Forms.Label Description;
         private System.Windows.Forms.PictureBox PictureBox;
+        private System.Windows.Forms.Button DeleteRes;
+        private System.Windows.Forms.Button reserve;
+        private System.Windows.Forms.Button Reserve;
+        private System.Windows.Forms.Label Exception;
     }
 }

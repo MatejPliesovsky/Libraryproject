@@ -55,7 +55,7 @@ namespace Library___Login
                     }
                     else if (con.isUserAdmin(Username.Text) == "user")
                     {
-                        FormUserInterface userForm = new FormUserInterface();
+                        FormUserInterface userForm = new FormUserInterface(Username.Text,Password.Text);
                         userForm.Show();
                         this.Hide();
                         userForm.FormClosed += new FormClosedEventHandler(Form1_FormClosed);

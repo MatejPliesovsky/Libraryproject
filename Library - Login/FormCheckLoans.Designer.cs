@@ -45,16 +45,17 @@
             this.switchToUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Reserved = new System.Windows.Forms.CheckBox();
-            this.Refresh = new System.Windows.Forms.Button();
-            this.SearchBar = new System.Windows.Forms.TextBox();
+            this.DatabaseInfo = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DatabaseInfo = new System.Windows.Forms.Label();
+            this.SearchBar = new System.Windows.Forms.TextBox();
+            this.Refresh = new System.Windows.Forms.Button();
+            this.Reserved = new System.Windows.Forms.CheckBox();
+            this.ErrorMessage = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,32 +193,16 @@
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
-            // Reserved
+            // DatabaseInfo
             // 
-            this.Reserved.AutoSize = true;
-            this.Reserved.Location = new System.Drawing.Point(12, 101);
-            this.Reserved.Name = "Reserved";
-            this.Reserved.Size = new System.Drawing.Size(89, 17);
-            this.Reserved.TabIndex = 49;
-            this.Reserved.Text = "Just reserved";
-            this.Reserved.UseVisualStyleBackColor = true;
-            // 
-            // Refresh
-            // 
-            this.Refresh.Location = new System.Drawing.Point(12, 135);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(121, 23);
-            this.Refresh.TabIndex = 50;
-            this.Refresh.Text = "Refresh";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
-            // 
-            // SearchBar
-            // 
-            this.SearchBar.Location = new System.Drawing.Point(12, 64);
-            this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(121, 20);
-            this.SearchBar.TabIndex = 51;
+            this.DatabaseInfo.AutoSize = true;
+            this.DatabaseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DatabaseInfo.ForeColor = System.Drawing.Color.Red;
+            this.DatabaseInfo.Location = new System.Drawing.Point(198, 265);
+            this.DatabaseInfo.Name = "DatabaseInfo";
+            this.DatabaseInfo.Size = new System.Drawing.Size(389, 31);
+            this.DatabaseInfo.TabIndex = 48;
+            this.DatabaseInfo.Text = "Cannot connect to database!";
             // 
             // listView1
             // 
@@ -231,19 +216,24 @@
             this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(148, 64);
+            this.listView1.Location = new System.Drawing.Point(148, 60);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(624, 441);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.listView1.TabIndex = 54;
+            this.listView1.TabIndex = 58;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Book name";
             this.columnHeader1.Width = 124;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "User name";
+            this.columnHeader2.Width = 118;
             // 
             // columnHeader3
             // 
@@ -255,38 +245,61 @@
             this.columnHeader4.Text = "Date of lending";
             this.columnHeader4.Width = 136;
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "User name";
-            this.columnHeader2.Width = 118;
-            // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Date of return";
             this.columnHeader5.Width = 135;
             // 
-            // DatabaseInfo
+            // SearchBar
             // 
-            this.DatabaseInfo.AutoSize = true;
-            this.DatabaseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DatabaseInfo.ForeColor = System.Drawing.Color.Red;
-            this.DatabaseInfo.Location = new System.Drawing.Point(198, 265);
-            this.DatabaseInfo.Name = "DatabaseInfo";
-            this.DatabaseInfo.Size = new System.Drawing.Size(389, 31);
-            this.DatabaseInfo.TabIndex = 55;
-            this.DatabaseInfo.Text = "Cannot connect to database!";
-            this.DatabaseInfo.Visible = false;
+            this.SearchBar.Location = new System.Drawing.Point(12, 60);
+            this.SearchBar.Name = "SearchBar";
+            this.SearchBar.Size = new System.Drawing.Size(121, 20);
+            this.SearchBar.TabIndex = 57;
+            // 
+            // Refresh
+            // 
+            this.Refresh.Location = new System.Drawing.Point(12, 131);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(121, 23);
+            this.Refresh.TabIndex = 56;
+            this.Refresh.Text = "Refresh";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
+            // Reserved
+            // 
+            this.Reserved.AutoSize = true;
+            this.Reserved.Location = new System.Drawing.Point(12, 97);
+            this.Reserved.Name = "Reserved";
+            this.Reserved.Size = new System.Drawing.Size(89, 17);
+            this.Reserved.TabIndex = 55;
+            this.Reserved.Text = "Just reserved";
+            this.Reserved.UseVisualStyleBackColor = true;
+            // 
+            // ErrorMessage
+            // 
+            this.ErrorMessage.AutoSize = true;
+            this.ErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ErrorMessage.ForeColor = System.Drawing.Color.Red;
+            this.ErrorMessage.Location = new System.Drawing.Point(145, 504);
+            this.ErrorMessage.Name = "ErrorMessage";
+            this.ErrorMessage.Size = new System.Drawing.Size(286, 24);
+            this.ErrorMessage.TabIndex = 59;
+            this.ErrorMessage.Text = "Please, select reserved book!";
+            this.ErrorMessage.Visible = false;
             // 
             // FormCheckLoans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.DatabaseInfo);
+            this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.Refresh);
             this.Controls.Add(this.Reserved);
+            this.Controls.Add(this.DatabaseInfo);
             this.Controls.Add(this.menuStrip1);
             this.Name = "FormCheckLoans";
             this.Text = "FormCheckLoans";
@@ -314,16 +327,17 @@
         private System.Windows.Forms.ToolStripMenuItem switchToUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.Label DatabaseInfo;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.CheckBox Reserved;
-        private System.Windows.Forms.Button Refresh;
-        private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.Label DatabaseInfo;
+        private System.Windows.Forms.TextBox SearchBar;
+        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.CheckBox Reserved;
+        private System.Windows.Forms.Label ErrorMessage;
     }
 }
