@@ -198,7 +198,7 @@ namespace Library___Login
                 closeConnection();
                 BirthDate = DateTime.Parse(userAge);
                 userAge = null;
-                if (System.DateTime.Today.Month == BirthDate.Month && System.DateTime.Today.Day == BirthDate.Day)
+                if (System.DateTime.Today.Month >= BirthDate.Month && System.DateTime.Today.Day >= BirthDate.Day)
                 {
                     userAge = (System.DateTime.Today.Year - BirthDate.Year).ToString();
                 }
@@ -314,7 +314,7 @@ namespace Library___Login
                 
                 birthDate = DateTime.Parse(userAge);
 
-                if (System.DateTime.Today.Year == birthDate.Year && System.DateTime.Today.Month <= birthDate.Month && System.DateTime.Today.Day <= birthDate.Day)
+                if (System.DateTime.Today.Month >= birthDate.Month && System.DateTime.Today.Day >= birthDate.Day)
                 {
                     userAge = (System.DateTime.Today.Year - birthDate.Year).ToString();
                 }
@@ -447,7 +447,7 @@ namespace Library___Login
                 {
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
-                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    if (System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
                     {
                         age = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -681,7 +681,7 @@ namespace Library___Login
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
 
-                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    if (System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
                     {
                         help = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -717,7 +717,7 @@ namespace Library___Login
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
 
-                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    if (System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
                     {
                         help = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
