@@ -27,6 +27,9 @@ namespace Library___Login
             }
             else
             {
+                ProfilePictureBox.Image = Image.FromStream(new System.IO.MemoryStream(con.getUserProfileImage(userID)));
+                ProfilePictureBox.Refresh();
+                ProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 UserAllName.Text = con.getUserAllName(userID);
                 if (UserAllName.Text == null)
                 {

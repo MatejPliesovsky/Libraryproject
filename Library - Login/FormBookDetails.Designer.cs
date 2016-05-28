@@ -109,6 +109,7 @@
             // 
             // PictureBox
             // 
+            this.PictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureBox.Location = new System.Drawing.Point(411, 12);
             this.PictureBox.Name = "PictureBox";
             this.PictureBox.Size = new System.Drawing.Size(361, 390);

@@ -119,3 +119,4 @@ C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.
 C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
 C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
 C:\Users\ESTATE\Desktop\books\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\ReBooks\Library - Login\obj\Debug\Library___Login.ReservationDetails.resources

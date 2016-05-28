@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,6 +56,7 @@ namespace Library___Login
 
                 PictureBox.Image = Image.FromStream(new System.IO.MemoryStream(connect.getImageByBookId(bookID)));
                 PictureBox.Refresh();
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
         public void checkBookStatus() { 

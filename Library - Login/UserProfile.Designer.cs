@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ProfilePictureBox = new System.Windows.Forms.PictureBox();
             this.UserAllName = new System.Windows.Forms.Label();
             this.UserAge = new System.Windows.Forms.Label();
             this.ErrorMessage = new System.Windows.Forms.Label();
@@ -37,17 +37,17 @@
             this.editProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditProfile = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // ProfilePictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(118, 129);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ProfilePictureBox.Location = new System.Drawing.Point(12, 27);
+            this.ProfilePictureBox.Name = "ProfilePictureBox";
+            this.ProfilePictureBox.Size = new System.Drawing.Size(118, 129);
+            this.ProfilePictureBox.TabIndex = 0;
+            this.ProfilePictureBox.TabStop = false;
             // 
             // UserAllName
             // 
@@ -130,13 +130,13 @@
             this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.UserAge);
             this.Controls.Add(this.UserAllName);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ProfilePictureBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "UserProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -146,7 +146,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ProfilePictureBox;
         private System.Windows.Forms.Label UserAllName;
         private System.Windows.Forms.Label UserAge;
         private System.Windows.Forms.Label ErrorMessage;

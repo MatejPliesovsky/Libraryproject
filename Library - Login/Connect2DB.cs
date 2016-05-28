@@ -114,6 +114,23 @@ namespace Library___Login
             return false;
         }
 
+        //read user´s profile image from db and load to profile page
+        public byte[] getUserProfileImage(String id)
+        {
+            byte[] imageBytes = null;
+            String sqlQuery = "select Avatar from " + usersEntity + "where ID = " + id;
+            if (openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    imageBytes = (byte[])reader["Avatar"];
+                }
+            }
+            closeConnection();
+            return imageBytes;
+        }
 
         // verification, if user is admin, or not
         public string isUserAdmin(string email)
