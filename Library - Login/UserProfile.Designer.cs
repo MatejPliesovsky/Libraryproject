@@ -55,6 +55,7 @@
             this.ProfilePictureBox.Size = new System.Drawing.Size(118, 129);
             this.ProfilePictureBox.TabIndex = 0;
             this.ProfilePictureBox.TabStop = false;
+            this.ProfilePictureBox.Click += new System.EventHandler(this.ProfilePictureBox_Click);
             // 
             // UserAllName
             // 

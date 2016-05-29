@@ -18,7 +18,7 @@ namespace Library___Login
             InitializeComponent();
             InfoMessage.Visible = false;
             List<string> books = new List<string>();
-            books = con.searchBookNames(null, false, null, null);
+            books = con.searchBooksToListView(null, false, null, null);
             for (int i = 0;i < books.Count; i++)
             {
                 BookName1.Items.Add(books[i]);

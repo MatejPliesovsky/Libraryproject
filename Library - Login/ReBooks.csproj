@@ -56,6 +56,12 @@
     <Compile Include="FormAddLoan.Designer.cs">
       <DependentUpon>FormAddLoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChangeProfilePhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangeProfilePhoto.Designer.cs">
+      <DependentUpon>FormChangeProfilePhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormWaitingRegistrations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </Compile>
     <EmbeddedResource Include="FormAddLoan.resx">
       <DependentUpon>FormAddLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChangeProfilePhoto.resx">
+      <DependentUpon>FormChangeProfilePhoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormWaitingRegistrations.resx">
       <DependentUpon>FormWaitingRegistrations.cs</DependentUpon>

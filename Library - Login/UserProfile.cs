@@ -117,6 +117,12 @@ namespace Library___Login
             }
         }
 
+        private void ProfilePictureBox_Click(object sender, EventArgs e)
+        {
+            FormChangeProfilePhoto profilePhoto = new FormChangeProfilePhoto(userID);
+            profilePhoto.ShowDialog();
+        }
+
         private void EditProfile_Click(object sender, EventArgs e)
         {
             FormUserDetails form = new FormUserDetails(userID);

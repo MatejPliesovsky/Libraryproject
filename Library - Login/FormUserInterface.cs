@@ -91,24 +91,20 @@ namespace Library___Login
             }
 
             List<string> books = new List<string>();
-            List<string> authors = new List<string>();
-            List<string> Lents = new List<string>();
-            List<string> category = new List<string>();
-            List<string> language = new List<string>();
 
-            books = connection.searchBookNames(null, false, categories, languages);
-            authors = connection.searchAuthor(null, false, categories, languages);
-            Lents = connection.searchLents(null, false, categories, languages);
-            category = connection.searchCategory(null, false, categories, languages);
-            language = connection.searchLanguage(null, false, categories, languages);
+            books = connection.searchBooksToListView(null, false, categories, languages);
 
             for (int i = 0; i < books.Count; i++)
             {
                 ListViewItem item = new ListViewItem(books[i]);
-                item.SubItems.Add(authors[i]);
-                item.SubItems.Add(Lents[i]);
-                item.SubItems.Add(category[i]);
-                item.SubItems.Add(language[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
 
                 listView1.Items.Add(item);
             }
@@ -118,10 +114,6 @@ namespace Library___Login
         {
             string search, categories = null, languages = null;
             List<string> books = new List<string>();
-            List<string> authors = new List<string>();
-            List<string> Lents = new List<string>();
-            List<string> category = new List<string>();
-            List<string> language = new List<string>();
 
             listView1.Items.Clear();
             for (int i = 0;i < checkedListBox1.Items.Count; i++)
@@ -139,30 +131,26 @@ namespace Library___Login
             if (SearchFree.Checked==true)
             {
                 search = SearchBar.Text;
-                books = connection.searchBookNames(search, true, categories, languages);
-                authors = connection.searchAuthor(search, true, categories, languages);
-                Lents = connection.searchLents(search, true, categories, languages);
-                category = connection.searchCategory(search, true, categories, languages);
-                language = connection.searchLanguage(search, true, categories, languages);
+                books = connection.searchBooksToListView(search, true, categories, languages);
             }
             else
             {
                 search = SearchBar.Text;
-                books = connection.searchBookNames(search, false, categories, languages);
-                authors = connection.searchAuthor(search, false, categories, languages);
-                Lents = connection.searchLents(search, false, categories, languages);
-                category = connection.searchCategory(search, false, categories, languages);
-                language = connection.searchLanguage(search, false, categories, languages);
+                books = connection.searchBooksToListView(search, false, categories, languages);
             }
             
 
             for (int i = 0; i < books.Count; i++)
             {
                 ListViewItem item = new ListViewItem(books[i]);
-                item.SubItems.Add(authors[i]);
-                item.SubItems.Add(Lents[i]);
-                item.SubItems.Add(category[i]);
-                item.SubItems.Add(language[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
 
                 listView1.Items.Add(item);
             }
@@ -197,7 +185,7 @@ namespace Library___Login
 
         private void SwitchToAdmin_Click(object sender, EventArgs e)
         {
-            FormWaitingRegistrations admin = new FormWaitingRegistrations(UserID);
+            FormAdminInterface admin = new FormAdminInterface(UserID);
             admin.Show();
             this.Close();
             admin.FormClosed += new FormClosedEventHandler(AdminForm_FormClosed);
@@ -205,7 +193,9 @@ namespace Library___Login
 
         private void AdminForm_FormClosed(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FormUserInterface>().Any())
+            FormCollection fc = Application.OpenForms;
+            if (fc.OfType<UserProfile>().Any() || fc.OfType<FormUserInterface>().Any() || fc.OfType<FormAdminInterface>().Any()
+                || fc.OfType<FormCheckLoans>().Any() || fc.OfType<FormUpdateUser>().Any() || fc.OfType<FormWaitingRegistrations>().Any())
             {
                 FormLogin.ActiveForm.Hide();
             }

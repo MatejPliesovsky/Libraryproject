@@ -39,32 +39,24 @@ namespace Library___Login
             Connect2DB con = new Connect2DB();
             if (con.isUserRegistered(Username.Text, Password.Text))
             {
-                if (con.isUserBlocked(Username.Text))
+                if (con.isUserAdmin(Username.Text) == "admin")
                 {
-                    ErrorMessage.Text = "Your account is blocked.\nPlease contact your library.";
-                    ErrorMessage.Visible = true;
+                    FormAdminInterface admin = new FormAdminInterface(Username.Text, Password.Text);
+                    admin.Show();
+                    this.Hide();
+                    admin.FormClosed += new FormClosedEventHandler(FormLogin_FormClosed);
+                }
+                else if (con.isUserAdmin(Username.Text) == "user")
+                {
+                    FormUserInterface userForm = new FormUserInterface(Username.Text,Password.Text);
+                    userForm.Show();
+                    this.Hide();
+                    userForm.FormClosed += new FormClosedEventHandler(FormLogin_FormClosed);
                 }
                 else
                 {
-                    if (con.isUserAdmin(Username.Text) == "admin")
-                    {
-                        FormAdminInterface admin = new FormAdminInterface(Username.Text, Password.Text);
-                        admin.Show();
-                        this.Hide();
-                        admin.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-                    }
-                    else if (con.isUserAdmin(Username.Text) == "user")
-                    {
-                        FormUserInterface userForm = new FormUserInterface(Username.Text,Password.Text);
-                        userForm.Show();
-                        this.Hide();
-                        userForm.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-                    }
-                    else
-                    {
-                        ErrorMessage.Text = "Your registration request is treated!";
-                        ErrorMessage.Visible = true;
-                    }
+                    ErrorMessage.Text = "Your registration request is treated!";
+                    ErrorMessage.Visible = true;
                 }
             }
             else
@@ -168,15 +160,15 @@ namespace Library___Login
 
         private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (System.Windows.Forms.Application.MessageLoop)
+            FormCollection fc = Application.OpenForms;
+            if (fc.OfType<UserProfile>().Any() ||fc.OfType<FormUserInterface>().Any() || fc.OfType<FormAdminInterface>().Any()
+                || fc.OfType<FormCheckLoans>().Any() || fc.OfType<FormUpdateUser>().Any() || fc.OfType<FormWaitingRegistrations>().Any())
             {
-                // WinForms app
-                System.Windows.Forms.Application.Exit();
+                this.Hide();
             }
             else
             {
-                // Console app
-                System.Environment.Exit(1);
+                this.Show();
             }
         }
     }

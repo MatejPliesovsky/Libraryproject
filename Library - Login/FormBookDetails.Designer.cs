@@ -176,7 +176,6 @@
             this.Controls.Add(this.Author);
             this.Controls.Add(this.BookName);
             this.Name = "FormBookDetails";
-            this.Load += new System.EventHandler(this.FormBookDetails_Load);
             this.Shown += new System.EventHandler(this.FormBookDetails_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);

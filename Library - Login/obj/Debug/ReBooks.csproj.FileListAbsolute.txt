@@ -121,3 +121,4 @@ C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\ReBooks\Libra
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.FormBookDetails.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.ReservationDetails.resources
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.UserProfile.resources
+A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormChangeProfilePhoto.resources

@@ -58,8 +58,19 @@ namespace Library___Login
                 PictureBox.Image = Image.FromStream(new System.IO.MemoryStream(connect.getImageByBookId(bookID)));
                 PictureBox.Refresh();
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                if (connect.isUserBlocked(userID))
+                {
+                    Reserve.Enabled = false;
+                    Reserve.Visible = false;
+                    DeleteRes.Enabled = false;
+                    DeleteRes.Visible = false;
+                    Exception.Text = "You are blocked. Please, contact your nearest library.";
+                    Exception.Visible = true;
+                }
             }
         }
+
         public void checkBookStatus() { 
         if (connect.checkIfBookIsFree(bookID) == true)
             {
@@ -69,13 +80,20 @@ namespace Library___Login
         else{
                 if (connect.checkBookisReservedByUser(bookID, userID, loan))
                 {
-                    DeleteRes.Show();
-                    Exception.Text = "You have already reserved or lent this book";
+                    if (loan == "reserved")
+                    {
+                        DeleteRes.Show();
+                    }
+                    else
+                    {
+                        DeleteRes.Hide();
+                    }
+                    Exception.Text = "You have already " + loan + " this book";
                 }
                 else
                 {
                     DeleteRes.Hide();                    
-                    Exception.Text = "Book is lent or reserved by another user";
+                    Exception.Text = "Book is " + loan + " by another user";
                 }
                 Reserve.Hide();
                 Exception.Visible = true;
@@ -100,13 +118,19 @@ namespace Library___Login
 
         private void FormBookDetails_Shown(object sender, EventArgs e)
         {
-            checkBookStatus();
-            connect.checkBookisReservedByUser(bookID, userID, loan);
-        }
-
-        private void FormBookDetails_Load(object sender, EventArgs e)
-        {
-
+            if (connect.isUserBlocked(userID))
+            {
+                Reserve.Enabled = false;
+                Reserve.Visible = false;
+                DeleteRes.Enabled = false;
+                DeleteRes.Visible = false;
+                Exception.Text = "You are blocked. Please, contact your nearest library.";
+                Exception.Visible = true;
+            }
+            else
+            {
+                checkBookStatus();
+            }
         }
     }
 }

@@ -46,6 +46,7 @@ namespace Library___Login
             FormAdminInterface home = new FormAdminInterface(AdminID);
             home.Show();
             this.Close();
+            home.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,6 +78,7 @@ namespace Library___Login
             FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
             reserved.Show();
             this.Close();
+            reserved.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,6 +91,7 @@ namespace Library___Login
             FormUpdateUser updateUser = new FormUpdateUser(AdminID);
             updateUser.Show();
             this.Close();
+            updateUser.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         public void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +99,7 @@ namespace Library___Login
             FormWaitingRegistrations admin = new FormWaitingRegistrations(AdminID);
             admin.Show();
             this.Close();
+            admin.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,7 +107,7 @@ namespace Library___Login
             FormUserInterface userForm = new FormUserInterface(AdminID);
             userForm.ShowDialog();
             this.Close();
-            userForm.FormClosed += new FormClosedEventHandler(UserForm_FormClosed);
+            userForm.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,9 +116,11 @@ namespace Library___Login
             this.Close();
         }
 
-        private void UserForm_FormClosed(object sender, EventArgs e)
+        private void Form_FormClosed(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FormUserInterface>().Any())
+            FormCollection fc = Application.OpenForms;
+            if (fc.OfType<UserProfile>().Any() || fc.OfType<FormUserInterface>().Any() || fc.OfType<FormAdminInterface>().Any()
+                || fc.OfType<FormCheckLoans>().Any() || fc.OfType<FormUpdateUser>().Any() || fc.OfType<FormWaitingRegistrations>().Any())
             {
                 FormLogin.ActiveForm.Hide();
             }
