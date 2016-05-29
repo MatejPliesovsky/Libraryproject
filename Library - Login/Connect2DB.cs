@@ -1619,7 +1619,7 @@ namespace Library___Login
         public List<string> loadBookCategoryName()
         {
             List<string> sCategoryName = new List<string>();
-            String sqlQuery = "select id,CategoryName from " + bookCategoryEnity;
+            String sqlQuery = "select id, categoryname from " + bookCategoryEnity;
 
             if (openConnection())
             {
@@ -1629,7 +1629,7 @@ namespace Library___Login
 
                 while (reader.Read())
                 {
-                    sCategoryName.Add(reader["ID"] + " " + reader["CategoryName"]);
+                    sCategoryName.Add(reader["ID"] + " " + reader["categoryname"]);
                 }
 
                 closeConnection();
@@ -1675,12 +1675,13 @@ namespace Library___Login
             return imageBytes;
         }
 
+        
 
         //load LanguageName from database
         public List<string> loadBookLanguageName()
         {
             List<string> sLanguageName = new List<string>();
-            String sqlQuery = "select id,LanguageName from " + bookLanguageEnity;
+            String sqlQuery = "select id, languagename from " + bookLanguageEnity;
 
             if (openConnection())
             {
@@ -1690,7 +1691,7 @@ namespace Library___Login
 
                 while (reader.Read())
                 {
-                    sLanguageName.Add(reader["ID"] + " " + reader["LanguageName"]);
+                    sLanguageName.Add(reader["ID"] +" "+ reader["languagename"]);
                 }
 
                 closeConnection();
@@ -1703,9 +1704,7 @@ namespace Library___Login
 
         // add book to database
         public bool addBook(string bookName, string bookAuthor, string IDCategory, string IDLanguage, string image, string ISBN, string publisher, string description)
-        {
-            try
-            {
+        {        
                 if (openConnection())
                 {
                     //insert books
@@ -1738,19 +1737,54 @@ namespace Library___Login
 
                 return false;
 
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex.ToString());
-                return false;
-            }
         }
         /*** END BOOK Insert to database ***/
 
         /** START Update Book ***/
-        public bool updateBookdetailsData(string data)
+        public bool updateBookdetailsDataWithOutImage(string data, string IDCategory, string IDLanguage)
         {
-            string bookID, bookName, author, lent, categoryID, languageID, desc, publisher, category, language, ISBN;
+            string bookID, bookName, author, desc, publisher, ISBN;
+            string[] descrpition;
+            string[] items;
+            items = data.Split(';');
+
+            bookID = items[0];
+            bookName = items[1];
+            author = items[2];
+            ISBN = items[3];
+            publisher = items[4];
+            desc = items[5];       
+
+            descrpition = desc.Split('.');      
+
+                if (openConnection())
+                {
+                string sqlQuery = "update Books set BookName = @bookName, Author = @author, IDCategory = @IDcategory, IDLanguage = @IDLanguage where ID like " + bookID;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@BookName", bookName);
+                cmd.Parameters.AddWithValue("@author", author);
+                cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
+                cmd.Parameters.AddWithValue("@IDLanguage", IDLanguage);
+                cmd.ExecuteNonQuery();
+
+                sqlQuery = "update BooksDetails set ISBN = @ISBN, Publisher = @publisher, description = @desc where ID like " + bookID;
+                cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@ISBN", ISBN);
+                cmd.Parameters.AddWithValue("@publisher", publisher);
+                cmd.Parameters.AddWithValue("@desc", desc);
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
+                return true;
+            }
+            return false;
+
+        }
+
+
+        public bool updateBookdetailsDataWithImage(string data, string image, string IDCategory, string IDLanguage)
+        {
+            string bookID, bookName, author, desc, publisher, ISBN;
             string[] descrpition;
             string[] items;
             items = data.Split(';');
@@ -1766,14 +1800,22 @@ namespace Library___Login
 
             if (openConnection())
             {
-                string sqlQuery = "update Books set BookName = @bookName, Author = @author where ID like " + bookID;
+                string sqlQuery = "update Books set BookName = @bookName, Author = @author, IDCategory = @IDcategory, IDLanguage = @IDLanguage where ID like " + bookID;
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@BookName", bookName);
                 cmd.Parameters.AddWithValue("@author", author);
+                cmd.Parameters.AddWithValue("@IDCategory", IDCategory);
+                cmd.Parameters.AddWithValue("@IDLanguage", IDLanguage);
                 cmd.ExecuteNonQuery();
 
-                sqlQuery = "update BooksDetails set ISBN = @ISBN, Publisher = @publisher, description = @desc where ID like " + bookID;
+                byte[] imageBT = null;
+                FileStream fstream = new FileStream(image, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fstream);
+                imageBT = br.ReadBytes((int)fstream.Length);
+
+                sqlQuery = "update BooksDetails set ISBN = @ISBN, Publisher = @publisher, description = @desc, image = @image where ID like " + bookID;
                 cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@image", imageBT);
                 cmd.Parameters.AddWithValue("@ISBN", ISBN);
                 cmd.Parameters.AddWithValue("@publisher", publisher);
                 cmd.Parameters.AddWithValue("@desc", desc);
@@ -1783,7 +1825,9 @@ namespace Library___Login
                 return true;
             }
             return false;
+
         }
+
 
         /*** END UPDATE BOOK ***/
 

@@ -12,13 +12,16 @@ namespace Library___Login
 {
     public partial class FormEditBookDetails : Form
     {
-        string bookID, bookName, author, lent, categoryID, languageID, desc, publisher, category, language, ISBN;
+        string bookID, bookName, author, lent, IDCategory, IDLanguage, desc, publisher, category, language, ISBN, image;
+
         string[] descrpition;
         Connect2DB db = new Connect2DB();
 
         public FormEditBookDetails(string info)
         {
             InitializeComponent();
+            fillComboBoxBookCategory();
+            fillComboBoxBookLanguage();
             this.StartPosition = FormStartPosition.CenterScreen;
             List<string> bookDetail = new List<string>();
             bookDetail = db.bookDetails(info);
@@ -29,14 +32,14 @@ namespace Library___Login
                 bookName = bookDetail.ElementAt(1);
                 author = bookDetail.ElementAt(2);
                 lent = bookDetail.ElementAt(3);
-                categoryID = bookDetail.ElementAt(4);
-                languageID = bookDetail.ElementAt(5);
+                IDCategory = bookDetail.ElementAt(4);
+                IDLanguage = bookDetail.ElementAt(5);
                 desc = bookDetail.ElementAt(6);
                 ISBN = bookDetail.ElementAt(7);
                 publisher = bookDetail.ElementAt(8);
 
-                language = db.bookLanguage(languageID);
-                category = db.bookCategory(categoryID);
+                language = db.bookLanguage(IDLanguage);
+                category = db.bookCategory(IDCategory);
 
                 descrpition = desc.Split('.');
                 desc = "";
@@ -48,39 +51,100 @@ namespace Library___Login
                 txtBookCategory.Text = category;
                 txtBookLanguage.Text = language;
                 txtBookISBN.Text = ISBN;
+                txtImagePath.Enabled = false;
                 for (int i = 0; i < descrpition.Length; i++)
                 {
-                    desc = desc + descrpition[i] + ".\n";
+                    desc = desc + descrpition[i];
                 }
                 txtBookDescription.Text = desc;
 
                 pictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(db.getImageByBookId(bookID)));
                 pictureBox1.Refresh();
             }
-
         }
 
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
-            bookName = txtBookName.Text;
-            author = txtBookAuthor.Text;
-            publisher = txtBookPublisher.Text;
-            ISBN = txtBookISBN.Text;
-            for (int i = 0; i < descrpition.Length; i++)
+            if(txtImagePath.Enabled == false)
             {
-                desc = desc + descrpition[i] + ".\n";
+                bookName = txtBookName.Text;
+                author = txtBookAuthor.Text;
+                publisher = txtBookPublisher.Text;
+                ISBN = txtBookISBN.Text;
+                IDCategory = comboNewCategory.SelectedValue.ToString();
+                IDLanguage = comboNewLanguage.SelectedValue.ToString();
+                for (int i = 0; i < descrpition.Length; i++)
+                {
+                    desc = desc + descrpition[i];
+                }
+                desc = txtBookDescription.Text;
+
+                string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + ISBN + ";" + desc;
+
+                if (db.updateBookdetailsDataWithOutImage(details, IDCategory, IDLanguage))
+                    MessageBox.Show("Book successfully Update");
+
+                else
+                    MessageBox.Show("Book NOT successfully Update");
             }
-            desc = txtBookDescription.Text;
 
-            string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + ISBN + ";" + desc;
+            else if(txtImagePath.Enabled == true)
+            {
+                bookName = txtBookName.Text;
+                author = txtBookAuthor.Text;
+                publisher = txtBookPublisher.Text;
+                ISBN = txtBookISBN.Text;
+                image = txtImagePath.Text;
+                IDCategory = comboNewCategory.SelectedValue.ToString();
+                IDLanguage = comboNewLanguage.SelectedValue.ToString();
+                for (int i = 0; i < descrpition.Length; i++)
+                {
+                    desc = desc + descrpition[i];
+                }
+                desc = txtBookDescription.Text;
 
-            if (db.updateBookdetailsData(details))            
-                MessageBox.Show("Book successfully Update");
-            
-            else            
-                MessageBox.Show("Book NOT successfully Update");
-            
+                string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + ISBN + ";" + desc;
+
+                if (db.updateBookdetailsDataWithImage(details, image, IDCategory, IDLanguage))
+                    MessageBox.Show("Book successfully Update");
+
+                else
+                    MessageBox.Show("Book NOT successfully Update");
+            }         
 
         }
+
+
+        private void btnLoadImage_Click(object sender, EventArgs e)
+        {   
+            txtImagePath.Enabled = true;
+
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "JPG Files(*.jpg)|*.jpg|PNG Files(*.png)|*.png|All Files(*.*)|*.*";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string pictPatch = dlg.FileName.ToString();
+                txtImagePath.Text = pictPatch;
+                pictureBox1.ImageLocation = pictPatch;
+            }
+        }
+
+
+        private void fillComboBoxBookCategory()
+        {
+            List<string> cat = db.loadBookCategoryName();
+            comboNewCategory.DataSource = cat;
+
+        }
+
+
+        private void fillComboBoxBookLanguage()
+        {
+            List<string> lang = db.loadBookLanguageName();
+            comboNewLanguage.DataSource = lang;
+        }
+
+
     }
 }

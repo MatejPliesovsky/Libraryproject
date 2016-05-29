@@ -46,8 +46,10 @@
             this.txtBookPublisher = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnUpdateBook = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLoadImage = new System.Windows.Forms.Button();
             this.txtImagePath = new System.Windows.Forms.TextBox();
+            this.comboNewCategory = new System.Windows.Forms.ComboBox();
+            this.comboNewLanguage = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,18 +85,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 143);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(86, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Category";
+            this.label4.Text = "Current Category";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 175);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.Size = new System.Drawing.Size(92, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Language";
+            this.label5.Text = "Current Language";
             // 
             // label6
             // 
@@ -155,14 +157,16 @@
             // 
             // txtBookCategory
             // 
-            this.txtBookCategory.Location = new System.Drawing.Point(84, 140);
+            this.txtBookCategory.Enabled = false;
+            this.txtBookCategory.Location = new System.Drawing.Point(104, 140);
             this.txtBookCategory.Name = "txtBookCategory";
             this.txtBookCategory.Size = new System.Drawing.Size(100, 20);
             this.txtBookCategory.TabIndex = 12;
             // 
             // txtBookLanguage
             // 
-            this.txtBookLanguage.Location = new System.Drawing.Point(84, 172);
+            this.txtBookLanguage.Enabled = false;
+            this.txtBookLanguage.Location = new System.Drawing.Point(104, 172);
             this.txtBookLanguage.Name = "txtBookLanguage";
             this.txtBookLanguage.Size = new System.Drawing.Size(100, 20);
             this.txtBookLanguage.TabIndex = 13;
@@ -200,14 +204,15 @@
             this.btnUpdateBook.UseVisualStyleBackColor = true;
             this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
             // 
-            // button2
+            // btnLoadImage
             // 
-            this.button2.Location = new System.Drawing.Point(365, 526);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(407, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "LOAD IMAGE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLoadImage.Location = new System.Drawing.Point(365, 526);
+            this.btnLoadImage.Name = "btnLoadImage";
+            this.btnLoadImage.Size = new System.Drawing.Size(407, 23);
+            this.btnLoadImage.TabIndex = 18;
+            this.btnLoadImage.Text = "LOAD IMAGE";
+            this.btnLoadImage.UseVisualStyleBackColor = true;
+            this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
             // 
             // txtImagePath
             // 
@@ -216,13 +221,31 @@
             this.txtImagePath.Size = new System.Drawing.Size(407, 20);
             this.txtImagePath.TabIndex = 19;
             // 
+            // comboNewCategory
+            // 
+            this.comboNewCategory.FormattingEnabled = true;
+            this.comboNewCategory.Location = new System.Drawing.Point(210, 140);
+            this.comboNewCategory.Name = "comboNewCategory";
+            this.comboNewCategory.Size = new System.Drawing.Size(121, 21);
+            this.comboNewCategory.TabIndex = 20;
+            // 
+            // comboNewLanguage
+            // 
+            this.comboNewLanguage.FormattingEnabled = true;
+            this.comboNewLanguage.Location = new System.Drawing.Point(210, 172);
+            this.comboNewLanguage.Name = "comboNewLanguage";
+            this.comboNewLanguage.Size = new System.Drawing.Size(121, 21);
+            this.comboNewLanguage.TabIndex = 21;
+            // 
             // FormEditBookDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.comboNewLanguage);
+            this.Controls.Add(this.comboNewCategory);
             this.Controls.Add(this.txtImagePath);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnLoadImage);
             this.Controls.Add(this.btnUpdateBook);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtBookPublisher);
@@ -270,7 +293,9 @@
         private System.Windows.Forms.TextBox txtBookPublisher;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnUpdateBook;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLoadImage;
         private System.Windows.Forms.TextBox txtImagePath;
+        private System.Windows.Forms.ComboBox comboNewCategory;
+        private System.Windows.Forms.ComboBox comboNewLanguage;
     }
 }
