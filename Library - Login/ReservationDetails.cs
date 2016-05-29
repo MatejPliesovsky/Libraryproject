@@ -15,6 +15,7 @@ namespace Library___Login
         string AdminID, userID, bookStatus;
         string bookID, author, bookCategory, bookLanguage, categoryID, languageID;
         Connect2DB connect;
+        DateTime lent;
 
         public ReservationDetails(string AdminID, string bookName)
         {
@@ -22,6 +23,7 @@ namespace Library___Login
             DatabaseInfo.Visible = false;
             this.AdminID = AdminID;
             connect = new Connect2DB();
+            lent = new DateTime();
             this.StartPosition = FormStartPosition.CenterScreen;
 
             List<string> BookData = new List<string>();
@@ -54,11 +56,11 @@ namespace Library___Login
                 Category.Text = bookCategory;
                 Language.Text = bookLanguage;
 
-                bookStatus = connect.findBookStatus(bookID);
+                bookStatus = BookData[3].ToString();
 
                 UserName.Text = "User: " + connect.findUserAllName(bookID, bookStatus);
                 UserAge.Text = "Age: " + connect.findUserAge(bookID, bookStatus);
-                userID = connect.findUserIDByBookID(bookID);
+                userID = connect.findUserIDByBookID(bookID, bookStatus);
 
                 PictureBox.Image = Image.FromStream(new System.IO.MemoryStream(connect.getImageByBookId(bookID)));
                 PictureBox.Refresh();
@@ -66,6 +68,32 @@ namespace Library___Login
                 {
                     Confirm.Text = "Remove loan";
                     Refuse.Text = "Back";
+
+                    lent = connect.checkLoanDate(bookID, userID);
+
+                    if(lent < DateTime.Today)
+                    {
+                        if(DateTime.Today <= lent.AddDays(7))
+                        {
+                            Penalty.Text = UserName.Text + " has penalty 0.70 EURO for this book.\nHe must pay only biggest penalty.";
+                            Penalty.Visible = true;
+                        }
+                        else if (DateTime.Today > lent.AddDays(7) && DateTime.Today <= lent.AddMonths(1))
+                        {
+                            Penalty.Text = UserName.Text + " has penalty 2.00 EURO for this book.\nHe must pay only biggest penalty.";
+                            Penalty.Visible = true;
+                        }
+                        else if (DateTime.Today > lent.AddMonths(1) && DateTime.Today <= lent.AddMonths(2))
+                        {
+                            Penalty.Text = UserName.Text + " has penalty 5.00 EURO for this book.\nHe must pay only biggest penalty.";
+                            Penalty.Visible = true;
+                        }
+                        else if (lent.AddMonths(2) < DateTime.Today)
+                        {
+                            Penalty.Text = UserName.Text + " has penalty 5.00 EURO for this book.\nHe must pay only biggest penalty.\nThis user is Blocked";
+                            Penalty.Visible = true;
+                        }
+                    }
                 }
             }
         }

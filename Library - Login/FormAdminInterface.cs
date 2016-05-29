@@ -15,12 +15,15 @@ namespace Library___Login
         Connect2DB connection;
         private string AdminID;
         private int waitingReg;
+        private List<string> loans;
+        DateTime returns;
 
         public FormAdminInterface(string adminID)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             connection = new Connect2DB();
+            returns = new DateTime();
             AdminID = adminID;
             waitingReg = connection.waitingRegistration();
             if (waitingReg > 0)
@@ -36,6 +39,16 @@ namespace Library___Login
                 registrationReguestToolStripMenuItem.Text = "Registration Request";
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
+            }
+            loans = connection.checkLoans();
+            for (int i = 0; i < loans.Count; i++)
+            {
+                returns = DateTime.Parse(loans[i].ToString());
+                i++;
+                if (returns.AddMonths(2) < DateTime.Today)
+                {
+                    connection.blockUser(loans[i].ToString(), "blocked");
+                }
             }
         }
 
@@ -59,6 +72,16 @@ namespace Library___Login
                 registrationReguestToolStripMenuItem.Text = "Registration Request";
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
+            }
+            loans = connection.checkLoans();
+            for (int i = 0; i < loans.Count; i++)
+            {
+                returns = DateTime.Parse(loans[i].ToString());
+                i++;
+                if (returns.AddMonths(2) < DateTime.Today)
+                {
+                    connection.blockUser(loans[i].ToString(), "blocked");
+                }
             }
         }
 
@@ -226,12 +249,14 @@ namespace Library___Login
 
         private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkLoansToolStripMenuItem_Click(reservedBooksToolStripMenuItem, null);
+            FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
+            reserved.Show();
+            this.Close();
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans loans = new FormCheckLoans(AdminID);
+            FormCheckLoans loans = new FormCheckLoans(AdminID, false);
             loans.Show();
             this.Close();
         }

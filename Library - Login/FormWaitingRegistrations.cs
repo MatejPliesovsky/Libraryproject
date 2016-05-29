@@ -370,12 +370,14 @@ namespace Library___Login
 
         private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkLoansToolStripMenuItem_Click(reservedBooksToolStripMenuItem, null);
+            FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
+            reserved.Show();
+            this.Close();
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans chceckLoans = new FormCheckLoans(AdminID);
+            FormCheckLoans chceckLoans = new FormCheckLoans(AdminID, false);
             chceckLoans.Show();
             this.Close();
         }

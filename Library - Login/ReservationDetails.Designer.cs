@@ -38,6 +38,7 @@
             this.Refuse = new System.Windows.Forms.Button();
             this.UserAge = new System.Windows.Forms.Label();
             this.DatabaseInfo = new System.Windows.Forms.Label();
+            this.Penalty = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,11 +136,24 @@
             this.DatabaseInfo.Text = "Cannot connect to database!";
             this.DatabaseInfo.Visible = false;
             // 
+            // Penalty
+            // 
+            this.Penalty.AutoSize = true;
+            this.Penalty.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Penalty.ForeColor = System.Drawing.Color.Red;
+            this.Penalty.Location = new System.Drawing.Point(1, 209);
+            this.Penalty.Name = "Penalty";
+            this.Penalty.Size = new System.Drawing.Size(49, 19);
+            this.Penalty.TabIndex = 50;
+            this.Penalty.Text = "label1";
+            this.Penalty.Visible = false;
+            // 
             // ReservationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Penalty);
             this.Controls.Add(this.DatabaseInfo);
             this.Controls.Add(this.Refuse);
             this.Controls.Add(this.Confirm);
@@ -170,5 +184,6 @@
         private System.Windows.Forms.Button Refuse;
         private System.Windows.Forms.Label UserAge;
         private System.Windows.Forms.Label DatabaseInfo;
+        private System.Windows.Forms.Label Penalty;
     }
 }

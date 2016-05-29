@@ -345,12 +345,20 @@ namespace Library___Login
         }
 
         // find user id by book id in entity ReservedBooks
-        public string findUserIDByBookID(string bookID)
+        public string findUserIDByBookID(string bookID, string status)
         {
             string userID = null;
             if (openConnection())
             {
-                string sqlQuery = "select IDUser from ReservedBooks where IDBook = " + bookID;
+                string sqlQuery = null;
+                if (status == "reserved")
+                {
+                    sqlQuery = "select IDUser from ReservedBooks where IDBook = " + bookID;
+                }
+                else
+                {
+                    sqlQuery = "select IDUser from Loans where IDBook = " + bookID;
+                }
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -1517,25 +1525,7 @@ namespace Library___Login
             return bookDetail;
         }
 
-        // find status of book 
-        public string findBookStatus(string bookID)
-        {
-            string status = null;
-            if (openConnection())
-            {
-                string sqlQuery = "select Lent from Books where ID like " + bookID;
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    status = reader["Lent"].ToString();
-                }
-                closeConnection();
-                return status;
-            }
-            return status;
-        }
-
+        // find book language according its id
         public string bookLanguage(string languageID)
         {
             string bookLanguage = null;
@@ -1554,6 +1544,7 @@ namespace Library___Login
             return bookLanguage;
         }
 
+        //find book category according its id
         public string bookCategory(string categoryID)
         {
             string bookCategory = null;
@@ -1915,6 +1906,45 @@ namespace Library___Login
             return list;
         }
 
+        public List<string> checkUserLoansAndReservation(string UserID)
+        {
+            List<string> list = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select BookName, Author, Lent, DateLoan, DateReturn from Books inner join"
+                        + " Loans on Books.ID = Loans.IDBook inner join Users on Users.ID = Loans.IDUser where"
+                        + " Loans.IDUser like " + UserID;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(reader["BookName"].ToString());
+                    list.Add(reader["Author"].ToString());
+                    list.Add(reader["Lent"].ToString());
+                    list.Add(reader["DateLoan"].ToString());
+                    list.Add(reader["DateReturn"].ToString());
+                }
+                reader.Close();
+
+                sqlQuery = "select BookName, Author, Lent from Books inner join"
+                    + " ReservedBooks on Books.ID = ReservedBooks.IDBook inner join Users on Users.ID = ReservedBooks.IDUser"
+                    + " where ReservedBooks.IDUser like " + UserID;
+                cmd = new MySqlCommand(sqlQuery, connection);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(reader["BookName"].ToString());
+                    list.Add(reader["Author"].ToString());
+                    list.Add(reader["Lent"].ToString());
+                    list.Add("---");
+                    list.Add("---");
+                }
+                closeConnection();
+                return list;
+            }
+            return list;
+        }
+
         // reserve book by User
         public bool reserveBook(string bookID, string userID)
         {
@@ -1981,21 +2011,27 @@ namespace Library___Login
             return true;
        }
 
-        public bool checkBookisReservedByUser(string IDBook, string IDUser)
+        public bool checkBookisReservedByUser(string IDBook, string IDUser, string loan)
         {
+            bool result = false;
             if (openConnection())
             {
-                string sqlQuery = "select Lent, IDUser from Books " +
-                    "INNER JOIN ReservedBooks ON Books.ID=ReservedBooks.IDBook " +
-                    "where IDBook like @IDBook";
+                string sqlQuery = null;
+                if (loan == "reserved")
+                {
+                    sqlQuery = "select Lent, IDUser from Books INNER JOIN ReservedBooks ON Books.ID=ReservedBooks.IDBook"
+                        + " where Books.ID like " + IDBook;
+                }
+                else if (loan == "lent")
+                {
+                    sqlQuery = "select Lent, IDUser from Books INNER JOIN Loans ON Books.ID=Loans.IDBook"
+                        + " where Books.ID like " + IDBook;
+                }
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                cmd.Parameters.AddWithValue("@IDBook", IDBook);
-
                 MySqlDataReader reader = cmd.ExecuteReader();
-                bool result = false;
                 if (reader.Read())
                 {
-                    if (reader["Lent"].ToString().Equals("reserved"))
+                    if (reader["Lent"].ToString().Equals("reserved") || reader["Lent"].ToString().Equals("lent"))
                     {
                         result = reader["IDUser"].ToString().Equals(IDUser);
                     }
@@ -2004,8 +2040,48 @@ namespace Library___Login
                 closeConnection();
                 return result;
             }
-            return false;
+            return result;
         }
 
+        // finds date of return one loan, for setting penalty
+        public DateTime checkLoanDate(string bookID, string userID)
+        {
+            DateTime loan = new DateTime();
+            if (openConnection())
+            {
+                string sqlQuery = "select DateReturn from Loans where IDBook like " + bookID + " and IDUser like " + userID;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    loan = DateTime.Parse(reader["DateReturn"].ToString());
+                }
+                closeConnection();
+                return loan;
+            }
+            return loan;
+        }
+
+        // finds and returns all loans to check, if there are any loans longer than 2 months to block these users
+        public List<string> checkLoans()
+        {
+            List<string> loans = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select DateReturn, IDUser from Loans";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    loans.Add(reader["DateReturn"].ToString());
+                    loans.Add(reader["IDUser"].ToString());
+                }
+                closeConnection();
+                return loans;
+            }
+            return loans;
+        }
     }
 }

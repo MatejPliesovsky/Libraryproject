@@ -135,12 +135,14 @@ namespace Library___Login
 
         private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkLoansToolStripMenuItem_Click(reservedBooksToolStripMenuItem, null);
+            FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
+            reserved.Show();
+            this.Close();
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans loans = new FormCheckLoans(AdminID);
+            FormCheckLoans loans = new FormCheckLoans(AdminID, false);
             loans.Show();
             this.Close();
         }

@@ -12,14 +12,14 @@ namespace Library___Login
 {
     public partial class FormBookDetails : Form
     {
-        string userID;
-        string bookID;
-        Connect2DB connect = new Connect2DB();
+        string userID, bookID, loan;
+        Connect2DB connect;
 
         public FormBookDetails(string info, string userID)
         {
             InitializeComponent();
             this.userID = userID;
+            connect = new Connect2DB();
             this.StartPosition = FormStartPosition.CenterScreen;
             List<string> bookDetail = new List<string>();
             bookDetail = connect.bookDetails(info);
@@ -31,6 +31,7 @@ namespace Library___Login
                 bookName = "Book name: " + bookDetail.ElementAt(1);
                 author = "Author: " + bookDetail.ElementAt(2);
                 lent = "Lent status: " + bookDetail.ElementAt(3);
+                loan = bookDetail.ElementAt(3);
                 categoryID = bookDetail.ElementAt(4);
                 languageID = bookDetail.ElementAt(5);
                 desc = bookDetail.ElementAt(6);
@@ -66,10 +67,10 @@ namespace Library___Login
                 DeleteRes.Hide();
             }
         else{
-                if (connect.checkBookisReservedByUser(bookID, userID))
+                if (connect.checkBookisReservedByUser(bookID, userID, loan))
                 {
                     DeleteRes.Show();
-                    Exception.Text = "You have already reserved this book";
+                    Exception.Text = "You have already reserved or lent this book";
                 }
                 else
                 {
@@ -100,7 +101,7 @@ namespace Library___Login
         private void FormBookDetails_Shown(object sender, EventArgs e)
         {
             checkBookStatus();
-            connect.checkBookisReservedByUser(bookID, userID);
+            connect.checkBookisReservedByUser(bookID, userID, loan);
         }
 
         private void FormBookDetails_Load(object sender, EventArgs e)

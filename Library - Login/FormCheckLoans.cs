@@ -17,11 +17,12 @@ namespace Library___Login
         Connect2DB con = new Connect2DB();
         List<string> details = new List<string>();
 
-        public FormCheckLoans(string UserID)
+        public FormCheckLoans(string UserID, bool justReserved)
         {
             InitializeComponent(); this.StartPosition = FormStartPosition.CenterScreen;
             DatabaseInfo.Visible = false;
             AdminID = UserID;
+            Reserved.Checked = justReserved;
             waitingReg = con.waitingRegistration();
             if (waitingReg > 0)
             {
@@ -73,7 +74,9 @@ namespace Library___Login
 
         private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkLoansToolStripMenuItem_Click(reservedBooksToolStripMenuItem, null);
+            FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
+            reserved.Show();
+            this.Close();
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,7 +153,7 @@ namespace Library___Login
                 if (details[i] != "---")
                 {
                     loan = DateTime.Parse(details[i]);
-                    if (loan.Month <= DateTime.Today.Month && loan.Day <= DateTime.Today.Day)
+                    if (loan < DateTime.Today)
                     {
                         item.ForeColor = Color.Red;
                     }

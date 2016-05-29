@@ -92,13 +92,10 @@ namespace Library___Login
             Country.Text = country;
             Telephone.Text = telephone;
 
-            if (userRole.Equals("user"))
-            {
-                ID.Enabled = false;
-                Age.Enabled = false;
-                UserRole.Enabled = false;
-                Active.Enabled = false;
-            }
+            ID.Enabled = false;
+            Age.Enabled = false;
+            UserRole.Enabled = false;
+            Active.Enabled = false;
         }
               
 
