@@ -1828,8 +1828,25 @@ namespace Library___Login
 
         }
 
-
         /*** END UPDATE BOOK ***/
+
+        /*** Delete book from database ***/
+
+        public bool deleteBookFromDatabase(string id)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "delete from " + booksEntity + " where id like @id";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                closeConnection();
+                return true;
+            }
+            return false;
+        }
+
+
 
         /*** START OF LOANS QUERIES ***/
 

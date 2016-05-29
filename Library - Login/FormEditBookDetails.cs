@@ -63,6 +63,25 @@ namespace Library___Login
             }
         }
 
+        private void btnDeleteBook_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult = MessageBox.Show("Sure delete this book?", "Delete this book?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (db.deleteBookFromDatabase(bookID))
+                {
+                    MessageBox.Show("Book successfully DELETED");
+                    this.Close();
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                MessageBox.Show("Book NOT Successfully DELETED");
+            }
+
+        }
+
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
             if(txtImagePath.Enabled == false)

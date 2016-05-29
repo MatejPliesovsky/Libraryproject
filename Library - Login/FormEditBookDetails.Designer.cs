@@ -50,6 +50,7 @@
             this.txtImagePath = new System.Windows.Forms.TextBox();
             this.comboNewCategory = new System.Windows.Forms.ComboBox();
             this.comboNewLanguage = new System.Windows.Forms.ComboBox();
+            this.btnDeleteBook = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -208,7 +209,7 @@
             // 
             this.btnLoadImage.Location = new System.Drawing.Point(365, 526);
             this.btnLoadImage.Name = "btnLoadImage";
-            this.btnLoadImage.Size = new System.Drawing.Size(407, 23);
+            this.btnLoadImage.Size = new System.Drawing.Size(216, 23);
             this.btnLoadImage.TabIndex = 18;
             this.btnLoadImage.Text = "LOAD IMAGE";
             this.btnLoadImage.UseVisualStyleBackColor = true;
@@ -237,11 +238,25 @@
             this.comboNewLanguage.Size = new System.Drawing.Size(121, 21);
             this.comboNewLanguage.TabIndex = 21;
             // 
+            // btnDeleteBook
+            // 
+            this.btnDeleteBook.BackColor = System.Drawing.Color.Salmon;
+            this.btnDeleteBook.FlatAppearance.BorderSize = 0;
+            this.btnDeleteBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteBook.Location = new System.Drawing.Point(587, 526);
+            this.btnDeleteBook.Name = "btnDeleteBook";
+            this.btnDeleteBook.Size = new System.Drawing.Size(185, 23);
+            this.btnDeleteBook.TabIndex = 22;
+            this.btnDeleteBook.Text = "DELETE THIS BOOK";
+            this.btnDeleteBook.UseVisualStyleBackColor = false;
+            this.btnDeleteBook.Click += new System.EventHandler(this.btnDeleteBook_Click);
+            // 
             // FormEditBookDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnDeleteBook);
             this.Controls.Add(this.comboNewLanguage);
             this.Controls.Add(this.comboNewCategory);
             this.Controls.Add(this.txtImagePath);
@@ -297,5 +312,6 @@
         private System.Windows.Forms.TextBox txtImagePath;
         private System.Windows.Forms.ComboBox comboNewCategory;
         private System.Windows.Forms.ComboBox comboNewLanguage;
+        private System.Windows.Forms.Button btnDeleteBook;
     }
 }
