@@ -50,29 +50,21 @@ namespace Library___Login
         {
             listView1.Items.Clear();
 
-            List<string> userID = new List<string>();
-            List<string> userFirstName = new List<string>();
-            List<string> userLastName = new List<string>();
-            List<string> userAges = new List<string>();
-            List<string> useremails = new List<string>();
-            List<string> userRole = new List<string>();
-            List<string> userStatus = new List<string>();
+            List<string> usersData = new List<string>();
 
-            userID = con.getUsersID(SearchBar.Text);
-            userFirstName = con.getUsersFirstName(SearchBar.Text);
-            userLastName = con.getUsersLastName(SearchBar.Text);
-            userAges = con.getUsersAge(SearchBar.Text);
-            useremails = con.getUsersEmails(SearchBar.Text);
-            userRole = con.getUsersRoles(SearchBar.Text);
-            userStatus = con.getUsersStatus(SearchBar.Text);
+            usersData = con.getAllUsersData(SearchBar.Text);
 
-            for (int i = 0; i < userFirstName.Count; i++)
+            for (int i = 0; i < usersData.Count; i++)
             {
-                ListViewItem item = new ListViewItem(userFirstName[i]);
-                item.SubItems.Add(userLastName[i]);
-                item.SubItems.Add(userAges[i]);
-                item.SubItems.Add(userRole[i]);
-                item.SubItems.Add(userStatus[i]);
+                ListViewItem item = new ListViewItem(usersData[i]);
+                i++;
+                item.SubItems.Add(usersData[i]);
+                i++;
+                item.SubItems.Add(usersData[i]);
+                i++;
+                item.SubItems.Add(usersData[i]);
+                i++;
+                item.SubItems.Add(usersData[i]);
 
                 this.listView1.Items.Add(item);
             }

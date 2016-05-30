@@ -434,21 +434,39 @@ namespace Library___Login
         // START OF ADMIN - USER METHODS
 
         // find all users IDs
-        public List<string> getUsersID(string search)
+        public List<string> getAllUsersData(string search)
         {
-            List<string> usersID = new List<string>();
-            string sqlQuery = "select ID from Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
+            string help, age;
+            DateTime forAge;
+            List<string> usersData = new List<string>();
+            string sqlQuery = "select FirstName, LastName, BirthDate, email, UserRole, Active from Users inner join UsersLogin on Users.ID = UsersLogin.ID where Users.FirstName like '%" + search + "%' or Users.LastName like '%" + search + "%'";
             if (openConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    usersID.Add(reader["ID"] + "");
+                    usersData.Add(reader["FirstName"].ToString());
+                    usersData.Add(reader["LastName"].ToString());
+
+                    help = reader["BirthDate"].ToString();
+                    forAge = DateTime.Parse(help);
+                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    {
+                        age = (System.DateTime.Today.Year - forAge.Year).ToString();
+                    }
+                    else
+                    {
+                        age = (System.DateTime.Today.Year - forAge.Year - 1).ToString();
+                    }
+
+                    usersData.Add(age);
+                    usersData.Add(reader["UserRole"].ToString());
+                    usersData.Add(reader["Active"].ToString());
                 }
                 closeConnection();
             }
-            return usersID;
+            return usersData;
         }
 
         // find all users first names
@@ -473,7 +491,7 @@ namespace Library___Login
         public List<string> getUsersLastName(string search)
         {
             List<string> usersLastNames = new List<string>();
-            string sqlQuery = "select LastName from Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
+            string sqlQuery = "select FirstName, LastName from Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
             if (openConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
@@ -494,7 +512,7 @@ namespace Library___Login
             string help;
             DateTime forAge = new DateTime();
             string age;
-            string sqlQuery = "select BirthDate from Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
+            string sqlQuery = "select FirstName, LastName, BirthDate from Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
             if (openConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
