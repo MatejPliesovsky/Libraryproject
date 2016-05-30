@@ -375,6 +375,33 @@ namespace Library___Login
             return userID;
         }
 
+        public int checkSumOfReservation(string userID, bool loan)
+        {
+            int counter = 0;
+            if (openConnection())
+            {
+                string sqlQuery = null;
+                if (loan == false)
+                {
+                    sqlQuery = "select * from ReservedBooks where IDUser like " + userID;
+                }
+                else
+                {
+                    sqlQuery = "select * from Loans where IDUser like " + userID;
+                }
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    counter++;
+                }
+                closeConnection();
+                return counter;
+            }
+            return counter;
+        }
+
         // find all user ID according their name
         public List<string> getAllUsers(string name)
         {

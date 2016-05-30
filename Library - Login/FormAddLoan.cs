@@ -13,12 +13,15 @@ namespace Library___Login
     public partial class FormAddLoan : Form
     {
         Connect2DB con = new Connect2DB();
+        int counter;
+
         public FormAddLoan()
         {
             InitializeComponent();
             InfoMessage.Visible = false;
             List<string> books = new List<string>();
             books = con.searchBooksToListView(null, false, null, null);
+            counter = 0;
             for (int i = 0;i < books.Count; i++)
             {
                 BookName1.Items.Add(books[i]);
@@ -60,6 +63,14 @@ namespace Library___Login
             string userName = con.getUserAllName(userID);
             UserName.Text = userName;
             UserID.Text = userID;
+
+            counter = con.checkSumOfReservation(UserID.Text, true);
+            if (counter == 5)
+            {
+                Confirm.Hide();
+                InfoMessage.Text = "User has already 5 loaner books.";
+                InfoMessage.Visible = true;
+            }
         }
 
         private void BookName1_SelectedIndexChanged(object sender, EventArgs e)

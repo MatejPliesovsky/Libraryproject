@@ -14,6 +14,7 @@ namespace Library___Login
     {
         string AdminID, userID, bookStatus;
         string bookID, author, bookCategory, bookLanguage, categoryID, languageID;
+        int counter;
         Connect2DB connect;
         DateTime lent;
 
@@ -64,6 +65,14 @@ namespace Library___Login
 
                 PictureBox.Image = Image.FromStream(new System.IO.MemoryStream(connect.getImageByBookId(bookID)));
                 PictureBox.Refresh();
+
+                counter = connect.checkSumOfReservation(userID, true);
+                if (counter == 5)
+                {
+                    Confirm.Hide();
+                    DatabaseInfo.Text = "User has already 5 loaner books.";
+                    DatabaseInfo.Visible = true;
+                }
                 if (bookStatus == "lent")
                 {
                     Confirm.Text = "Remove loan";

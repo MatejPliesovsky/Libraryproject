@@ -149,3 +149,6 @@ C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic M
 C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
 C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
 C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+A:\Učivo\VS programy\C#\Zadania\ReBooks-master\Library - Login\bin\Debug\Library - Login.exe.config
+A:\Učivo\VS programy\C#\Zadania\ReBooks-master\Library - Login\obj\Debug\Library - Login.exe
+A:\Učivo\VS programy\C#\Zadania\ReBooks-master\Library - Login\obj\Debug\Library - Login.pdb

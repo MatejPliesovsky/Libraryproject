@@ -14,12 +14,14 @@ namespace Library___Login
     {
         string userID, bookID, loan;
         Connect2DB connect;
+        int counter;
 
         public FormBookDetails(string info, string userID)
         {
             InitializeComponent();
             this.userID = userID;
             connect = new Connect2DB();
+            counter = 0;
             this.StartPosition = FormStartPosition.CenterScreen;
             List<string> bookDetail = new List<string>();
             bookDetail = connect.bookDetails(info);
@@ -103,10 +105,20 @@ namespace Library___Login
 
 
     private void Reserve_Click(object sender, EventArgs e)
-        { 
+        {
+            counter = connect.checkSumOfReservation(userID, false);
+            if (counter < 5)
+            {
                 connect.reserveBook(bookID, userID);
-            messageLabel.Show();
-            messageLabel.Text = "You have reservate this book";
+                messageLabel.Show();
+                messageLabel.Text = "You have reservate this book";
+            }
+            else
+            {
+                Reserve.Hide();
+                messageLabel.Show();
+                messageLabel.Text = "You have already reserved 5 books!";
+            }
         }
 
         private void DeleteRes_Click(object sender, EventArgs e)
