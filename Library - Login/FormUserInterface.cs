@@ -188,21 +188,6 @@ namespace Library___Login
             FormAdminInterface admin = new FormAdminInterface(UserID);
             admin.Show();
             this.Close();
-            admin.FormClosed += new FormClosedEventHandler(AdminForm_FormClosed);
-        }
-
-        private void AdminForm_FormClosed(object sender, EventArgs e)
-        {
-            FormCollection fc = Application.OpenForms;
-            if (fc.OfType<UserProfile>().Any() || fc.OfType<FormUserInterface>().Any() || fc.OfType<FormAdminInterface>().Any()
-                || fc.OfType<FormCheckLoans>().Any() || fc.OfType<FormUpdateUser>().Any() || fc.OfType<FormWaitingRegistrations>().Any())
-            {
-                FormLogin.ActiveForm.Hide();
-            }
-            else
-            {
-                FormLogin.ActiveForm.Show();
-            }
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)

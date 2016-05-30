@@ -397,7 +397,7 @@ namespace Library___Login
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormUserInterface userForm = new FormUserInterface(AdminID);
-            userForm.ShowDialog();
+            userForm.Show();
             this.Close();
         }
 

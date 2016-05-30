@@ -44,14 +44,12 @@ namespace Library___Login
                     FormAdminInterface admin = new FormAdminInterface(Username.Text, Password.Text);
                     admin.Show();
                     this.Hide();
-                    admin.FormClosed += new FormClosedEventHandler(FormLogin_FormClosed);
                 }
                 else if (con.isUserAdmin(Username.Text) == "user")
                 {
                     FormUserInterface userForm = new FormUserInterface(Username.Text,Password.Text);
                     userForm.Show();
                     this.Hide();
-                    userForm.FormClosed += new FormClosedEventHandler(FormLogin_FormClosed);
                 }
                 else
                 {
@@ -155,20 +153,6 @@ namespace Library___Login
             if (e.KeyCode == Keys.Enter)
             {
                 Login_Click(Username, null);
-            }
-        }
-
-        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FormCollection fc = Application.OpenForms;
-            if (fc.OfType<UserProfile>().Any() ||fc.OfType<FormUserInterface>().Any() || fc.OfType<FormAdminInterface>().Any()
-                || fc.OfType<FormCheckLoans>().Any() || fc.OfType<FormUpdateUser>().Any() || fc.OfType<FormWaitingRegistrations>().Any())
-            {
-                this.Hide();
-            }
-            else
-            {
-                this.Show();
             }
         }
     }
