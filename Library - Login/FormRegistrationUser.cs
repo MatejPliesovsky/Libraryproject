@@ -12,7 +12,7 @@ namespace Library___Login
 {
     public partial class FormRegistrationUser : Form
     {
-        private string firstName, lastName, password, email, telephone, street, postalCode, city, country;
+        private string firstName, lastName, password, email, telephone, street, postalCode, city, country, image;
 
         private void FirstName_KeyDown(object sender, KeyEventArgs e)
         {
@@ -52,9 +52,11 @@ namespace Library___Login
                 city = City.Text;
                 postalCode = PostalCode.Text;
                 country = Country.Text;
+                image = "A:/Učivo/VS programy/C#/Zadania/ReBooks/Library - Login/Resources/default_user2.png";
+
                 if (register.isEmailTaken(email) == 0)
                 {
-                    if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country))
+                    if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country, image))
                     {
                         Info.Text = "Your request was send successfully.";
                         Info.Visible = true;

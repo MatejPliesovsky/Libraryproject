@@ -14,16 +14,6 @@ namespace Library___Login
     {
         string adminID; // id of user, who made changes. It can be admin, or user
         string userID, firstName, lastName, age, email, userRole, active, street, streetNumber, postalCode, city, country, telephone, details;
-
-        private void Delete_Click(object sender, EventArgs e)
-        {
-            if (connect.deleteUserFromDatabase(userID))
-            {
-                DatabaseInfo.Text = "User was deleted.";
-                DatabaseInfo.Visible = true;
-            }
-        }
-
         string[] items;
         Connect2DB connect = new Connect2DB();
 
@@ -137,6 +127,15 @@ namespace Library___Login
             else
             {
                 DatabaseInfo.Text = "Cannot connect to the database!";
+                DatabaseInfo.Visible = true;
+            }
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if (connect.deleteUserFromDatabase(userID))
+            {
+                DatabaseInfo.Text = "User was deleted.";
                 DatabaseInfo.Visible = true;
             }
         }

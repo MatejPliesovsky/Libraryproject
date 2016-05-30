@@ -219,7 +219,7 @@ namespace Library___Login
                 closeConnection();
                 BirthDate = DateTime.Parse(userAge);
                 userAge = null;
-                if (System.DateTime.Today.Month == BirthDate.Month && System.DateTime.Today.Day == BirthDate.Day)
+                if (System.DateTime.Today.Year >= BirthDate.Year && System.DateTime.Today.Month >= BirthDate.Month && System.DateTime.Today.Day >= BirthDate.Day)
                 {
                     userAge = (System.DateTime.Today.Year - BirthDate.Year).ToString();
                 }
@@ -335,7 +335,7 @@ namespace Library___Login
                 
                 birthDate = DateTime.Parse(userAge);
 
-                if (System.DateTime.Today.Year == birthDate.Year && System.DateTime.Today.Month <= birthDate.Month && System.DateTime.Today.Day <= birthDate.Day)
+                if (System.DateTime.Today.Year >= birthDate.Year && System.DateTime.Today.Month >= birthDate.Month && System.DateTime.Today.Day >= birthDate.Day)
                 {
                     userAge = (System.DateTime.Today.Year - birthDate.Year).ToString();
                 }
@@ -451,7 +451,7 @@ namespace Library___Login
 
                     help = reader["BirthDate"].ToString();
                     forAge = DateTime.Parse(help);
-                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    if (System.DateTime.Today.Year >= forAge.Year && System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
                     {
                         age = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -468,143 +468,27 @@ namespace Library___Login
             }
             return usersData;
         }
-
-        // find all users first names
-        public List<string> getUsersFirstName(string search)
-        {
-            List<string> usersFirstNames = new List<string>();
-            string sqlQuery = "select FirstName from Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
-            if (openConnection())
-            {
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    usersFirstNames.Add(reader["FirstName"] + "");
-                }
-                closeConnection();
-            }
-            return usersFirstNames;
-        }
-
-        // find all users last names
-        public List<string> getUsersLastName(string search)
-        {
-            List<string> usersLastNames = new List<string>();
-            string sqlQuery = "select FirstName, LastName from Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
-            if (openConnection())
-            {
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    usersLastNames.Add(reader["LastName"] + "");
-                }
-                closeConnection();
-            }
-            return usersLastNames;
-        }
-
-        // find all users ages
-        public List<string> getUsersAge(string search)
-        {
-            List<string> usersAges = new List<string>();
-            string help;
-            DateTime forAge = new DateTime();
-            string age;
-            string sqlQuery = "select FirstName, LastName, BirthDate from Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
-            if (openConnection())
-            {
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    help = reader["BirthDate"].ToString();
-                    forAge = DateTime.Parse(help);
-                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
-                    {
-                        age = (System.DateTime.Today.Year - forAge.Year).ToString();
-                    }
-                    else
-                    {
-                        age = (System.DateTime.Today.Year - forAge.Year - 1).ToString();
-                    }
-
-                    usersAges.Add(age);
-                }
-                closeConnection();
-            }
-            return usersAges;
-        }
-
-        // find all users emails
-        public List<string> getUsersEmails(string search)
-        {
-            List<string> usersEmails = new List<string>();
-            string sqlQuery = "select email from UsersLogin inner join Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
-            if (openConnection())
-            {
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    usersEmails.Add(reader["email"] + "");
-                }
-                closeConnection();
-            }
-            return usersEmails;
-        }
-
-        // find all users roles
-        public List<string> getUsersRoles(string search)
-        {
-            List<string> usersRoles = new List<string>();
-            string sqlQuery = "select UserRole from UsersLogin inner join Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
-            if (openConnection())
-            {
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    usersRoles.Add(reader["UserRole"] + "");
-                }
-                closeConnection();
-            }
-            return usersRoles;
-        }
-
-        // find all users status (active, inactive or blocked)
-        public List<string> getUsersStatus(string search)
-        {
-            List<string> usersStatus = new List<string>();
-            string sqlQuery = "select Active from UsersLogin inner join Users where FirstName like '%" + search + "%' or LastName like '%" + search + "%'";
-            if (openConnection())
-            {
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    usersStatus.Add(reader["Active"] + "");
-                }
-                closeConnection();
-            }
-            return usersStatus;
-        }
-
+        
         // after users registration, his data will be saved to database, and admin must confirm, or refuse his request
-        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country)
+        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, string image)
         {
             try
             {
                 if (openConnection())
                 {
-                    string sqlQuery = "insert into " + usersEntity + " (FirstName, LastName, BirthDate) "
-                        + "values (@firstName, @lastName, @birthDate)";
+                    byte[] imageBT = null;
+                    FileStream fStream = new FileStream(image, FileMode.Open, FileAccess.Read);
+                    BinaryReader bReader = new BinaryReader(fStream);
+                    imageBT = bReader.ReadBytes((int)fStream.Length);
+
+                    string sqlQuery = "insert into " + usersEntity + " (FirstName, LastName, BirthDate, Avatar) "
+                        + "values (@firstName, @lastName, @birthDate, @avatar)";
 
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@firstName", firstName);
                     cmd.Parameters.AddWithValue("@lastName", lastName);
                     cmd.Parameters.AddWithValue("@birthDate", (birthDate.Year + "-" + birthDate.Month + "-" + birthDate.Day));
+                    cmd.Parameters.AddWithValue("@avatar", imageBT);
                     cmd.ExecuteNonQuery();
 
                     sqlQuery = "insert into " + loginEntity + " (email, password, Active) "
@@ -684,7 +568,7 @@ namespace Library___Login
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
 
-                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    if (System.DateTime.Today.Year >= forAge.Year && System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
                     {
                         help = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -755,7 +639,7 @@ namespace Library___Login
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
 
-                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    if (System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
                     {
                         help = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -791,7 +675,7 @@ namespace Library___Login
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
 
-                    if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    if (System.DateTime.Today.Year >= forAge.Year && System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
                     {
                         help = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
