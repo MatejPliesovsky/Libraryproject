@@ -269,7 +269,8 @@ namespace Library___Login
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormAbout about = new FormAbout();
+            about.ShowDialog();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

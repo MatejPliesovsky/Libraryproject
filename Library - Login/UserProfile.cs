@@ -95,6 +95,12 @@ namespace Library___Login
             UserProfile.ActiveForm.Refresh();
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAbout about = new FormAbout();
+            about.ShowDialog();
+        }
+
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

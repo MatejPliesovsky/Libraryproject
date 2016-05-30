@@ -192,5 +192,11 @@ namespace Library___Login
                 this.Update();
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAbout about = new FormAbout();
+            about.ShowDialog();
+        }
     }
 }
