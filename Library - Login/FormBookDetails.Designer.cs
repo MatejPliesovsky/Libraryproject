@@ -34,12 +34,12 @@
             this.Category = new System.Windows.Forms.Label();
             this.Language = new System.Windows.Forms.Label();
             this.Lent = new System.Windows.Forms.Label();
-            this.Description = new System.Windows.Forms.Label();
             this.PictureBox = new System.Windows.Forms.PictureBox();
             this.DeleteRes = new System.Windows.Forms.Button();
             this.Reserve = new System.Windows.Forms.Button();
             this.Exception = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.Description = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,22 +97,12 @@
             this.Lent.TabIndex = 5;
             this.Lent.Text = "Lent";
             // 
-            // Description
-            // 
-            this.Description.AutoSize = true;
-            this.Description.Location = new System.Drawing.Point(30, 210);
-            this.Description.MaximumSize = new System.Drawing.Size(350, 0);
-            this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(60, 13);
-            this.Description.TabIndex = 6;
-            this.Description.Text = "Description";
-            // 
             // PictureBox
             // 
             this.PictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureBox.Location = new System.Drawing.Point(411, 12);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(361, 390);
+            this.PictureBox.Size = new System.Drawing.Size(361, 449);
             this.PictureBox.TabIndex = 7;
             this.PictureBox.TabStop = false;
             // 
@@ -160,15 +150,23 @@
             this.messageLabel.Text = "label1";
             this.messageLabel.Visible = false;
             // 
+            // Description
+            // 
+            this.Description.Location = new System.Drawing.Point(33, 242);
+            this.Description.Name = "Description";
+            this.Description.Size = new System.Drawing.Size(140, 22);
+            this.Description.TabIndex = 13;
+            this.Description.Text = "";
+            // 
             // FormBookDetails
             // 
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Description);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.Exception);
             this.Controls.Add(this.Reserve);
             this.Controls.Add(this.DeleteRes);
             this.Controls.Add(this.PictureBox);
-            this.Controls.Add(this.Description);
             this.Controls.Add(this.Lent);
             this.Controls.Add(this.Language);
             this.Controls.Add(this.Category);
@@ -191,12 +189,12 @@
         private System.Windows.Forms.Label Category;
         private System.Windows.Forms.Label Language;
         private System.Windows.Forms.Label Lent;
-        private System.Windows.Forms.Label Description;
         private System.Windows.Forms.PictureBox PictureBox;
         private System.Windows.Forms.Button DeleteRes;
         private System.Windows.Forms.Button reserve;
         private System.Windows.Forms.Button Reserve;
         private System.Windows.Forms.Label Exception;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.RichTextBox Description;
     }
 }

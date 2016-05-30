@@ -59,8 +59,8 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabaseInfo = new System.Windows.Forms.Label();
-            this.CreateXML = new System.Windows.Forms.Button();
             this.XMLInfo = new System.Windows.Forms.Label();
+            this.CreateXML = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -335,27 +335,27 @@
             this.DatabaseInfo.Text = "Cannot connect to database!";
             this.DatabaseInfo.Visible = false;
             // 
-            // CreateXML
-            // 
-            this.CreateXML.Location = new System.Drawing.Point(12, 338);
-            this.CreateXML.Name = "CreateXML";
-            this.CreateXML.Size = new System.Drawing.Size(95, 40);
-            this.CreateXML.TabIndex = 49;
-            this.CreateXML.Text = "Create XML file of Loans";
-            this.CreateXML.UseVisualStyleBackColor = true;
-            this.CreateXML.Click += new System.EventHandler(this.createXML_Click);
-            // 
             // XMLInfo
             // 
             this.XMLInfo.AutoSize = true;
             this.XMLInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.XMLInfo.ForeColor = System.Drawing.Color.Red;
-            this.XMLInfo.Location = new System.Drawing.Point(9, 396);
+            this.XMLInfo.Location = new System.Drawing.Point(9, 379);
             this.XMLInfo.Name = "XMLInfo";
             this.XMLInfo.Size = new System.Drawing.Size(105, 13);
-            this.XMLInfo.TabIndex = 50;
+            this.XMLInfo.TabIndex = 52;
             this.XMLInfo.Text = "XML was created";
             this.XMLInfo.Visible = false;
+            // 
+            // CreateXML
+            // 
+            this.CreateXML.Location = new System.Drawing.Point(12, 321);
+            this.CreateXML.Name = "CreateXML";
+            this.CreateXML.Size = new System.Drawing.Size(95, 40);
+            this.CreateXML.TabIndex = 51;
+            this.CreateXML.Text = "Create XML file of Loans";
+            this.CreateXML.UseVisualStyleBackColor = true;
+            this.CreateXML.Click += new System.EventHandler(this.CreateXML_Click);
             // 
             // FormAdminInterface
             // 
@@ -418,7 +418,7 @@
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.Label DatabaseInfo;
-        private System.Windows.Forms.Button CreateXML;
         private System.Windows.Forms.Label XMLInfo;
+        private System.Windows.Forms.Button CreateXML;
     }
 }

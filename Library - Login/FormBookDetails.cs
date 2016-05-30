@@ -51,8 +51,9 @@ namespace Library___Login
                 Lent.Text = lent;
                 for (int i = 0; i < descrpition.Length; i++)
                 {
-                    desc = desc + descrpition[i] + ".\n";
+                    desc = desc + descrpition[i];
                 }
+                Console.WriteLine(desc);
                 Description.Text = "Description: " + desc;
 
                 PictureBox.Image = Image.FromStream(new System.IO.MemoryStream(connect.getImageByBookId(bookID)));

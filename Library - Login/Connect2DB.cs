@@ -474,7 +474,7 @@ namespace Library___Login
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    help = reader["BirthDate"] + "";
+                    help = reader["BirthDate"].ToString();
                     forAge = DateTime.Parse(help);
                     if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
                     {
@@ -1664,8 +1664,7 @@ namespace Library___Login
                 ds.WriteXml("Loans.xml");
                 return true;
             }
-            return false;            
+            return false;
         }
     }
 }
-
