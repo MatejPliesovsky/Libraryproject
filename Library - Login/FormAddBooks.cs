@@ -79,6 +79,7 @@ namespace Library___Login
                 string pictPatch = dlg.FileName.ToString();
                 txtImagePath.Text = pictPatch;
                 pictureBox1.ImageLocation = pictPatch;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
 
         }

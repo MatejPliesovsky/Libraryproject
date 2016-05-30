@@ -152,17 +152,18 @@
             // 
             // Description
             // 
-            this.Description.Location = new System.Drawing.Point(33, 242);
+            this.Description.Location = new System.Drawing.Point(36, 207);
             this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(140, 22);
-            this.Description.TabIndex = 13;
+            this.Description.ReadOnly = true;
+            this.Description.Size = new System.Drawing.Size(347, 231);
+            this.Description.TabIndex = 15;
             this.Description.Text = "";
             // 
             // FormBookDetails
             // 
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.Description);
             this.Controls.Add(this.messageLabel);
+            this.Controls.Add(this.Description);
             this.Controls.Add(this.Exception);
             this.Controls.Add(this.Reserve);
             this.Controls.Add(this.DeleteRes);
