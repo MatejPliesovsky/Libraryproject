@@ -112,7 +112,7 @@
             this.PictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureBox.Location = new System.Drawing.Point(411, 12);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(361, 449);
+            this.PictureBox.Size = new System.Drawing.Size(361, 390);
             this.PictureBox.TabIndex = 7;
             this.PictureBox.TabStop = false;
             // 

@@ -59,7 +59,6 @@
             this.UserRole = new System.Windows.Forms.ComboBox();
             this.Active = new System.Windows.Forms.ComboBox();
             this.DatabaseInfo = new System.Windows.Forms.Label();
-            this.Delete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ID
@@ -346,22 +345,11 @@
             this.DatabaseInfo.Text = "Cannot connect to the database!";
             this.DatabaseInfo.Visible = false;
             // 
-            // Delete
-            // 
-            this.Delete.Location = new System.Drawing.Point(327, 252);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(249, 25);
-            this.Delete.TabIndex = 29;
-            this.Delete.Text = "Delete user";
-            this.Delete.UseVisualStyleBackColor = true;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
-            // 
             // FormUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 320);
-            this.Controls.Add(this.Delete);
             this.Controls.Add(this.DatabaseInfo);
             this.Controls.Add(this.Active);
             this.Controls.Add(this.UserRole);
@@ -434,6 +422,5 @@
         private System.Windows.Forms.ComboBox UserRole;
         private System.Windows.Forms.ComboBox Active;
         private System.Windows.Forms.Label DatabaseInfo;
-        private System.Windows.Forms.Button Delete;
     }
 }

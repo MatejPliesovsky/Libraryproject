@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Xml;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Library___Login
 {
@@ -470,7 +474,7 @@ namespace Library___Login
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    help = reader["BirthDate"].ToString();
+                    help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
                     if (System.DateTime.Today.Year == forAge.Year && System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
                     {
@@ -1645,5 +1649,23 @@ namespace Library___Login
             }
             return loans;
         }
+
+        public bool CreateXML()
+        {
+            if (openConnection())
+            {
+                DataSet ds = new DataSet();
+                string sqlQuery = "select * from Loans";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sqlQuery, connection);
+
+                adapter.Fill(ds);
+                closeConnection();
+                ds.WriteXml("Loans.xml");
+                return true;
+            }
+            return false;            
+        }
     }
 }
+

@@ -59,7 +59,6 @@ C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login
 C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
 C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.FormLogin.resources
 C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.Users.resources
 C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
 C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
 C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
@@ -123,29 +122,7 @@ C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Libra
 C:\Users\milos\OneDrive\Dokumenty\GitHub\ReBooks\Library - Login\obj\Debug\Library___Login.UserProfile.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormChangeProfilePhoto.resources
 A:\Učivo\VS programy\C#\Zadania\ReBooks\Library - Login\obj\Debug\Library___Login.FormAbout.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\bin\Debug\Library - Login.exe.config
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library - Login.exe
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library - Login.pdb
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\bin\Debug\Library - Login.exe
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\bin\Debug\Library - Login.pdb
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\ReBooks.csprojResolveAssemblyReference.cache
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormAbout.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddLoan.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormChangeProfilePhoto.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormWaitingRegistrations.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormBookDetails.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormCheckLoans.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormAdminInterface.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormEditBookDetails.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormUpdateUser.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserDetails.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormUserInterface.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookCategory.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormLogin.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBookLanguage.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.ReservationDetails.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.UserProfile.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormAddBooks.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.Properties.Resources.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\Library___Login.FormRegistrationUser.resources
-C:\Users\Matej\Documents\AkademiaSovy20152016\2. Programko zadania\GlobalLogic MVT\ReBooks\Library - Login\obj\Debug\ReBooks.csproj.GenerateResource.Cache
+C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.FormAbout.resources
+C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.FormChangeProfilePhoto.resources
+C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.ReservationDetails.resources
+C:\Users\ESTATE\Desktop\ReBooks-master\Library - Login\obj\Debug\Library___Login.UserProfile.resources
