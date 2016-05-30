@@ -51,7 +51,7 @@ namespace Library___Login
                 Lent.Text = lent;
                 for (int i = 0; i < descrpition.Length; i++)
                 {
-                    desc = desc + descrpition[i] + ".\n";
+                    desc = desc + descrpition[i];
                 }
                 Description.Text = "Description: " + desc;
 

@@ -60,6 +60,7 @@ namespace Library___Login
 
                 pictureBox1.Image = Image.FromStream(new System.IO.MemoryStream(db.getImageByBookId(bookID)));
                 pictureBox1.Refresh();
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
 
