@@ -107,7 +107,6 @@ namespace Library___Login
             FormAdminInterface home = new FormAdminInterface(AdminID);
             home.Show();
             this.Close();
-            home.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,7 +138,6 @@ namespace Library___Login
             FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
             reserved.Show();
             this.Close();
-            reserved.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,7 +145,6 @@ namespace Library___Login
             FormCheckLoans loans = new FormCheckLoans(AdminID, false);
             loans.Show();
             this.Close();
-            loans.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,7 +157,6 @@ namespace Library___Login
             FormWaitingRegistrations admin = new FormWaitingRegistrations(AdminID);
             admin.Show();
             this.Close();
-            admin.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,7 +164,6 @@ namespace Library___Login
             FormUserInterface userForm = new FormUserInterface(AdminID);
             userForm.ShowDialog();
             this.Close();
-            userForm.FormClosed += new FormClosedEventHandler(Form_FormClosed);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,20 +176,6 @@ namespace Library___Login
         {
             FormLogin.ActiveForm.Show();
             this.Close();
-        }
-
-        private void Form_FormClosed(object sender, EventArgs e)
-        {
-            FormCollection fc = Application.OpenForms;
-            if (fc.OfType<UserProfile>().Any() || fc.OfType<FormUserInterface>().Any() || fc.OfType<FormAdminInterface>().Any()
-                || fc.OfType<FormCheckLoans>().Any() || fc.OfType<FormUpdateUser>().Any() || fc.OfType<FormWaitingRegistrations>().Any())
-            {
-                FormLogin.ActiveForm.Hide();
-            }
-            else
-            {
-                FormLogin.ActiveForm.Show();
-            }
         }
     }
 }
