@@ -13,6 +13,8 @@ namespace Library___Login
     public partial class FormRegistrationUser : Form
     {
         private string firstName, lastName, password, email, telephone, street, postalCode, city, country, image;
+        List<string> phonePrefix, countryName;
+        Connect2DB register;
 
         private void FirstName_KeyDown(object sender, KeyEventArgs e)
         {
@@ -27,15 +29,33 @@ namespace Library___Login
 
         public FormRegistrationUser()
         {
+            register = new Connect2DB();
             InitializeComponent();
             Info.Visible = false;
             this.StartPosition = FormStartPosition.CenterScreen;
+            phonePrefix = new List<string>();
+            countryName = new List<string>();
+
+
+            phonePrefix = register.getPhonePrefixes();
+            countryName = register.getCountriesNames();
+
+            Telephone1.Items.Clear();
+            Country.Items.Clear();
+            for (int i = 0; i < phonePrefix.Count; i++)
+            {
+                Telephone1.Items.Add(phonePrefix[i]);
+            }
+
+            for (int i = 0; i < countryName.Count; i++)
+            {
+                Country.Items.Add(countryName[i]);
+            }
         }
 
         //button after click save the information to array, then, this information will be send to admin for confirm
         private void Confirm_Click(object sender, EventArgs e)
         {
-            Connect2DB register = new Connect2DB();
             if (FirstName.Text.Trim() != "" && LastName.Text.Trim() != "" && PasswordReg.Text.Trim() != "" 
                 && EmailReg.Text.Trim() != "" && (Telephone1.Text + Telephone2.Text.Trim()) != "" 
                 && Street.Text.Trim() != "" && Number.Text.Trim() != "" && City.Text.Trim() != "" 
@@ -56,6 +76,11 @@ namespace Library___Login
 
                 if (register.isEmailTaken(email) == 0)
                 {
+                    if (!(Telephone1.Items.Contains(Telephone1.Text)) && !(Country.Items.Contains(Country.Text)))
+                    {
+                        register.addCountryToDB(Telephone1.Text, Country.Text);
+                    }
+
                     if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country, image))
                     {
                         Info.Text = "Your request was send successfully.";

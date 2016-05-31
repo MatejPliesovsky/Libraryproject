@@ -334,7 +334,8 @@ namespace Library___Login
                 con.blockUser(RRUserID5.Text, active);
             }
 
-            registrationReguestToolStripMenuItem_Click(RRConfirm, null);
+            this.Refresh();
+            this.Update();
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)

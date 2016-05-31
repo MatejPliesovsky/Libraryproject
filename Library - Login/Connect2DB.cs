@@ -198,6 +198,114 @@ namespace Library___Login
             return userRole;
         }
 
+        /**START OF REGISTRATION METHODS**/
+
+        // adding phone prefixes to combobox
+        public List<string> getPhonePrefixes()
+        {
+            List<string> prefixes = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select PhonePrefix from Countries";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    prefixes.Add(reader["PhonePrefix"].ToString());
+                }
+                closeConnection();
+            }
+            return prefixes;
+        }
+
+        // adding countries to combobox
+        public List<string> getCountriesNames()
+        {
+            List<string> countries = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select CountryName from Countries";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    countries.Add(reader["CountryName"].ToString());
+                }
+                closeConnection();
+            }
+            return countries;
+        }
+
+        //adding prefix to DB
+        public void addCountryToDB(string prefix, string country)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "insert into Countries (CountryName, PhonePrefix) values (@country, @prefix)";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@country", country);
+                cmd.Parameters.AddWithValue("@prefix", prefix);
+                cmd.ExecuteNonQuery();
+                closeConnection();
+            }
+        }
+
+        // after users registration, his data will be saved to database, and admin must confirm, or refuse his request
+        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, string image)
+        {
+            try
+            {
+                if (openConnection())
+                {
+                    byte[] imageBT = null;
+                    FileStream fStream = new FileStream(image, FileMode.Open, FileAccess.Read);
+                    BinaryReader bReader = new BinaryReader(fStream);
+                    imageBT = bReader.ReadBytes((int)fStream.Length);
+
+                    string sqlQuery = "insert into " + usersEntity + " (FirstName, LastName, BirthDate, Avatar) "
+                        + "values (@firstName, @lastName, @birthDate, @avatar)";
+
+                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@firstName", firstName);
+                    cmd.Parameters.AddWithValue("@lastName", lastName);
+                    cmd.Parameters.AddWithValue("@birthDate", (birthDate.Year + "-" + birthDate.Month + "-" + birthDate.Day));
+                    cmd.Parameters.AddWithValue("@avatar", imageBT);
+                    cmd.ExecuteNonQuery();
+
+                    sqlQuery = "insert into " + loginEntity + " (email, password, Active) "
+                        + "values (@email, @password, @active)";
+                    cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@active", "waiting");
+                    cmd.ExecuteNonQuery();
+
+                    sqlQuery = "insert into " + detailsEntity + " (Street, StreetNumber, PostalCode, City, Telephone, Country) "
+                        + "values (@street, @streetnumber, @postalcode, @city, @telephone, @country)";
+                    cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@street", street);
+                    cmd.Parameters.AddWithValue("@streetnumber", streetNumber);
+                    cmd.Parameters.AddWithValue("@postalcode", postalCode);
+                    cmd.Parameters.AddWithValue("@city", city);
+                    cmd.Parameters.AddWithValue("@telephone", telephone);
+                    cmd.Parameters.AddWithValue("@country", country);
+
+                    cmd.ExecuteNonQuery();
+                    closeConnection();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return false;
+            }
+        }
+
         // START OF USER METHOD
 
         // method, that found user age for his profile
@@ -467,62 +575,6 @@ namespace Library___Login
                 closeConnection();
             }
             return usersData;
-        }
-        
-        // after users registration, his data will be saved to database, and admin must confirm, or refuse his request
-        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, string image)
-        {
-            try
-            {
-                if (openConnection())
-                {
-                    byte[] imageBT = null;
-                    FileStream fStream = new FileStream(image, FileMode.Open, FileAccess.Read);
-                    BinaryReader bReader = new BinaryReader(fStream);
-                    imageBT = bReader.ReadBytes((int)fStream.Length);
-
-                    string sqlQuery = "insert into " + usersEntity + " (FirstName, LastName, BirthDate, Avatar) "
-                        + "values (@firstName, @lastName, @birthDate, @avatar)";
-
-                    MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                    cmd.Parameters.AddWithValue("@firstName", firstName);
-                    cmd.Parameters.AddWithValue("@lastName", lastName);
-                    cmd.Parameters.AddWithValue("@birthDate", (birthDate.Year + "-" + birthDate.Month + "-" + birthDate.Day));
-                    cmd.Parameters.AddWithValue("@avatar", imageBT);
-                    cmd.ExecuteNonQuery();
-
-                    sqlQuery = "insert into " + loginEntity + " (email, password, Active) "
-                        + "values (@email, @password, @active)";
-                    cmd = new MySqlCommand(sqlQuery, connection);
-                    cmd.Parameters.AddWithValue("@email", email);
-                    cmd.Parameters.AddWithValue("@password", password);
-                    cmd.Parameters.AddWithValue("@active", "waiting");
-                    cmd.ExecuteNonQuery();
-
-                    sqlQuery = "insert into " + detailsEntity + " (Street, StreetNumber, PostalCode, City, Telephone, Country) "
-                        + "values (@street, @streetnumber, @postalcode, @city, @telephone, @country)";
-                    cmd = new MySqlCommand(sqlQuery, connection);
-                    cmd.Parameters.AddWithValue("@street", street);
-                    cmd.Parameters.AddWithValue("@streetnumber", streetNumber);
-                    cmd.Parameters.AddWithValue("@postalcode", postalCode);
-                    cmd.Parameters.AddWithValue("@city", city);
-                    cmd.Parameters.AddWithValue("@telephone", telephone);
-                    cmd.Parameters.AddWithValue("@country", country);
-
-                    cmd.ExecuteNonQuery();
-                    closeConnection();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex.ToString());
-                return false;
-            }
         }
 
         // if there are some registration requests, this method find out how many there are
