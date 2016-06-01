@@ -98,9 +98,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.label5.Location = new System.Drawing.Point(144, 133);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 24);
+            this.label5.Size = new System.Drawing.Size(81, 24);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Authors:";
+            this.label5.Text = "Authors";
             // 
             // Confirm
             // 

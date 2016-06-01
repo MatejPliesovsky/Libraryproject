@@ -185,9 +185,10 @@ namespace Library___Login
 
         private void SwitchToAdmin_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormAdminInterface admin = new FormAdminInterface(UserID);
             admin.Show();
-            this.Close();
+            
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -210,7 +211,17 @@ namespace Library___Login
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            FormLogin forml = new FormLogin();
+            forml.Show();
+
+        }
+
+        private void FormUserInterface_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            FormLogin forml = new FormLogin();
+            forml.Show();
         }
     }
 }

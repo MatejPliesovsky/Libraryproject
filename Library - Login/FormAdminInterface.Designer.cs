@@ -377,6 +377,8 @@
             this.Controls.Add(this.listView1);
             this.Name = "FormAdminInterface";
             this.Text = "FormEditBook";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAdminInterface_FormClosing);
+            this.Load += new System.EventHandler(this.FormAdminInterface_Load);
             this.Shown += new System.EventHandler(this.Form2_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -13,6 +13,19 @@ namespace Library___Login
     public partial class FormRegistrationUser : Form
     {
         private string firstName, lastName, password, email, telephone, street, postalCode, city, country, image;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormLogin formlogin = new FormLogin();
+            formlogin.Show();
+        }
+
+        private void FormRegistrationUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
+
         List<string> phonePrefix, countryName;
         Connect2DB register;
 

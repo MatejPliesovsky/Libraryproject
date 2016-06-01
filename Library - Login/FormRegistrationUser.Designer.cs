@@ -55,6 +55,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.Country = new System.Windows.Forms.ComboBox();
             this.Telephone1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -178,12 +179,14 @@
             // 
             // Confirm
             // 
-            this.Confirm.Location = new System.Drawing.Point(419, 362);
+            this.Confirm.BackColor = System.Drawing.Color.LightPink;
+            this.Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Confirm.Location = new System.Drawing.Point(408, 362);
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(75, 23);
             this.Confirm.TabIndex = 24;
             this.Confirm.Text = "Confirm";
-            this.Confirm.UseVisualStyleBackColor = true;
+            this.Confirm.UseVisualStyleBackColor = false;
             this.Confirm.Click += new System.EventHandler(this.Confirm_Click);
             // 
             // Delete
@@ -255,7 +258,7 @@
             this.Info.ForeColor = System.Drawing.Color.Purple;
             this.Info.Location = new System.Drawing.Point(283, 404);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(262, 16);
+            this.Info.Size = new System.Drawing.Size(269, 16);
             this.Info.TabIndex = 25;
             this.Info.Text = "Your request was send successfully. ";
             // 
@@ -300,11 +303,22 @@
             this.Telephone1.TabIndex = 16;
             this.Telephone1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(489, 362);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Back to login";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormRegistrationUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Telephone1);
             this.Controls.Add(this.Country);
             this.Controls.Add(this.label11);
@@ -334,6 +348,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRegistrationUser";
             this.Text = "Registration";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormRegistrationUser_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,5 +382,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox Country;
         private System.Windows.Forms.ComboBox Telephone1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -155,5 +155,10 @@ namespace Library___Login
                 Login_Click(Username, null);
             }
         }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
     }
 }

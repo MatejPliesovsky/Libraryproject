@@ -257,9 +257,9 @@ namespace Library___Login
 
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormUserInterface userForm = new FormUserInterface(AdminID);
             userForm.Show();
-            this.Close();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -270,7 +270,7 @@ namespace Library___Login
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
         }
@@ -287,6 +287,16 @@ namespace Library___Login
                 XMLInfo.Text = "XML wasn't created";
                 XMLInfo.Visible = true;
             }
+        }
+
+        private void FormAdminInterface_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
+
+        private void FormAdminInterface_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
