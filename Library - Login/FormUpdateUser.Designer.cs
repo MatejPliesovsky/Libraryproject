@@ -54,6 +54,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabaseInfo = new System.Windows.Forms.Label();
+            this.Countries = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,9 +66,9 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.listView1.Location = new System.Drawing.Point(54, 92);
+            this.listView1.Location = new System.Drawing.Point(144, 89);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(675, 302);
+            this.listView1.Size = new System.Drawing.Size(628, 302);
             this.listView1.TabIndex = 53;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -76,7 +77,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "First Name";
-            this.columnHeader1.Width = 214;
+            this.columnHeader1.Width = 169;
             // 
             // columnHeader2
             // 
@@ -100,9 +101,9 @@
             // 
             // Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(54, 400);
+            this.Refresh.Location = new System.Drawing.Point(144, 397);
             this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(675, 23);
+            this.Refresh.Size = new System.Drawing.Size(628, 23);
             this.Refresh.TabIndex = 52;
             this.Refresh.Text = "Refresh";
             this.Refresh.UseVisualStyleBackColor = true;
@@ -110,7 +111,7 @@
             // 
             // Search_btn
             // 
-            this.Search_btn.Location = new System.Drawing.Point(473, 66);
+            this.Search_btn.Location = new System.Drawing.Point(516, 63);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(256, 23);
             this.Search_btn.TabIndex = 51;
@@ -120,9 +121,9 @@
             // 
             // SearchBar
             // 
-            this.SearchBar.Location = new System.Drawing.Point(54, 66);
+            this.SearchBar.Location = new System.Drawing.Point(144, 63);
             this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(413, 20);
+            this.SearchBar.Size = new System.Drawing.Size(366, 20);
             this.SearchBar.TabIndex = 50;
             this.SearchBar.TextChanged += new System.EventHandler(this.SearchBar_TextChanged);
             // 
@@ -265,11 +266,23 @@
             this.DatabaseInfo.TabIndex = 55;
             this.DatabaseInfo.Text = "Cannot connect to database!";
             // 
+            // Countries
+            // 
+            this.Countries.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Countries.Location = new System.Drawing.Point(12, 63);
+            this.Countries.Name = "Countries";
+            this.Countries.Size = new System.Drawing.Size(126, 52);
+            this.Countries.TabIndex = 56;
+            this.Countries.Text = "Add countries";
+            this.Countries.UseVisualStyleBackColor = true;
+            this.Countries.Click += new System.EventHandler(this.Countries_Click);
+            // 
             // FormUpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Countries);
             this.Controls.Add(this.DatabaseInfo);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.listView1);
@@ -278,6 +291,7 @@
             this.Controls.Add(this.SearchBar);
             this.Name = "FormUpdateUser";
             this.Text = "FormUpdateUser";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormUpdateUser_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -313,5 +327,6 @@
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.Label DatabaseInfo;
+        private System.Windows.Forms.Button Countries;
     }
 }

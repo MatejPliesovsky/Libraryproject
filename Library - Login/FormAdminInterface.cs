@@ -231,28 +231,28 @@ namespace Library___Login
         {
             FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
             reserved.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCheckLoans loans = new FormCheckLoans(AdminID, false);
             loans.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormUpdateUser updateUser = new FormUpdateUser(AdminID);
             updateUser.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void registrationReguestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormWaitingRegistrations registrations = new FormWaitingRegistrations(AdminID);
             registrations.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)

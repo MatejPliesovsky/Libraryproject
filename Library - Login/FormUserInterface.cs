@@ -200,7 +200,7 @@ namespace Library___Login
         {
             UserProfile form = new UserProfile(UserID);
             form.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

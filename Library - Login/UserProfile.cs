@@ -87,7 +87,7 @@ namespace Library___Login
         {
             FormUserInterface form = new FormUserInterface(userID);
             form.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void editProfileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,6 +104,13 @@ namespace Library___Login
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UserProfile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            FormLogin forml = new FormLogin();
+            forml.Show();
         }
 
         private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

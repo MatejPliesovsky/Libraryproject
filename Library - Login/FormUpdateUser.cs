@@ -98,7 +98,7 @@ namespace Library___Login
         {
             FormAdminInterface home = new FormAdminInterface(AdminID);
             home.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void addBooksToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,14 +129,14 @@ namespace Library___Login
         {
             FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
             reserved.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCheckLoans loans = new FormCheckLoans(AdminID, false);
             loans.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,14 +148,14 @@ namespace Library___Login
         {
             FormWaitingRegistrations admin = new FormWaitingRegistrations(AdminID);
             admin.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormUserInterface userForm = new FormUserInterface(AdminID);
             userForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,6 +168,17 @@ namespace Library___Login
         {
             FormLogin.ActiveForm.Show();
             this.Close();
+        }
+
+        private void Countries_Click(object sender, EventArgs e)
+        {
+            FormAddCountries country = new FormAddCountries(AdminID);
+            country.ShowDialog();
+        }
+
+        private void FormUpdateUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(1);
         }
     }
 }

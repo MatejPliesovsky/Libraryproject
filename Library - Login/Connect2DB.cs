@@ -237,7 +237,7 @@ namespace Library___Login
         }
 
         //adding prefix to DB
-        public void addCountryToDB(string prefix, string country)
+        public bool addCountryToDB(string prefix, string country)
         {
             if (openConnection())
             {
@@ -247,7 +247,9 @@ namespace Library___Login
                 cmd.Parameters.AddWithValue("@prefix", prefix);
                 cmd.ExecuteNonQuery();
                 closeConnection();
+                return true;
             }
+            return false;
         }
 
         // after users registration, his data will be saved to database, and admin must confirm, or refuse his request

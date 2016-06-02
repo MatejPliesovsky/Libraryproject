@@ -304,6 +304,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "FormCheckLoans";
             this.Text = "FormCheckLoans";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCheckLoans_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

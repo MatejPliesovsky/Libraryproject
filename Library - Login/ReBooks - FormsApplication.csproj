@@ -56,6 +56,12 @@
     <Compile Include="FormAbout.Designer.cs">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddCountries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddCountries.Designer.cs">
+      <DependentUpon>FormAddCountries.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddLoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddCountries.resx">
+      <DependentUpon>FormAddCountries.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddLoan.resx">
       <DependentUpon>FormAddLoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +253,9 @@
   <ItemGroup>
     <Content Include="ReBooks_Icon_32x32.ico" />
     <None Include="Resources\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
