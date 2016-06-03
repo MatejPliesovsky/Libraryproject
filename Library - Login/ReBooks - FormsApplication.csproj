@@ -68,6 +68,18 @@
     <Compile Include="FormAddLoan.Designer.cs">
       <DependentUpon>FormAddLoan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChangePenalties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangePenalties.Designer.cs">
+      <DependentUpon>FormChangePenalties.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChangeProfilePhoto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +188,12 @@
     <EmbeddedResource Include="FormAddLoan.resx">
       <DependentUpon>FormAddLoan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChangePenalties.resx">
+      <DependentUpon>FormChangePenalties.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChangeProfilePhoto.resx">
       <DependentUpon>FormChangeProfilePhoto.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReBooks_Icon_32x32.ico" />
+    <None Include="Resources\default_user2.png" />
     <None Include="Resources\noimage.png" />
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,7 @@ namespace Library___Login
         public FormAbout()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Confirm_Click(object sender, EventArgs e)

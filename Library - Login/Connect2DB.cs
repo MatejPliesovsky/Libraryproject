@@ -9,6 +9,7 @@ using System.Xml;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Library___Login
 {
@@ -21,23 +22,18 @@ namespace Library___Login
         private string uid; // user id
         private string database;
         private string port;
-        private string usersEntity = "`Users`";
-        private string booksEntity = "`Books`";
-        private string booksDetailsEntity = "`BooksDetails`";
-        private string bookCategoryEnity = "`BookCategory`";
-        private string bookLanguageEnity = "`BookLanguage`";
-        private string loansEntity = "`Loans`";
-        private string loginEntity = "`UsersLogin`";
-        private string detailsEntity = "`UsersDetails`";
         public MySqlConnection connection;
 
         public Connect2DB()
         {
-            server = "mysql51.websupport.sk";
-            database = "ReBooksDB";
-            uid = "ReBooksDB";
-            password = "auticko1238792";
-            port = "3310";
+            string text = System.IO.File.ReadAllText("DatabaseInfo.txt");
+            string[] items = text.Split('\n');
+            
+            server = (items[0].Split(' '))[1];
+            database = (items[1].Split(' '))[1];
+            uid = (items[2].Split(' '))[1];
+            password = (items[3].Split(' '))[1];
+            port = (items[4].Split(' '))[1];
             string connectionString = "SERVER=" + server + ";" + "PORT=" + port + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
         }
@@ -100,7 +96,7 @@ namespace Library___Login
         {
             if (openConnection())
             {
-                string sqlQuery = "select email, password from " + loginEntity + " where email like '" + email + "'";
+                string sqlQuery = "select email, password from UsersLogin where email like '" + email + "'";
 
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -119,10 +115,10 @@ namespace Library___Login
         }
 
         //read user´s profile image from db and load to profile page
-        public byte[] getUserProfileImage(String id)
+        public byte[] getUserProfileImage(string id)
         {
             byte[] imageBytes = null;
-            String sqlQuery = "select Avatar from " + usersEntity + "where ID = " + id;
+            String sqlQuery = "select Avatar from Users where ID = " + id;
             if (openConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
@@ -130,10 +126,12 @@ namespace Library___Login
                 if (reader.Read())
                 {
                     imageBytes = (byte[])reader["Avatar"];
+                    closeConnection();
+                    return imageBytes;
                 }
+                closeConnection();
             }
-            closeConnection();
-            return imageBytes;
+            return null;
         }
 
         // verification, if user is admin, or not
@@ -142,7 +140,7 @@ namespace Library___Login
             string userRole = null;
             if (openConnection())
             {
-                string sqlQuery = "select UserRole from " + loginEntity + " where email like '" + email + "'";
+                string sqlQuery = "select UserRole from UsersLogin where email like '" + email + "'";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 {
@@ -184,7 +182,7 @@ namespace Library___Login
             string userRole = null;
             if (openConnection())
             {
-                string sqlQuery = "select UserRole from " + loginEntity + " where ID like " + userID + "";
+                string sqlQuery = "select UserRole from UsersLogin where ID like " + userID + "";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 {
@@ -252,29 +250,44 @@ namespace Library___Login
             return false;
         }
 
+        public byte[] getDefaultImage()
+        {
+            byte[] image = null;
+            if (openConnection())
+            {
+                string sqlQuery = "select Image from DefaultUserImage";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    image = (byte[])reader["Image"];
+                }
+                closeConnection();
+                return image;
+            }
+            return image;
+        }
+
         // after users registration, his data will be saved to database, and admin must confirm, or refuse his request
-        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, string image)
+        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, byte[] image)
         {
             try
             {
                 if (openConnection())
                 {
-                    byte[] imageBT = null;
-                    FileStream fStream = new FileStream(image, FileMode.Open, FileAccess.Read);
-                    BinaryReader bReader = new BinaryReader(fStream);
-                    imageBT = bReader.ReadBytes((int)fStream.Length);
 
-                    string sqlQuery = "insert into " + usersEntity + " (FirstName, LastName, BirthDate, Avatar) "
-                        + "values (@firstName, @lastName, @birthDate, @avatar)";
+                    string sqlQuery = "insert into Users (FirstName, LastName, BirthDate, Avatar) "
+                        + "values (@firstName, @lastName, @birthDate, @Avatar)";
 
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@firstName", firstName);
                     cmd.Parameters.AddWithValue("@lastName", lastName);
                     cmd.Parameters.AddWithValue("@birthDate", (birthDate.Year + "-" + birthDate.Month + "-" + birthDate.Day));
-                    cmd.Parameters.AddWithValue("@avatar", imageBT);
+                    cmd.Parameters.AddWithValue("@Avatar", image);
                     cmd.ExecuteNonQuery();
 
-                    sqlQuery = "insert into " + loginEntity + " (email, password, Active) "
+                    sqlQuery = "insert into UsersLogin (email, password, Active) "
                         + "values (@email, @password, @active)";
                     cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@email", email);
@@ -282,7 +295,7 @@ namespace Library___Login
                     cmd.Parameters.AddWithValue("@active", "waiting");
                     cmd.ExecuteNonQuery();
 
-                    sqlQuery = "insert into " + detailsEntity + " (Street, StreetNumber, PostalCode, City, Telephone, Country) "
+                    sqlQuery = "insert into UsersDetails (Street, StreetNumber, PostalCode, City, Telephone, Country) "
                         + "values (@street, @streetnumber, @postalcode, @city, @telephone, @country)";
                     cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@street", street);
@@ -349,7 +362,7 @@ namespace Library___Login
         public string getUserAllName(string userId)
         {
             string userName = null;
-            string sqlQuery = "select FirstName, LastName from " + usersEntity + " where id like " + userId;
+            string sqlQuery = "select FirstName, LastName from Users where id like " + userId;
 
             if (openConnection())
             {
@@ -372,7 +385,7 @@ namespace Library___Login
         public string FindUser(string username, string password)
         {
             string userID = null;
-            string sqlQuery = "select id from " + loginEntity + " where email like '" + username + "' and password like '" + password + "'";
+            string sqlQuery = "select id from UsersLogin where email like '" + username + "' and password like '" + password + "'";
             if (openConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
@@ -585,7 +598,7 @@ namespace Library___Login
             int wait = 0;
             if (openConnection())
             {
-                string sqlQuery = "select * from " + loginEntity + " where active like 'waiting'";
+                string sqlQuery = "select * from UsersLogin where active like 'waiting'";
                 MySqlCommand check = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = check.ExecuteReader();
                 while (reader.Read())
@@ -610,10 +623,8 @@ namespace Library___Login
             int i = 0;
             if (openConnection())
             {
-                string sqlQuery = "select " + usersEntity + ".ID, " + usersEntity + ".FirstName, " + usersEntity + ".LastName, "
-                    + usersEntity + ".BirthDate, " + loginEntity + ".email from " + usersEntity + " inner join "
-                    + loginEntity + "on " + usersEntity + ".ID = " + loginEntity + ".ID where "
-                    + loginEntity + ".Active like 'waiting'";
+                string sqlQuery = "select Users.ID, Users.FirstName, Users.LastName, Users.BirthDate, UsersLogin.email "
+                    + "from Users inner join UsersLogin on Users.ID = UsersLogin.ID where UsersLogin.Active like 'waiting'";
                 MySqlCommand check = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = check.ExecuteReader();
                 while (reader.Read() && i < 5)
@@ -648,7 +659,7 @@ namespace Library___Login
         {
             if (openConnection())
             {
-                string sqlQuery = "update " + loginEntity + " set Active = @active, UserRole = @userrole where id like " + id;
+                string sqlQuery = "update UsersLogin set Active = @active, UserRole = @userrole where id like " + id;
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@active", active);
                 cmd.Parameters.AddWithValue("@userrole", userRole);
@@ -664,7 +675,7 @@ namespace Library___Login
         {
             if (openConnection())
             {
-                string sqlQuery = "update " + loginEntity + " set Active = @active where id like " + id;
+                string sqlQuery = "update UsersLogin set Active = @active where id like " + id;
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@active", active);
                 cmd.ExecuteNonQuery();
@@ -799,6 +810,41 @@ namespace Library___Login
             return false;
         }
 
+        public string getOldPassword(string userID)
+        {
+            string password = null;
+            if (openConnection())
+            {
+                string sqlQuery = "select PASSWORD from UsersLogin where ID like " + userID;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    password = reader["PASSWORD"].ToString();
+                }
+                closeConnection();
+                return password;
+            }
+            return password;
+        }
+
+        public bool changeUserPassword(string userID, string password)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "update UsersLogin set PASSWORD = @password where ID like @id";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@id", userID);
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
+                return true;
+            }
+            return false;
+        }
+
         public bool uploadUserImage(string image, string userID)
         {
             byte[] imageBT = null;
@@ -825,7 +871,7 @@ namespace Library___Login
         {
             if (openConnection())
             {
-                string sqlQuery = "delete from " + usersEntity + " where id like @id";
+                string sqlQuery = "delete from Users where id like @id";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
@@ -1060,7 +1106,7 @@ namespace Library___Login
             {
                 if (openConnection())
                 {
-                    string sqlQuery = "Insert into " + bookCategoryEnity + " (CategoryName) VALUES (@CategoryName)";
+                    string sqlQuery = "Insert into BookCategory (CategoryName) VALUES (@CategoryName)";
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@CategoryName", CategoryName);
                     cmd.ExecuteNonQuery();
@@ -1086,7 +1132,7 @@ namespace Library___Login
             {
                 if (openConnection())
                 {
-                    string sqlQuery = "Insert into " + bookLanguageEnity + " (LanguageName) VALUES (@LanguageName)";
+                    string sqlQuery = "Insert into BookLanguage (LanguageName) VALUES (@LanguageName)";
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@LanguageName", LanguageName);
                     cmd.ExecuteNonQuery();
@@ -1107,7 +1153,7 @@ namespace Library___Login
         public List<string> loadBookCategoryName()
         {
             List<string> sCategoryName = new List<string>();
-            String sqlQuery = "select id, categoryname from " + bookCategoryEnity;
+            String sqlQuery = "select id, categoryname from BookCategory";
 
             if (openConnection())
             {
@@ -1149,7 +1195,7 @@ namespace Library___Login
         public byte[] getImageByBookId(String id)
         {
             byte[] imageBytes = null;
-            String sqlQuery = "select Image from " + booksDetailsEntity + "where ID = " + id;
+            String sqlQuery = "select Image from BooksDetails where ID = " + id;
             if (openConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
@@ -1169,7 +1215,7 @@ namespace Library___Login
         public List<string> loadBookLanguageName()
         {
             List<string> sLanguageName = new List<string>();
-            String sqlQuery = "select id, languagename from " + bookLanguageEnity;
+            String sqlQuery = "select id, languagename from BookLanguage";
 
             if (openConnection())
             {
@@ -1196,7 +1242,7 @@ namespace Library___Login
                 if (openConnection())
                 {
                     //insert books
-                    string sqlQuery = "Insert into " + booksEntity + " (BookName,Author, IDCategory, IDLanguage) Values (@bookName, @bookAuthor, @IDCategory, @IDLanguage )";
+                    string sqlQuery = "Insert into Books (BookName,Author, IDCategory, IDLanguage) Values (@bookName, @bookAuthor, @IDCategory, @IDLanguage )";
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@bookName", bookName);
                     cmd.Parameters.AddWithValue("@bookAuthor", bookAuthor);
@@ -1211,7 +1257,7 @@ namespace Library___Login
                     BinaryReader br = new BinaryReader(fstream);
                     imageBT = br.ReadBytes((int)fstream.Length);
 
-                    sqlQuery = "Insert into " + booksDetailsEntity + " (Image,Description,ISBN,Publisher) Values (@image,@description, @ISBN, @publisher)";
+                    sqlQuery = "Insert into BooksDetails (Image,Description,ISBN,Publisher) Values (@image,@description, @ISBN, @publisher)";
                     cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@image", imageBT);
                     cmd.Parameters.AddWithValue("@ISBN", ISBN);
@@ -1324,7 +1370,7 @@ namespace Library___Login
         {
             if (openConnection())
             {
-                string sqlQuery = "delete from " + booksEntity + " where id like @id";
+                string sqlQuery = "delete from Books where id like @id";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
@@ -1655,6 +1701,64 @@ namespace Library___Login
                 adapter.Fill(ds);
                 closeConnection();
                 ds.WriteXml("Loans.xml");
+                return true;
+            }
+            return false;
+        }
+
+        public string getPenalty(int caseOfPenalty)
+        {
+            string penalty = null;
+            if (openConnection())
+            {
+                string sqlQuery = "select Price from Penalties where ID like " + caseOfPenalty;
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    penalty = reader["Price"].ToString();
+                }
+                closeConnection();
+                return penalty;
+            }
+            return penalty;
+        }
+
+        public List<string> getPenalties()
+        {
+            List<string> penalties = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select Price from Penalties";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    penalties.Add(reader["Price"].ToString());
+                }
+                closeConnection();
+                return penalties;
+            }
+            return penalties;
+        }
+
+        public bool updatePenalties(List<string> penalties)
+        {
+            if (openConnection())
+            {
+                string sqlQuery;
+                MySqlCommand cmd;
+                for (int i = 0;i < penalties.Count; i++)
+                {
+                    sqlQuery = "update Penalties set Price = @price where ID like @ID";
+                    cmd = new MySqlCommand(sqlQuery, connection);
+                    cmd.Parameters.AddWithValue("@price", penalties[i]);
+                    cmd.Parameters.AddWithValue("@ID", i + 1);
+                    cmd.ExecuteNonQuery();
+                }
+                closeConnection();
                 return true;
             }
             return false;

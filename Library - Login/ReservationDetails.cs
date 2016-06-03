@@ -82,24 +82,29 @@ namespace Library___Login
 
                     if(lent < DateTime.Today)
                     {
+                        string penalty;
                         if(DateTime.Today <= lent.AddDays(7))
                         {
-                            Penalty.Text = UserName.Text + " has penalty 0.70 EURO for this book.\nHe must pay only biggest penalty.";
+                            penalty = connect.getPenalty(1);
+                            Penalty.Text = UserName.Text + " has penalty " + penalty + " EURO for this book.\nHe must pay only biggest penalty.";
                             Penalty.Visible = true;
                         }
                         else if (DateTime.Today > lent.AddDays(7) && DateTime.Today <= lent.AddMonths(1))
                         {
-                            Penalty.Text = UserName.Text + " has penalty 2.00 EURO for this book.\nHe must pay only biggest penalty.";
+                            penalty = connect.getPenalty(2);
+                            Penalty.Text = UserName.Text + " has penalty " + penalty + " EURO for this book.\nHe must pay only biggest penalty.";
                             Penalty.Visible = true;
                         }
                         else if (DateTime.Today > lent.AddMonths(1) && DateTime.Today <= lent.AddMonths(2))
                         {
-                            Penalty.Text = UserName.Text + " has penalty 5.00 EURO for this book.\nHe must pay only biggest penalty.";
+                            penalty = connect.getPenalty(3);
+                            Penalty.Text = UserName.Text + " has penalty " + penalty + " EURO for this book.\nHe must pay only biggest penalty.";
                             Penalty.Visible = true;
                         }
                         else if (lent.AddMonths(2) < DateTime.Today)
                         {
-                            Penalty.Text = UserName.Text + " has penalty 5.00 EURO for this book.\nHe must pay only biggest penalty.\nThis user is Blocked";
+                            penalty = connect.getPenalty(4);
+                            Penalty.Text = UserName.Text + " has penalty " + penalty + " EURO for this book.\nHe must pay only biggest penalty.\nThis user is Blocked";
                             Penalty.Visible = true;
                         }
                     }

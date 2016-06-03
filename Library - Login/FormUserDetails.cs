@@ -54,6 +54,8 @@ namespace Library___Login
             Telephone.Text = telephone;
 
             ID.Enabled = false;
+            FirstName.Enabled = false;
+            LastName.Enabled = false;
             Age.Enabled = false;
         }
 
@@ -93,6 +95,8 @@ namespace Library___Login
             Telephone.Text = telephone;
 
             ID.Enabled = false;
+            FirstName.Enabled = false;
+            LastName.Enabled = false;
             Age.Enabled = false;
             UserRole.Enabled = false;
             Active.Enabled = false;

@@ -34,8 +34,6 @@
             this.addBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCategoryBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBookLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservedBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +54,7 @@
             this.Refresh = new System.Windows.Forms.Button();
             this.Reserved = new System.Windows.Forms.CheckBox();
             this.ErrorMessage = new System.Windows.Forms.Label();
+            this.ChangePenalties = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,9 +87,7 @@
             this.booksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addBooksToolStripMenuItem,
             this.addCategoryBookToolStripMenuItem,
-            this.addBookLanguageToolStripMenuItem,
-            this.removeBooksToolStripMenuItem,
-            this.checkBooksToolStripMenuItem});
+            this.addBookLanguageToolStripMenuItem});
             this.booksToolStripMenuItem.Name = "booksToolStripMenuItem";
             this.booksToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.booksToolStripMenuItem.Text = "Books";
@@ -115,18 +112,6 @@
             this.addBookLanguageToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.addBookLanguageToolStripMenuItem.Text = "Add Book Language";
             this.addBookLanguageToolStripMenuItem.Click += new System.EventHandler(this.addBookLanguageToolStripMenuItem_Click);
-            // 
-            // removeBooksToolStripMenuItem
-            // 
-            this.removeBooksToolStripMenuItem.Name = "removeBooksToolStripMenuItem";
-            this.removeBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.removeBooksToolStripMenuItem.Text = "Remove books";
-            // 
-            // checkBooksToolStripMenuItem
-            // 
-            this.checkBooksToolStripMenuItem.Name = "checkBooksToolStripMenuItem";
-            this.checkBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.checkBooksToolStripMenuItem.Text = "Check Books";
             // 
             // loansToolStripMenuItem
             // 
@@ -290,11 +275,22 @@
             this.ErrorMessage.Text = "Please, select reserved book!";
             this.ErrorMessage.Visible = false;
             // 
+            // ChangePenalties
+            // 
+            this.ChangePenalties.Location = new System.Drawing.Point(12, 216);
+            this.ChangePenalties.Name = "ChangePenalties";
+            this.ChangePenalties.Size = new System.Drawing.Size(121, 23);
+            this.ChangePenalties.TabIndex = 60;
+            this.ChangePenalties.Text = "Change penalties";
+            this.ChangePenalties.UseVisualStyleBackColor = true;
+            this.ChangePenalties.Click += new System.EventHandler(this.ChangePenalties_Click);
+            // 
             // FormCheckLoans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.ChangePenalties);
             this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.SearchBar);
@@ -318,8 +314,6 @@
         private System.Windows.Forms.ToolStripMenuItem addBooksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addCategoryBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBookLanguageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem removeBooksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkBooksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loansToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addLoansToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservedBooksToolStripMenuItem;
@@ -341,5 +335,6 @@
         private System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.CheckBox Reserved;
         private System.Windows.Forms.Label ErrorMessage;
+        private System.Windows.Forms.Button ChangePenalties;
     }
 }

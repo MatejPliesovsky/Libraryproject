@@ -54,14 +54,26 @@ namespace Library___Login
                 else
                 {
                     ErrorMessage.Text = "Your registration request is treated!";
+                    timer1.Interval = 2500;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     ErrorMessage.Visible = true;
+                    timer1.Start();
                 }
             }
             else
             {
                 ErrorMessage.Text = "Invalid email or password!";
+                timer1.Interval = 2500;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 ErrorMessage.Visible = true;
+                timer1.Start();
             }
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            ErrorMessage.Visible = false;
         }
 
         //set the looks of char at password textbox as *
@@ -145,6 +157,7 @@ namespace Library___Login
             if (e.KeyCode == Keys.Enter)
             {
                 Login_Click(Username, null);
+                Username.Text.Substring(0, (Username.TextLength - 1));
             }
         }
 
@@ -153,6 +166,7 @@ namespace Library___Login
             if (e.KeyCode == Keys.Enter)
             {
                 Login_Click(Username, null);
+                Password.Text = "";
             }
         }
 

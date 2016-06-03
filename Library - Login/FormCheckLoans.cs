@@ -113,8 +113,9 @@ namespace Library___Login
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormLogin.ActiveForm.Show();
-            this.Close();
+            FormLogin login = new FormLogin();
+            login.Show();
+            this.Hide();
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -183,6 +184,12 @@ namespace Library___Login
         private void FormCheckLoans_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Environment.Exit(1);
+        }
+
+        private void ChangePenalties_Click(object sender, EventArgs e)
+        {
+            FormChangePenalties changePenalties = new FormChangePenalties(AdminID);
+            changePenalties.ShowDialog();
         }
     }
 }

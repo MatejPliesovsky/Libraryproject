@@ -34,6 +34,7 @@ namespace Library___Login
             }
             else
             {
+
                 ProfilePictureBox.Image = Image.FromStream(new System.IO.MemoryStream(connect.getUserProfileImage(userID)));
                 ProfilePictureBox.Refresh();
                 ProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -136,6 +137,12 @@ namespace Library___Login
             profilePhoto.ShowDialog();
         }
 
+        private void ChangePassword_Click(object sender, EventArgs e)
+        {
+            FormChangePassword changePassword = new FormChangePassword(userID);
+            changePassword.ShowDialog();
+        }
+
         private void EditProfile_Click(object sender, EventArgs e)
         {
             FormUserDetails form = new FormUserDetails(userID);
@@ -149,12 +156,14 @@ namespace Library___Login
 
             if (lent < DateTime.Today)
             {
+                string penalty;
                 if (DateTime.Today <= lent.AddDays(7))
                 {
                     if (0.7 >= biggestPenalty)
                     {
+                        penalty = connect.getPenalty(1);
                         biggestPenalty = 0.7;
-                        Penalty.Text = "You have has penalty 0.70 EURO";
+                        Penalty.Text = "You have has penalty " + penalty + " EURO";
                         Penalty.Visible = true;
                     }
                 }
@@ -162,8 +171,14 @@ namespace Library___Login
                 {
                     if (2.00 >= biggestPenalty)
                     {
+
+                        penalty = connect.getPenalty(2);
+                        if (!(penalty.Contains(".") || penalty.Contains(",")))
+                        {
+                            penalty = penalty + ".00";
+                        }
                         biggestPenalty = 2.00;
-                        Penalty.Text = "You have penalty 2.00 EURO";
+                        Penalty.Text = "You have penalty " + penalty + " EURO";
                         Penalty.Visible = true;
                     }
                 }
@@ -171,8 +186,13 @@ namespace Library___Login
                 {
                     if (5.00 >= biggestPenalty)
                     {
+                        penalty = connect.getPenalty(3);
+                        if (!(penalty.Contains(".") || penalty.Contains(",")))
+                        {
+                            penalty = penalty + ".00";
+                        }
                         biggestPenalty = 5.00;
-                        Penalty.Text = "You have penalty 5.00 EURO";
+                        Penalty.Text = "You have penalty " + penalty + " EURO";
                         Penalty.Visible = true;
                     }
                 }
@@ -180,8 +200,13 @@ namespace Library___Login
                 {
                     if (5.00 >= biggestPenalty)
                     {
+                        penalty = connect.getPenalty(4);
+                        if (!(penalty.Contains(".") || penalty.Contains(",")))
+                        {
+                            penalty = penalty + ".00";
+                        }
                         biggestPenalty = 5.00;
-                        Penalty.Text = "You have penalty 5.00 EURO.\nYou are Blocked";
+                        Penalty.Text = "You have penalty " + penalty + " EURO.\nYou are Blocked";
                         Penalty.Visible = true;
                     }
                 }

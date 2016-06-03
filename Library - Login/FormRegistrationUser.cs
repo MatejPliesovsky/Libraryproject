@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,11 +14,12 @@ namespace Library___Login
 {
     public partial class FormRegistrationUser : Form
     {
-        private string firstName, lastName, password, email, telephone, street, postalCode, city, country, image;
+        private string firstName, lastName, password, email, telephone, street, postalCode, city, country;
+        private byte[] image;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             FormLogin formlogin = new FormLogin();
             formlogin.Show();
         }
@@ -85,7 +88,7 @@ namespace Library___Login
                 city = City.Text;
                 postalCode = PostalCode.Text;
                 country = Country.Text;
-                image = "A:/Učivo/VS programy/C#/Zadania/ReBooks/Library - Login/Resources/default_user2.png";
+                image = register.getDefaultImage();
 
                 if (register.isEmailTaken(email) == 0)
                 {
@@ -135,6 +138,29 @@ namespace Library___Login
         private void PasswordReg_TextChanged(object sender, EventArgs e)
         {
             PasswordReg.PasswordChar = '*';
+        }
+
+        private static byte[] bitmapToByte(Bitmap image)
+        {
+            BitmapData bmpData = null;
+            byte[] imageBT = null;
+            try
+            {
+                bmpData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height), ImageLockMode.ReadOnly, image.PixelFormat);
+                int numBytes = bmpData.Stride * image.Height;
+                imageBT = new byte[numBytes];
+                IntPtr ptr = bmpData.Scan0;
+
+                Marshal.Copy(ptr, imageBT, 0, numBytes);
+                return imageBT;
+            }
+            finally
+            {
+                if (bmpData != null)
+                {
+                    image.UnlockBits(bmpData);
+                }
+            }
         }
     }
 }

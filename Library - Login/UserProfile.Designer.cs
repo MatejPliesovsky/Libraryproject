@@ -45,15 +45,18 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ErrorMessage = new System.Windows.Forms.Label();
             this.Penalty = new System.Windows.Forms.Label();
+            this.ChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProfilePictureBox
             // 
+            this.ProfilePictureBox.Image = global::Library___Login.Properties.Resources.default_user2;
             this.ProfilePictureBox.Location = new System.Drawing.Point(12, 27);
             this.ProfilePictureBox.Name = "ProfilePictureBox";
             this.ProfilePictureBox.Size = new System.Drawing.Size(118, 129);
+            this.ProfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProfilePictureBox.TabIndex = 0;
             this.ProfilePictureBox.TabStop = false;
             this.ProfilePictureBox.Click += new System.EventHandler(this.ProfilePictureBox_Click);
@@ -197,11 +200,22 @@
             this.Penalty.Text = "label1";
             this.Penalty.Visible = false;
             // 
+            // ChangePassword
+            // 
+            this.ChangePassword.Location = new System.Drawing.Point(15, 254);
+            this.ChangePassword.Name = "ChangePassword";
+            this.ChangePassword.Size = new System.Drawing.Size(115, 35);
+            this.ChangePassword.TabIndex = 62;
+            this.ChangePassword.Text = "Change password";
+            this.ChangePassword.UseVisualStyleBackColor = true;
+            this.ChangePassword.Click += new System.EventHandler(this.ChangePassword_Click);
+            // 
             // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.ChangePassword);
             this.Controls.Add(this.Penalty);
             this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.listView1);
@@ -242,5 +256,6 @@
         private System.Windows.Forms.Label ErrorMessage;
         private System.Windows.Forms.Label Penalty;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button ChangePassword;
     }
 }

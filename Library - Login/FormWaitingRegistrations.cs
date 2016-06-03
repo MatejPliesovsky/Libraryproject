@@ -410,8 +410,9 @@ namespace Library___Login
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormLogin.ActiveForm.Show();
-            this.Close();
+            FormLogin login = new FormLogin();
+            login.Show();
+            this.Hide();
         }
 
         private void FormWaitingRegistrations_FormClosing(object sender, FormClosingEventArgs e)

@@ -35,7 +35,6 @@
             this.addBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCategoryBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBookLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservedBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -143,8 +142,7 @@
             this.booksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addBooksToolStripMenuItem,
             this.addCategoryBookToolStripMenuItem,
-            this.addBookLanguageToolStripMenuItem,
-            this.checkBooksToolStripMenuItem});
+            this.addBookLanguageToolStripMenuItem});
             this.booksToolStripMenuItem.Name = "booksToolStripMenuItem";
             this.booksToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.booksToolStripMenuItem.Text = "Books";
@@ -169,12 +167,6 @@
             this.addBookLanguageToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.addBookLanguageToolStripMenuItem.Text = "Add Book Language";
             this.addBookLanguageToolStripMenuItem.Click += new System.EventHandler(this.addBookLanguageToolStripMenuItem_Click);
-            // 
-            // checkBooksToolStripMenuItem
-            // 
-            this.checkBooksToolStripMenuItem.Name = "checkBooksToolStripMenuItem";
-            this.checkBooksToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.checkBooksToolStripMenuItem.Text = "Check Books";
             // 
             // loansToolStripMenuItem
             // 
@@ -906,7 +898,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem booksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBooksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkBooksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrationReguestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loansToolStripMenuItem;
