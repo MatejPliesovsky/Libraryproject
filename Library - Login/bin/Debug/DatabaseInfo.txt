@@ -1,0 +1,5 @@
+Server: mysql51.websupport.sk
+Database: ReBooksDB
+UID: ReBooksDB
+password: auticko1238792
+Port: 3310
