@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form of user interface after his login to system with functions which he is alloved to do, for example borrow books, see his profile,edit profile, see list of books
+    /// </summary>
     public partial class FormUserInterface : Form
     {
         Connect2DB connection;
@@ -110,6 +113,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// refresh list of books
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Search_btn_Click(object sender, EventArgs e)
         {
             string search, categories = null, languages = null;
@@ -183,6 +191,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// show only in admin mode, only admin can switch between user and admin interface
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SwitchToAdmin_Click(object sender, EventArgs e)
         {
             this.Hide();

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// admin interface for editing of library system, editing books, users, borrowings
+    /// </summary>
     public partial class FormAdminInterface : Form
     {
         Connect2DB connection;
@@ -121,6 +124,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// listview for list of books
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listView1_ItemSelectionChanged_1(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             int index = 0;
@@ -139,6 +147,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// refreshing of list of books
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Refresh_Click_1(object sender, EventArgs e)
         {
             listView1.Items.Clear();
@@ -152,6 +165,11 @@ namespace Library___Login
             Form2_Shown(Refresh, null);
         }
 
+        /// <summary>
+        /// searching button for search books by some specifications
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Search_btn_Click_1(object sender, EventArgs e)
         {
             string search, categories = null, languages = null;
@@ -198,6 +216,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// menu items for moves between admin forms
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAdminInterface.ActiveForm.Refresh();
@@ -275,6 +298,11 @@ namespace Library___Login
             formLogin.ShowDialog();
         }
 
+        /// <summary>
+        /// button for creating of XML
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateXML_Click(object sender, EventArgs e)
         {
             if (connection.CreateXML())

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// show details of reservation
+    /// </summary>
     public partial class ReservationDetails : Form
     {
         string AdminID, userID, bookStatus;
@@ -112,6 +115,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// confirm reservation to borrowing state
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Confirm_Click(object sender, EventArgs e)
         {
             if (bookStatus == "lent")

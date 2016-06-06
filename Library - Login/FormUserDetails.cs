@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form with user details
+    /// </summary>
     public partial class FormUserDetails : Form
     {
         string adminID; // id of user, who made changes. It can be admin, or user

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for update user by admin
+    /// </summary>
     public partial class FormUpdateUser : Form
     {
         Connect2DB con = new Connect2DB();

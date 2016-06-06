@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// registration for for register user to system, only send registration request
+    /// </summary>
     public partial class FormRegistrationUser : Form
     {
         private string firstName, lastName, password, email, telephone, street, postalCode, city, country;
@@ -69,7 +72,11 @@ namespace Library___Login
             }
         }
 
-        //button after click save the information to array, then, this information will be send to admin for confirm
+        /// <summary>
+        /// button after click save the information to array, then, this information will be send to admin for confirm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Confirm_Click(object sender, EventArgs e)
         {
             if (FirstName.Text.Trim() != "" && LastName.Text.Trim() != "" && PasswordReg.Text.Trim() != "" 
@@ -126,7 +133,11 @@ namespace Library___Login
             }
         }
 
-        //button after click remove all information and set the dateTimePicker to 1.1.2012
+        /// <summary>
+        /// button after click remove all information and set the dateTimePicker to 1.1.2012
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Delete_Click(object sender, EventArgs e)
         {
             Info.Visible = false;
@@ -134,7 +145,11 @@ namespace Library___Login
             DateOfBirth.Text = "8.4.2016"; 
         }
 
-        //set the looks of char at password textbox as *
+        /// <summary>
+        /// set the looks of char at password textbox as *
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PasswordReg_TextChanged(object sender, EventArgs e)
         {
             PasswordReg.PasswordChar = '*';

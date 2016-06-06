@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// countries form
+    /// </summary>
     public partial class FormAddCountries : Form
     {
         Connect2DB connect;
@@ -28,6 +31,11 @@ namespace Library___Login
             this.Close();
         }
 
+        /// <summary>
+        /// confirm of adding new country
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Confirm_Click(object sender, EventArgs e)
         {
             prefix = Prefix.Text;

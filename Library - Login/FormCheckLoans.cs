@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for checking list of borrowings
+    /// </summary>
     public partial class FormCheckLoans : Form
     {
         int waitingReg;
@@ -118,6 +121,11 @@ namespace Library___Login
             this.Hide();
         }
 
+        /// <summary>
+        /// refresh list of borrowings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Refresh_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();

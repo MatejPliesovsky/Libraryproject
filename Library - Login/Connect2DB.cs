@@ -14,7 +14,9 @@ using System.Drawing;
 namespace Library___Login
 {
 
-    //prototype of database connect
+    /// <summary>
+    /// prototype of database connection
+    /// </summary>
     class Connect2DB
     {
         private string password;
@@ -38,6 +40,10 @@ namespace Library___Login
             connection = new MySqlConnection(connectionString);
         }
 
+        /// <summary>
+        /// return open connection to DB
+        /// </summary>
+        /// <returns></returns>
         public bool openConnection()
         {
             try
@@ -52,6 +58,10 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// close DB connection
+        /// </summary>
+        /// <returns></returns>
         public bool closeConnection()
         {
             try
@@ -66,9 +76,13 @@ namespace Library___Login
             }
         }
 
-        // START OF LOGIN METHODS
+        /***START OF LOGIN METHODS***/
 
-        // verification if user is already registered
+        /// <summary>
+        ///  verification if user is already registered
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public int isEmailTaken(string email)
         {
             if (openConnection())
@@ -91,7 +105,12 @@ namespace Library___Login
             return -1;
         }
 
-        // verification, if user is registered
+        /// <summary>
+        /// verification, if user is registered
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool isUserRegistered(string email, string password)
         {
             if (openConnection())
@@ -114,7 +133,11 @@ namespace Library___Login
             return false;
         }
 
-        //read user´s profile image from db and load to profile page
+        /// <summary>
+        /// read user´s profile image from db and load to profile page
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public byte[] getUserProfileImage(string id)
         {
             byte[] imageBytes = null;
@@ -134,7 +157,11 @@ namespace Library___Login
             return null;
         }
 
-        // verification, if user is admin, or not
+        /// <summary>
+        /// verification, if user is admin, or not
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public string isUserAdmin(string email)
         {
             string userRole = null;
@@ -154,7 +181,11 @@ namespace Library___Login
             return userRole;
         }
 
-        // verification if is user blocked
+        /// <summary>
+        /// verification if is user blocked
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public bool isUserBlocked(string userID)
         {
             string status = null;
@@ -176,7 +207,11 @@ namespace Library___Login
             return false;
         }
 
-        // verification if user is admin or not according his id
+        /// <summary>
+        /// verification if user is admin or not according his id
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public string getUserRole(string userID)
         {
             string userRole = null;
@@ -196,9 +231,12 @@ namespace Library___Login
             return userRole;
         }
 
-        /**START OF REGISTRATION METHODS**/
+        /***START OF REGISTRATION METHODS***/
 
-        // adding phone prefixes to combobox
+        /// <summary>
+        /// adding phone prefixes to combobox
+        /// </summary>
+        /// <returns></returns>
         public List<string> getPhonePrefixes()
         {
             List<string> prefixes = new List<string>();
@@ -216,7 +254,10 @@ namespace Library___Login
             return prefixes;
         }
 
-        // adding countries to combobox
+        /// <summary>
+        /// adding countries to combobox
+        /// </summary>
+        /// <returns></returns>
         public List<string> getCountriesNames()
         {
             List<string> countries = new List<string>();
@@ -234,7 +275,12 @@ namespace Library___Login
             return countries;
         }
 
-        //adding prefix to DB
+        /// <summary>
+        /// adding prefix to DB
+        /// </summary>
+        /// <param name="prefix"></param>
+        /// <param name="country"></param>
+        /// <returns></returns>
         public bool addCountryToDB(string prefix, string country)
         {
             if (openConnection())
@@ -250,6 +296,10 @@ namespace Library___Login
             return false;
         }
 
+        /// <summary>
+        /// get field of image
+        /// </summary>
+        /// <returns></returns>
         public byte[] getDefaultImage()
         {
             byte[] image = null;
@@ -269,7 +319,22 @@ namespace Library___Login
             return image;
         }
 
-        // after users registration, his data will be saved to database, and admin must confirm, or refuse his request
+        /// <summary>
+        /// after users registration, his data will be saved to database, and admin must confirm, or refuse his request
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <param name="telephone"></param>
+        /// <param name="birthDate"></param>
+        /// <param name="street"></param>
+        /// <param name="streetNumber"></param>
+        /// <param name="city"></param>
+        /// <param name="postalCode"></param>
+        /// <param name="country"></param>
+        /// <param name="image"></param>
+        /// <returns></returns>
         public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, byte[] image)
         {
             try
@@ -321,9 +386,13 @@ namespace Library___Login
             }
         }
 
-        // START OF USER METHOD
+        /***START OF USER METHOD***/
 
-        // method, that found user age for his profile
+        /// <summary>
+        /// method, that found user age for his profile
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public string getUserAge(string userId)
         {
             string userAge = null;
@@ -358,7 +427,11 @@ namespace Library___Login
             }
         }
 
-        // method, that found user first and last name for his profile
+        /// <summary>
+        /// method, that found user first and last name for his profile
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public string getUserAllName(string userId)
         {
             string userName = null;
@@ -381,7 +454,12 @@ namespace Library___Login
             }
         }
 
-        // method, that found user id for next works
+        /// <summary>
+        /// method, that found user id for next works
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public string FindUser(string username, string password)
         {
             string userID = null;
@@ -403,7 +481,12 @@ namespace Library___Login
             }
         }
 
-        //this find user all name thanks entity ReservedBooks
+        /// <summary>
+        /// this find user all name thanks entity ReservedBooks
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public string findUserAllName(string bookID, string status)
         {
             string userName = null;
@@ -431,7 +514,12 @@ namespace Library___Login
             return userName;
         }
 
-        // this find user age thanks entity ReservedBooks
+        /// <summary>
+        /// this find user age thanks entity ReservedBooks
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public string findUserAge(string bookID, string status)
         {
             string userAge = null;
@@ -471,7 +559,12 @@ namespace Library___Login
             return userAge;
         }
 
-        // find user id by book id in entity ReservedBooks
+        /// <summary>
+        /// find user id by book id in entity ReservedBooks
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public string findUserIDByBookID(string bookID, string status)
         {
             string userID = null;
@@ -498,6 +591,12 @@ namespace Library___Login
             return userID;
         }
 
+        /// <summary>
+        /// automatically count how many reservations has user and if he has some number, he can't borrow more books
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="loan"></param>
+        /// <returns></returns>
         public int checkSumOfReservation(string userID, bool loan)
         {
             int counter = 0;
@@ -525,7 +624,11 @@ namespace Library___Login
             return counter;
         }
 
-        // find all user ID according their name
+        /// <summary>
+        /// find all user ID according their name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public List<string> getAllUsers(string name)
         {
             List<string> users = new List<string>();
@@ -553,10 +656,13 @@ namespace Library___Login
             }
             return users;
         }
+        ///<summary> START OF ADMIN - USER METHODS</summary>
 
-        // START OF ADMIN - USER METHODS
-
-        // find all users IDs
+        /// <summary>
+        /// find all users IDs
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
         public List<string> getAllUsersData(string search)
         {
             string help, age;
@@ -592,7 +698,10 @@ namespace Library___Login
             return usersData;
         }
 
-        // if there are some registration requests, this method find out how many there are
+        /// <summary>
+        /// if there are some registration requests, this method find out how many there are
+        /// </summary>
+        /// <returns></returns>
         public int waitingRegistration()
         {
             int wait = 0;
@@ -614,7 +723,10 @@ namespace Library___Login
             }
         }
 
-        // if there are some registration requests, this method find out details
+        /// <summary>
+        /// if there are some registration requests, this method find out details
+        /// </summary>
+        /// <returns></returns>
         public string waitingUsers()
         {
             string wait = null;
@@ -654,7 +766,13 @@ namespace Library___Login
             }
         }
 
-        // if admin confirm user registration
+        /// <summary>
+        /// if admin confirm user registration
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="userRole"></param>
+        /// <param name="active"></param>
+        /// <returns></returns>
         public bool writeUserAsActive(string id, string userRole, string active)
         {
             if (openConnection())
@@ -670,7 +788,12 @@ namespace Library___Login
             return false;
         }
 
-        // admin can block user
+        /// <summary>
+        /// admin can block user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="active"></param>
+        /// <returns></returns>
         public bool blockUser(string id, string active)
         {
             if (openConnection())
@@ -685,7 +808,11 @@ namespace Library___Login
             return false;
         }
 
-        // find details of one user by id
+        /// <summary>
+        /// find details of one user by id
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public string findUserByID(string userID)
         {
             string details = null, help;
@@ -722,7 +849,11 @@ namespace Library___Login
             return details;
         }
 
-        // find details of one user by his first name
+        /// <summary>
+        /// find details of one user by his first name
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <returns></returns>
         public string findUserByFirstName(string firstName)
         {
             string details = null, help;
@@ -758,7 +889,11 @@ namespace Library___Login
             return details;
         }
 
-        // update user info
+        /// <summary>
+        ///  update user info
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public bool updateUserData(string data)
         {
             string userID, firstName, lastName, email, userRole, active, street, streetNumber, postalCode, city, country, telephone;
@@ -810,6 +945,11 @@ namespace Library___Login
             return false;
         }
 
+        /// <summary>
+        /// get old password of user
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public string getOldPassword(string userID)
         {
             string password = null;
@@ -829,6 +969,12 @@ namespace Library___Login
             return password;
         }
 
+        /// <summary>
+        /// set new password
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool changeUserPassword(string userID, string password)
         {
             if (openConnection())
@@ -845,6 +991,12 @@ namespace Library___Login
             return false;
         }
 
+        /// <summary>
+        /// enable upload user's profile image from his pc
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public bool uploadUserImage(string image, string userID)
         {
             byte[] imageBT = null;
@@ -866,7 +1018,11 @@ namespace Library___Login
             return false;
         }
 
-        // for deleting users from database, if users delete his account
+        /// <summary>
+        ///  for deleting users from database, if users delete his account
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool deleteUserFromDatabase(string id)
         {
             if (openConnection())
@@ -881,7 +1037,14 @@ namespace Library___Login
             return false;
         }
 
-        // searching bookname, author, status, category and language of books according search parameters
+        /// <summary>
+        ///  searching bookname, author, status, category and language of books according search parameters
+        /// </summary>
+        /// <param name="search"></param>
+        /// <param name="free"></param>
+        /// <param name="categories"></param>
+        /// <param name="languages"></param>
+        /// <returns></returns>
         public List<string> searchBooksToListView(string search, bool free, string categories, string languages)
         {
             if (categories != null && languages == null)
@@ -1031,7 +1194,11 @@ namespace Library___Login
             }
         }
 
-        // find details about book according its name
+        /// <summary>
+        ///  find details about book according its name
+        /// </summary>
+        /// <param name="bookName"></param>
+        /// <returns></returns>
         public List<string> bookDetails(string bookName)
         {
             List<string> bookDetail = new List<string>();
@@ -1059,7 +1226,11 @@ namespace Library___Login
             return bookDetail;
         }
 
-        // find book language according its id
+        /// <summary>
+        ///  find book language according its id
+        /// </summary>
+        /// <param name="languageID"></param>
+        /// <returns></returns>
         public string bookLanguage(string languageID)
         {
             string bookLanguage = null;
@@ -1078,7 +1249,11 @@ namespace Library___Login
             return bookLanguage;
         }
 
-        //find book category according its id
+        /// <summary>
+        /// find book category according its id
+        /// </summary>
+        /// <param name="categoryID"></param>
+        /// <returns></returns>
         public string bookCategory(string categoryID)
         {
             string bookCategory = null;
@@ -1099,7 +1274,11 @@ namespace Library___Login
 
 
         /*** START BOOKS INSERT TO DATABASE ***/
-        // add Book Category To database
+        /// <summary>
+        ///  add Book Category To database
+        /// </summary>
+        /// <param name="CategoryName"></param>
+        /// <returns></returns>
         public bool addBookCategory(string CategoryName)
         {
             try
@@ -1125,7 +1304,11 @@ namespace Library___Login
 
         }
 
-        // add Book Language To database
+        /// <summary>
+        ///  add Book Language To database
+        /// </summary>
+        /// <param name="LanguageName"></param>
+        /// <returns></returns>
         public bool addBookLanguage(string LanguageName)
         {
             try
@@ -1149,7 +1332,10 @@ namespace Library___Login
 
         }
 
-        //load CategoryName from database
+        /// <summary>
+        /// load CategoryName from database
+        /// </summary>
+        /// <returns></returns>
         public List<string> loadBookCategoryName()
         {
             List<string> sCategoryName = new List<string>();
@@ -1172,7 +1358,11 @@ namespace Library___Login
             return null;
         }
 
-        // find book ID according it's name
+        /// <summary>
+        /// find book ID according it's name
+        /// </summary>
+        /// <param name="bookName"></param>
+        /// <returns></returns>
         public string findBookID(string bookName)
         {
             if (openConnection())
@@ -1191,7 +1381,11 @@ namespace Library___Login
             return null;
         }
 
-        //get bookimage from database and show it in bookdetailsform
+        /// <summary>
+        /// get bookimage from database and show it in bookdetailsform
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public byte[] getImageByBookId(String id)
         {
             byte[] imageBytes = null;
@@ -1209,9 +1403,12 @@ namespace Library___Login
             return imageBytes;
         }
 
-        
 
-        //load LanguageName from database
+
+        /// <summary>
+        /// load LanguageName from database
+        /// </summary>
+        /// <returns></returns>
         public List<string> loadBookLanguageName()
         {
             List<string> sLanguageName = new List<string>();
@@ -1236,7 +1433,18 @@ namespace Library___Login
 
         }
 
-        // add book to database
+        /// <summary>
+        ///  add book to database
+        /// </summary>
+        /// <param name="bookName"></param>
+        /// <param name="bookAuthor"></param>
+        /// <param name="IDCategory"></param>
+        /// <param name="IDLanguage"></param>
+        /// <param name="image"></param>
+        /// <param name="ISBN"></param>
+        /// <param name="publisher"></param>
+        /// <param name="description"></param>
+        /// <returns></returns>
         public bool addBook(string bookName, string bookAuthor, string IDCategory, string IDLanguage, string image, string ISBN, string publisher, string description)
         {        
                 if (openConnection())
@@ -1251,7 +1459,7 @@ namespace Library___Login
                     cmd.ExecuteNonQuery();
 
 
-                    // insert book details
+                    ///<summary> insert book details</summary>
                     byte[] imageBT = null;
                     FileStream fstream = new FileStream(image, FileMode.Open, FileAccess.Read);
                     BinaryReader br = new BinaryReader(fstream);
@@ -1274,7 +1482,14 @@ namespace Library___Login
         }
         /*** END BOOK Insert to database ***/
 
-        /** START Update Book ***/
+        /*** START Update Book ***/
+        /// <summary>
+        /// update book details without by admin
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="IDCategory"></param>
+        /// <param name="IDLanguage"></param>
+        /// <returns></returns>
         public bool updateBookdetailsDataWithOutImage(string data, string IDCategory, string IDLanguage)
         {
             string bookID, bookName, author, desc, publisher, ISBN;
@@ -1315,7 +1530,14 @@ namespace Library___Login
 
         }
 
-
+        /// <summary>
+        /// update bookdetails with image
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="image"></param>
+        /// <param name="IDCategory"></param>
+        /// <param name="IDLanguage"></param>
+        /// <returns></returns>
         public bool updateBookdetailsDataWithImage(string data, string image, string IDCategory, string IDLanguage)
         {
             string bookID, bookName, author, desc, publisher, ISBN;
@@ -1365,7 +1587,11 @@ namespace Library___Login
         /*** END UPDATE BOOK ***/
 
         /*** Delete book from database ***/
-
+        /// <summary>
+        /// delete book from DB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool deleteBookFromDatabase(string id)
         {
             if (openConnection())
@@ -1382,9 +1608,16 @@ namespace Library___Login
 
 
 
-        /*** START OF LOANS QUERIES ***/
+        /*** START OF BORROWINGS QUERIES ***/
 
-        // Add Loans into database
+        /// <summary>
+        ///  Add borrowings into database
+        /// </summary>
+        /// <param name="dateOfLoan"></param>
+        /// <param name="dateOfReturn"></param>
+        /// <param name="bookID"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public bool addLoans(string dateOfLoan, string dateOfReturn, string bookID, string userID)
         {
             if (openConnection())
@@ -1408,7 +1641,11 @@ namespace Library___Login
             return false;
         }
 
-        //deleting loan
+        /// <summary>
+        /// deleting borrowings
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <returns></returns>
         public bool removeLoan(string bookID)
         {
             if (openConnection())
@@ -1429,7 +1666,11 @@ namespace Library___Login
             return false;
         }
 
-        // deleting book from entity ReservedBooks after succesful lent
+        /// <summary>
+        /// deleting book from entity ReservedBooks after succesful lent
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <returns></returns>
         public bool dropBookFromReservations(string bookID)
         {
             if (openConnection())
@@ -1450,7 +1691,12 @@ namespace Library___Login
             return false;
         }
 
-        // return list of lent and reservationd details 
+        /// <summary>
+        ///  return list of lent and reservationd details 
+        /// </summary>
+        /// <param name="bookName"></param>
+        /// <param name="onlyReserved"></param>
+        /// <returns></returns>
         public List<string> checkLentsAndReservations(string bookName, bool onlyReserved)
         {
             List<string> list = new List<string>();
@@ -1511,6 +1757,11 @@ namespace Library___Login
             return list;
         }
 
+        /// <summary>
+        /// show all borrowings in admin part for checking borrowings
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
         public List<string> checkUserLoansAndReservation(string UserID)
         {
             List<string> list = new List<string>();
@@ -1550,7 +1801,12 @@ namespace Library___Login
             return list;
         }
 
-        // reserve book by User
+        /// <summary>
+        /// reserve book by User
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public bool reserveBook(string bookID, string userID)
         {
             if (openConnection())
@@ -1572,7 +1828,12 @@ namespace Library___Login
             return false;
         }
 
-        // delete reservation of book
+        /// <summary>
+        ///  delete reservation of book
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public bool deleteReservation(string bookID, string userID)
         {
             if (openConnection())
@@ -1595,6 +1856,11 @@ namespace Library___Login
             return false;
         }
 
+        /// <summary>
+        /// check state of book, if it is free
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <returns></returns>
         public bool checkIfBookIsFree(string bookID)
         {
             if (openConnection())
@@ -1616,6 +1882,13 @@ namespace Library___Login
             return true;
        }
 
+        /// <summary>
+        /// check if is book reserve
+        /// </summary>
+        /// <param name="IDBook"></param>
+        /// <param name="IDUser"></param>
+        /// <param name="loan"></param>
+        /// <returns></returns>
         public bool checkBookisReservedByUser(string IDBook, string IDUser, string loan)
         {
             bool result = false;
@@ -1648,7 +1921,12 @@ namespace Library___Login
             return result;
         }
 
-        // finds date of return one loan, for setting penalty
+        /// <summary>
+        /// finds date of return one loan, for setting penalty
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public DateTime checkLoanDate(string bookID, string userID)
         {
             DateTime loan = new DateTime();
@@ -1668,7 +1946,10 @@ namespace Library___Login
             return loan;
         }
 
-        // finds and returns all loans to check, if there are any loans longer than 2 months to block these users
+        /// <summary>
+        /// finds and returns all loans to check, if there are any loans longer than 2 months to block these users
+        /// </summary>
+        /// <returns></returns>
         public List<string> checkLoans()
         {
             List<string> loans = new List<string>();
@@ -1689,6 +1970,10 @@ namespace Library___Login
             return loans;
         }
 
+        /// <summary>
+        /// generate XML file
+        /// </summary>
+        /// <returns></returns>
         public bool CreateXML()
         {
             if (openConnection())
@@ -1706,6 +1991,11 @@ namespace Library___Login
             return false;
         }
 
+        /// <summary>
+        /// get penalties to user if is some
+        /// </summary>
+        /// <param name="caseOfPenalty"></param>
+        /// <returns></returns>
         public string getPenalty(int caseOfPenalty)
         {
             string penalty = null;
@@ -1725,6 +2015,10 @@ namespace Library___Login
             return penalty;
         }
 
+        /// <summary>
+        /// displej penalties from DB
+        /// </summary>
+        /// <returns></returns>
         public List<string> getPenalties()
         {
             List<string> penalties = new List<string>();
@@ -1744,6 +2038,11 @@ namespace Library___Login
             return penalties;
         }
 
+        /// <summary>
+        /// update penalties
+        /// </summary>
+        /// <param name="penalties"></param>
+        /// <returns></returns>
         public bool updatePenalties(List<string> penalties)
         {
             if (openConnection())

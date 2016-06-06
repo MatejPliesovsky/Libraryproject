@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for changing of penalties
+    /// </summary>
     public partial class FormChangePenalties : Form
     {
         string adminID;
@@ -40,6 +43,11 @@ namespace Library___Login
             penalties.Clear();
         }
 
+        /// <summary>
+        /// button which confirm panalty change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Confirm_Click(object sender, EventArgs e)
         {
             if ((TwoWeeks.Text == "" && OneMonth.Text == "" && TwoMonths.Text == "" && Longer.Text =="") ||

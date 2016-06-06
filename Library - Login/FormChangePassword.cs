@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for changing password
+    /// </summary>
     public partial class FormChangePassword : Form
     {
         string userID;

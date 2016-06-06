@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for adding new books
+    /// </summary>
     public partial class FormAddBooks : Form
     {
 
@@ -24,6 +27,11 @@ namespace Library___Login
             fillComboBoxBookLanguage();
         }
 
+        /// <summary>
+        /// adding book button method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddBook_Click(object sender, EventArgs e)
         {
             BookName = this.txtBookName.Text;
@@ -53,6 +61,9 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// filling combobox with database data of categories
+        /// </summary>
         private void fillComboBoxBookCategory()
         {
             List<string> cat = database.loadBookCategoryName();
@@ -60,7 +71,9 @@ namespace Library___Login
 
         }
 
-
+        /// <summary>
+        /// filling comobox with language from DB
+        /// </summary>
         private void fillComboBoxBookLanguage()
         {
             List<string> lang = database.loadBookLanguageName();
@@ -68,7 +81,11 @@ namespace Library___Login
         }
 
 
-
+        /// <summary>
+        /// loading image of book from DB and show in form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoadImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();

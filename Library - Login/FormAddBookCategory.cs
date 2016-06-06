@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for adding book category
+    /// </summary>
     public partial class FormAddBookCategory : Form
     {
         private string CategoryName;
@@ -21,6 +24,11 @@ namespace Library___Login
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        /// <summary>
+        /// button for confirm of adding new book
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddBookCategory_Click(object sender, EventArgs e)
         {
             Connect2DB database = new Connect2DB();

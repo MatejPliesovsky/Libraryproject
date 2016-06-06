@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// for bor adding new borrowing of book
+    /// </summary>
     public partial class FormAddLoan : Form
     {
         Connect2DB con = new Connect2DB();
@@ -32,6 +35,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// load username to list of borrowings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserName_TextChanged(object sender, EventArgs e)
         {
             List<string> users;
@@ -57,6 +65,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// get user ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserID_SelectedIndexChanged(object sender, EventArgs e)
         {
             string userID = UserID.Text;
@@ -73,6 +86,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// select bookname from list and show in borrowing list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BookName1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] bookNames = new string[5];
@@ -138,6 +156,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// confirming button of borrowings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Confirm_Click(object sender, EventArgs e)
         {
             DateTime dateOfRet = new DateTime();

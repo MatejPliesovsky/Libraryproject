@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for change user's profile image
+    /// </summary>
     public partial class FormChangeProfilePhoto : Form
     {
         string userID, image;
@@ -27,6 +30,11 @@ namespace Library___Login
             ProfilePictureBox.Refresh();
         }
 
+        /// <summary>
+        /// call method for saving image to database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Save_Click(object sender, EventArgs e)
         {
             image = txtImagePath.Text;
@@ -42,6 +50,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// button which call method for uploading image to form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Upload_Click(object sender, EventArgs e)
         {
             OpenFileDialog imgSrc = new OpenFileDialog();

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// user profile form with user information and photo and list of borrowings
+    /// </summary>
     public partial class UserProfile : Form
     {
         string userID, loan, bookName;

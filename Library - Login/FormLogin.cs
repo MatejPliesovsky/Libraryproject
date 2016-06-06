@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// login form for log in to the system
+    /// </summary>
     public partial class FormLogin : Form
     {
         public FormLogin()
@@ -24,7 +27,11 @@ namespace Library___Login
 
         }
 
-        // after clicking button "Sign up", there will be opened new method with registration form
+        /// <summary>
+        /// after clicking button "Sign up", there will be opened new method with registration form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Register_Click(object sender, EventArgs e)
         {
             FormRegistrationUser reg = new FormRegistrationUser();
@@ -33,7 +40,11 @@ namespace Library___Login
             reg.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
         }
 
-        //primary amdin login, that will be changed later
+        /// <summary>
+        /// primary amdin login, that will be changed later
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Login_Click(object sender, EventArgs e)
         {
             Connect2DB con = new Connect2DB();
@@ -76,14 +87,22 @@ namespace Library___Login
             ErrorMessage.Visible = false;
         }
 
-        //set the looks of char at password textbox as *
+        /// <summary>
+        /// set the looks of char at password textbox as *
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Password_TextChanged(object sender, EventArgs e)
         {
             Password.ForeColor = Color.Black;
            // Password.PasswordChar = '*';
         }
 
-        //if some opened formular will be closed, login form closed as well
+        /// <summary>
+        /// if some opened formular will be closed, login form closed as well
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_FormClosed(object sender, EventArgs e)
         {
                 this.Hide();

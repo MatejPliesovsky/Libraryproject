@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form bor editing bookdetails
+    /// </summary>
     public partial class FormEditBookDetails : Form
     {
         string bookID, bookName, author, lent, IDCategory, IDLanguage, desc, publisher, category, language, ISBN, image;
@@ -64,6 +67,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// button for deleting book from DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteBook_Click(object sender, EventArgs e)
         {
 
@@ -83,6 +91,11 @@ namespace Library___Login
 
         }
 
+        /// <summary>
+        /// button for updating of details of book
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateBook_Click(object sender, EventArgs e)
         {
             if(txtImagePath.Enabled == false)
@@ -134,7 +147,11 @@ namespace Library___Login
 
         }
 
-
+        /// <summary>
+        /// button for uploading image of book
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoadImage_Click(object sender, EventArgs e)
         {   
             txtImagePath.Enabled = true;

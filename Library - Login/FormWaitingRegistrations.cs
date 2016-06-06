@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for validate of user registration
+    /// </summary>
     public partial class FormWaitingRegistrations : Form
     {
         int waitingReg;
@@ -262,6 +265,11 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// confirming of registration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RRConfirm_Click(object sender, EventArgs e)
         {
             string userID;

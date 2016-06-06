@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Library___Login
 {
+    /// <summary>
+    /// form for showing details of book
+    /// </summary>
     public partial class FormBookDetails : Form
     {
         string userID, bookID, loan;
@@ -74,6 +77,9 @@ namespace Library___Login
             }
         }
 
+        /// <summary>
+        /// show status of book
+        /// </summary>
         public void checkBookStatus() { 
         if (connect.checkIfBookIsFree(bookID) == true)
             {
@@ -103,7 +109,11 @@ namespace Library___Login
             }
         }
 
-
+        /// <summary>
+        /// if is alloved(show), user can reserve book
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
     private void Reserve_Click(object sender, EventArgs e)
         {
             counter = connect.checkSumOfReservation(userID, false);
