@@ -15,7 +15,7 @@ namespace Library___Login
     /// </summary>
     public partial class FormBookDetails : Form
     {
-        string userID, bookID, loan;
+        string userID, bookID, borrow;
         Connect2DB connect;
         int counter;
 
@@ -36,7 +36,7 @@ namespace Library___Login
                 bookName = "Book name: " + bookDetail.ElementAt(1);
                 author = "Author: " + bookDetail.ElementAt(2);
                 lent = "Lent status: " + bookDetail.ElementAt(3);
-                loan = bookDetail.ElementAt(3);
+                borrow = bookDetail.ElementAt(3);
                 categoryID = bookDetail.ElementAt(4);
                 languageID = bookDetail.ElementAt(5);
                 desc = bookDetail.ElementAt(6);
@@ -87,9 +87,9 @@ namespace Library___Login
                 DeleteRes.Hide();
             }
         else{
-                if (connect.checkBookisReservedByUser(bookID, userID, loan))
+                if (connect.checkBookisReservedByUser(bookID, userID, borrow))
                 {
-                    if (loan == "reserved")
+                    if (borrow == "reserved")
                     {
                         DeleteRes.Show();
                     }
@@ -97,12 +97,12 @@ namespace Library___Login
                     {
                         DeleteRes.Hide();
                     }
-                    Exception.Text = "You have already " + loan + " this book";
+                    Exception.Text = "You have already " + borrow + " this book";
                 }
                 else
                 {
                     DeleteRes.Hide();                    
-                    Exception.Text = "Book is " + loan + " by another user";
+                    Exception.Text = "Book is " + borrow + " by another user";
                 }
                 Reserve.Hide();
                 Exception.Visible = true;
@@ -121,7 +121,7 @@ namespace Library___Login
             {
                 connect.reserveBook(bookID, userID);
                 messageLabel.Show();
-                messageLabel.Text = "You have reservate this book";
+                messageLabel.Text = "You have reserved this book";
             }
             else
             {
