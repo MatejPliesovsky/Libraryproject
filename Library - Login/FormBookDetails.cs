@@ -141,6 +141,10 @@ namespace Library___Login
             connect.deleteReservation(bookID, userID);
             messageLabel.Show();
             messageLabel.Text = "You have decline reservation";
+            timer1.Interval = 5000;
+            timer1.Tick += new EventHandler(Timer1_Tick);
+            messageLabel.Visible = true;
+            timer1.Start();
 
         }
 
@@ -159,6 +163,11 @@ namespace Library___Login
             {
                 checkBookStatus();
             }
+        }
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            messageLabel.Visible = false;
+            timer1.Stop();
         }
     }
 }

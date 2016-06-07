@@ -53,7 +53,7 @@ namespace Library___Login
             if ((TwoWeeks.Text == "" && OneMonth.Text == "" && TwoMonths.Text == "" && Longer.Text =="") ||
                 (TwoWeeks.Text == null && OneMonth.Text == null && TwoMonths.Text == null && Longer.Text == null))
             {
-                timer1.Interval = 2500;
+                timer1.Interval = 5000;
                 timer1.Tick += new EventHandler(Timer1_Tick);
                 Message.Text = "Fill all fields";
                 Message.Visible = true;
@@ -67,7 +67,7 @@ namespace Library___Login
                 penalties.Add(Longer.Text);
                 if (connect.updatePenalties(penalties))
                 {
-                    timer1.Interval = 2500;
+                    timer1.Interval = 5000;
                     timer1.Tick += new EventHandler(Timer1_Tick);
                     Message.Text = "Penalties were update!";
                     Message.Visible = true;
@@ -75,7 +75,7 @@ namespace Library___Login
                 }
                 else
                 {
-                    timer1.Interval = 2500;
+                    timer1.Interval = 5000;
                     timer1.Tick += new EventHandler(Timer1_Tick);
                     Message.Text = "Penalties weren't update!";
                     Message.Visible = true;
@@ -93,6 +93,14 @@ namespace Library___Login
         {
             timer1.Stop();
             Message.Visible = false;
+        }
+
+        private void Longer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Confirm_Click(Longer, null);
+            }
         }
     }
 }

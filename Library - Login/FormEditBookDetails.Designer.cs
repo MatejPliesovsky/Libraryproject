@@ -134,6 +134,7 @@
             this.txtBookDescription.Size = new System.Drawing.Size(347, 216);
             this.txtBookDescription.TabIndex = 8;
             this.txtBookDescription.Text = "";
+            this.txtBookDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // txtIDBook
             // 
@@ -142,6 +143,7 @@
             this.txtIDBook.Name = "txtIDBook";
             this.txtIDBook.Size = new System.Drawing.Size(100, 20);
             this.txtIDBook.TabIndex = 9;
+            this.txtIDBook.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // txtBookName
             // 
@@ -149,6 +151,7 @@
             this.txtBookName.Name = "txtBookName";
             this.txtBookName.Size = new System.Drawing.Size(100, 20);
             this.txtBookName.TabIndex = 10;
+            this.txtBookName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // txtBookAuthor
             // 
@@ -156,6 +159,7 @@
             this.txtBookAuthor.Name = "txtBookAuthor";
             this.txtBookAuthor.Size = new System.Drawing.Size(100, 20);
             this.txtBookAuthor.TabIndex = 11;
+            this.txtBookAuthor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // txtBookCategory
             // 
@@ -164,6 +168,7 @@
             this.txtBookCategory.Name = "txtBookCategory";
             this.txtBookCategory.Size = new System.Drawing.Size(100, 20);
             this.txtBookCategory.TabIndex = 12;
+            this.txtBookCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // txtBookLanguage
             // 
@@ -172,6 +177,7 @@
             this.txtBookLanguage.Name = "txtBookLanguage";
             this.txtBookLanguage.Size = new System.Drawing.Size(100, 20);
             this.txtBookLanguage.TabIndex = 13;
+            this.txtBookLanguage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // txtBookISBN
             // 
@@ -179,6 +185,7 @@
             this.txtBookISBN.Name = "txtBookISBN";
             this.txtBookISBN.Size = new System.Drawing.Size(100, 20);
             this.txtBookISBN.TabIndex = 14;
+            this.txtBookISBN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // txtBookPublisher
             // 
@@ -186,6 +193,7 @@
             this.txtBookPublisher.Name = "txtBookPublisher";
             this.txtBookPublisher.Size = new System.Drawing.Size(100, 20);
             this.txtBookPublisher.TabIndex = 15;
+            this.txtBookPublisher.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // pictureBox1
             // 
@@ -215,6 +223,7 @@
             this.btnLoadImage.Text = "LOAD IMAGE";
             this.btnLoadImage.UseVisualStyleBackColor = true;
             this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
+            this.btnLoadImage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // txtImagePath
             // 
@@ -230,6 +239,7 @@
             this.comboNewCategory.Name = "comboNewCategory";
             this.comboNewCategory.Size = new System.Drawing.Size(121, 21);
             this.comboNewCategory.TabIndex = 20;
+            this.comboNewCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // comboNewLanguage
             // 
@@ -238,6 +248,7 @@
             this.comboNewLanguage.Name = "comboNewLanguage";
             this.comboNewLanguage.Size = new System.Drawing.Size(121, 21);
             this.comboNewLanguage.TabIndex = 21;
+            this.comboNewLanguage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboNewLanguage_KeyDown);
             // 
             // btnDeleteBook
             // 

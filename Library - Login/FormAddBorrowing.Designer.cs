@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddBorrowing));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             this.Cancel = new System.Windows.Forms.Button();
             this.BookName5 = new System.Windows.Forms.ComboBox();
             this.InfoMessage = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -167,7 +169,7 @@
             this.InfoMessage.TabIndex = 15;
             this.InfoMessage.Text = "Error. Cannot connect to database!";
             // 
-            // FormAddLoan
+            // FormAddBorrowing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,7 +188,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormAddLoan";
+            this.Name = "FormAddBorrowing";
             this.Text = "FormAddLoan";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,5 +210,6 @@
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.ComboBox BookName5;
         private System.Windows.Forms.Label InfoMessage;
+        private System.Windows.Forms.Timer timer1;
     }
 }

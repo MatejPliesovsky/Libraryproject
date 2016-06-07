@@ -41,12 +41,18 @@ namespace Library___Login
             if (connect.uploadUserImage(image, userID))
             {
                 DatabaseInfo.Text = "Profile image was changed.";
+                timer1.Interval = 5000;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 DatabaseInfo.Visible = true;
+                timer1.Start();
             }
             else
             {
                 DatabaseInfo.Text = "Cannot upload profile image.\nTry again later.";
+                timer1.Interval = 5000;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 DatabaseInfo.Visible = true;
+                timer1.Start();
             }
         }
 
@@ -66,6 +72,20 @@ namespace Library___Login
                 txtImagePath.Text = src;
                 ProfilePictureBox.ImageLocation = src;
             }
+        }
+
+        private void Upload_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Save_Click(Upload, null);
+            }
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            DatabaseInfo.Visible = false;
+            timer1.Stop();
         }
     }
 }

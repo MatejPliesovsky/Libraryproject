@@ -90,7 +90,10 @@ namespace Library___Login
             {
                 Confirm.Hide();
                 InfoMessage.Text = "User has already 5 loaner books.";
+                timer1.Interval = 5000;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 InfoMessage.Visible = true;
+                timer1.Start();
             }
         }
 
@@ -218,12 +221,18 @@ namespace Library___Login
                     {
                         InfoMessage.Text = "Error. Cannot connect to database.";
                     }
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     InfoMessage.Visible = true;
+                    timer1.Start();
                 }
                 else
                 {
                     InfoMessage.Text = "Add at least one book.";
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     InfoMessage.Visible = true;
+                    timer1.Start();
                 }
             }
         }
@@ -231,6 +240,12 @@ namespace Library___Login
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            InfoMessage.Visible = false;
+            timer1.Stop();
         }
     }
 }

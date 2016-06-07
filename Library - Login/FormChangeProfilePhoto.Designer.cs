@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChangeProfilePhoto));
             this.ProfilePictureBox = new System.Windows.Forms.PictureBox();
             this.Upload = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.txtImagePath = new System.Windows.Forms.TextBox();
             this.DatabaseInfo = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +56,7 @@
             this.Upload.Text = "Upload image";
             this.Upload.UseVisualStyleBackColor = true;
             this.Upload.Click += new System.EventHandler(this.Upload_Click);
+            this.Upload.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Upload_KeyDown);
             // 
             // Save
             // 
@@ -110,5 +113,6 @@
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.TextBox txtImagePath;
         private System.Windows.Forms.Label DatabaseInfo;
+        private System.Windows.Forms.Timer timer1;
     }
 }

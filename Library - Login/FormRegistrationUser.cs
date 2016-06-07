@@ -116,7 +116,7 @@ namespace Library___Login
                 Random rnd = new Random();
                 do
                 {
-                    code = rnd.Next(1000, 9999);
+                    code = rnd.Next(1000, 99999);
                 } while (register.isCodeTaken(code));
 
                 if (register.isEmailTaken(email) == 0)
@@ -129,30 +129,45 @@ namespace Library___Login
                     if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country, image, code))
                     {
                         Info.Text = "Your request was send successfully.";
+                        timer1.Interval = 5000;
+                        timer1.Tick += new EventHandler(Timer1_Tick);
                         Info.Visible = true;
+                        timer1.Start();
                         Console.Write("Your data was send to database. Please wait for confirming it by Admin.");
                     }
                     else
                     {
                         Info.Text = "Your request wasn't send successfully.\nPlease try again later.";
+                        timer1.Interval = 5000;
+                        timer1.Tick += new EventHandler(Timer1_Tick);
                         Info.Visible = true;
+                        timer1.Start();
                     }
                 }
                 else if (register.isEmailTaken(email) == 1)
                 {
                     Info.Text = "Email is already taken.";
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     Info.Visible = true;
+                    timer1.Start();
                 }
                 else
                 {
                     Info.Text = "Error! Cannot connect to database.\nPlease try again later.";
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     Info.Visible = true;
+                    timer1.Start();
                 }
             }
             else
             {
                 Info.Text = "Enter your data!";
+                timer1.Interval = 5000;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 Info.Visible = true;
+                timer1.Start();
             }
         }
 
@@ -199,6 +214,12 @@ namespace Library___Login
                     image.UnlockBits(bmpData);
                 }
             }
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            Info.Visible = false;
+            timer1.Stop();
         }
     }
 }

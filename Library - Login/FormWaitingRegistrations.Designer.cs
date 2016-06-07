@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWaitingRegistrations));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,6 +105,7 @@
             this.RRUserID4 = new System.Windows.Forms.TextBox();
             this.RRUserID5 = new System.Windows.Forms.TextBox();
             this.DatabaseInfo = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -327,6 +329,7 @@
             this.RRPermission1.Size = new System.Drawing.Size(77, 21);
             this.RRPermission1.TabIndex = 10;
             this.RRPermission1.Visible = false;
+            this.RRPermission1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormWaitingRegistrations_KeyDown);
             // 
             // groupBox1
             // 
@@ -457,6 +460,7 @@
             this.RRPermission2.Size = new System.Drawing.Size(77, 21);
             this.RRPermission2.TabIndex = 18;
             this.RRPermission2.Visible = false;
+            this.RRPermission2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormWaitingRegistrations_KeyDown);
             // 
             // groupBox3
             // 
@@ -719,6 +723,7 @@
             this.RRPermission3.Size = new System.Drawing.Size(77, 21);
             this.RRPermission3.TabIndex = 32;
             this.RRPermission3.Visible = false;
+            this.RRPermission3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormWaitingRegistrations_KeyDown);
             // 
             // RRPermission4
             // 
@@ -731,6 +736,7 @@
             this.RRPermission4.Size = new System.Drawing.Size(77, 21);
             this.RRPermission4.TabIndex = 33;
             this.RRPermission4.Visible = false;
+            this.RRPermission4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormWaitingRegistrations_KeyDown);
             // 
             // RRPermission5
             // 
@@ -743,6 +749,7 @@
             this.RRPermission5.Size = new System.Drawing.Size(77, 21);
             this.RRPermission5.TabIndex = 34;
             this.RRPermission5.Visible = false;
+            this.RRPermission5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormWaitingRegistrations_KeyDown);
             // 
             // RRConfirm
             // 
@@ -874,6 +881,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormWaitingRegistrations_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormWaitingRegistrations_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -970,5 +978,6 @@
         private System.Windows.Forms.ToolStripMenuItem switchToUserToolStripMenuItem;
         private System.Windows.Forms.Label DatabaseInfo;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }

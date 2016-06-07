@@ -184,5 +184,13 @@ namespace Library___Login
             FormLogin login = new FormLogin();
             login.Show();
         }
+
+        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Search_btn_Click(SearchBar, null);
+            }
+        }
     }
 }

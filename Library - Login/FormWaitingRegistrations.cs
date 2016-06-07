@@ -283,7 +283,10 @@ namespace Library___Login
                 if (con.writeUserAsActive(userID, permission, active))
                 {
                     DatabaseInfo.Text = "User was add to the database as " + permission;
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     DatabaseInfo.Visible = true;
+                    timer1.Start();
                 }
             }
             else if (RRRefuse1.Checked == true)
@@ -291,7 +294,10 @@ namespace Library___Login
                 active = "blocked";
                 con.blockUser(RRUserID1.Text, active);
                 DatabaseInfo.Text = "User was blocked";
+                timer1.Interval = 5000;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 DatabaseInfo.Visible = true;
+                timer1.Start();
             }
             if (RRUserID2.Visible == true && RRPermission2.Text != "" && RRConfirm2.Checked == true)
             {
@@ -425,6 +431,20 @@ namespace Library___Login
         {
             FormLogin login = new FormLogin();
             login.Show();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            DatabaseInfo.Visible = false;
+            timer1.Stop();
+        }
+
+        private void FormWaitingRegistrations_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                RRConfirm_Click(RRPermission1, null);
+            }
         }
     }
 }

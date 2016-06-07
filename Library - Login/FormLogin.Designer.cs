@@ -44,10 +44,10 @@
             // Username
             // 
             this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Username.Location = new System.Drawing.Point(263, 266);
+            this.Username.Location = new System.Drawing.Point(252, 265);
             this.Username.Multiline = true;
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(248, 25);
+            this.Username.Size = new System.Drawing.Size(283, 25);
             this.Username.TabIndex = 2;
             this.Username.Text = "tomas.tomcik@akademiasovy.sk";
             this.Username.Click += new System.EventHandler(this.Username_Click);
@@ -62,9 +62,9 @@
             this.Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Login.Location = new System.Drawing.Point(263, 334);
+            this.Login.Location = new System.Drawing.Point(252, 333);
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(248, 35);
+            this.Login.Size = new System.Drawing.Size(283, 35);
             this.Login.TabIndex = 5;
             this.Login.Text = "Sign In";
             this.Login.UseVisualStyleBackColor = false;
@@ -73,10 +73,10 @@
             // Password
             // 
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Password.Location = new System.Drawing.Point(263, 303);
+            this.Password.Location = new System.Drawing.Point(252, 302);
             this.Password.Multiline = true;
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(248, 25);
+            this.Password.Size = new System.Drawing.Size(283, 25);
             this.Password.TabIndex = 3;
             this.Password.Text = "strkovisko";
             this.Password.Click += new System.EventHandler(this.Password_Click);
@@ -90,7 +90,7 @@
             this.ErrorMessage.AutoSize = true;
             this.ErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.ErrorMessage.Location = new System.Drawing.Point(258, 430);
+            this.ErrorMessage.Location = new System.Drawing.Point(247, 441);
             this.ErrorMessage.Name = "ErrorMessage";
             this.ErrorMessage.Size = new System.Drawing.Size(304, 25);
             this.ErrorMessage.TabIndex = 7;
@@ -112,9 +112,9 @@
             this.Register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Register.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Register.Location = new System.Drawing.Point(263, 375);
+            this.Register.Location = new System.Drawing.Point(252, 374);
             this.Register.Name = "Register";
-            this.Register.Size = new System.Drawing.Size(248, 35);
+            this.Register.Size = new System.Drawing.Size(283, 35);
             this.Register.TabIndex = 9;
             this.Register.Text = "Sign Up";
             this.Register.UseVisualStyleBackColor = false;
@@ -123,9 +123,10 @@
             // ForgottenPassword
             // 
             this.ForgottenPassword.AutoSize = true;
-            this.ForgottenPassword.Location = new System.Drawing.Point(263, 471);
+            this.ForgottenPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ForgottenPassword.Location = new System.Drawing.Point(249, 412);
             this.ForgottenPassword.Name = "ForgottenPassword";
-            this.ForgottenPassword.Size = new System.Drawing.Size(106, 13);
+            this.ForgottenPassword.Size = new System.Drawing.Size(149, 18);
             this.ForgottenPassword.TabIndex = 10;
             this.ForgottenPassword.TabStop = true;
             this.ForgottenPassword.Text = "Forgotten password?";

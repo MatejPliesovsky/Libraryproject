@@ -240,6 +240,14 @@ namespace Library___Login
             FormLogin forml = new FormLogin();
             forml.Show();
         }
+
+        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Search_btn_Click(SearchBar, null);
+            }
+        }
     }
 }
     

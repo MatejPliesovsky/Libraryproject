@@ -54,7 +54,6 @@
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.Refresh = new System.Windows.Forms.Button();
             this.Reserved = new System.Windows.Forms.CheckBox();
-            this.ErrorMessage = new System.Windows.Forms.Label();
             this.ChangePenalties = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -243,6 +242,7 @@
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(121, 20);
             this.SearchBar.TabIndex = 57;
+            this.SearchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBar_KeyDown);
             // 
             // Refresh
             // 
@@ -264,18 +264,6 @@
             this.Reserved.Text = "Just reserved";
             this.Reserved.UseVisualStyleBackColor = true;
             // 
-            // ErrorMessage
-            // 
-            this.ErrorMessage.AutoSize = true;
-            this.ErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.ErrorMessage.Location = new System.Drawing.Point(145, 504);
-            this.ErrorMessage.Name = "ErrorMessage";
-            this.ErrorMessage.Size = new System.Drawing.Size(286, 24);
-            this.ErrorMessage.TabIndex = 59;
-            this.ErrorMessage.Text = "Please, select reserved book!";
-            this.ErrorMessage.Visible = false;
-            // 
             // ChangePenalties
             // 
             this.ChangePenalties.Location = new System.Drawing.Point(12, 216);
@@ -286,13 +274,12 @@
             this.ChangePenalties.UseVisualStyleBackColor = true;
             this.ChangePenalties.Click += new System.EventHandler(this.ChangePenalties_Click);
             // 
-            // FormCheckLoans
+            // FormCheckBorrowings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.ChangePenalties);
-            this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.Refresh);
@@ -300,7 +287,7 @@
             this.Controls.Add(this.DatabaseInfo);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormCheckLoans";
+            this.Name = "FormCheckBorrowings";
             this.Text = "FormCheckLoans";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCheckLoans_FormClosing);
             this.menuStrip1.ResumeLayout(false);
@@ -336,7 +323,6 @@
         private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.CheckBox Reserved;
-        private System.Windows.Forms.Label ErrorMessage;
         private System.Windows.Forms.Button ChangePenalties;
     }
 }

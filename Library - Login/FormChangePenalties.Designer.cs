@@ -86,6 +86,7 @@
             this.TwoWeeks.Name = "TwoWeeks";
             this.TwoWeeks.Size = new System.Drawing.Size(100, 20);
             this.TwoWeeks.TabIndex = 4;
+            this.TwoWeeks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Longer_KeyDown);
             // 
             // OneMonth
             // 
@@ -93,6 +94,7 @@
             this.OneMonth.Name = "OneMonth";
             this.OneMonth.Size = new System.Drawing.Size(100, 20);
             this.OneMonth.TabIndex = 5;
+            this.OneMonth.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Longer_KeyDown);
             // 
             // TwoMonths
             // 
@@ -100,6 +102,7 @@
             this.TwoMonths.Name = "TwoMonths";
             this.TwoMonths.Size = new System.Drawing.Size(100, 20);
             this.TwoMonths.TabIndex = 6;
+            this.TwoMonths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Longer_KeyDown);
             // 
             // Longer
             // 
@@ -107,6 +110,7 @@
             this.Longer.Name = "Longer";
             this.Longer.Size = new System.Drawing.Size(100, 20);
             this.Longer.TabIndex = 7;
+            this.Longer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Longer_KeyDown);
             // 
             // Confirm
             // 

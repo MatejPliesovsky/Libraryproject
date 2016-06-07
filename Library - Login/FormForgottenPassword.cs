@@ -24,6 +24,7 @@ namespace Library___Login
             InitializeComponent();
             connect = new Connect2DB();
             enc = new UTF8Encoding(true, true);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Confirm_Click(object sender, EventArgs e)
@@ -31,7 +32,7 @@ namespace Library___Login
             if (string.IsNullOrEmpty(email))
             {
                 InfoMessage.Text = "Please, enter your email!";
-                timer1.Interval = 2500;
+                timer1.Interval = 5000;
                 timer1.Tick += new EventHandler(Timer1_Tick);
                 InfoMessage.Visible = true;
                 timer1.Start();
@@ -42,16 +43,16 @@ namespace Library___Login
                 {
                     if (sendEmail(null, null))
                     {
-                        InfoMessage.Text = "We sent you email with\nnew password!";
-                        timer1.Interval = 2500;
+                        InfoMessage.Text = "We sent you email with new password!";
+                        timer1.Interval = 5000;
                         timer1.Tick += new EventHandler(Timer1_Tick);
                         InfoMessage.Visible = true;
                         timer1.Start();
                     }
                     else
                     {
-                        InfoMessage.Text = "We can't send you\nnew password now!";
-                        timer1.Interval = 2500;
+                        InfoMessage.Text = "We can't send you new password now!";
+                        timer1.Interval = 5000;
                         timer1.Tick += new EventHandler(Timer1_Tick);
                         InfoMessage.Visible = true;
                         timer1.Start();
@@ -74,18 +75,25 @@ namespace Library___Login
 
         private bool sendEmail(object sender, EventArgs e)
         {
+            MailAddress from = new MailAddress("lostpassword@naprogramujem.sk");
+            MailAddress to = new MailAddress(email);
             try {
-                SmtpClient client = new SmtpClient("rebooks.gmail.com");
-                NetworkCredential credential = new NetworkCredential("ReBooksLibrary@gmail.com", "ReBooks1234");
-                MailMessage msg = new MailMessage();
-                msg.From = new MailAddress("ReBooksLibrary@gmail.com");
-                msg.To.Add(email);
-                msg.Subject = "New password";
+                SmtpClient client = new SmtpClient("smtp.websupport.sk");
+                NetworkCredential credential = new NetworkCredential("lostpassword@naprogramujem.sk", "salama29");
+                MailMessage msg;
+                client.Port = 25;
+                client.Credentials = credential;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.EnableSsl = true;
+
                 string newPass = connect.setPasswordCode(email);
 
+                msg = new MailMessage(from, to);
+                msg.Subject = "New password";
                 msg.Body = "Your new password is: " + newPass + "\nPlease, set new password, after login to your account.\nSupport Team.";
-                client.Credentials = credential;
-                client.EnableSsl = true;
+                msg.IsBodyHtml = true;
+                msg.Sender = from;
+                
                 client.Send(msg);
                 return true;
             }
@@ -94,6 +102,20 @@ namespace Library___Login
                 Console.Write(ex.ToString());
                 return false;
             }
+        }
+
+        private void Email_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Confirm_Click(Email, null);
+                Email.Text = email;
+            }
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

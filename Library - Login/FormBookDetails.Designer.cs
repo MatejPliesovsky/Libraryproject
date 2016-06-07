@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBookDetails));
             this.BookName = new System.Windows.Forms.Label();
             this.Author = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             this.messageLabel = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.RichTextBox();
             this.Back = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,5 +214,6 @@
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.RichTextBox Description;
         private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Timer timer1;
     }
 }

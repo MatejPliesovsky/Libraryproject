@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserDetails));
             this.ID = new System.Windows.Forms.TextBox();
             this.FirstName = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@
             this.Active = new System.Windows.Forms.ComboBox();
             this.DatabaseInfo = new System.Windows.Forms.Label();
             this.Delete = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // ID
@@ -69,6 +71,7 @@
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(116, 21);
             this.ID.TabIndex = 0;
+            this.ID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // FirstName
             // 
@@ -76,6 +79,7 @@
             this.FirstName.Name = "FirstName";
             this.FirstName.Size = new System.Drawing.Size(116, 21);
             this.FirstName.TabIndex = 1;
+            this.FirstName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // LastName
             // 
@@ -83,6 +87,7 @@
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(116, 21);
             this.LastName.TabIndex = 2;
+            this.LastName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // Age
             // 
@@ -90,6 +95,7 @@
             this.Age.Name = "Age";
             this.Age.Size = new System.Drawing.Size(116, 21);
             this.Age.TabIndex = 3;
+            this.Age.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // Email
             // 
@@ -97,6 +103,7 @@
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(116, 21);
             this.Email.TabIndex = 4;
+            this.Email.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // Street
             // 
@@ -104,6 +111,7 @@
             this.Street.Name = "Street";
             this.Street.Size = new System.Drawing.Size(116, 21);
             this.Street.TabIndex = 7;
+            this.Street.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // label1
             // 
@@ -181,6 +189,7 @@
             this.StreetNumber.Name = "StreetNumber";
             this.StreetNumber.Size = new System.Drawing.Size(116, 21);
             this.StreetNumber.TabIndex = 15;
+            this.StreetNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // PostalCode
             // 
@@ -188,6 +197,7 @@
             this.PostalCode.Name = "PostalCode";
             this.PostalCode.Size = new System.Drawing.Size(116, 21);
             this.PostalCode.TabIndex = 16;
+            this.PostalCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // City
             // 
@@ -195,6 +205,7 @@
             this.City.Name = "City";
             this.City.Size = new System.Drawing.Size(116, 21);
             this.City.TabIndex = 17;
+            this.City.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // Country
             // 
@@ -202,6 +213,7 @@
             this.Country.Name = "Country";
             this.Country.Size = new System.Drawing.Size(116, 21);
             this.Country.TabIndex = 18;
+            this.Country.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // Telephone
             // 
@@ -209,6 +221,7 @@
             this.Telephone.Name = "Telephone";
             this.Telephone.Size = new System.Drawing.Size(116, 21);
             this.Telephone.TabIndex = 19;
+            this.Telephone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // label8
             // 
@@ -322,6 +335,7 @@
             this.UserRole.Name = "UserRole";
             this.UserRole.Size = new System.Drawing.Size(116, 23);
             this.UserRole.TabIndex = 5;
+            this.UserRole.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // Active
             // 
@@ -334,6 +348,7 @@
             this.Active.Name = "Active";
             this.Active.Size = new System.Drawing.Size(116, 23);
             this.Active.TabIndex = 6;
+            this.Active.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             // 
             // DatabaseInfo
             // 
@@ -398,6 +413,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUserDetails";
             this.Text = "User Details";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,5 +453,6 @@
         private System.Windows.Forms.ComboBox Active;
         private System.Windows.Forms.Label DatabaseInfo;
         private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -16,6 +16,15 @@ namespace Library___Login
     public partial class FormEditBookDetails : Form
     {
         string bookID, bookName, author, lent, IDCategory, IDLanguage, desc, publisher, category, language, ISBN, image;
+
+        private void comboNewLanguage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnUpdateBook_Click(comboNewLanguage, null);
+            }
+        }
+
         byte[] data;
         string[] descrpition;
         Connect2DB db = new Connect2DB();

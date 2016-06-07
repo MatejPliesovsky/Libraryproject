@@ -47,7 +47,7 @@ namespace Library___Login
                     if (connect.changeUserPassword(userID, enc.GetString(data)))
                     {
                         InfoMessage.Text = "Password was changed successfuly!";
-                        timer1.Interval = 2500;
+                        timer1.Interval = 5000;
                         timer1.Tick += new EventHandler(Timer1_Tick);
                         InfoMessage.Visible = true;
                         timer1.Start();
@@ -55,7 +55,7 @@ namespace Library___Login
                     else
                     {
                         InfoMessage.Text = "Password wasn't changed successfuly!";
-                        timer1.Interval = 2500;
+                        timer1.Interval = 5000;
                         timer1.Tick += new EventHandler(Timer1_Tick);
                         InfoMessage.Visible = true;
                         timer1.Start();
@@ -64,7 +64,7 @@ namespace Library___Login
                 else
                 {
                     InfoMessage.Text = "Old password is incorrect!";
-                    timer1.Interval = 2500;
+                    timer1.Interval = 5000;
                     timer1.Tick += new EventHandler(Timer1_Tick);
                     InfoMessage.Visible = true;
                     timer1.Start();
@@ -73,7 +73,7 @@ namespace Library___Login
             else
             {
                 InfoMessage.Text = "New passwords aren't same!";
-                timer1.Interval = 2500;
+                timer1.Interval = 5000;
                 timer1.Tick += new EventHandler(Timer1_Tick);
                 InfoMessage.Visible = true;
                 timer1.Start();
@@ -89,6 +89,14 @@ namespace Library___Login
         {
             timer1.Stop();
             InfoMessage.Visible = false;
+        }
+
+        private void OldPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Confirm_Click(OldPassword, null);
+            }
         }
     }
 }

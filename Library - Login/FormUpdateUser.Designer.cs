@@ -125,6 +125,7 @@
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(366, 20);
             this.SearchBar.TabIndex = 50;
+            this.SearchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBar_KeyDown);
             // 
             // menuStrip1
             // 

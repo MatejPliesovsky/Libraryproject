@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationDetails));
             this.Language = new System.Windows.Forms.Label();
             this.Category = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.UserAge = new System.Windows.Forms.Label();
             this.DatabaseInfo = new System.Windows.Forms.Label();
             this.Penalty = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,5 +189,6 @@
         private System.Windows.Forms.Label UserAge;
         private System.Windows.Forms.Label DatabaseInfo;
         private System.Windows.Forms.Label Penalty;
+        private System.Windows.Forms.Timer timer1;
     }
 }

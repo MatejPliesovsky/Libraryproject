@@ -76,6 +76,7 @@
             this.OldPassword.Size = new System.Drawing.Size(100, 20);
             this.OldPassword.TabIndex = 3;
             this.OldPassword.TextChanged += new System.EventHandler(this.Password_TextChanged);
+            this.OldPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OldPassword_KeyDown);
             // 
             // NewPassword
             // 
@@ -84,6 +85,7 @@
             this.NewPassword.Size = new System.Drawing.Size(100, 20);
             this.NewPassword.TabIndex = 4;
             this.NewPassword.TextChanged += new System.EventHandler(this.Password_TextChanged);
+            this.NewPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OldPassword_KeyDown);
             // 
             // RepeatPassword
             // 
@@ -92,6 +94,7 @@
             this.RepeatPassword.Size = new System.Drawing.Size(100, 20);
             this.RepeatPassword.TabIndex = 5;
             this.RepeatPassword.TextChanged += new System.EventHandler(this.Password_TextChanged);
+            this.RepeatPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OldPassword_KeyDown);
             // 
             // Confirm
             // 

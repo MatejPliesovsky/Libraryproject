@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistrationUser));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@
             this.Country = new System.Windows.Forms.ComboBox();
             this.Telephone1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -152,6 +154,7 @@
             this.DateOfBirth.Size = new System.Drawing.Size(133, 20);
             this.DateOfBirth.TabIndex = 13;
             this.DateOfBirth.Value = new System.DateTime(2016, 4, 8, 0, 0, 0, 0);
+            this.DateOfBirth.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FirstName_KeyDown);
             // 
             // Number
             // 
@@ -258,7 +261,7 @@
             this.Info.ForeColor = System.Drawing.Color.Purple;
             this.Info.Location = new System.Drawing.Point(283, 404);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(269, 16);
+            this.Info.Size = new System.Drawing.Size(262, 16);
             this.Info.TabIndex = 25;
             this.Info.Text = "Your request was send successfully. ";
             // 
@@ -383,5 +386,6 @@
         private System.Windows.Forms.ComboBox Country;
         private System.Windows.Forms.ComboBox Telephone1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

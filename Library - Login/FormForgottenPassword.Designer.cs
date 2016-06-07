@@ -51,11 +51,13 @@
             // 
             // Email
             // 
+            this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Email.Location = new System.Drawing.Point(15, 131);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(257, 20);
+            this.Email.Size = new System.Drawing.Size(257, 26);
             this.Email.TabIndex = 1;
             this.Email.TextChanged += new System.EventHandler(this.Email_TextChanged);
+            this.Email.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Email_KeyDown);
             // 
             // Confirm
             // 
@@ -75,15 +77,16 @@
             this.Back.TabIndex = 3;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = true;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // InfoMessage
             // 
             this.InfoMessage.AutoSize = true;
-            this.InfoMessage.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.InfoMessage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.InfoMessage.ForeColor = System.Drawing.Color.Red;
             this.InfoMessage.Location = new System.Drawing.Point(15, 170);
             this.InfoMessage.Name = "InfoMessage";
-            this.InfoMessage.Size = new System.Drawing.Size(40, 15);
+            this.InfoMessage.Size = new System.Drawing.Size(49, 19);
             this.InfoMessage.TabIndex = 4;
             this.InfoMessage.Text = "label2";
             this.InfoMessage.Visible = false;

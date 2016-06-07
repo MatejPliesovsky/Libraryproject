@@ -183,7 +183,6 @@ namespace Library___Login
             else
             {
                 string status = listView1.SelectedItems[listView1.SelectedIndices.Count - 1].SubItems[2].Text;
-                ErrorMessage.Visible = false;
                 data = enc.GetBytes(listView1.SelectedItems[index].Text);
                 string bookName = enc.GetString(data);
                 ReservationDetails showDetails = new ReservationDetails(AdminID, bookName);
@@ -203,6 +202,14 @@ namespace Library___Login
         {
             FormChangePenalties changePenalties = new FormChangePenalties(AdminID);
             changePenalties.ShowDialog();
+        }
+
+        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Refresh_Click(SearchBar, null);
+            }
         }
     }
 }

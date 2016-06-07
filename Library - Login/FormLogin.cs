@@ -76,7 +76,7 @@ namespace Library___Login
                 else
                 {
                     ErrorMessage.Text = "Your registration request is treated!";
-                    timer1.Interval = 2500;
+                    timer1.Interval = 5000;
                     timer1.Tick += new EventHandler(Timer1_Tick);
                     ErrorMessage.Visible = true;
                     timer1.Start();
@@ -85,7 +85,7 @@ namespace Library___Login
             else
             {
                 ErrorMessage.Text = "Invalid email or password!";
-                timer1.Interval = 2500;
+                timer1.Interval = 5000;
                 timer1.Tick += new EventHandler(Timer1_Tick);
                 ErrorMessage.Visible = true;
                 timer1.Start();

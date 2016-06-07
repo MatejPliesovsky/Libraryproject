@@ -130,12 +130,18 @@ namespace Library___Login
                 if (connect.removeBorrowing(bookID))
                 {
                     DatabaseInfo.Text = "Borrow was remove successuly";
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     DatabaseInfo.Visible = true;
+                    timer1.Start();
                 }
                 else
                 {
                     DatabaseInfo.Text = "Cannot connect to database!";
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     DatabaseInfo.Visible = true;
+                    timer1.Start();
                 }
             }
             else
@@ -151,13 +157,19 @@ namespace Library___Login
                     if (connect.addBorrowing(dateOfBorrowing, dateOfReturn, bookID, userID))
                     {
                         DatabaseInfo.Text = "Book was borrowed successuly";
+                        timer1.Interval = 5000;
+                        timer1.Tick += new EventHandler(Timer1_Tick);
                         DatabaseInfo.Visible = true;
+                        timer1.Start();
                     }
                 }
                 else
                 {
                     DatabaseInfo.Text = "Cannot connect to database!";
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
                     DatabaseInfo.Visible = true;
+                    timer1.Start();
                 }
             }
         }
@@ -172,6 +184,12 @@ namespace Library___Login
             {
                 connect.deleteReservation(bookID, userID);
             }
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            DatabaseInfo.Visible = false;
+            timer1.Stop();
         }
     }
 }

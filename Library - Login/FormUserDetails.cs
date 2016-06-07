@@ -17,6 +17,15 @@ namespace Library___Login
     {
         string adminID; // id of user, who made changes. It can be admin, or user
         string userID, firstName, lastName, age, email, userRole, active, street, streetNumber, postalCode, city, country, telephone, details;
+
+        private void Active_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Apply_Click(Active, null);
+            }
+        }
+
         string[] items;
         byte[] data;
         Connect2DB connect; 
@@ -163,13 +172,19 @@ namespace Library___Login
             if (connect.updateUserData(details))
             {
                 DatabaseInfo.Text = "User data was update";
+                timer1.Interval = 5000;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 DatabaseInfo.Visible = true;
+                timer1.Start();
                 Console.Write("User was update");
             }
             else
             {
                 DatabaseInfo.Text = "Cannot connect to the database!";
+                timer1.Interval = 5000;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 DatabaseInfo.Visible = true;
+                timer1.Start();
                 Console.Write("Error with DB connection");
             }
         }
@@ -179,7 +194,10 @@ namespace Library___Login
             if (connect.deleteUserFromDatabase(userID))
             {
                 DatabaseInfo.Text = "User was deleted.";
+                timer1.Interval = 5000;
+                timer1.Tick += new EventHandler(Timer1_Tick);
                 DatabaseInfo.Visible = true;
+                timer1.Start();
                 Console.Write("User was delete successfuly");
             }
         }
@@ -213,6 +231,12 @@ namespace Library___Login
             Country.Text = enc.GetString(data);
 
             Telephone.Text = telephone;
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            DatabaseInfo.Visible = false;
+            timer1.Stop();
         }
     }
 }
