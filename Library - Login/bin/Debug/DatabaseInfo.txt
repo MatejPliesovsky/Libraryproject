@@ -1,4 +1,4 @@
-Server: mysql51.websupport.sk
+Server: mariadb55.websupport.sk
 Database: ReBooksDB
 UID: ReBooksDB
 password: auticko1238792
