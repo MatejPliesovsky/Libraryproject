@@ -19,6 +19,12 @@ namespace Library___Login
         string bookID, author, bookCategory, bookLanguage, categoryID, languageID;
         int counter;
         byte[] data;
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         Connect2DB connect;
         DateTime borrowing;
         Encoding enc;
@@ -71,6 +77,7 @@ namespace Library___Login
 
                 PictureBox.Image = Image.FromStream(new System.IO.MemoryStream(connect.getImageByBookId(bookID)));
                 PictureBox.Refresh();
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 counter = connect.checkSumOfReservation(userID, true);
                 if (counter == 5)

@@ -156,9 +156,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 198);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Book Descreption";
+            this.label3.Text = "Book Description";
             // 
             // txtPublisher
             // 

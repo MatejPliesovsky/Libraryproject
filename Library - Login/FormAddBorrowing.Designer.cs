@@ -52,9 +52,9 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(116, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 19);
+            this.label1.Size = new System.Drawing.Size(78, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Loan";
+            this.label1.Text = "Borrowing";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
@@ -189,7 +189,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddBorrowing";
-            this.Text = "FormAddLoan";
+            this.Text = "FormAddBorrowing";
             this.ResumeLayout(false);
             this.PerformLayout();
 

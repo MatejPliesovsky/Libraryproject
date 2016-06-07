@@ -42,6 +42,7 @@
             this.DatabaseInfo = new System.Windows.Forms.Label();
             this.Penalty = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,9 +78,9 @@
             this.BookName.AutoSize = true;
             this.BookName.Location = new System.Drawing.Point(12, 18);
             this.BookName.Name = "BookName";
-            this.BookName.Size = new System.Drawing.Size(60, 13);
+            this.BookName.Size = new System.Drawing.Size(63, 13);
             this.BookName.TabIndex = 5;
-            this.BookName.Text = "BookName";
+            this.BookName.Text = "Book Name";
             // 
             // UserName
             // 
@@ -94,7 +95,7 @@
             // 
             this.PictureBox.Location = new System.Drawing.Point(411, 12);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(361, 390);
+            this.PictureBox.Size = new System.Drawing.Size(361, 449);
             this.PictureBox.TabIndex = 9;
             this.PictureBox.TabStop = false;
             // 
@@ -151,11 +152,22 @@
             this.Penalty.Text = "label1";
             this.Penalty.Visible = false;
             // 
+            // Back
+            // 
+            this.Back.Location = new System.Drawing.Point(654, 511);
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(118, 38);
+            this.Back.TabIndex = 51;
+            this.Back.Text = "Back";
+            this.Back.UseVisualStyleBackColor = true;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
+            // 
             // ReservationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Back);
             this.Controls.Add(this.Penalty);
             this.Controls.Add(this.DatabaseInfo);
             this.Controls.Add(this.Refuse);
@@ -190,5 +202,6 @@
         private System.Windows.Forms.Label DatabaseInfo;
         private System.Windows.Forms.Label Penalty;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button Back;
     }
 }

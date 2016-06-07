@@ -288,7 +288,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCheckBorrowings";
-            this.Text = "FormCheckLoans";
+            this.Text = "FormCheckBorrowings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCheckLoans_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -52,9 +52,9 @@
             this.BookName.AutoSize = true;
             this.BookName.Location = new System.Drawing.Point(30, 30);
             this.BookName.Name = "BookName";
-            this.BookName.Size = new System.Drawing.Size(60, 13);
+            this.BookName.Size = new System.Drawing.Size(63, 13);
             this.BookName.TabIndex = 0;
-            this.BookName.Text = "BookName";
+            this.BookName.Text = "Book Name";
             // 
             // Author
             // 
