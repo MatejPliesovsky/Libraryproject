@@ -20,6 +20,7 @@ namespace Library___Login
         Encoding enc;
         string UserID;
         byte[] data, user, pass;
+        List<string> categoriesList, languagesList;
 
         public FormUserInterface()
         {
@@ -76,9 +77,12 @@ namespace Library___Login
             listView1.Items.Clear();
             SearchFree.Checked = false;
             SearchBar.Text = "";
-            for (int i = 0;i < checkedListBox1.Items.Count; i++)
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
                 checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+            }
+            for (int i = 0; i < checkedListBox2.Items.Count; i++)
+            {
                 checkedListBox2.SetItemCheckState(i, CheckState.Unchecked);
             }
             Form2_Shown(Refresh, null);
@@ -94,10 +98,27 @@ namespace Library___Login
                 {
                     categories = categories + checkedListBox1.Items[i].ToString() + ";";
                 }
+            }
+            for (int i = 0; i < checkedListBox2.Items.Count; i++)
+            {
                 if (checkedListBox2.GetItemCheckState(i) == CheckState.Checked)
                 {
                     languages = languages + checkedListBox2.Items[i].ToString() + ";";
                 }
+            }
+
+            checkedListBox1.Items.Clear();
+            categoriesList = connection.categoriesForFilter();
+            for (int i = 0; i < categoriesList.Count; i++)
+            {
+                checkedListBox1.Items.Add(categoriesList[i]);
+            }
+
+            checkedListBox2.Items.Clear();
+            languagesList = connection.languagesForFilter();
+            for (int i = 0; i < languagesList.Count; i++)
+            {
+                checkedListBox2.Items.Add(languagesList[i]);
             }
 
             List<string> books = new List<string>();
@@ -131,12 +152,15 @@ namespace Library___Login
             List<string> books = new List<string>();
 
             listView1.Items.Clear();
-            for (int i = 0;i < checkedListBox1.Items.Count; i++)
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
                 if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
                 {
                     categories = categories + checkedListBox1.Items[i].ToString() + ";";
                 }
+            }
+            for (int i = 0; i < checkedListBox2.Items.Count; i++)
+            {
                 if (checkedListBox2.GetItemCheckState(i) == CheckState.Checked)
                 {
                     languages = languages + checkedListBox2.Items[i].ToString() + ";";

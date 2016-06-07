@@ -20,7 +20,7 @@ namespace Library___Login
         byte[] data;
         private string AdminID;
         private int waitingReg;
-        private List<string> loans;
+        private List<string> borrowings, categories, languages;
         DateTime returns;
 
         public FormAdminInterface(string adminID)
@@ -46,14 +46,29 @@ namespace Library___Login
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
             }
-            loans = connection.checkBorrowings();
-            for (int i = 0; i < loans.Count; i++)
+
+            checkedListBox1.Items.Clear();
+            categories = connection.categoriesForFilter();
+            for (int i = 0;i < categories.Count; i++)
             {
-                returns = DateTime.Parse(loans[i].ToString());
+                checkedListBox1.Items.Add(categories[i]);
+            }
+
+            checkedListBox2.Items.Clear();
+            languages = connection.languagesForFilter();
+            for (int i = 0;i < languages.Count; i++)
+            {
+                checkedListBox2.Items.Add(languages[i]);
+            }
+
+            borrowings = connection.checkBorrowings();
+            for (int i = 0; i < borrowings.Count; i++)
+            {
+                returns = DateTime.Parse(borrowings[i].ToString());
                 i++;
                 if (returns.AddMonths(2) < DateTime.Today)
                 {
-                    connection.blockUser(loans[i].ToString(), "blocked");
+                    connection.blockUser(borrowings[i].ToString(), "blocked");
                 }
             }
         }
@@ -80,14 +95,29 @@ namespace Library___Login
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
             }
-            loans = connection.checkBorrowings();
-            for (int i = 0; i < loans.Count; i++)
+
+            checkedListBox1.Items.Clear();
+            categories = connection.categoriesForFilter();
+            for (int i = 0; i < categories.Count; i++)
             {
-                returns = DateTime.Parse(loans[i].ToString());
+                checkedListBox1.Items.Add(categories[i]);
+            }
+
+            checkedListBox2.Items.Clear();
+            languages = connection.languagesForFilter();
+            for (int i = 0; i < languages.Count; i++)
+            {
+                checkedListBox2.Items.Add(languages[i]);
+            }
+
+            borrowings = connection.checkBorrowings();
+            for (int i = 0; i < borrowings.Count; i++)
+            {
+                returns = DateTime.Parse(borrowings[i].ToString());
                 i++;
                 if (returns.AddMonths(2) < DateTime.Today)
                 {
-                    connection.blockUser(loans[i].ToString(), "blocked");
+                    connection.blockUser(borrowings[i].ToString(), "blocked");
                 }
             }
         }
@@ -102,6 +132,9 @@ namespace Library___Login
                 {
                     categories = categories + checkedListBox1.Items[i].ToString() + ";";
                 }
+            }
+            for (int i = 0; i < checkedListBox2.Items.Count; i++)
+            {
                 if (checkedListBox2.GetItemCheckState(i) == CheckState.Checked)
                 {
                     languages = languages + checkedListBox2.Items[i].ToString() + ";";
@@ -164,6 +197,9 @@ namespace Library___Login
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
             {
                 checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+            }
+            for (int i = 0; i < checkedListBox2.Items.Count; i++)
+            {
                 checkedListBox2.SetItemCheckState(i, CheckState.Unchecked);
             }
             Form2_Shown(Refresh, null);
@@ -186,6 +222,9 @@ namespace Library___Login
                 {
                     categories = categories + checkedListBox1.Items[i].ToString() + ";";
                 }
+            }
+            for (int i = 0; i < checkedListBox2.Items.Count; i++)
+            {
                 if (checkedListBox2.GetItemCheckState(i) == CheckState.Checked)
                 {
                     languages = languages + checkedListBox2.Items[i].ToString() + ";";
@@ -286,9 +325,9 @@ namespace Library___Login
 
         private void switchToUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             FormUserInterface userForm = new FormUserInterface(AdminID);
             userForm.Show();
+            this.Hide();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

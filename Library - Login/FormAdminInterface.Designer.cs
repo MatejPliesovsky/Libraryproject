@@ -346,7 +346,7 @@
             this.CreateXML.Name = "CreateXML";
             this.CreateXML.Size = new System.Drawing.Size(95, 40);
             this.CreateXML.TabIndex = 51;
-            this.CreateXML.Text = "Create XML file of Loans";
+            this.CreateXML.Text = "Create XML file of Borrowings";
             this.CreateXML.UseVisualStyleBackColor = true;
             this.CreateXML.Click += new System.EventHandler(this.CreateXML_Click);
             // 

@@ -74,6 +74,12 @@ namespace Library___Login
                     Exception.Text = "You are blocked. Please, contact your nearest library.";
                     Exception.Visible = true;
                 }
+                counter = connect.checkSumOfReservation(userID, false);
+                if (counter == 5)
+                {
+                    messageLabel.Text = "You have already reserved 5 books!";
+                    messageLabel.Show();
+                }
             }
         }
 
@@ -83,8 +89,19 @@ namespace Library___Login
         public void checkBookStatus() { 
         if (connect.checkIfBookIsFree(bookID) == true)
             {
-                Reserve.Show();
-                DeleteRes.Hide();
+                counter = connect.checkSumOfReservation(userID, false);
+                if (counter < 5)
+                {
+                    Reserve.Show();
+                    DeleteRes.Hide();
+                }
+                else
+                {
+                    Reserve.Hide();
+                    DeleteRes.Hide();
+                    messageLabel.Text = "You have already reserved 5 books!";
+                    messageLabel.Show();
+                }
             }
         else{
                 if (connect.checkBookisReservedByUser(bookID, userID, borrow))

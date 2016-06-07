@@ -20,6 +20,7 @@ namespace Library___Login
         public override void Uninstall(IDictionary savedState)
         {
             base.Uninstall(savedState);
+            System.Diagnostics.Process.Start("http://rebooks.aspone.cz/login.aspx");
         }
 
         [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Demand)]
@@ -27,6 +28,7 @@ namespace Library___Login
         {
             base.Uninstall(savedState);
             base.Install(savedState);
+            System.Diagnostics.Process.Start("http://rebooks.aspone.cz/login.aspx");
         }
     }
 }

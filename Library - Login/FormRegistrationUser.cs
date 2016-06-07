@@ -19,7 +19,7 @@ namespace Library___Login
     {
         private string firstName, lastName, password, email, telephone, street, postalCode, city, country;
         private byte[] image, data;
-        int code;
+        string code;
         Encoding enc;
 
         private void button1_Click(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace Library___Login
                 Random rnd = new Random();
                 do
                 {
-                    code = rnd.Next(1000, 99999);
+                    code = rnd.Next(1000, 99999).ToString();
                 } while (register.isCodeTaken(code));
 
                 if (register.isEmailTaken(email) == 0)

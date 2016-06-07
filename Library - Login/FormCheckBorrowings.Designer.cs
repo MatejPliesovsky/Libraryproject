@@ -228,7 +228,7 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Date of lending";
+            this.columnHeader4.Text = "Date of borrowing";
             this.columnHeader4.Width = 136;
             // 
             // columnHeader5
@@ -270,7 +270,7 @@
             this.ChangePenalties.Name = "ChangePenalties";
             this.ChangePenalties.Size = new System.Drawing.Size(121, 23);
             this.ChangePenalties.TabIndex = 60;
-            this.ChangePenalties.Text = "Change penalties";
+            this.ChangePenalties.Text = "Fines and penalties";
             this.ChangePenalties.UseVisualStyleBackColor = true;
             this.ChangePenalties.Click += new System.EventHandler(this.ChangePenalties_Click);
             // 

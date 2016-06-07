@@ -112,9 +112,9 @@
             // 
             // DeleteRes
             // 
-            this.DeleteRes.Location = new System.Drawing.Point(562, 482);
+            this.DeleteRes.Location = new System.Drawing.Point(524, 511);
             this.DeleteRes.Name = "DeleteRes";
-            this.DeleteRes.Size = new System.Drawing.Size(113, 23);
+            this.DeleteRes.Size = new System.Drawing.Size(124, 38);
             this.DeleteRes.TabIndex = 9;
             this.DeleteRes.Text = "Delete Reservation";
             this.DeleteRes.UseVisualStyleBackColor = true;
@@ -122,9 +122,9 @@
             // 
             // Reserve
             // 
-            this.Reserve.Location = new System.Drawing.Point(107, 482);
+            this.Reserve.Location = new System.Drawing.Point(73, 511);
             this.Reserve.Name = "Reserve";
-            this.Reserve.Size = new System.Drawing.Size(117, 23);
+            this.Reserve.Size = new System.Drawing.Size(128, 38);
             this.Reserve.TabIndex = 10;
             this.Reserve.Text = "Reserve Book";
             this.Reserve.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@
             this.Exception.AutoSize = true;
             this.Exception.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Exception.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Exception.Location = new System.Drawing.Point(107, 441);
+            this.Exception.Location = new System.Drawing.Point(69, 488);
             this.Exception.Name = "Exception";
             this.Exception.Size = new System.Drawing.Size(57, 20);
             this.Exception.TabIndex = 11;
@@ -147,7 +147,7 @@
             this.messageLabel.AutoSize = true;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.messageLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.messageLabel.Location = new System.Drawing.Point(332, 303);
+            this.messageLabel.Location = new System.Drawing.Point(32, 454);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(66, 24);
             this.messageLabel.TabIndex = 12;

@@ -324,7 +324,7 @@ namespace Library___Login
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public bool isCodeTaken(int code)
+        public bool isCodeTaken(string code)
         {
             if (openConnection())
             {
@@ -334,7 +334,7 @@ namespace Library___Login
 
                 while (reader.Read())
                 {
-                    if (code == Int32.Parse(reader["ResetPasswordCode"].ToString()))
+                    if (code.Equals(reader["ResetPasswordCode"].ToString()))
                     {
                         closeConnection();
                         return true;
@@ -389,7 +389,7 @@ namespace Library___Login
         /// <param name="image"></param>
         /// <param name="code"></param>
         /// <returns></returns>
-        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, byte[] image, int code)
+        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, byte[] image, string code)
         {
             try
             {
@@ -1411,6 +1411,57 @@ namespace Library___Login
                 return sCategoryName;
             }
             return null;
+        }
+
+        /// <summary>
+        /// load categories for Filter
+        /// </summary>
+        /// <returns></returns>
+        public List<string> categoriesForFilter()
+        {
+            List<string> categories = new List<string>();
+            string sqlQuery = "select CategoryName from BookCategory";
+
+            if (openConnection())
+            {
+
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    categories.Add(reader["CategoryName"].ToString());
+                }
+
+                closeConnection();
+                return categories;
+            }
+            return categories;
+        }
+
+        /// <summary>
+        /// load languages for Filter
+        /// </summary>
+        /// <returns></returns>
+        public List<string> languagesForFilter()
+        {
+            List<string> languages = new List<string>();
+            string sqlQuery = "select LanguageName from BookLanguage";
+
+            if (openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    languages.Add(reader["LanguageName"].ToString());
+                }
+
+                closeConnection();
+                return languages;
+            }
+            return languages;
         }
 
         /// <summary>
