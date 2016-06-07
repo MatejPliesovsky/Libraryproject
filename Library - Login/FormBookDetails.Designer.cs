@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBookDetails));
             this.BookName = new System.Windows.Forms.Label();
             this.Author = new System.Windows.Forms.Label();
             this.Publisher = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.Exception = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.RichTextBox();
+            this.Back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,9 +161,20 @@
             this.Description.TabIndex = 15;
             this.Description.Text = "";
             // 
+            // Back
+            // 
+            this.Back.Location = new System.Drawing.Point(654, 511);
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(118, 38);
+            this.Back.TabIndex = 16;
+            this.Back.Text = "Back";
+            this.Back.UseVisualStyleBackColor = true;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
+            // 
             // FormBookDetails
             // 
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Back);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.Exception);
@@ -174,6 +187,7 @@
             this.Controls.Add(this.Publisher);
             this.Controls.Add(this.Author);
             this.Controls.Add(this.BookName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBookDetails";
             this.Shown += new System.EventHandler(this.FormBookDetails_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
@@ -197,5 +211,6 @@
         private System.Windows.Forms.Label Exception;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.RichTextBox Description;
+        private System.Windows.Forms.Button Back;
     }
 }

@@ -320,6 +320,59 @@ namespace Library___Login
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public bool isCodeTaken(int code)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "select ResetPasswordCode from Users";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (code == Int32.Parse(reader["ResetPasswordCode"].ToString()))
+                    {
+                        closeConnection();
+                        return true;
+                    }
+                }
+                closeConnection();
+            }
+            return false;
+        }
+
+        public string setPasswordCode(string email)
+        {
+            string passwordCode = null;
+            if (openConnection())
+            {
+                string sqlQuery = "select ResetPasswordCode from Users inner join UsersLogin on Users.ID = UsersLogin.ID where"
+                    + " UsersLogin.email like '" + email + "'";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    passwordCode = reader["ResetPasswordCode"].ToString();
+                }
+                reader.Close();
+
+                sqlQuery = "update UsersLogin set PASSWORD = @pass where email like @email";
+                cmd = new MySqlCommand(sqlQuery, connection);
+                cmd.Parameters.AddWithValue("@pass", passwordCode);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
+                return passwordCode;
+            }
+            return passwordCode;
+        }
+
+        /// <summary>
         /// after users registration, his data will be saved to database, and admin must confirm, or refuse his request
         /// </summary>
         /// <param name="firstName"></param>
@@ -334,22 +387,24 @@ namespace Library___Login
         /// <param name="postalCode"></param>
         /// <param name="country"></param>
         /// <param name="image"></param>
+        /// <param name="code"></param>
         /// <returns></returns>
-        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, byte[] image)
+        public bool writeUserAsInactive(string firstName, string lastName, string email, string password, string telephone, System.DateTime birthDate, string street, int streetNumber, string city, string postalCode, string country, byte[] image, int code)
         {
             try
             {
                 if (openConnection())
                 {
 
-                    string sqlQuery = "insert into Users (FirstName, LastName, BirthDate, Avatar) "
-                        + "values (@firstName, @lastName, @birthDate, @Avatar)";
+                    string sqlQuery = "insert into Users (FirstName, LastName, BirthDate, Avatar, ResetPasswordCode) "
+                        + "values (@firstName, @lastName, @birthDate, @Avatar, @code)";
 
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                     cmd.Parameters.AddWithValue("@firstName", firstName);
                     cmd.Parameters.AddWithValue("@lastName", lastName);
                     cmd.Parameters.AddWithValue("@birthDate", (birthDate.Year + "-" + birthDate.Month + "-" + birthDate.Day));
                     cmd.Parameters.AddWithValue("@Avatar", image);
+                    cmd.Parameters.AddWithValue("@code", code);
                     cmd.ExecuteNonQuery();
 
                     sqlQuery = "insert into UsersLogin (email, password, Active) "
@@ -499,7 +554,7 @@ namespace Library___Login
                 }
                 else
                 {
-                    sqlQuery = "select FirstName, LastName from Users inner join Loans on Users.ID = Loans.IDUser where Loans.IDBook = " + bookID;
+                    sqlQuery = "select FirstName, LastName from Users inner join Borrowings on Users.ID = Borrowings.IDUser where Borrowings.IDBook = " + bookID;
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
@@ -533,7 +588,7 @@ namespace Library___Login
                 }
                 else
                 {
-                    sqlQuery = "select BirthDate from Users inner join Loans on Users.ID = Loans.IDUser where Loans.IDBook like " + bookID;
+                    sqlQuery = "select BirthDate from Users inner join Borrowings on Users.ID = Borrowings.IDUser where Borrowings.IDBook like " + bookID;
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
@@ -577,7 +632,7 @@ namespace Library___Login
                 }
                 else
                 {
-                    sqlQuery = "select IDUser from Loans where IDBook = " + bookID;
+                    sqlQuery = "select IDUser from Borrowings where IDBook = " + bookID;
                 }
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -609,7 +664,7 @@ namespace Library___Login
                 }
                 else
                 {
-                    sqlQuery = "select * from Loans where IDUser like " + userID;
+                    sqlQuery = "select * from Borrowings where IDUser like " + userID;
                 }
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -1060,11 +1115,11 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT BookName, Author, Lent, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and CategoryName like '" + category[i] + "'";
+                            sqlQuery = "SELECT BookName, Author, Borrowings, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Borrowings LIKE 'free' and CategoryName like '" + category[i] + "'";
                         }
                         else
                         {
-                            sqlQuery = "SELECT BookName, Author, Lent, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and CategoryName like '" + category[i] + "'";
+                            sqlQuery = "SELECT BookName, Author, Borrowings, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and CategoryName like '" + category[i] + "'";
                         }
                         MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                         MySqlDataReader reader = cmd.ExecuteReader();
@@ -1073,7 +1128,7 @@ namespace Library___Login
                         {
                             books.Add(reader["BookName"].ToString());
                             books.Add(reader["Author"].ToString());
-                            books.Add(reader["Lent"].ToString());
+                            books.Add(reader["Borrowings"].ToString());
                             books.Add(reader["CategoryName"].ToString());
                             books.Add(reader["LanguageName"].ToString());
                         }
@@ -1097,11 +1152,11 @@ namespace Library___Login
                     {
                         if (free == true)
                         {
-                            sqlQuery = "SELECT BookName, Author, Lent, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "'";
+                            sqlQuery = "SELECT BookName, Author, Borrowings, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Borrowings LIKE 'free' and LanguageName like '" + language[i] + "'";
                         }
                         else
                         {
-                            sqlQuery = "SELECT BookName, Author, Lent, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and LanguageName like '" + language[i] + "'";
+                            sqlQuery = "SELECT BookName, Author, Borrowings, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and LanguageName like '" + language[i] + "'";
                         }
                         MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                         MySqlDataReader reader = cmd.ExecuteReader();
@@ -1110,7 +1165,7 @@ namespace Library___Login
                         {
                             books.Add(reader["BookName"].ToString());
                             books.Add(reader["Author"].ToString());
-                            books.Add(reader["Lent"].ToString());
+                            books.Add(reader["Borrowings"].ToString());
                             books.Add(reader["CategoryName"].ToString());
                             books.Add(reader["LanguageName"].ToString());
                         }
@@ -1137,11 +1192,11 @@ namespace Library___Login
                         {
                             if (free == true)
                             {
-                                sqlQuery = "SELECT BookName, Author, Lent, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free' and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
+                                sqlQuery = "SELECT BookName, Author, Borrowings, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Borrowings LIKE 'free' and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
                             }
                             else
                             {
-                                sqlQuery = "SELECT BookName, Author, Lent, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
+                                sqlQuery = "SELECT BookName, Author, Borrowings, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and LanguageName like '" + language[i] + "' and CategoryName like '" + category[j] + "'";
                             }
                             MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                             MySqlDataReader reader = cmd.ExecuteReader();
@@ -1150,7 +1205,7 @@ namespace Library___Login
                             {
                                 books.Add(reader["BookName"].ToString());
                                 books.Add(reader["Author"].ToString());
-                                books.Add(reader["Lent"].ToString());
+                                books.Add(reader["Borrowings"].ToString());
                                 books.Add(reader["CategoryName"].ToString());
                                 books.Add(reader["LanguageName"].ToString());
                             }
@@ -1170,11 +1225,11 @@ namespace Library___Login
                     string sqlQuery;
                     if (free == true)
                     {
-                        sqlQuery = "SELECT BookName, Author, Lent, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Lent LIKE 'free'";
+                        sqlQuery = "SELECT BookName, Author, Borrowings, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%') and Borrowings LIKE 'free'";
                     }
                     else
                     {
-                        sqlQuery = "SELECT BookName, Author, Lent, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%')";
+                        sqlQuery = "SELECT BookName, Author, Borrowings, CategoryName, LanguageName FROM Books inner join BookCategory on Books.IDCategory = BookCategory.ID inner join BookLanguage on Books.IDLanguage = BookLanguage.ID where (BookName LIKE '%" + search + "%' or Author LIKE '%" + search + "%')";
                     }
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -1183,7 +1238,7 @@ namespace Library___Login
                     {
                         books.Add(reader["BookName"].ToString());
                         books.Add(reader["Author"].ToString());
-                        books.Add(reader["Lent"].ToString());
+                        books.Add(reader["Borrowings"].ToString());
                         books.Add(reader["CategoryName"].ToString());
                         books.Add(reader["LanguageName"].ToString());
                     }
@@ -1213,7 +1268,7 @@ namespace Library___Login
                     bookDetail.Add(reader["ID"] + "");
                     bookDetail.Add(reader["BookName"] + "");
                     bookDetail.Add(reader["Author"] + "");
-                    bookDetail.Add(reader["Lent"].ToString());
+                    bookDetail.Add(reader["Borrowings"].ToString());
                     bookDetail.Add(reader["IDCategory"] + "");
                     bookDetail.Add(reader["IDLanguage"] + "");
                     bookDetail.Add(reader["Description"] + "");
@@ -1613,26 +1668,26 @@ namespace Library___Login
         /// <summary>
         ///  Add borrowings into database
         /// </summary>
-        /// <param name="dateOfLoan"></param>
+        /// <param name="dateOfBorrow"></param>
         /// <param name="dateOfReturn"></param>
         /// <param name="bookID"></param>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public bool addLoans(string dateOfLoan, string dateOfReturn, string bookID, string userID)
+        public bool addBorrowing(string dateOfBorrow, string dateOfReturn, string bookID, string userID)
         {
             if (openConnection())
             {
-                string sqlQuery = "insert into Loans (DateLoan, DateReturn, IDBook, IDUser) values (@dateOfLoan, @dateOfReturn, @bookID, @userID)";
+                string sqlQuery = "insert into Borrowings (DateOfBorrow, DateOfReturn, IDBook, IDUser) values (@dateOfBorrow, @dateOfReturn, @bookID, @userID)";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-                cmd.Parameters.AddWithValue("@dateOfLoan", dateOfLoan);
+                cmd.Parameters.AddWithValue("@dateOfBorrow", dateOfBorrow);
                 cmd.Parameters.AddWithValue("@dateOfReturn", dateOfReturn);
                 cmd.Parameters.AddWithValue("@bookID", bookID);
                 cmd.Parameters.AddWithValue("@userID", userID);
                 cmd.ExecuteNonQuery();
 
-                sqlQuery = "update Books set Lent = @lent where ID = " + bookID;
+                sqlQuery = "update Books set Borrowings = @borrowings where ID = " + bookID;
                 cmd = new MySqlCommand(sqlQuery, connection);
-                cmd.Parameters.AddWithValue("@lent", "lent");
+                cmd.Parameters.AddWithValue("@borrowings", "borrowed");
                 cmd.ExecuteNonQuery();
 
                 closeConnection();
@@ -1646,18 +1701,18 @@ namespace Library___Login
         /// </summary>
         /// <param name="bookID"></param>
         /// <returns></returns>
-        public bool removeLoan(string bookID)
+        public bool removeBorrowing(string bookID)
         {
             if (openConnection())
             {
-                string sqlQuery = "delete from Loans where IDBook like @BookID";
+                string sqlQuery = "delete from Borrowings where IDBook like @BookID";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@BookID", bookID);
                 cmd.ExecuteNonQuery();
 
-                sqlQuery = "update Books set Lent = @lent where ID = " + bookID;
+                sqlQuery = "update Books set Borrowings = @borrowings where ID = " + bookID;
                 cmd = new MySqlCommand(sqlQuery, connection);
-                cmd.Parameters.AddWithValue("@lent", "free");
+                cmd.Parameters.AddWithValue("@borrowings", "free");
                 cmd.ExecuteNonQuery();
 
                 closeConnection();
@@ -1680,9 +1735,9 @@ namespace Library___Login
                 cmd.Parameters.AddWithValue("@BookID", bookID);
                 cmd.ExecuteNonQuery();
 
-                sqlQuery = "update Books set Lent = @lent where ID = " + bookID;
+                sqlQuery = "update Books set Borrowings = @borrowings where ID = " + bookID;
                 cmd = new MySqlCommand(sqlQuery, connection);
-                cmd.Parameters.AddWithValue("@lent", "free");
+                cmd.Parameters.AddWithValue("@borrowings", "free");
                 cmd.ExecuteNonQuery();
 
                 closeConnection();
@@ -1697,15 +1752,17 @@ namespace Library___Login
         /// <param name="bookName"></param>
         /// <param name="onlyReserved"></param>
         /// <returns></returns>
-        public List<string> checkLentsAndReservations(string bookName, bool onlyReserved)
+        public List<string> checkBorrowingsAndReservations(string bookName, bool onlyReserved)
         {
+            DateTime date = new DateTime();
+            string stringDate = null;
             List<string> list = new List<string>();
             if (openConnection())
             {
                 if (onlyReserved == false)
                 {
-                    string sqlQuery = "select BookName, FirstName, LastName, Lent, DateLoan, DateReturn from Books inner join"
-                        + " Loans on Books.ID = Loans.IDBook inner join Users on Users.ID = Loans.IDUser where Books.BookName"
+                    string sqlQuery = "select BookName, FirstName, LastName, Borrowings, DateofBorrow, DateOfReturn from Books inner join"
+                        + " Borrowings on Books.ID = Borrowings.IDBook inner join Users on Users.ID = Borrowings.IDUser where Books.BookName"
                         + " like '%" + bookName + "%'";
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -1713,13 +1770,19 @@ namespace Library___Login
                     {
                         list.Add(reader["BookName"].ToString());
                         list.Add(reader["FirstName"] + " " + reader["LastName"]);
-                        list.Add(reader["Lent"].ToString());
-                        list.Add(reader["DateLoan"].ToString());
-                        list.Add(reader["DateReturn"].ToString());
+                        list.Add(reader["Borrowings"].ToString());
+
+                        date = DateTime.Parse(reader["DateOfBorrow"].ToString());
+                        stringDate = date.Day + "." + date.Month + "." + date.Year;
+                        list.Add(stringDate);
+
+                        date = DateTime.Parse(reader["DateOfReturn"].ToString());
+                        stringDate = date.Day + "." + date.Month + "." + date.Year;
+                        list.Add(stringDate);
                     }
                     reader.Close();
 
-                    sqlQuery = "select BookName, FirstName, LastName, Lent from Books inner join"
+                    sqlQuery = "select BookName, FirstName, LastName, Borrowings from Books inner join"
                         + " ReservedBooks on Books.ID = ReservedBooks.IDBook inner join Users on Users.ID = ReservedBooks.IDUser"
                         + " where Books.BookName like '%" + bookName + "%'";
                     cmd = new MySqlCommand(sqlQuery, connection);
@@ -1728,7 +1791,7 @@ namespace Library___Login
                     {
                         list.Add(reader["BookName"].ToString());
                         list.Add(reader["FirstName"] + " " + reader["LastName"]);
-                        list.Add(reader["Lent"].ToString());
+                        list.Add(reader["Borrowings"].ToString());
                         list.Add("---");
                         list.Add("---");
                     }
@@ -1737,7 +1800,7 @@ namespace Library___Login
                 }
                 else
                 {
-                    string sqlQuery = "select BookName, FirstName, LastName, Lent from Books inner join"
+                    string sqlQuery = "select BookName, FirstName, LastName, Borrowings from Books inner join"
                         + " ReservedBooks on Books.ID = ReservedBooks.IDBook inner join Users on Users.ID = ReservedBooks.IDUser"
                         + " where Books.BookName like '%" + bookName + "%'";
                     MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
@@ -1746,7 +1809,7 @@ namespace Library___Login
                     {
                         list.Add(reader["BookName"].ToString());
                         list.Add(reader["FirstName"] + " " + reader["LastName"]);
-                        list.Add(reader["Lent"].ToString());
+                        list.Add(reader["Borrowings"].ToString());
                         list.Add("---");
                         list.Add("---");
                     }
@@ -1762,27 +1825,35 @@ namespace Library___Login
         /// </summary>
         /// <param name="UserID"></param>
         /// <returns></returns>
-        public List<string> checkUserLoansAndReservation(string UserID)
+        public List<string> checkUserBorrowingsAndReservation(string UserID)
         {
+            DateTime date = new DateTime();
+            string stringDate = null;
             List<string> list = new List<string>();
             if (openConnection())
             {
-                string sqlQuery = "select BookName, Author, Lent, DateLoan, DateReturn from Books inner join"
-                        + " Loans on Books.ID = Loans.IDBook inner join Users on Users.ID = Loans.IDUser where"
-                        + " Loans.IDUser like " + UserID;
+                string sqlQuery = "select BookName, Author, Borrowings, DateOfBorrow, DateOfReturn from Books inner join"
+                        + " Borrowings on Books.ID = Borrowings.IDBook inner join Users on Users.ID = Borrowings.IDUser where"
+                        + " Borrowings.IDUser like " + UserID;
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     list.Add(reader["BookName"].ToString());
                     list.Add(reader["Author"].ToString());
-                    list.Add(reader["Lent"].ToString());
-                    list.Add(reader["DateLoan"].ToString());
-                    list.Add(reader["DateReturn"].ToString());
+                    list.Add(reader["Borrowings"].ToString());
+
+                    date = DateTime.Parse(reader["DateOfBorrow"].ToString());
+                    stringDate = date.Day + "." + date.Month + "." + date.Year;
+                    list.Add(stringDate);
+
+                    date = DateTime.Parse(reader["DateOfReturn"].ToString());
+                    stringDate = date.Day + "." + date.Month + "." + date.Year;
+                    list.Add(stringDate);
                 }
                 reader.Close();
 
-                sqlQuery = "select BookName, Author, Lent from Books inner join"
+                sqlQuery = "select BookName, Author, Borrowings from Books inner join"
                     + " ReservedBooks on Books.ID = ReservedBooks.IDBook inner join Users on Users.ID = ReservedBooks.IDUser"
                     + " where ReservedBooks.IDUser like " + UserID;
                 cmd = new MySqlCommand(sqlQuery, connection);
@@ -1791,7 +1862,7 @@ namespace Library___Login
                 {
                     list.Add(reader["BookName"].ToString());
                     list.Add(reader["Author"].ToString());
-                    list.Add(reader["Lent"].ToString());
+                    list.Add(reader["Borrowings"].ToString());
                     list.Add("---");
                     list.Add("---");
                 }
@@ -1817,9 +1888,9 @@ namespace Library___Login
                 cmd.Parameters.AddWithValue("@IDUser", userID);
                 cmd.ExecuteNonQuery();
 
-                sqlQuery = "update Books set Lent = @Reserved where ID = " + bookID;
+                sqlQuery = "update Books set Borrowings = @borrowings where ID = " + bookID;
                 cmd = new MySqlCommand(sqlQuery, connection);
-                cmd.Parameters.AddWithValue("@reserved", "reserved");
+                cmd.Parameters.AddWithValue("@borrowings", "reserved");
                 cmd.ExecuteNonQuery();
 
                 closeConnection();
@@ -1844,9 +1915,9 @@ namespace Library___Login
                 cmd.Parameters.AddWithValue("@IDUser", userID);
                 cmd.ExecuteNonQuery();
 
-                sqlQuery = "update Books set Lent = @free where ID = " + bookID;
+                sqlQuery = "update Books set Borrowings = @borrowings where ID = " + bookID;
                 cmd = new MySqlCommand(sqlQuery, connection);
-                cmd.Parameters.AddWithValue("@free", "free");
+                cmd.Parameters.AddWithValue("@borrowings", "free");
                 cmd.ExecuteNonQuery();
 
 
@@ -1865,7 +1936,7 @@ namespace Library___Login
         {
             if (openConnection())
             {
-                string sqlQuery = "select Lent from Books where ID like @bookID";
+                string sqlQuery = "select Borrowings from Books where ID like @bookID";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@bookId", bookID);
 
@@ -1873,7 +1944,7 @@ namespace Library___Login
                 bool result = false;
                 if (reader.Read())
                 {
-                    result = reader["Lent"].ToString().Equals("free");
+                    result = reader["Borrowings"].ToString().Equals("free");
                 }
 
                 closeConnection();
@@ -1897,19 +1968,19 @@ namespace Library___Login
                 string sqlQuery = null;
                 if (loan == "reserved")
                 {
-                    sqlQuery = "select Lent, IDUser from Books INNER JOIN ReservedBooks ON Books.ID=ReservedBooks.IDBook"
+                    sqlQuery = "select Borrowings, IDUser from Books INNER JOIN ReservedBooks ON Books.ID=ReservedBooks.IDBook"
                         + " where Books.ID like " + IDBook;
                 }
-                else if (loan == "lent")
+                else if (loan == "borrowed")
                 {
-                    sqlQuery = "select Lent, IDUser from Books INNER JOIN Loans ON Books.ID=Loans.IDBook"
+                    sqlQuery = "select Borrowings, IDUser from Books INNER JOIN Borrowings ON Books.ID=Borrowings.IDBook"
                         + " where Books.ID like " + IDBook;
                 }
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    if (reader["Lent"].ToString().Equals("reserved") || reader["Lent"].ToString().Equals("lent"))
+                    if (reader["Borrowings"].ToString().Equals("reserved") || reader["Borrowings"].ToString().Equals("borrowed"))
                     {
                         result = reader["IDUser"].ToString().Equals(IDUser);
                     }
@@ -1927,47 +1998,53 @@ namespace Library___Login
         /// <param name="bookID"></param>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public DateTime checkLoanDate(string bookID, string userID)
+        public DateTime checkBorrowingDate(string bookID, string userID)
         {
-            DateTime loan = new DateTime();
+            DateTime borrowings = new DateTime();
             if (openConnection())
             {
-                string sqlQuery = "select DateReturn from Loans where IDBook like " + bookID + " and IDUser like " + userID;
+                string sqlQuery = "select DateOfReturn from Borrowings where IDBook like " + bookID + " and IDUser like " + userID;
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    loan = DateTime.Parse(reader["DateReturn"].ToString());
+                    borrowings = DateTime.Parse(reader["DateOfReturn"].ToString());
                 }
                 closeConnection();
-                return loan;
+                return borrowings;
             }
-            return loan;
+            return borrowings;
         }
 
         /// <summary>
         /// finds and returns all loans to check, if there are any loans longer than 2 months to block these users
         /// </summary>
         /// <returns></returns>
-        public List<string> checkLoans()
+        public List<string> checkBorrowings()
         {
-            List<string> loans = new List<string>();
+            List<string> borrowings = new List<string>();
+
             if (openConnection())
             {
-                string sqlQuery = "select DateReturn, IDUser from Loans";
+                DateTime date = new DateTime();
+                string stringDate;
+                string sqlQuery = "select DateOfReturn, IDUser from Borrowings";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    loans.Add(reader["DateReturn"].ToString());
-                    loans.Add(reader["IDUser"].ToString());
+                    date = DateTime.Parse(reader["DateOfReturn"].ToString());
+                    stringDate = date.Day + "." + date.Month + "." + date.Year;
+                    
+                    borrowings.Add(stringDate);
+                    borrowings.Add(reader["IDUser"].ToString());
                 }
                 closeConnection();
-                return loans;
+                return borrowings;
             }
-            return loans;
+            return borrowings;
         }
 
         /// <summary>
@@ -1979,13 +2056,13 @@ namespace Library___Login
             if (openConnection())
             {
                 DataSet ds = new DataSet();
-                string sqlQuery = "select * from Loans";
+                string sqlQuery = "select * from Borrowings";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(sqlQuery, connection);
 
                 adapter.Fill(ds);
                 closeConnection();
-                ds.WriteXml("Loans.xml");
+                ds.WriteXml("Borrowings.xml");
                 return true;
             }
             return false;

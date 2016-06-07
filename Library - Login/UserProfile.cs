@@ -17,16 +17,19 @@ namespace Library___Login
     {
         string userID, loan, bookName;
         double biggestPenalty;
+        byte[] data;
         Connect2DB connect;
         List<string> details;
-        DateTime lent;
+        DateTime borrowing;
+        Encoding enc;
 
         public UserProfile(string userID)
         {
             InitializeComponent();
             ErrorMessage.Visible = false;
             connect = new Connect2DB();
-            lent = new DateTime();
+            borrowing = new DateTime();
+            enc = new UTF8Encoding(true, true);
             biggestPenalty = 0;
 
             details = new List<string>();
@@ -53,7 +56,7 @@ namespace Library___Login
             }
             listView1.Items.Clear();
             columnHeader1.TextAlign = HorizontalAlignment.Center;
-            details = connect.checkUserLoansAndReservation(userID);
+            details = connect.checkUserBorrowingsAndReservation(userID);
 
             for (int i = 0; i < details.Count; i++)
             {
@@ -72,8 +75,8 @@ namespace Library___Login
                 if (loan != "---")
                 {
                     checkReturnDate(bookName, loan);
-                    lent = DateTime.Parse(loan);
-                    if (lent < DateTime.Today)
+                    borrowing = DateTime.Parse(loan);
+                    if (borrowing < DateTime.Today)
                     {
                         item.ForeColor = Color.Red;
                     }
@@ -112,7 +115,6 @@ namespace Library___Login
 
         private void UserProfile_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
             FormLogin forml = new FormLogin();
             forml.Show();
         }
@@ -127,7 +129,8 @@ namespace Library___Login
             }
             else
             {
-                string info = listView1.SelectedItems[index].Text;
+                data = enc.GetBytes(listView1.SelectedItems[index].Text);
+                string info = enc.GetString(data);
                 FormBookDetails bookDetail = new FormBookDetails(info, userID);
                 bookDetail.ShowDialog();
                 this.Update();
@@ -155,12 +158,12 @@ namespace Library___Login
         private void checkReturnDate(string bookName, string loan)
         {
             string bookID = connect.findBookID(bookName);
-            lent = connect.checkLoanDate(bookID, userID);
+            borrowing = connect.checkBorrowingDate(bookID, userID);
 
-            if (lent < DateTime.Today)
+            if (borrowing < DateTime.Today)
             {
                 string penalty;
-                if (DateTime.Today <= lent.AddDays(7))
+                if (DateTime.Today <= borrowing.AddDays(7))
                 {
                     if (0.7 >= biggestPenalty)
                     {
@@ -170,7 +173,7 @@ namespace Library___Login
                         Penalty.Visible = true;
                     }
                 }
-                else if (DateTime.Today > lent.AddDays(7) && DateTime.Today <= lent.AddMonths(1))
+                else if (DateTime.Today > borrowing.AddDays(7) && DateTime.Today <= borrowing.AddMonths(1))
                 {
                     if (2.00 >= biggestPenalty)
                     {
@@ -185,7 +188,7 @@ namespace Library___Login
                         Penalty.Visible = true;
                     }
                 }
-                else if (DateTime.Today > lent.AddMonths(1) && DateTime.Today <= lent.AddMonths(2))
+                else if (DateTime.Today > borrowing.AddMonths(1) && DateTime.Today <= borrowing.AddMonths(2))
                 {
                     if (5.00 >= biggestPenalty)
                     {
@@ -199,7 +202,7 @@ namespace Library___Login
                         Penalty.Visible = true;
                     }
                 }
-                else if (lent.AddMonths(2) < DateTime.Today)
+                else if (borrowing.AddMonths(2) < DateTime.Today)
                 {
                     if (5.00 >= biggestPenalty)
                     {

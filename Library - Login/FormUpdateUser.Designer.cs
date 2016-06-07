@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdateUser));
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,9 +45,9 @@
             this.addCategoryBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBookLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBorrowingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservedBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkLoansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBorrowingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrationReguestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.switchToUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,7 +125,6 @@
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(366, 20);
             this.SearchBar.TabIndex = 50;
-            this.SearchBar.TextChanged += new System.EventHandler(this.SearchBar_TextChanged);
             // 
             // menuStrip1
             // 
@@ -184,33 +184,33 @@
             // loansToolStripMenuItem
             // 
             this.loansToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addLoansToolStripMenuItem,
+            this.addBorrowingToolStripMenuItem,
             this.reservedBooksToolStripMenuItem,
-            this.checkLoansToolStripMenuItem});
+            this.checkBorrowingsToolStripMenuItem});
             this.loansToolStripMenuItem.Name = "loansToolStripMenuItem";
-            this.loansToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.loansToolStripMenuItem.Text = "Loans";
+            this.loansToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.loansToolStripMenuItem.Text = "Borrowings";
             // 
-            // addLoansToolStripMenuItem
+            // addBorrowingToolStripMenuItem
             // 
-            this.addLoansToolStripMenuItem.Name = "addLoansToolStripMenuItem";
-            this.addLoansToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.addLoansToolStripMenuItem.Text = "Add loans";
-            this.addLoansToolStripMenuItem.Click += new System.EventHandler(this.addLoansToolStripMenuItem_Click);
+            this.addBorrowingToolStripMenuItem.Name = "addBorrowingToolStripMenuItem";
+            this.addBorrowingToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.addBorrowingToolStripMenuItem.Text = "Add borrowing";
+            this.addBorrowingToolStripMenuItem.Click += new System.EventHandler(this.addBorrowingToolStripMenuItem_Click);
             // 
             // reservedBooksToolStripMenuItem
             // 
             this.reservedBooksToolStripMenuItem.Name = "reservedBooksToolStripMenuItem";
-            this.reservedBooksToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.reservedBooksToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.reservedBooksToolStripMenuItem.Text = "Reserved books";
             this.reservedBooksToolStripMenuItem.Click += new System.EventHandler(this.reservedBooksToolStripMenuItem_Click);
             // 
-            // checkLoansToolStripMenuItem
+            // checkBorrowingsToolStripMenuItem
             // 
-            this.checkLoansToolStripMenuItem.Name = "checkLoansToolStripMenuItem";
-            this.checkLoansToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.checkLoansToolStripMenuItem.Text = "Check loans";
-            this.checkLoansToolStripMenuItem.Click += new System.EventHandler(this.checkLoansToolStripMenuItem_Click);
+            this.checkBorrowingsToolStripMenuItem.Name = "checkBorrowingsToolStripMenuItem";
+            this.checkBorrowingsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.checkBorrowingsToolStripMenuItem.Text = "Check borrowings";
+            this.checkBorrowingsToolStripMenuItem.Click += new System.EventHandler(this.checkBorrowingsToolStripMenuItem_Click);
             // 
             // updateUserToolStripMenuItem
             // 
@@ -281,6 +281,7 @@
             this.Controls.Add(this.Refresh);
             this.Controls.Add(this.Search_btn);
             this.Controls.Add(this.SearchBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUpdateUser";
             this.Text = "FormUpdateUser";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormUpdateUser_FormClosing);
@@ -308,9 +309,9 @@
         private System.Windows.Forms.ToolStripMenuItem addCategoryBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBookLanguageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loansToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addLoansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBorrowingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservedBooksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkLoansToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkBorrowingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrationReguestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem switchToUserToolStripMenuItem;

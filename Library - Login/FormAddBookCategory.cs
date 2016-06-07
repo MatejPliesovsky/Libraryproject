@@ -17,10 +17,13 @@ namespace Library___Login
     public partial class FormAddBookCategory : Form
     {
         private string CategoryName;
+        byte[] data;
+        Encoding enc;
 
         public FormAddBookCategory()
         {
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -33,7 +36,8 @@ namespace Library___Login
         {
             Connect2DB database = new Connect2DB();
 
-            CategoryName = this.txtBookCategory.Text;
+            data = enc.GetBytes(txtBookCategory.Text);
+            CategoryName = enc.GetString(data);
 
             if (database.addBookCategory(CategoryName))
             {

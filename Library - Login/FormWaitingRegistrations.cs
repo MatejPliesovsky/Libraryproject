@@ -282,7 +282,7 @@ namespace Library___Login
                 active = "active";
                 if (con.writeUserAsActive(userID, permission, active))
                 {
-                    DatabaseInfo.Text = "User was added to the database as " + permission;
+                    DatabaseInfo.Text = "User was add to the database as " + permission;
                     DatabaseInfo.Visible = true;
                 }
             }
@@ -371,23 +371,23 @@ namespace Library___Login
             form.Show();
         }
 
-        private void addLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addBorrowingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAddLoan loans = new FormAddLoan();
-            loans.ShowDialog();
+            FormAddBorrowing borrowing = new FormAddBorrowing();
+            borrowing.ShowDialog();
         }
 
         private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
+            FormCheckBorrowings reserved = new FormCheckBorrowings(AdminID, true);
             reserved.Show();
             this.Hide();
         }
 
-        private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        private void checkBorrowingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans loans = new FormCheckLoans(AdminID, false);
-            loans.Show();
+            FormCheckBorrowings borrowings = new FormCheckBorrowings(AdminID, false);
+            borrowings.Show();
             this.Hide();
         }
 
@@ -418,14 +418,13 @@ namespace Library___Login
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormLogin login = new FormLogin();
-            login.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void FormWaitingRegistrations_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.Environment.Exit(1);
+            FormLogin login = new FormLogin();
+            login.Show();
         }
     }
 }

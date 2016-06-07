@@ -17,10 +17,13 @@ namespace Library___Login
     {
         string userID;
         Connect2DB connect;
+        byte[] data;
+        Encoding enc;
 
         public FormChangePassword(string userID)
         {
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
             this.userID = userID;
             connect = new Connect2DB();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -28,18 +31,20 @@ namespace Library___Login
 
         private void Password_TextChanged(object sender, EventArgs e)
         {
-            OldPassword.PasswordChar = '*';
-            NewPassword.PasswordChar = '*';
-            RepeatPassword.PasswordChar = '*';
+            OldPassword.PasswordChar = '●';
+            NewPassword.PasswordChar = '●';
+            RepeatPassword.PasswordChar = '●';
         }
 
         private void Confirm_Click(object sender, EventArgs e)
         {
             if (NewPassword.Text == RepeatPassword.Text)
             {
-                if (OldPassword.Text == connect.getOldPassword(userID))
+                data = enc.GetBytes(OldPassword.Text);
+                if (enc.GetString(data) == connect.getOldPassword(userID))
                 {
-                    if (connect.changeUserPassword(userID, NewPassword.Text))
+                    data = enc.GetBytes(NewPassword.Text);
+                    if (connect.changeUserPassword(userID, enc.GetString(data)))
                     {
                         InfoMessage.Text = "Password was changed successfuly!";
                         timer1.Interval = 2500;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationDetails));
             this.Language = new System.Windows.Forms.Label();
             this.Category = new System.Windows.Forms.Label();
             this.Author = new System.Windows.Forms.Label();
@@ -101,7 +102,7 @@
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(120, 45);
             this.Confirm.TabIndex = 12;
-            this.Confirm.Text = "Lent book";
+            this.Confirm.Text = "Borrow book";
             this.Confirm.UseVisualStyleBackColor = true;
             this.Confirm.Click += new System.EventHandler(this.Confirm_Click);
             // 
@@ -111,7 +112,7 @@
             this.Refuse.Name = "Refuse";
             this.Refuse.Size = new System.Drawing.Size(120, 45);
             this.Refuse.TabIndex = 13;
-            this.Refuse.Text = "Refuse lent";
+            this.Refuse.Text = "Refuse borrowing";
             this.Refuse.UseVisualStyleBackColor = true;
             this.Refuse.Click += new System.EventHandler(this.Refuse_Click);
             // 
@@ -129,7 +130,7 @@
             this.DatabaseInfo.AutoSize = true;
             this.DatabaseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.DatabaseInfo.ForeColor = System.Drawing.Color.Red;
-            this.DatabaseInfo.Location = new System.Drawing.Point(198, 265);
+            this.DatabaseInfo.Location = new System.Drawing.Point(-1, 265);
             this.DatabaseInfo.Name = "DatabaseInfo";
             this.DatabaseInfo.Size = new System.Drawing.Size(389, 31);
             this.DatabaseInfo.TabIndex = 49;
@@ -164,6 +165,7 @@
             this.Controls.Add(this.Category);
             this.Controls.Add(this.Author);
             this.Controls.Add(this.BookName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReservationDetails";
             this.Text = "ReservationDetails";
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();

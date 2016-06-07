@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserProfile));
             this.ProfilePictureBox = new System.Windows.Forms.PictureBox();
             this.UserAllName = new System.Windows.Forms.Label();
             this.UserAge = new System.Windows.Forms.Label();
@@ -224,6 +225,7 @@
             this.Controls.Add(this.UserAllName);
             this.Controls.Add(this.ProfilePictureBox);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "UserProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

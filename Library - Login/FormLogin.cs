@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,14 +17,21 @@ namespace Library___Login
     /// </summary>
     public partial class FormLogin : Form
     {
+        string username, password;
+        Encoding enc;
+        Connect2DB con;
+
         public FormLogin()
         {
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
             ErrorMessage.Visible = false;
             Username.Text = "Please enter your email";
             Password.Text = "Password";
             Username.ForeColor = Color.Gray;
             Password.ForeColor = Color.Gray;
+            Username.SelectionStart = 0;
+            Username.SelectionLength = Username.Text.Length;
             this.StartPosition = FormStartPosition.CenterScreen;
 
         }
@@ -47,18 +56,20 @@ namespace Library___Login
         /// <param name="e"></param>
         private void Login_Click(object sender, EventArgs e)
         {
-            Connect2DB con = new Connect2DB();
-            if (con.isUserRegistered(Username.Text, Password.Text))
+            con = new Connect2DB();
+            if (con.isUserRegistered(username, password))
             {
-                if (con.isUserAdmin(Username.Text) == "admin")
+                if (con.isUserAdmin(username) == "admin")
                 {
-                    FormAdminInterface admin = new FormAdminInterface(Username.Text, Password.Text);
+                    FormAdminInterface admin = new FormAdminInterface(username, password);
+                    Console.Write("Opening admin interface");
                     admin.Show();
                     this.Hide();
                 }
-                else if (con.isUserAdmin(Username.Text) == "user")
+                else if (con.isUserAdmin(username) == "user")
                 {
-                    FormUserInterface userForm = new FormUserInterface(Username.Text,Password.Text);
+                    FormUserInterface userForm = new FormUserInterface(username, password);
+                    Console.Write("Openning user interface");
                     userForm.Show();
                     this.Hide();
                 }
@@ -95,7 +106,9 @@ namespace Library___Login
         private void Password_TextChanged(object sender, EventArgs e)
         {
             Password.ForeColor = Color.Black;
-           // Password.PasswordChar = '*';
+            // Password.PasswordChar = '*';
+            byte[] bytes = enc.GetBytes(Password.Text);
+            password = enc.GetString(bytes);
         }
 
         /// <summary>
@@ -115,15 +128,20 @@ namespace Library___Login
         
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void Username_TextChanged(object sender, EventArgs e)
         {
             Username.ForeColor = Color.Black;
+            byte[] user = enc.GetBytes(Username.Text);
+            username = enc.GetString(user);
+            Username.Anchor = AnchorStyles.Bottom & AnchorStyles.Top & AnchorStyles.Left & AnchorStyles.Right;
+            try
+            {
+                Username.TextAlign = HorizontalAlignment.Left;
+            }
+            catch (InvalidEnumArgumentException ex)
+            {
+                MessageBox.Show("Error! " + ex.ToString());
+            }
         }
 
         private void Username_MouseClick(object sender, MouseEventArgs e)
@@ -168,7 +186,9 @@ namespace Library___Login
 
         private void Password_Enter(object sender, EventArgs e)
         {
-            Password.PasswordChar = '*';
+            Password.PasswordChar = '●';
+            byte[] pass = enc.GetBytes(Password.Text);
+            password = enc.GetString(pass);
         }
 
         private void Username_KeyDown(object sender, KeyEventArgs e)
@@ -187,6 +207,12 @@ namespace Library___Login
                 Login_Click(Username, null);
                 Password.Text = "";
             }
+        }
+
+        private void ForgottenPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormForgottenPassword forgotten = new FormForgottenPassword();
+            forgotten.ShowDialog();
         }
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)

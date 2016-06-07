@@ -18,11 +18,15 @@ namespace Library___Login
         string adminID; // id of user, who made changes. It can be admin, or user
         string userID, firstName, lastName, age, email, userRole, active, street, streetNumber, postalCode, city, country, telephone, details;
         string[] items;
-        Connect2DB connect = new Connect2DB();
+        byte[] data;
+        Connect2DB connect; 
+        Encoding enc;
 
         public FormUserDetails(string adminID, string firstName)
         {
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
+            connect = new Connect2DB();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.adminID = adminID;
             details = connect.findUserByFirstName(firstName);
@@ -84,17 +88,31 @@ namespace Library___Login
             telephone = items[12];
 
             ID.Text = userID;
-            FirstName.Text = firstName;
-            LastName.Text = lastName;
-            Age.Text = age;
-            Email.Text = email;
+            data = enc.GetBytes(firstName);
+            FirstName.Text = enc.GetString(data);
+
+            data = enc.GetBytes(lastName);
+            LastName.Text = enc.GetString(data);
+
+            data = enc.GetBytes(email);
+            Email.Text = enc.GetString(data);
+
             UserRole.Text = userRole;
             Active.Text = active;
-            Street.Text = street;
+
+            data = enc.GetBytes(street);
+            Street.Text = enc.GetString(data);
+
             StreetNumber.Text = streetNumber;
+
             PostalCode.Text = postalCode;
-            City.Text = city;
-            Country.Text = country;
+
+            data = enc.GetBytes(city);
+            City.Text = enc.GetString(data);
+
+            data = enc.GetBytes(country);
+            Country.Text = enc.GetString(data);
+
             Telephone.Text = telephone;
 
             ID.Enabled = false;
@@ -111,30 +129,48 @@ namespace Library___Login
         private void Apply_Click(object sender, EventArgs e)
         {
             userID = ID.Text;
-            firstName = FirstName.Text;
-            lastName = LastName.Text;
-            email = Email.Text;
+            data = enc.GetBytes(FirstName.Text);
+            firstName = enc.GetString(data);
+
+            data = enc.GetBytes(LastName.Text);
+            lastName = enc.GetString(data);
+
+            data = enc.GetBytes(Email.Text);
+            email = enc.GetString(data);
+
             userRole = UserRole.Text.ToLower();
             active = Active.Text.ToLower();
-            street = Street.Text;
+
+            data = enc.GetBytes(Street.Text);
+            street = enc.GetString(data);
+
             streetNumber = StreetNumber.Text;
+
             postalCode = PostalCode.Text;
-            city = City.Text;
-            country = Country.Text;
+
+            data = enc.GetBytes(City.Text);
+            city = enc.GetString(data);
+
+            data = enc.GetBytes(Country.Text);
+            country = enc.GetString(data);
+            
             telephone = Telephone.Text;
 
-            string details = userID + ";" + firstName + ";" + lastName + ";" + email + ";" + userRole + ";" + active + ";" + street + ";"
-                + streetNumber + ";" + postalCode + ";" + city + ";" + country + ";" + telephone;
+            data = enc.GetBytes(userID + ";" + firstName + ";" + lastName + ";" + email + ";" + userRole + ";" + active + ";" + street + ";"
+                + streetNumber + ";" + postalCode + ";" + city + ";" + country + ";" + telephone);
+            details = enc.GetString(data);
 
             if (connect.updateUserData(details))
             {
-                DatabaseInfo.Text = "User data was updated";
+                DatabaseInfo.Text = "User data was update";
                 DatabaseInfo.Visible = true;
+                Console.Write("User was update");
             }
             else
             {
                 DatabaseInfo.Text = "Cannot connect to the database!";
                 DatabaseInfo.Visible = true;
+                Console.Write("Error with DB connection");
             }
         }
 
@@ -144,23 +180,38 @@ namespace Library___Login
             {
                 DatabaseInfo.Text = "User was deleted.";
                 DatabaseInfo.Visible = true;
+                Console.Write("User was delete successfuly");
             }
         }
 
         private void ReturnChanges_Click(object sender, EventArgs e)
         {
             ID.Text = userID;
-            FirstName.Text = firstName;
-            LastName.Text = lastName;
-            Age.Text = age;
-            Email.Text = email;
+            data = enc.GetBytes(firstName);
+            FirstName.Text = enc.GetString(data);
+
+            data = enc.GetBytes(lastName);
+            LastName.Text = enc.GetString(data);
+
+            data = enc.GetBytes(email);
+            Email.Text = enc.GetString(data);
+
             UserRole.Text = userRole;
             Active.Text = active;
-            Street.Text = street;
+
+            data = enc.GetBytes(street);
+            Street.Text = enc.GetString(data);
+
             StreetNumber.Text = streetNumber;
+
             PostalCode.Text = postalCode;
-            City.Text = city;
-            Country.Text = country;
+
+            data = enc.GetBytes(city);
+            City.Text = enc.GetString(data);
+
+            data = enc.GetBytes(country);
+            Country.Text = enc.GetString(data);
+
             Telephone.Text = telephone;
         }
     }

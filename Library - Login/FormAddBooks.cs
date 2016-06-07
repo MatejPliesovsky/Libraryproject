@@ -16,13 +16,15 @@ namespace Library___Login
     /// </summary>
     public partial class FormAddBooks : Form
     {
-
         Connect2DB database = new Connect2DB();
         private string BookName, Author, IDcategory, IDLanguage, ISBN, Publisher, Description, image;
+        Encoding enc;
+        byte[] data;
 
         public FormAddBooks()
         {
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
             fillComboBoxBookCategory();
             fillComboBoxBookLanguage();
         }
@@ -34,13 +36,27 @@ namespace Library___Login
         /// <param name="e"></param>
         private void btnAddBook_Click(object sender, EventArgs e)
         {
-            BookName = this.txtBookName.Text;
-            Author = this.txtAuthor.Text;
-            IDcategory = comboBoxBookCategory.SelectedValue.ToString();
-            IDLanguage = comboBoxBookLanguage.SelectedValue.ToString();
-            ISBN = this.txtISBN.Text;
-            Publisher = this.txtPublisher.Text;
-            Description = this.richTxtBookDescreption.Text;
+            data = enc.GetBytes(txtBookName.Text);
+            BookName = enc.GetString(data);
+
+            data = enc.GetBytes(txtAuthor.Text);
+            Author = enc.GetString(data);
+
+            data = enc.GetBytes(comboBoxBookCategory.SelectedValue.ToString());
+            IDcategory = enc.GetString(data);
+
+            data = enc.GetBytes(comboBoxBookLanguage.SelectedValue.ToString());
+            IDLanguage = enc.GetString(data);
+
+            data = enc.GetBytes(txtISBN.Text);
+            ISBN = enc.GetString(data);
+
+            data = enc.GetBytes(txtPublisher.Text);
+            Publisher = enc.GetString(data);
+
+            data = enc.GetBytes(richTxtBookDescreption.Text);
+            Description = enc.GetString(data);
+
             image = this.txtImagePath.Text;
 
             if (database.addBook(BookName, Author, IDcategory, IDLanguage, image, ISBN, Publisher, Description))

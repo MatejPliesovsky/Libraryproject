@@ -18,7 +18,9 @@ namespace Library___Login
     public partial class FormRegistrationUser : Form
     {
         private string firstName, lastName, password, email, telephone, street, postalCode, city, country;
-        private byte[] image;
+        private byte[] image, data;
+        int code;
+        Encoding enc;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -48,8 +50,9 @@ namespace Library___Login
 
         public FormRegistrationUser()
         {
-            register = new Connect2DB();
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
+            register = new Connect2DB();
             Info.Visible = false;
             this.StartPosition = FormStartPosition.CenterScreen;
             phonePrefix = new List<string>();
@@ -84,30 +87,50 @@ namespace Library___Login
                 && Street.Text.Trim() != "" && Number.Text.Trim() != "" && City.Text.Trim() != "" 
                 && PostalCode.Text.Trim() != "" && Country.Text.Trim() != "")
             {
-                firstName = FirstName.Text;
-                lastName = LastName.Text;
+                data = enc.GetBytes(FirstName.Text);
+                firstName = enc.GetString(data);
+
+                data = enc.GetBytes(LastName.Text);
+                lastName = enc.GetString(data);
+
                 dateOfBirth = DateOfBirth.Value;
-                password = PasswordReg.Text;
-                email = EmailReg.Text;
+
+                data = enc.GetBytes(PasswordReg.Text);
+                password = enc.GetString(data);
+
+                data = enc.GetBytes(EmailReg.Text);
+                email = enc.GetString(data);
+
                 telephone = Telephone1.Text + Telephone2.Text;
                 street = Street.Text;
                 streetNumber = Int32.Parse(Number.Text);
-                city = City.Text;
+
+                data = enc.GetBytes(City.Text);
+                city = enc.GetString(data);
+
                 postalCode = PostalCode.Text;
-                country = Country.Text;
+
+                data = enc.GetBytes(Country.Text);
+                country = enc.GetString(data);
                 image = register.getDefaultImage();
+                Random rnd = new Random();
+                do
+                {
+                    code = rnd.Next(1000, 9999);
+                } while (register.isCodeTaken(code));
 
                 if (register.isEmailTaken(email) == 0)
                 {
-                    if (!(Telephone1.Items.Contains(Telephone1.Text)) && !(Country.Items.Contains(Country.Text)))
+                    if (!(Telephone1.Items.Contains(Telephone1.Text)) && !(Country.Items.Contains(country)))
                     {
                         register.addCountryToDB(Telephone1.Text, Country.Text);
                     }
 
-                    if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country, image))
+                    if (register.writeUserAsInactive(firstName, lastName, email, password, telephone, dateOfBirth, street, streetNumber, city, postalCode, country, image, code))
                     {
                         Info.Text = "Your request was send successfully.";
                         Info.Visible = true;
+                        Console.Write("Your data was send to database. Please wait for confirming it by Admin.");
                     }
                     else
                     {
@@ -152,7 +175,7 @@ namespace Library___Login
         /// <param name="e"></param>
         private void PasswordReg_TextChanged(object sender, EventArgs e)
         {
-            PasswordReg.PasswordChar = '*';
+            PasswordReg.PasswordChar = '●';
         }
 
         private static byte[] bitmapToByte(Bitmap image)

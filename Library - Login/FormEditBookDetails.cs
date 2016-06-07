@@ -16,13 +16,15 @@ namespace Library___Login
     public partial class FormEditBookDetails : Form
     {
         string bookID, bookName, author, lent, IDCategory, IDLanguage, desc, publisher, category, language, ISBN, image;
-
+        byte[] data;
         string[] descrpition;
         Connect2DB db = new Connect2DB();
+        Encoding enc;
 
         public FormEditBookDetails(string info)
         {
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
             fillComboBoxBookCategory();
             fillComboBoxBookLanguage();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -100,17 +102,27 @@ namespace Library___Login
         {
             if(txtImagePath.Enabled == false)
             {
-                bookName = txtBookName.Text;
-                author = txtBookAuthor.Text;
-                publisher = txtBookPublisher.Text;
-                ISBN = txtBookISBN.Text;
+                data = enc.GetBytes(txtBookName.Text);
+                bookName = enc.GetString(data);
+
+                data = enc.GetBytes(txtBookAuthor.Text);
+                author = enc.GetString(data);
+
+                data = enc.GetBytes(txtBookPublisher.Text);
+                publisher = enc.GetString(data);
+
+                data = enc.GetBytes(txtBookISBN.Text);
+                ISBN = enc.GetString(data);
+
                 IDCategory = comboNewCategory.SelectedValue.ToString();
                 IDLanguage = comboNewLanguage.SelectedValue.ToString();
                 for (int i = 0; i < descrpition.Length; i++)
                 {
                     desc = desc + descrpition[i];
                 }
-                desc = txtBookDescription.Text;
+
+                data = enc.GetBytes(txtBookDescription.Text);
+                desc = enc.GetString(data);
 
                 string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + ISBN + ";" + desc;
 
@@ -123,18 +135,27 @@ namespace Library___Login
 
             else if(txtImagePath.Enabled == true)
             {
-                bookName = txtBookName.Text;
-                author = txtBookAuthor.Text;
-                publisher = txtBookPublisher.Text;
-                ISBN = txtBookISBN.Text;
-                image = txtImagePath.Text;
+                data = enc.GetBytes(txtBookName.Text);
+                bookName = enc.GetString(data);
+
+                data = enc.GetBytes(txtBookAuthor.Text);
+                author = enc.GetString(data);
+
+                data = enc.GetBytes(txtBookPublisher.Text);
+                publisher = enc.GetString(data);
+
+                data = enc.GetBytes(txtBookISBN.Text);
+                ISBN = enc.GetString(data);
+
                 IDCategory = comboNewCategory.SelectedValue.ToString();
                 IDLanguage = comboNewLanguage.SelectedValue.ToString();
                 for (int i = 0; i < descrpition.Length; i++)
                 {
                     desc = desc + descrpition[i];
                 }
-                desc = txtBookDescription.Text;
+
+                data = enc.GetBytes(txtBookDescription.Text);
+                desc = enc.GetString(data);
 
                 string details = bookID + ";" + bookName + ";" + author + ";" + publisher + ";" + ISBN + ";" + desc;
 

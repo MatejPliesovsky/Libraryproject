@@ -16,6 +16,8 @@ namespace Library___Login
     public partial class FormAdminInterface : Form
     {
         Connect2DB connection;
+        Encoding enc;
+        byte[] data;
         private string AdminID;
         private int waitingReg;
         private List<string> loans;
@@ -25,6 +27,7 @@ namespace Library___Login
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            enc = new UTF8Encoding(true, true);
             connection = new Connect2DB();
             returns = new DateTime();
             AdminID = adminID;
@@ -43,7 +46,7 @@ namespace Library___Login
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
             }
-            loans = connection.checkLoans();
+            loans = connection.checkBorrowings();
             for (int i = 0; i < loans.Count; i++)
             {
                 returns = DateTime.Parse(loans[i].ToString());
@@ -59,6 +62,7 @@ namespace Library___Login
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            enc = new UTF8Encoding(true, true);
             connection = new Connect2DB();
             AdminID = connection.FindUser(username, password);
             waitingReg = connection.waitingRegistration();
@@ -76,7 +80,7 @@ namespace Library___Login
                 DatabaseInfo.Text = "Cannot connect to database!";
                 DatabaseInfo.Visible = true;
             }
-            loans = connection.checkLoans();
+            loans = connection.checkBorrowings();
             for (int i = 0; i < loans.Count; i++)
             {
                 returns = DateTime.Parse(loans[i].ToString());
@@ -190,12 +194,14 @@ namespace Library___Login
 
             if (SearchFree.Checked == true)
             {
-                search = SearchBar.Text;
+                data = enc.GetBytes(SearchBar.Text);
+                search = enc.GetString(data);
                 books = connection.searchBooksToListView(search, true, categories, languages);
             }
             else
             {
-                search = SearchBar.Text;
+                data = enc.GetBytes(SearchBar.Text);
+                search = enc.GetString(data);
                 books = connection.searchBooksToListView(search, false, categories, languages);
             }
 
@@ -244,23 +250,23 @@ namespace Library___Login
             form.Show();
         }
 
-        private void addLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addBorrowingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAddLoan loan = new FormAddLoan();
-            loan.Show();
+            FormAddBorrowing borrowing = new FormAddBorrowing();
+            borrowing.Show();
         }
 
         private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
+            FormCheckBorrowings reserved = new FormCheckBorrowings(AdminID, true);
             reserved.Show();
             this.Hide();
         }
 
-        private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        private void checkBorrowingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans loans = new FormCheckLoans(AdminID, false);
-            loans.Show();
+            FormCheckBorrowings borrowings = new FormCheckBorrowings(AdminID, false);
+            borrowings.Show();
             this.Hide();
         }
 
@@ -293,9 +299,7 @@ namespace Library___Login
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormLogin formLogin = new FormLogin();
-            formLogin.ShowDialog();
+            this.Close();
         }
 
         /// <summary>
@@ -319,7 +323,8 @@ namespace Library___Login
 
         private void FormAdminInterface_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.Environment.Exit(1);
+            FormLogin login = new FormLogin();
+            login.Show();
         }
 
         private void FormAdminInterface_Load(object sender, EventArgs e)

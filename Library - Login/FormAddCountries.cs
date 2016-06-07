@@ -16,13 +16,16 @@ namespace Library___Login
     public partial class FormAddCountries : Form
     {
         Connect2DB connect;
+        Encoding enc;
         string prefix, country, AdminID;
+        byte[] data;
 
         public FormAddCountries(string AdminID)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             connect = new Connect2DB();
+            enc = new UTF8Encoding(true, true);
             this.AdminID = AdminID;
         }
 
@@ -39,7 +42,8 @@ namespace Library___Login
         private void Confirm_Click(object sender, EventArgs e)
         {
             prefix = Prefix.Text;
-            country = Country.Text;
+            data = enc.GetBytes(Country.Text);
+            country = enc.GetString(data);
             if (prefix == "" || prefix == null || country == "" || country == null)
             {
                 MessageBox.Show("Enter all fields!");
@@ -48,7 +52,7 @@ namespace Library___Login
             {
                 if (connect.addCountryToDB(prefix, country))
                 {
-                    MessageBox.Show("Country was added to database.");
+                    MessageBox.Show("Country was add to database.");
                     prefix = null;
                     country = null;
                 }

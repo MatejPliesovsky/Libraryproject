@@ -15,13 +15,17 @@ namespace Library___Login
     /// </summary>
     public partial class FormUpdateUser : Form
     {
-        Connect2DB con = new Connect2DB();
+        Connect2DB con; 
+        Encoding enc;
+        byte[] data;
         string AdminID;
         int waitingReg;
 
         public FormUpdateUser(string adminID)
         {
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
+            con = new Connect2DB();
             DatabaseInfo.Visible = false;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AdminID = adminID;
@@ -55,7 +59,8 @@ namespace Library___Login
 
             List<string> usersData = new List<string>();
 
-            usersData = con.getAllUsersData(SearchBar.Text);
+            data = enc.GetBytes(SearchBar.Text);
+            usersData = con.getAllUsersData(enc.GetString(data));
 
             for (int i = 0; i < usersData.Count; i++)
             {
@@ -84,17 +89,13 @@ namespace Library___Login
             }
             else
             {
-                string info = listView1.SelectedItems[index].Text;
+                data = enc.GetBytes(listView1.SelectedItems[index].Text);
+                string info = enc.GetString(data);
                 FormUserDetails userDetail = new FormUserDetails(AdminID, info);
                 userDetail.ShowDialog();
                 Search_btn.Select();
                 this.Update();
             }
-        }
-
-        private void SearchBar_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,23 +123,23 @@ namespace Library___Login
             form.Show();
         }
 
-        private void addLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addBorrowingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAddLoan loans = new FormAddLoan();
-            loans.ShowDialog();
+            FormAddBorrowing borrowing = new FormAddBorrowing();
+            borrowing.ShowDialog();
         }
 
         private void reservedBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans reserved = new FormCheckLoans(AdminID, true);
+            FormCheckBorrowings reserved = new FormCheckBorrowings(AdminID, true);
             reserved.Show();
             this.Hide();
         }
 
-        private void checkLoansToolStripMenuItem_Click(object sender, EventArgs e)
+        private void checkBorrowingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCheckLoans loans = new FormCheckLoans(AdminID, false);
-            loans.Show();
+            FormCheckBorrowings borrowings = new FormCheckBorrowings(AdminID, false);
+            borrowings.Show();
             this.Hide();
         }
 
@@ -169,9 +170,7 @@ namespace Library___Login
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormLogin login = new FormLogin();
-            login.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Countries_Click(object sender, EventArgs e)
@@ -182,7 +181,8 @@ namespace Library___Login
 
         private void FormUpdateUser_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.Environment.Exit(1);
+            FormLogin login = new FormLogin();
+            login.Show();
         }
     }
 }

@@ -131,6 +131,11 @@ namespace Library___Login
             }
         }
 
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void DeleteRes_Click(object sender, EventArgs e)
         {
             connect.deleteReservation(bookID, userID);

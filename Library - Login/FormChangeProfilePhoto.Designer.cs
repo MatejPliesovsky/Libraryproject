@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChangeProfilePhoto));
             this.ProfilePictureBox = new System.Windows.Forms.PictureBox();
             this.Upload = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
@@ -93,6 +94,7 @@
             this.Controls.Add(this.Save);
             this.Controls.Add(this.Upload);
             this.Controls.Add(this.ProfilePictureBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormChangeProfilePhoto";
             this.Text = "FormChangeProfilePhoto";
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).EndInit();

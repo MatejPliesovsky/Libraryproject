@@ -18,8 +18,10 @@ namespace Library___Login
         string AdminID, userID, bookStatus;
         string bookID, author, bookCategory, bookLanguage, categoryID, languageID;
         int counter;
+        byte[] data;
         Connect2DB connect;
-        DateTime lent;
+        DateTime borrowing;
+        Encoding enc;
 
         public ReservationDetails(string AdminID, string bookName)
         {
@@ -27,7 +29,8 @@ namespace Library___Login
             DatabaseInfo.Visible = false;
             this.AdminID = AdminID;
             connect = new Connect2DB();
-            lent = new DateTime();
+            borrowing = new DateTime();
+            enc = new UTF8Encoding(true, true);
             this.StartPosition = FormStartPosition.CenterScreen;
 
             List<string> BookData = new List<string>();
@@ -73,38 +76,38 @@ namespace Library___Login
                 if (counter == 5)
                 {
                     Confirm.Hide();
-                    DatabaseInfo.Text = "User has already 5 loaner books.";
+                    DatabaseInfo.Text = "User has already 5 borrowed books.";
                     DatabaseInfo.Visible = true;
                 }
-                if (bookStatus == "lent")
+                if (bookStatus == "borrowed")
                 {
-                    Confirm.Text = "Remove loan";
+                    Confirm.Text = "Remove borrowing";
                     Refuse.Text = "Back";
 
-                    lent = connect.checkLoanDate(bookID, userID);
+                    borrowing = connect.checkBorrowingDate(bookID, userID);
 
-                    if(lent < DateTime.Today)
+                    if(borrowing < DateTime.Today)
                     {
                         string penalty;
-                        if(DateTime.Today <= lent.AddDays(7))
+                        if(DateTime.Today <= borrowing.AddDays(7))
                         {
                             penalty = connect.getPenalty(1);
                             Penalty.Text = UserName.Text + " has penalty " + penalty + " EURO for this book.\nHe must pay only biggest penalty.";
                             Penalty.Visible = true;
                         }
-                        else if (DateTime.Today > lent.AddDays(7) && DateTime.Today <= lent.AddMonths(1))
+                        else if (DateTime.Today > borrowing.AddDays(7) && DateTime.Today <= borrowing.AddMonths(1))
                         {
                             penalty = connect.getPenalty(2);
                             Penalty.Text = UserName.Text + " has penalty " + penalty + " EURO for this book.\nHe must pay only biggest penalty.";
                             Penalty.Visible = true;
                         }
-                        else if (DateTime.Today > lent.AddMonths(1) && DateTime.Today <= lent.AddMonths(2))
+                        else if (DateTime.Today > borrowing.AddMonths(1) && DateTime.Today <= borrowing.AddMonths(2))
                         {
                             penalty = connect.getPenalty(3);
                             Penalty.Text = UserName.Text + " has penalty " + penalty + " EURO for this book.\nHe must pay only biggest penalty.";
                             Penalty.Visible = true;
                         }
-                        else if (lent.AddMonths(2) < DateTime.Today)
+                        else if (borrowing.AddMonths(2) < DateTime.Today)
                         {
                             penalty = connect.getPenalty(4);
                             Penalty.Text = UserName.Text + " has penalty " + penalty + " EURO for this book.\nHe must pay only biggest penalty.\nThis user is Blocked";
@@ -122,15 +125,12 @@ namespace Library___Login
         /// <param name="e"></param>
         private void Confirm_Click(object sender, EventArgs e)
         {
-            if (bookStatus == "lent")
+            if (bookStatus == "borrowed")
             {
-                if (connect.removeLoan(bookID))
+                if (connect.removeBorrowing(bookID))
                 {
-                    if (connect.dropBookFromReservations(bookID))
-                    {
-                        DatabaseInfo.Text = "Lent was remove successuly";
-                        DatabaseInfo.Visible = true;
-                    }
+                    DatabaseInfo.Text = "Borrow was remove successuly";
+                    DatabaseInfo.Visible = true;
                 }
                 else
                 {
@@ -143,14 +143,14 @@ namespace Library___Login
                 DateTime today = DateTime.Today;
                 DateTime returns = DateTime.Today.AddDays(30);
 
-                string dateOfLoan = today.Year + "-" + today.Month + "-" + today.Day;
+                string dateOfBorrowing = today.Year + "-" + today.Month + "-" + today.Day;
                 string dateOfReturn = returns.Year + "-" + returns.Month + "-" + returns.Day;
 
-                if (connect.addLoans(dateOfLoan, dateOfReturn, bookID, userID))
+                if (connect.dropBookFromReservations(bookID))
                 {
-                    if (connect.dropBookFromReservations(bookID))
+                    if (connect.addBorrowing(dateOfBorrowing, dateOfReturn, bookID, userID))
                     {
-                        DatabaseInfo.Text = "Book was lent successuly";
+                        DatabaseInfo.Text = "Book was borrowed successuly";
                         DatabaseInfo.Visible = true;
                     }
                 }
@@ -164,7 +164,7 @@ namespace Library___Login
 
         private void Refuse_Click(object sender, EventArgs e)
         {
-            if (bookStatus == "lent")
+            if (bookStatus == "borrowed")
             {
                 this.Close();
             }

@@ -67,11 +67,11 @@
     <Compile Include="FormAddCountries.Designer.cs">
       <DependentUpon>FormAddCountries.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAddLoan.cs">
+    <Compile Include="FormAddBorrowing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddLoan.Designer.cs">
-      <DependentUpon>FormAddLoan.cs</DependentUpon>
+    <Compile Include="FormAddBorrowing.Designer.cs">
+      <DependentUpon>FormAddBorrowing.cs</DependentUpon>
     </Compile>
     <Compile Include="FormChangePassword.cs">
       <SubType>Form</SubType>
@@ -91,6 +91,12 @@
     <Compile Include="FormChangeProfilePhoto.Designer.cs">
       <DependentUpon>FormChangeProfilePhoto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormForgottenPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgottenPassword.Designer.cs">
+      <DependentUpon>FormForgottenPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormWaitingRegistrations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +110,11 @@
     <Compile Include="FormBookDetails.Designer.cs">
       <DependentUpon>FormBookDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCheckLoans.cs">
+    <Compile Include="FormCheckBorrowings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCheckLoans.Designer.cs">
-      <DependentUpon>FormCheckLoans.cs</DependentUpon>
+    <Compile Include="FormCheckBorrowings.Designer.cs">
+      <DependentUpon>FormCheckBorrowings.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdminInterface.cs">
       <SubType>Form</SubType>
@@ -190,8 +196,8 @@
     <EmbeddedResource Include="FormAddCountries.resx">
       <DependentUpon>FormAddCountries.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddLoan.resx">
-      <DependentUpon>FormAddLoan.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddBorrowing.resx">
+      <DependentUpon>FormAddBorrowing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChangePassword.resx">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
@@ -202,14 +208,17 @@
     <EmbeddedResource Include="FormChangeProfilePhoto.resx">
       <DependentUpon>FormChangeProfilePhoto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormForgottenPassword.resx">
+      <DependentUpon>FormForgottenPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormWaitingRegistrations.resx">
       <DependentUpon>FormWaitingRegistrations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBookDetails.resx">
       <DependentUpon>FormBookDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCheckLoans.resx">
-      <DependentUpon>FormCheckLoans.cs</DependentUpon>
+    <EmbeddedResource Include="FormCheckBorrowings.resx">
+      <DependentUpon>FormCheckBorrowings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdminInterface.resx">
       <DependentUpon>FormAdminInterface.cs</DependentUpon>

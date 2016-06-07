@@ -37,6 +37,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Register = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ForgottenPassword = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,12 +120,24 @@
             this.Register.UseVisualStyleBackColor = false;
             this.Register.Click += new System.EventHandler(this.Register_Click);
             // 
+            // ForgottenPassword
+            // 
+            this.ForgottenPassword.AutoSize = true;
+            this.ForgottenPassword.Location = new System.Drawing.Point(263, 471);
+            this.ForgottenPassword.Name = "ForgottenPassword";
+            this.ForgottenPassword.Size = new System.Drawing.Size(106, 13);
+            this.ForgottenPassword.TabIndex = 10;
+            this.ForgottenPassword.TabStop = true;
+            this.ForgottenPassword.Text = "Forgotten password?";
+            this.ForgottenPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ForgottenPassword_LinkClicked);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.ForgottenPassword);
             this.Controls.Add(this.Register);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ErrorMessage);
@@ -135,7 +148,6 @@
             this.Name = "FormLogin";
             this.Text = "Login Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -150,6 +162,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Register;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.LinkLabel ForgottenPassword;
     }
 }
 

@@ -17,10 +17,13 @@ namespace Library___Login
     public partial class FormAddBookLanguage : Form
     {
         private string LanguageName;
+        byte[] data;
+        Encoding enc;
 
         public FormAddBookLanguage()
         {
             InitializeComponent();
+            enc = new UTF8Encoding(true, true);
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -33,7 +36,8 @@ namespace Library___Login
         {
             Connect2DB database = new Connect2DB();
 
-            LanguageName = this.txtBookLanguage.Text;
+            data = enc.GetBytes(txtBookLanguage.Text);
+            LanguageName = enc.GetString(data);
 
             if (database.addBookLanguage(LanguageName))
             {

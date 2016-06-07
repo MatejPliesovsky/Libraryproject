@@ -17,13 +17,16 @@ namespace Library___Login
     public partial class FormUserInterface : Form
     {
         Connect2DB connection;
+        Encoding enc;
         string UserID;
+        byte[] data, user, pass;
 
         public FormUserInterface()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             connection = new Connect2DB();
+            enc = new UTF8Encoding(true, true);
             SwitchToAdmin.Visible = false;
             SwitchToAdmin.Enabled = false;
         }
@@ -32,6 +35,7 @@ namespace Library___Login
         {
             InitializeComponent();
             connection = new Connect2DB();
+            enc = new UTF8Encoding(true, true);
             this.UserID = UserID;
             string userRole = connection.getUserRole(UserID);
             if (userRole == "admin")
@@ -50,7 +54,10 @@ namespace Library___Login
         {
             InitializeComponent();
             connection = new Connect2DB();
-            UserID = connection.FindUser(username, password);
+            enc = new UTF8Encoding(true, true);
+            user = enc.GetBytes(username);
+            pass = enc.GetBytes(password);
+            UserID = connection.FindUser(enc.GetString(user), enc.GetString(pass));
             string userRole = connection.getUserRole(UserID);
             if (userRole == "admin")
             {
@@ -135,15 +142,15 @@ namespace Library___Login
                     languages = languages + checkedListBox2.Items[i].ToString() + ";";
                 }
             }
-
+            data = enc.GetBytes(SearchBar.Text);
             if (SearchFree.Checked==true)
             {
-                search = SearchBar.Text;
+                search = enc.GetString(data);
                 books = connection.searchBooksToListView(search, true, categories, languages);
             }
             else
             {
-                search = SearchBar.Text;
+                search = enc.GetString(data);
                 books = connection.searchBooksToListView(search, false, categories, languages);
             }
             
@@ -183,7 +190,8 @@ namespace Library___Login
             }
             else
             {
-                string info = listView1.SelectedItems[index].Text;
+                data = enc.GetBytes(listView1.SelectedItems[index].Text);
+                string info = enc.GetString(data);
                 FormBookDetails bookDetail = new FormBookDetails(info, UserID);
                 bookDetail.ShowDialog();
                 Search_btn.Select();
@@ -224,15 +232,11 @@ namespace Library___Login
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormLogin forml = new FormLogin();
-            forml.Show();
-
+            this.Close();
         }
 
         private void FormUserInterface_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
             FormLogin forml = new FormLogin();
             forml.Show();
         }
