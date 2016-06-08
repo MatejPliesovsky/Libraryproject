@@ -70,7 +70,6 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddBookCategory";
-            this.Text = "FoormAddBookCategory";
             this.ResumeLayout(false);
             this.PerformLayout();
 

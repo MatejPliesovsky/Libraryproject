@@ -181,7 +181,6 @@
             this.Controls.Add(this.BookName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReservationDetails";
-            this.Text = "ReservationDetails";
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

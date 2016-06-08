@@ -229,7 +229,6 @@
             this.Controls.Add(this.lblBookName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddBooks";
-            this.Text = "FormAddBooks";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

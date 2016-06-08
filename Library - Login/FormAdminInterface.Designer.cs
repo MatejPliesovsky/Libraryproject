@@ -370,7 +370,6 @@
             this.Controls.Add(this.listView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAdminInterface";
-            this.Text = "FormEditBook";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAdminInterface_FormClosing);
             this.Load += new System.EventHandler(this.FormAdminInterface_Load);
             this.Shown += new System.EventHandler(this.Form2_Shown);

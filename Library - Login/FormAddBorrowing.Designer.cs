@@ -189,7 +189,6 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddBorrowing";
-            this.Text = "FormAddBorrowing";
             this.ResumeLayout(false);
             this.PerformLayout();
 

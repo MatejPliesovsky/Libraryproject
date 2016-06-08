@@ -18,23 +18,13 @@ namespace Library___Login
         string adminID; // id of user, who made changes. It can be admin, or user
         string userID, firstName, lastName, age, email, userRole, active, street, streetNumber, postalCode, city, country, telephone, details;
 
-        private void Active_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Apply_Click(Active, null);
-            }
-        }
-
         string[] items;
         byte[] data;
         Connect2DB connect; 
-        Encoding enc;
 
         public FormUserDetails(string adminID, string firstName)
         {
             InitializeComponent();
-            enc = new UTF8Encoding(true, true);
             connect = new Connect2DB();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.adminID = adminID;
@@ -79,6 +69,7 @@ namespace Library___Login
         {
             InitializeComponent();
             this.adminID = null;
+            connect = new Connect2DB();
             details = connect.findUserByID(userID);
             items = details.Split(';');
 
@@ -97,31 +88,17 @@ namespace Library___Login
             telephone = items[12];
 
             ID.Text = userID;
-            data = enc.GetBytes(firstName);
-            FirstName.Text = enc.GetString(data);
-
-            data = enc.GetBytes(lastName);
-            LastName.Text = enc.GetString(data);
-
-            data = enc.GetBytes(email);
-            Email.Text = enc.GetString(data);
-
+            FirstName.Text = firstName;
+            LastName.Text = lastName;
+            Age.Text = age;
+            Email.Text = email;
             UserRole.Text = userRole;
             Active.Text = active;
-
-            data = enc.GetBytes(street);
-            Street.Text = enc.GetString(data);
-
+            Street.Text = street;
             StreetNumber.Text = streetNumber;
-
             PostalCode.Text = postalCode;
-
-            data = enc.GetBytes(city);
-            City.Text = enc.GetString(data);
-
-            data = enc.GetBytes(country);
-            Country.Text = enc.GetString(data);
-
+            City.Text = city;
+            Country.Text = country;
             Telephone.Text = telephone;
 
             ID.Enabled = false;
@@ -138,36 +115,24 @@ namespace Library___Login
         private void Apply_Click(object sender, EventArgs e)
         {
             userID = ID.Text;
-            data = enc.GetBytes(FirstName.Text);
-            firstName = enc.GetString(data);
-
-            data = enc.GetBytes(LastName.Text);
-            lastName = enc.GetString(data);
-
-            data = enc.GetBytes(Email.Text);
-            email = enc.GetString(data);
+            firstName = FirstName.Text;
+            lastName = LastName.Text;
+            age = Age.Text;
+            email = Email.Text;
 
             userRole = UserRole.Text.ToLower();
             active = Active.Text.ToLower();
 
-            data = enc.GetBytes(Street.Text);
-            street = enc.GetString(data);
-
+            street = Street.Text;
             streetNumber = StreetNumber.Text;
-
             postalCode = PostalCode.Text;
-
-            data = enc.GetBytes(City.Text);
-            city = enc.GetString(data);
-
-            data = enc.GetBytes(Country.Text);
-            country = enc.GetString(data);
+            city = City.Text;
+            country = Country.Text;
             
             telephone = Telephone.Text;
 
-            data = enc.GetBytes(userID + ";" + firstName + ";" + lastName + ";" + email + ";" + userRole + ";" + active + ";" + street + ";"
-                + streetNumber + ";" + postalCode + ";" + city + ";" + country + ";" + telephone);
-            details = enc.GetString(data);
+            details = userID + ";" + firstName + ";" + lastName + ";" + email + ";" + userRole + ";" + active + ";" + street + ";"
+                + streetNumber + ";" + postalCode + ";" + city + ";" + country + ";" + telephone;
 
             if (connect.updateUserData(details))
             {
@@ -205,31 +170,17 @@ namespace Library___Login
         private void ReturnChanges_Click(object sender, EventArgs e)
         {
             ID.Text = userID;
-            data = enc.GetBytes(firstName);
-            FirstName.Text = enc.GetString(data);
-
-            data = enc.GetBytes(lastName);
-            LastName.Text = enc.GetString(data);
-
-            data = enc.GetBytes(email);
-            Email.Text = enc.GetString(data);
-
+            FirstName.Text = firstName;
+            LastName.Text = lastName;
+            Age.Text = age;
+            Email.Text = email;
             UserRole.Text = userRole;
             Active.Text = active;
-
-            data = enc.GetBytes(street);
-            Street.Text = enc.GetString(data);
-
+            Street.Text = street;
             StreetNumber.Text = streetNumber;
-
             PostalCode.Text = postalCode;
-
-            data = enc.GetBytes(city);
-            City.Text = enc.GetString(data);
-
-            data = enc.GetBytes(country);
-            Country.Text = enc.GetString(data);
-
+            City.Text = city;
+            Country.Text = country;
             Telephone.Text = telephone;
         }
 
@@ -237,6 +188,14 @@ namespace Library___Login
         {
             DatabaseInfo.Visible = false;
             timer1.Stop();
+        }
+
+        private void Active_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Apply_Click(Active, null);
+            }
         }
     }
 }

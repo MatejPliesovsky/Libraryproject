@@ -144,7 +144,6 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormChangePassword";
-            this.Text = "FormChangePassword";
             this.ResumeLayout(false);
             this.PerformLayout();
 

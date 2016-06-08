@@ -879,7 +879,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormWaitingRegistrations";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormWaitingRegistrations_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormWaitingRegistrations_KeyDown);
             this.menuStrip1.ResumeLayout(false);

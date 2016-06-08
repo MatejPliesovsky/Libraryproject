@@ -350,7 +350,6 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRegistrationUser";
-            this.Text = "Registration";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormRegistrationUser_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

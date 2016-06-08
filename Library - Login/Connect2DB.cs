@@ -886,7 +886,7 @@ namespace Library___Login
                     help = reader["BirthDate"] + "";
                     forAge = DateTime.Parse(help);
 
-                    if (System.DateTime.Today.Month <= forAge.Month && System.DateTime.Today.Day <= forAge.Day)
+                    if (System.DateTime.Today.Year >= forAge.Year && System.DateTime.Today.Month >= forAge.Month && System.DateTime.Today.Day >= forAge.Day)
                     {
                         help = (System.DateTime.Today.Year - forAge.Year).ToString();
                     }
@@ -1761,9 +1761,10 @@ namespace Library___Login
                 cmd.Parameters.AddWithValue("@BookID", bookID);
                 cmd.ExecuteNonQuery();
 
-                sqlQuery = "update Books set Borrowings = @borrowings where ID = " + bookID;
+                sqlQuery = "update Books set Borrowings = @borrowings where ID like @IDBook";
                 cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@borrowings", "free");
+                cmd.Parameters.AddWithValue("@IDBook", bookID);
                 cmd.ExecuteNonQuery();
 
                 closeConnection();
@@ -2009,20 +2010,20 @@ namespace Library___Login
         /// </summary>
         /// <param name="IDBook"></param>
         /// <param name="IDUser"></param>
-        /// <param name="loan"></param>
+        /// <param name="borrow"></param>
         /// <returns></returns>
-        public bool checkBookisReservedByUser(string IDBook, string IDUser, string loan)
+        public bool checkBookisReservedByUser(string IDBook, string IDUser, string borrow)
         {
             bool result = false;
             if (openConnection())
             {
                 string sqlQuery = null;
-                if (loan == "reserved")
+                if (borrow == "reserved")
                 {
                     sqlQuery = "select Borrowings, IDUser from Books INNER JOIN ReservedBooks ON Books.ID=ReservedBooks.IDBook"
                         + " where Books.ID like " + IDBook;
                 }
-                else if (loan == "borrowed")
+                else if (borrow == "borrowed")
                 {
                     sqlQuery = "select Borrowings, IDUser from Books INNER JOIN Borrowings ON Books.ID=Borrowings.IDBook"
                         + " where Books.ID like " + IDBook;

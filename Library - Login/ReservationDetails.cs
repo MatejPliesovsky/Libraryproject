@@ -83,13 +83,14 @@ namespace Library___Login
                 if (counter == 5)
                 {
                     Confirm.Hide();
+                    Refuse.Hide();
                     DatabaseInfo.Text = "User has already 5 borrowed books.";
                     DatabaseInfo.Visible = true;
                 }
                 if (bookStatus == "borrowed")
                 {
                     Confirm.Text = "Remove borrowing";
-                    Refuse.Text = "Back";
+                    Refuse.Hide();
 
                     borrowing = connect.checkBorrowingDate(bookID, userID);
 
@@ -136,6 +137,8 @@ namespace Library___Login
             {
                 if (connect.removeBorrowing(bookID))
                 {
+                    Confirm.Hide();
+                    Refuse.Hide();
                     DatabaseInfo.Text = "Borrow was remove successuly";
                     timer1.Interval = 5000;
                     timer1.Tick += new EventHandler(Timer1_Tick);
@@ -163,6 +166,8 @@ namespace Library___Login
                 {
                     if (connect.addBorrowing(dateOfBorrowing, dateOfReturn, bookID, userID))
                     {
+                        Confirm.Hide();
+                        Refuse.Hide();
                         DatabaseInfo.Text = "Book was borrowed successuly";
                         timer1.Interval = 5000;
                         timer1.Tick += new EventHandler(Timer1_Tick);
@@ -189,7 +194,16 @@ namespace Library___Login
             }
             else
             {
-                connect.deleteReservation(bookID, userID);
+                if (connect.deleteReservation(bookID, userID))
+                {
+                    Confirm.Hide();
+                    Refuse.Hide();
+                    DatabaseInfo.Text = "Borrowing was remove successuly";
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
+                    DatabaseInfo.Visible = true;
+                    timer1.Start();
+                }
             }
         }
 

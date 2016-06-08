@@ -19,6 +19,7 @@ namespace Library___Login
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            Form.ActiveForm.Text = "Developers";
         }
 
         /// <summary>

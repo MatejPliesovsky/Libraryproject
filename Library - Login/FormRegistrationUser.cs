@@ -21,30 +21,8 @@ namespace Library___Login
         private byte[] image, data;
         string code;
         Encoding enc;
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormLogin formlogin = new FormLogin();
-            formlogin.Show();
-        }
-
-        private void FormRegistrationUser_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            System.Environment.Exit(1);
-        }
-
         List<string> phonePrefix, countryName;
         Connect2DB register;
-
-        private void FirstName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Confirm_Click(FirstName, null);
-            }
-        }
-
         private int streetNumber;
         private System.DateTime dateOfBirth = new DateTime();
 
@@ -220,6 +198,26 @@ namespace Library___Login
         {
             Info.Visible = false;
             timer1.Stop();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLogin formlogin = new FormLogin();
+            formlogin.Show();
+        }
+
+        private void FormRegistrationUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
+
+        private void FirstName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Confirm_Click(FirstName, null);
+            }
         }
     }
 }

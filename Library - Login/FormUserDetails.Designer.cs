@@ -412,7 +412,6 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUserDetails";
-            this.Text = "User Details";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Active_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

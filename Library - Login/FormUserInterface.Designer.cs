@@ -256,7 +256,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormUserInterface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReBooks";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormUserInterface_FormClosing);
             this.Shown += new System.EventHandler(this.Form2_Shown);
             this.menuStrip1.ResumeLayout(false);

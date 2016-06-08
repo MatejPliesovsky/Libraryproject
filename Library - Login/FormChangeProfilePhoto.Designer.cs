@@ -99,7 +99,6 @@
             this.Controls.Add(this.ProfilePictureBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormChangeProfilePhoto";
-            this.Text = "FormChangeProfilePhoto";
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -284,7 +284,6 @@
             this.Controls.Add(this.SearchBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUpdateUser";
-            this.Text = "FormUpdateUser";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormUpdateUser_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
