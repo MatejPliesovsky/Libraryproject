@@ -195,8 +195,8 @@ namespace Library___Login
         {
             if (e.KeyCode == Keys.Enter)
             {
+                Username.Text = "";
                 Login_Click(Username, null);
-                Username.Text.Substring(0, (Username.TextLength - 1));
             }
         }
 
