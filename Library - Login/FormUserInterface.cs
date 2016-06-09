@@ -16,11 +16,11 @@ namespace Library___Login
     /// </summary>
     public partial class FormUserInterface : Form
     {
-        Connect2DB connection;
-        Encoding enc;
-        string UserID;
-        byte[] data, user, pass;
-        List<string> categoriesList, languagesList;
+        private Connect2DB connection;
+        private Encoding enc;
+        private string UserID;
+        private byte[] data, user, pass;
+        private List<string> categoriesList, languagesList;
 
         public FormUserInterface()
         {

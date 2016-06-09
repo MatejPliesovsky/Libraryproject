@@ -15,7 +15,11 @@ namespace Library___Login
     /// </summary>
     public partial class FormEditBookDetails : Form
     {
-        string bookID, bookName, author, lent, IDCategory, IDLanguage, desc, publisher, category, language, ISBN, image;
+        private string bookID, bookName, author, lent, IDCategory, IDLanguage, desc, publisher, category, language, ISBN, image;
+        private byte[] data;
+        private string[] descrpition;
+        private Connect2DB db = new Connect2DB();
+        private Encoding enc;
 
         private void comboNewLanguage_KeyDown(object sender, KeyEventArgs e)
         {
@@ -24,11 +28,6 @@ namespace Library___Login
                 btnUpdateBook_Click(comboNewLanguage, null);
             }
         }
-
-        byte[] data;
-        string[] descrpition;
-        Connect2DB db = new Connect2DB();
-        Encoding enc;
 
         public FormEditBookDetails(string info)
         {

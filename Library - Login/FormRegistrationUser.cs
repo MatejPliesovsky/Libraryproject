@@ -17,12 +17,11 @@ namespace Library___Login
     /// </summary>
     public partial class FormRegistrationUser : Form
     {
-        private string firstName, lastName, password, email, telephone, street, postalCode, city, country;
+        private string firstName, lastName, password, email, telephone, street, postalCode, city, country, code;
         private byte[] image, data;
-        string code;
-        Encoding enc;
-        List<string> phonePrefix, countryName;
-        Connect2DB register;
+        private Encoding enc;
+        private List<string> phonePrefix, countryName;
+        private Connect2DB register;
         private int streetNumber;
         private System.DateTime dateOfBirth = new DateTime();
 

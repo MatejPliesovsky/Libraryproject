@@ -15,11 +15,11 @@ namespace Library___Login
     /// </summary>
     public partial class FormUpdateUser : Form
     {
-        Connect2DB con; 
-        Encoding enc;
-        byte[] data;
-        string AdminID;
-        int waitingReg;
+        private Connect2DB con;
+        private Encoding enc;
+        private byte[] data;
+        private string AdminID;
+        private int waitingReg;
 
         public FormUpdateUser(string adminID)
         {

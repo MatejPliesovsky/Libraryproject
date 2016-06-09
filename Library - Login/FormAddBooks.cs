@@ -16,17 +16,16 @@ namespace Library___Login
     /// </summary>
     public partial class FormAddBooks : Form
     {
-        Connect2DB database = new Connect2DB();
+        private Connect2DB database = new Connect2DB();
         private string BookName, Author, IDcategory, IDLanguage, ISBN, Publisher, Description, image;
+        private Encoding enc;
+        private byte[] data;
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
-
-        Encoding enc;
-        byte[] data;
-
+        
         public FormAddBooks()
         {
             InitializeComponent();

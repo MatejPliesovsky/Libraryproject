@@ -15,8 +15,8 @@ namespace Library___Login
     /// </summary>
     public partial class FormChangeProfilePhoto : Form
     {
-        string userID, image;
-        Connect2DB connect;
+        private string userID, image;
+        private Connect2DB connect;
 
         public FormChangeProfilePhoto(string userID)
         {

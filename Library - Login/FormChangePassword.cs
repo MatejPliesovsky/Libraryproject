@@ -15,10 +15,10 @@ namespace Library___Login
     /// </summary>
     public partial class FormChangePassword : Form
     {
-        string userID;
-        Connect2DB connect;
-        byte[] data;
-        Encoding enc;
+        private string userID;
+        private Connect2DB connect;
+        private byte[] data;
+        private Encoding enc;
 
         public FormChangePassword(string userID)
         {

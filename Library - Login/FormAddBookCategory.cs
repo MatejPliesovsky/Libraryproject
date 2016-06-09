@@ -17,8 +17,8 @@ namespace Library___Login
     public partial class FormAddBookCategory : Form
     {
         private string CategoryName;
-        byte[] data;
-        Encoding enc;
+        private byte[] data;
+        private Encoding enc;
 
         public FormAddBookCategory()
         {

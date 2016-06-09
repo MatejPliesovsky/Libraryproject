@@ -15,12 +15,11 @@ namespace Library___Login
     /// </summary>
     public partial class FormUserDetails : Form
     {
-        string adminID; // id of user, who made changes. It can be admin, or user
-        string userID, firstName, lastName, age, email, userRole, active, street, streetNumber, postalCode, city, country, telephone, details;
-
-        string[] items;
-        byte[] data;
-        Connect2DB connect; 
+        private string adminID; // id of user, who made changes. It can be admin, or user
+        private string userID, firstName, lastName, age, email, userRole, active, street, streetNumber, postalCode, city, country, telephone, details;
+        private string[] items;
+        private byte[] data;
+        private Connect2DB connect; 
 
         public FormUserDetails(string adminID, string firstName)
         {

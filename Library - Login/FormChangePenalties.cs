@@ -15,9 +15,9 @@ namespace Library___Login
     /// </summary>
     public partial class FormChangePenalties : Form
     {
-        string adminID;
-        Connect2DB connect;
-        List<string> penalties;
+        private string adminID;
+        private Connect2DB connect;
+        private List<string> penalties;
 
         public FormChangePenalties(string adminID)
         {

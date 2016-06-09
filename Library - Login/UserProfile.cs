@@ -15,13 +15,13 @@ namespace Library___Login
     /// </summary>
     public partial class UserProfile : Form
     {
-        string userID, loan, bookName;
-        double biggestPenalty;
-        byte[] data;
-        Connect2DB connect;
-        List<string> details;
-        DateTime borrowing;
-        Encoding enc;
+        private string userID, loan, bookName;
+        private double biggestPenalty;
+        private byte[] data;
+        private Connect2DB connect;
+        private List<string> details;
+        private DateTime borrowing;
+        private Encoding enc;
 
         public UserProfile(string userID)
         {

@@ -17,8 +17,8 @@ namespace Library___Login
     public partial class FormAddBookLanguage : Form
     {
         private string LanguageName;
-        byte[] data;
-        Encoding enc;
+        private byte[] data;
+        private Encoding enc;
 
         public FormAddBookLanguage()
         {

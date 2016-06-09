@@ -19,14 +19,14 @@ namespace Library___Login
         [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Demand)]
         public override void Uninstall(IDictionary savedState)
         {
-            System.Diagnostics.Process.Start("http://rebooks.aspone.cz/login.aspx");
+            System.Diagnostics.Process.Start("http://rebooks.aspone.cz");
             base.Uninstall(savedState);
         }
 
         [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Demand)]
         public override void Install(IDictionary savedState)
         {
-            System.Diagnostics.Process.Start("http://rebooks.aspone.cz/login.aspx");
+            System.Diagnostics.Process.Start("http://rebooks.aspone.cz");
             base.Uninstall(savedState);
             base.Install(savedState);
         }

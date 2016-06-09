@@ -15,10 +15,10 @@ namespace Library___Login
     /// </summary>
     public partial class ReservationDetails : Form
     {
-        string AdminID, userID, bookStatus;
-        string bookID, author, bookCategory, bookLanguage, categoryID, languageID;
-        int counter;
-        byte[] data;
+        private string AdminID, userID, bookStatus;
+        private string bookID, author, bookCategory, bookLanguage, categoryID, languageID;
+        private int counter;
+        private byte[] data;
 
         private void Back_Click(object sender, EventArgs e)
         {

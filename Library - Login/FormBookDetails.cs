@@ -15,9 +15,9 @@ namespace Library___Login
     /// </summary>
     public partial class FormBookDetails : Form
     {
-        string userID, bookID, borrow;
-        Connect2DB connect;
-        int counter;
+        private string userID, bookID, borrow;
+        private Connect2DB connect;
+        private int counter;
 
         public FormBookDetails(string info, string userID)
         {

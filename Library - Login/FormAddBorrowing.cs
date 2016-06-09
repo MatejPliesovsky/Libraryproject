@@ -15,11 +15,11 @@ namespace Library___Login
     /// </summary>
     public partial class FormAddBorrowing : Form
     {
-        Connect2DB con;
-        Encoding enc;
-        byte[] data, book1, book2, book3, book4, book5, user;
-        string userName, userID;
-        int counter;
+        private Connect2DB con;
+        private Encoding enc;
+        private byte[] data, book1, book2, book3, book4, book5, user;
+        private string userName, userID;
+        private int counter;
 
         public FormAddBorrowing()
         {

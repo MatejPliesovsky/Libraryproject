@@ -15,10 +15,10 @@ namespace Library___Login
     /// </summary>
     public partial class FormAddCountries : Form
     {
-        Connect2DB connect;
-        Encoding enc;
-        string prefix, country, AdminID;
-        byte[] data;
+        private Connect2DB connect;
+        private Encoding enc;
+        private string prefix, country, AdminID;
+        private byte[] data;
 
         public FormAddCountries(string AdminID)
         {

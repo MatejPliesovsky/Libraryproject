@@ -17,9 +17,9 @@ namespace Library___Login
     /// </summary>
     public partial class FormLogin : Form
     {
-        string username, password;
-        Encoding enc;
-        Connect2DB con;
+        private string username, password;
+        private Encoding enc;
+        private Connect2DB con;
 
         public FormLogin()
         {
@@ -128,7 +128,7 @@ namespace Library___Login
         
         }
 
-        private void Username_TextChanged(object sender, EventArgs e)
+        public void Username_TextChanged(object sender, EventArgs e)
         {
             Username.ForeColor = Color.Black;
             byte[] user = enc.GetBytes(Username.Text);
@@ -184,7 +184,7 @@ namespace Library___Login
             }
         }
 
-        private void Password_Enter(object sender, EventArgs e)
+        public void Password_Enter(object sender, EventArgs e)
         {
             Password.PasswordChar = '●';
             byte[] pass = enc.GetBytes(Password.Text);

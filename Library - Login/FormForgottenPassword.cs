@@ -14,10 +14,10 @@ namespace Library___Login
 {
     public partial class FormForgottenPassword : Form
     {
-        Connect2DB connect;
-        Encoding enc;
-        byte[] data;
-        string email;
+        private Connect2DB connect;
+        private Encoding enc;
+        private byte[] data;
+        private string email;
 
         public FormForgottenPassword()
         {

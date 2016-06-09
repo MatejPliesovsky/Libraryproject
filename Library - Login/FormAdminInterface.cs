@@ -15,13 +15,13 @@ namespace Library___Login
     /// </summary>
     public partial class FormAdminInterface : Form
     {
-        Connect2DB connection;
-        Encoding enc;
-        byte[] data;
+        private Connect2DB connection;
+        private Encoding enc;
+        private byte[] data;
         private string AdminID;
         private int waitingReg;
         private List<string> borrowings, categories, languages;
-        DateTime returns;
+        private DateTime returns;
 
         public FormAdminInterface(string adminID)
         {

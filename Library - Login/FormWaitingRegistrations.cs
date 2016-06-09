@@ -15,9 +15,9 @@ namespace Library___Login
     /// </summary>
     public partial class FormWaitingRegistrations : Form
     {
-        int waitingReg;
-        string AdminID;
-        Connect2DB con = new Connect2DB();
+        private int waitingReg;
+        private string AdminID;
+        private Connect2DB con = new Connect2DB();
 
         public FormWaitingRegistrations(string UserID)
         {

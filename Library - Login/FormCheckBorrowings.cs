@@ -15,12 +15,12 @@ namespace Library___Login
     /// </summary>
     public partial class FormCheckBorrowings : Form
     {
-        int waitingReg;
-        string AdminID;
-        byte[] data;
-        Connect2DB con = new Connect2DB();
-        Encoding enc = new UTF8Encoding(true, true);
-        List<string> details = new List<string>();
+        private int waitingReg;
+        private string AdminID;
+        private byte[] data;
+        private Connect2DB con = new Connect2DB();
+        private Encoding enc = new UTF8Encoding(true, true);
+        private List<string> details = new List<string>();
 
         public FormCheckBorrowings(string UserID, bool justReserved)
         {
