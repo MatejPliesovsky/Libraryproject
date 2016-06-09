@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtBookCategory = new System.Windows.Forms.TextBox();
             this.btnAddBookCategory = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,11 +61,22 @@
             this.btnAddBookCategory.UseVisualStyleBackColor = true;
             this.btnAddBookCategory.Click += new System.EventHandler(this.btnAddBookCategory_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(97, 191);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(183, 23);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "BACK";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // FormAddBookCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 280);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAddBookCategory);
             this.Controls.Add(this.txtBookCategory);
             this.Controls.Add(this.label1);
@@ -80,5 +92,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBookCategory;
         private System.Windows.Forms.Button btnAddBookCategory;
+        private System.Windows.Forms.Button btnBack;
     }
 }

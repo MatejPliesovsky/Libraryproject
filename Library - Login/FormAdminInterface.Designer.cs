@@ -61,6 +61,7 @@
             this.DatabaseInfo = new System.Windows.Forms.Label();
             this.XMLInfo = new System.Windows.Forms.Label();
             this.CreateXML = new System.Windows.Forms.Button();
+            this.btnSearch_2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,7 +116,7 @@
             // SearchFree
             // 
             this.SearchFree.AutoSize = true;
-            this.SearchFree.Location = new System.Drawing.Point(12, 287);
+            this.SearchFree.Location = new System.Drawing.Point(12, 292);
             this.SearchFree.Name = "SearchFree";
             this.SearchFree.Size = new System.Drawing.Size(66, 17);
             this.SearchFree.TabIndex = 14;
@@ -333,7 +334,7 @@
             this.XMLInfo.AutoSize = true;
             this.XMLInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.XMLInfo.ForeColor = System.Drawing.Color.Red;
-            this.XMLInfo.Location = new System.Drawing.Point(9, 379);
+            this.XMLInfo.Location = new System.Drawing.Point(21, 373);
             this.XMLInfo.Name = "XMLInfo";
             this.XMLInfo.Size = new System.Drawing.Size(105, 13);
             this.XMLInfo.TabIndex = 52;
@@ -342,19 +343,30 @@
             // 
             // CreateXML
             // 
-            this.CreateXML.Location = new System.Drawing.Point(12, 321);
+            this.CreateXML.Location = new System.Drawing.Point(12, 320);
             this.CreateXML.Name = "CreateXML";
-            this.CreateXML.Size = new System.Drawing.Size(95, 40);
+            this.CreateXML.Size = new System.Drawing.Size(125, 40);
             this.CreateXML.TabIndex = 51;
             this.CreateXML.Text = "Create XML file of Borrowings";
             this.CreateXML.UseVisualStyleBackColor = true;
             this.CreateXML.Click += new System.EventHandler(this.CreateXML_Click);
+            // 
+            // btnSearch_2
+            // 
+            this.btnSearch_2.Location = new System.Drawing.Point(12, 526);
+            this.btnSearch_2.Name = "btnSearch_2";
+            this.btnSearch_2.Size = new System.Drawing.Size(130, 23);
+            this.btnSearch_2.TabIndex = 53;
+            this.btnSearch_2.Text = "SEARCH";
+            this.btnSearch_2.UseVisualStyleBackColor = true;
+            this.btnSearch_2.Click += new System.EventHandler(this.btnSearch_2_Click);
             // 
             // FormAdminInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnSearch_2);
             this.Controls.Add(this.XMLInfo);
             this.Controls.Add(this.CreateXML);
             this.Controls.Add(this.DatabaseInfo);
@@ -414,5 +426,6 @@
         private System.Windows.Forms.Label DatabaseInfo;
         private System.Windows.Forms.Label XMLInfo;
         private System.Windows.Forms.Button CreateXML;
+        private System.Windows.Forms.Button btnSearch_2;
     }
 }
