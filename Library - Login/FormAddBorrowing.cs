@@ -28,7 +28,7 @@ namespace Library___Login
             enc = new UTF8Encoding(true, true);
             InfoMessage.Visible = false;
             List<string> books = new List<string>();
-            books = con.searchBooksToListView(null, false, null, null);
+            books = con.getBooksNames();
             counter = 0;
             for (int i = 0;i < books.Count; i++)
             {

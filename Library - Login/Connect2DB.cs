@@ -320,7 +320,7 @@ namespace Library___Login
         }
 
         /// <summary>
-        /// 
+        /// get password code, for verification, if generated password code is taken
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
@@ -345,7 +345,12 @@ namespace Library___Login
             return false;
         }
 
-        public string setPasswordCode(string email)
+        /// <summary>
+        /// get passwordcode, if user forgot his password
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public string getPasswordCode(string email)
         {
             string passwordCode = null;
             if (openConnection())
@@ -358,18 +363,32 @@ namespace Library___Login
                 {
                     passwordCode = reader["ResetPasswordCode"].ToString();
                 }
-                reader.Close();
+                closeConnection();
+                return passwordCode;
+            }
+            return passwordCode;
+        }
 
-                sqlQuery = "update UsersLogin set PASSWORD = @pass where email like @email";
-                cmd = new MySqlCommand(sqlQuery, connection);
+        /// <summary>
+        /// set passwordcode as new password
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="passwordCode"></param>
+        /// <returns></returns>
+        public bool setPasswordCode(string email, string passwordCode)
+        {
+            if (openConnection())
+            {
+                string sqlQuery = "update UsersLogin set PASSWORD = @pass where email like @email";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 cmd.Parameters.AddWithValue("@pass", passwordCode);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.ExecuteNonQuery();
 
                 closeConnection();
-                return passwordCode;
+                return true;
             }
-            return passwordCode;
+            return false;
         }
 
         /// <summary>
@@ -1464,6 +1483,24 @@ namespace Library___Login
             return languages;
         }
 
+        public List<string> getBooksNames()
+        {
+            List<string> booksNames = new List<string>();
+            if (openConnection())
+            {
+                string sqlQuery = "select BookName from Books where Borrowings like 'free'";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    booksNames.Add(reader["BookName"].ToString());
+                }
+                closeConnection();
+                return booksNames;
+            }
+            return booksNames;
+        }
+
         /// <summary>
         /// find book ID according it's name
         /// </summary>
@@ -1474,7 +1511,7 @@ namespace Library___Login
             if (openConnection())
             {
                 string bookID = null;
-                string sqlQuery = "select ID from Books where BookName like '" + bookName + "'";
+                string sqlQuery = "select ID from Books where BookName like '" + bookName + "' and Borrowings like 'free'";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())

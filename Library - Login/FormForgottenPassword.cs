@@ -41,8 +41,10 @@ namespace Library___Login
             {
                 if (connect.isEmailTaken(email) == 1)
                 {
-                    if (sendEmail(null, null))
+                    string newPass = sendEmail(null, null);
+                    if (newPass != null)
                     {
+                        connect.setPasswordCode(email, newPass);
                         InfoMessage.Text = "We sent you email with new password!";
                         timer1.Interval = 5000;
                         timer1.Tick += new EventHandler(Timer1_Tick);
@@ -57,6 +59,14 @@ namespace Library___Login
                         InfoMessage.Visible = true;
                         timer1.Start();
                     }
+                }
+                else
+                {
+                    InfoMessage.Text = "Error! Cannot connect into database!";
+                    timer1.Interval = 5000;
+                    timer1.Tick += new EventHandler(Timer1_Tick);
+                    InfoMessage.Visible = true;
+                    timer1.Start();
                 }
             }
         }
@@ -73,7 +83,7 @@ namespace Library___Login
             InfoMessage.Visible = false;
         }
 
-        private bool sendEmail(object sender, EventArgs e)
+        private string sendEmail(object sender, EventArgs e)
         {
             MailAddress from = new MailAddress("lostpassword@naprogramujem.sk");
             MailAddress to = new MailAddress(email);
@@ -86,7 +96,7 @@ namespace Library___Login
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.EnableSsl = true;
 
-                string newPass = connect.setPasswordCode(email);
+                string newPass = connect.getPasswordCode(email);
 
                 msg = new MailMessage(from, to);
                 msg.Subject = "New password";
@@ -95,12 +105,12 @@ namespace Library___Login
                 msg.Sender = from;
                 
                 client.Send(msg);
-                return true;
+                return newPass;
             }
             catch(Exception ex)
             {
                 Console.Write(ex.ToString());
-                return false;
+                return null;
             }
         }
 
