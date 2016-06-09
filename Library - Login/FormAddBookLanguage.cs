@@ -50,6 +50,11 @@ namespace Library___Login
             }
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 
 }

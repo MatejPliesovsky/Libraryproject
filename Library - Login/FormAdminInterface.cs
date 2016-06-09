@@ -180,6 +180,7 @@ namespace Library___Login
                 FormEditBookDetails editSingleBookDetails = new FormEditBookDetails(info);
                 editSingleBookDetails.ShowDialog();
                 Search_btn.Select();
+                btnSearch_2.Select();
                 this.Update();
             }
         }
@@ -357,6 +358,57 @@ namespace Library___Login
             {
                 XMLInfo.Text = "XML wasn't created";
                 XMLInfo.Visible = true;
+            }
+        }
+
+        private void btnSearch_2_Click(object sender, EventArgs e)
+        {
+            string search, categories = null, languages = null;
+            List<string> books = new List<string>();
+
+            listView1.Items.Clear();
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    categories = categories + checkedListBox1.Items[i].ToString() + ";";
+                }
+            }
+            for (int i = 0; i < checkedListBox2.Items.Count; i++)
+            {
+                if (checkedListBox2.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    languages = languages + checkedListBox2.Items[i].ToString() + ";";
+                }
+            }
+
+            if (SearchFree.Checked == true)
+            {
+                data = enc.GetBytes(SearchBar.Text);
+                search = enc.GetString(data);
+                books = connection.searchBooksToListView(search, true, categories, languages);
+            }
+            else
+            {
+                data = enc.GetBytes(SearchBar.Text);
+                search = enc.GetString(data);
+                books = connection.searchBooksToListView(search, false, categories, languages);
+            }
+
+
+            for (int i = 0; i < books.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+                i++;
+                item.SubItems.Add(books[i]);
+
+                listView1.Items.Add(item);
             }
         }
 

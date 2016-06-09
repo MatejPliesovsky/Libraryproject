@@ -18,6 +18,12 @@ namespace Library___Login
     {
         Connect2DB database = new Connect2DB();
         private string BookName, Author, IDcategory, IDLanguage, ISBN, Publisher, Description, image;
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
         Encoding enc;
         byte[] data;
 
