@@ -139,6 +139,8 @@ namespace Library___Login
                 connect.reserveBook(bookID, userID);
                 messageLabel.Show();
                 messageLabel.Text = "You have reserved this book";
+                Reserve.Hide();
+                DeleteRes.Show();
             }
             else
             {
@@ -158,6 +160,8 @@ namespace Library___Login
             connect.deleteReservation(bookID, userID);
             messageLabel.Show();
             messageLabel.Text = "You have decline reservation";
+            DeleteRes.Hide();
+            Reserve.Show();
             timer1.Interval = 5000;
             timer1.Tick += new EventHandler(Timer1_Tick);
             messageLabel.Visible = true;
